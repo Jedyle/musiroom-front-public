@@ -1,0 +1,66 @@
+Stateless components:
+* page structure (toolbar + body + footer)
+  - toolbar
+  - body
+  - footer
+* main page:
+  - image gallery
+  - album popover
+  - activity feed
+* history page
+  - history list
+* profile page
+  - profile sidebar
+  - profile summary (description)
+      - badges div
+      - favorite albums
+  - profile ratings page
+    - albums list with ratings
+  - profile reviews page
+    - albums list with reviews
+  - profile lists page
+    - lists list
+  - profile interests page
+    - albums list with interests
+  - profile discussions page
+    - discussions list
+  - profile contacts page
+    - contact list (gallery style)
+* messages box
+  - message list
+  - create message
+* profile config page
+  - change profile form
+  - change config (password, important info) form
+* exports page
+  - export form
+* my-exports page
+  - exports list
+  - exports details
+* top 100 page
+  - (sorted) album list
+* discussions page
+  - discussion list
+  - discussion detail
+* lists page
+  - list of lists
+  - album list with description
+* genres page
+  - genres treeview
+  - genre details
+    - top 10 for genre
+    - subgenre list
+    - genre description
+* album details page
+  - album sidebar
+  - star rating
+  - ratings chart
+  - similar albums / from same artist
+  - review lists for album
+* review details page
+  - reviews details (pretty text)
+  - edit-my-review modal
+  - comments treeview
+* artist details page
+  - albums list view for artist
+  - similar artists
