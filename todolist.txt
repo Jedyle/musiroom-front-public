@@ -5,8 +5,8 @@ Stateless components:
   - footer
 * main page:
   - image gallery OK
-  - album popover
-  - activity feed
+  - album popover Started
+  - activity feed OK
 * history page
   - history list
 * profile page

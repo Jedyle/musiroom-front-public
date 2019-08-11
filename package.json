@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.7.5",
+    "bulma-popover": "^1.0.0",
     "eslint": "^6.1.0",
     "font-awesome": "^4.7.0",
     "react": "^16.9.0",

@@ -3,6 +3,7 @@ import Gallery from '../Gallery';
 import Logo from '../Logo';
 import ActivityFeedItem from '../ActivityFeed/Item';
 import ActivityFeedList from '../ActivityFeed/List';
+import AlbumPopover from '../AlbumPopover';
 
 class Prototypes extends React.Component {
 
@@ -55,6 +56,13 @@ class Prototypes extends React.Component {
                       date="21 July 2019"
                     />
                 )]
+            }
+        },
+        AlbumPopover: {
+            component: AlbumPopover,
+            props : {
+                img: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg" ,
+                children: (<div>Hello</div>)
             }
         }
     }
