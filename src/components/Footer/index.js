@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-    <footer className="footer is-paddingless" style={{height: "30px"}}>
+    <footer id="footer" className="is-paddingless">
       <div className="content has-text-centered">
         <p>
           <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed

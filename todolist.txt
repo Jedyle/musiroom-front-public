@@ -4,7 +4,7 @@ Stateless components:
   - body
   - footer
 * main page:
-  - image gallery
+  - image gallery OK
   - album popover
   - activity feed
 * history page
