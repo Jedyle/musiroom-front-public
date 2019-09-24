@@ -3,13 +3,14 @@ import 'bulma-popover/css/bulma-popover.css';
 
 const AlbumPopover = (
     {
+        button,
         img,
         children
     }
 ) => (
     <div className="popover is-popover-bottom" >
-      <button className="button is-primary popover-trigger">Table Popover</button>
-    <div className="popover-content has-background-grey-lighter" style={{"width": "400px"}}>
+      <span className="popover-trigger">{button}</span>
+      <div className="popover-content has-background-light" style={{"width": "400px"}}>
         <div className="container">
           <div className="columns">
             <div className="column is-4">

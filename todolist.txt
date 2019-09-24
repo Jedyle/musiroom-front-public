@@ -1,11 +1,12 @@
 Stateless components:
 * page structure (toolbar + body + footer)
   - toolbar
+    - logo OK
   - body
   - footer
 * main page:
   - image gallery OK
-  - album popover Started
+  - album popover OK
   - activity feed OK
 * history page
   - history list
@@ -15,13 +16,13 @@ Stateless components:
       - badges div
       - favorite albums
   - profile ratings page
-    - albums list with ratings
+    - albums list with ratings OK
   - profile reviews page
-    - albums list with reviews
+    - albums list with reviews OK
   - profile lists page
     - lists list
   - profile interests page
-    - albums list with interests
+    - albums list with interests OK
   - profile discussions page
     - discussions list
   - profile contacts page
@@ -38,13 +39,13 @@ Stateless components:
   - exports list
   - exports details
 * top 100 page
-  - (sorted) album list
+  - (sorted) album list OK
 * discussions page
   - discussion list
   - discussion detail
 * lists page
   - list of lists
-  - album list with description
+  - album list with description OK
 * genres page
   - genres treeview
   - genre details

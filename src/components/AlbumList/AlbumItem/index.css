@@ -1,0 +1,21 @@
+.tag:not(body).is-avg-rating {
+    background-color: white;
+    color: black;
+    border: 1px solid;
+    border-color: black;
+}
+
+
+.tag:not(body).is-user-rating {
+    background-color: white;
+    color: #E5233E;
+    border: 1px solid;
+    border-color: #E5233E;
+}
+
+.tag:not(body).is-followees-rating {
+    background-color: white;
+    color: #009997;
+    border: 1px solid;
+    border-color: #009997;
+}

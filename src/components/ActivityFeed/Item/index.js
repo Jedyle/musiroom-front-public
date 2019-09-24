@@ -11,7 +11,7 @@ const ActivityFeedItem = (
 ) => (
     <li className="list-item columns is-mobile">
       <div style={{"width": "70px"}}>
-        <figure className="image is-64x64">
+        <figure className="image is-48x48">
           <img className="avatar" alt="img" src={img}/>
         </figure>
       </div>
