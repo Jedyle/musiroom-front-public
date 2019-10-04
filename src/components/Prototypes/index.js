@@ -7,6 +7,11 @@ import AlbumPopover from '../AlbumPopover';
 import StarRatings from '../StarRatings';
 import ProfileSidebar from '../Profile/Sidebar';
 import AlbumItem from '../AlbumList/AlbumItem';
+import BadgeList from '../Profile/Badges';
+import FavoriteAlbums from '../Profile/FavoriteAlbums';
+import DiscussionsList from '../Profile/Discussions/DiscussionsList';
+import {Link} from 'react-router-dom';
+import ContactGallery from '../Profile/Contacts/ContactGallery';
 
 class Prototypes extends React.Component {
 
@@ -100,6 +105,121 @@ class Prototypes extends React.Component {
                 followees_rating: "8.1",
                 avg_rating: '4.6'               
             }
+        },
+        BadgeList: {
+            component: BadgeList,
+            props: {
+                badges: [
+                    {
+                        img: "https://lamusitheque.com/static/images/badges/Pionnier.png",
+                        title: "Pionnier",
+                        description: "Ce membre a dégainé sa plume électronique pour écrire sa première critique. C'est un début prometteur."
+                    },
+                    {
+                        img: "https://lamusitheque.com/static/images/badges/ContributeurGold.png",
+                        title: "Pionnier",
+                        description: "Ce membre a dégainé sa plume électronique pour écrire sa première critique. C'est un début prometteur."
+                    },
+                    {
+                        img: "https://lamusitheque.com/static/images/badges/Pionnier.png",
+                        title: "Pionnier",
+                        description: "Ce membre a dégainé sa plume électronique pour écrire sa première critique. C'est un début prometteur. !"
+                    },
+                    {
+                        img: "https://lamusitheque.com/static/images/badges/Pionnier.png",
+                        title: "Pionnier",
+                        description: "Loule"
+                    }
+                ]
+            }
+        },
+        FavoriteAlbums: {
+            component: FavoriteAlbums,
+            props: {
+                albums: [
+                    {
+                        img: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_4CRiAhb.jpg",
+                        content: (<a href="https://google.com">Maudlin of The Well, Bath</a>),
+                        title: "Maudlin of the Well, Bath"
+                    },
+                    {
+                        img: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        content: "OK Computer de Radiohead",
+                        title: "OK Computer"
+                    },
+                    {
+                        img: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        content: "OK Computer de Radiohead",
+                        title: "OK Computer"
+                    },
+                    {
+                        img: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        content: "OK Computer de Radiohead",
+                        title: "OK Computer"
+                    }
+                ]
+            },
+            screenSize: 'is-3-widescreen'
+        },
+        DiscussionList: {
+            component: DiscussionsList,
+            props: {
+                discussions : [
+                    (
+                        <span>
+                          <Link to="/prototypes">
+                            Ca roule ? 
+                          </Link> (discussion générale)
+                        </span>
+                    ),
+                    (
+                        <span>
+                          <Link to="/prototypes">
+                            Le meilleur ? 
+                          </Link> (sur Radiohead)
+                        </span>
+                    ),
+                ]
+            }
+        },
+        ContactGallery: {
+            component: ContactGallery,
+            props: {
+                contacts : [
+                    {
+                        avatar: "https://lamusitheque.com/media/avatars/user_26/received_10209264488968374_9d6PifV_SPjy5dV_5FVZPaz_lycLFUt_NXeOGuz_twewU_5hCw7UP.jpg",
+                        username: "Armadeon",
+                        profile_url: "/"
+                    },
+                    {
+                        avatar: "https://lamusitheque.com/media/avatars/user_93/5fc739de38839337943c7d00438eaa80_csH4oFK_7keOVHs_DRLeIe8_8UqroIW_tRXH9z9_qaND2FD.jpg",
+                        username: "Brock3",
+                        profile_url: "/",
+                        following_status: "follows_you"
+                    },
+                    {
+                        avatar: "https://lamusitheque.com/media/avatars/user_26/received_10209264488968374_9d6PifV_SPjy5dV_5FVZPaz_lycLFUt_NXeOGuz_twewU_5hCw7UP.jpg",
+                        username: "Armadeon3",
+                        profile_url: "/",
+                        following_status: "is_yourself"
+                    },
+                    {
+                        avatar: "https://lamusitheque.com/media/avatars/user_93/5fc739de38839337943c7d00438eaa80_csH4oFK_7keOVHs_DRLeIe8_8UqroIW_tRXH9z9_qaND2FD.jpg",
+                        username: "Brock2",
+                        profile_url : "/"
+                    },
+                    {
+                        avatar: "https://lamusitheque.com/media/avatars/user_26/received_10209264488968374_9d6PifV_SPjy5dV_5FVZPaz_lycLFUt_NXeOGuz_twewU_5hCw7UP.jpg",
+                        username: "Armadeon2",
+                        profile_url : "/"
+                    },
+                    {
+                        avatar: "https://lamusitheque.com/media/avatars/user_93/5fc739de38839337943c7d00438eaa80_csH4oFK_7keOVHs_DRLeIe8_8UqroIW_tRXH9z9_qaND2FD.jpg",
+                        username: "Brock",
+                        profile_url: "/"
+                    }
+                ]
+            }
         }
     }
 
@@ -107,6 +227,8 @@ class Prototypes extends React.Component {
         const tag = this.state.tag;
         const TagName = this.components[tag || 'gallery'].component;
         const props = this.components[tag || 'gallery'].props;
+        const screenSize = this.components[tag || 'gallery'].screenSize || 'is-6-widescreen';
+        const classNames = `column is-12-tablet is-12-mobile ${screenSize}`;
         return (
             <div className="columns is-multiline">
               <div className="column is-2-widescreen is-12-tablet is-12-mobile">
@@ -131,7 +253,7 @@ class Prototypes extends React.Component {
                   }
                 </div>
               </div>
-              <div className="column is-6-widescreen is-12-tablet is-12-mobile">
+              <div className={classNames}>
                 <h1 className="title is-4">{tag}</h1>
                 <TagName {... props}/>
               </div>

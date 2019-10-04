@@ -13,7 +13,7 @@ const AlbumItem = (
     }
 ) => (
     <div className="columns has-background-light">
-      <div className="column is-one-quarter is-marginless is-paddingless">
+      <div className="column is-one-quarter is-marginless">
         <div className="card">
           <div className="card-image">
             <figure className="image is-square">

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.7.5",
+    "bulma-helpers": "^0.3.8",
     "bulma-popover": "^1.0.0",
     "eslint": "^6.1.0",
     "font-awesome": "^4.7.0",
@@ -12,6 +13,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.0",
     "react-star-ratings": "^2.3.0",
+    "react-tiny-popover": "^3.4.5",
     "w3-css": "^4.1.0"
   },
   "scripts": {

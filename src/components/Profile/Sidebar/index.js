@@ -41,11 +41,17 @@ const ProfileSidebar = ({
                  <li className="list-item has-text-centered" style={{padding: '1.25rem'}}>
                    <Link to={chg_profile_link}
                          className="button is-link is-outlined is-fullwidth">
-                     Profile
+                     <span>
+                       <i className="fa fa-user"></i> {" "}
+                       Profile
+                     </span>
                    </Link>
                    <Link to={settings_link}
                          className="button is-info is-outlined is-fullwidth">
-                     Paramètres
+                     <span>
+                       <i className="fa fa-cog"></i> {" "}
+                       Settings
+                     </span>
                    </Link>
                  </li>) : ""}
             

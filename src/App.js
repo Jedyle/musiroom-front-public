@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bulma/css/bulma.css';
+import 'bulma-helpers/css/bulma-helpers.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';

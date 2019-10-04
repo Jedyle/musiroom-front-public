@@ -1,0 +1,84 @@
+Stateless components:
+* page structure (toolbar + body + footer)
+** TODO toolbar
+*** DONE logo 
+   CLOSED: [2019-09-30 lun. 22:03]
+*** TODO body
+*** TODO footer
+* main page:
+** DONE image gallery
+   CLOSED: [2019-09-30 lun. 22:04]
+** DONE album popover OK
+   CLOSED: [2019-09-30 lun. 22:04]
+** DONE activity feed OK
+   CLOSED: [2019-09-30 lun. 22:05]
+* history page
+** TODO history list
+* profile page
+** DONE profile sidebar
+   CLOSED: [2019-09-30 lun. 22:05]
+** TODO profile summary (description)
+** DONE badges div
+    CLOSED: [2019-09-30 lun. 22:12]
+*** DONE favorite albums
+    CLOSED: [2019-09-30 lun. 22:06]
+** TODO profile ratings page
+** DONE albums list with ratings
+    CLOSED: [2019-09-30 lun. 22:06]
+** TODO profile reviews page
+**** DONE albums list with reviews
+     CLOSED: [2019-09-30 lun. 22:07]
+** TODO profile lists page
+**** TODO lists list
+**** TODO profile interests page
+***** TODO albums list with interests OK
+**** TODO profile discussions page
+***** TODO discussions list
+**** DONE profile contacts page
+     CLOSED: [2019-10-04 ven. 20:56]
+***** DONE contact list (gallery style)
+      CLOSED: [2019-10-04 ven. 20:56]
+** TODO profile discussions page 
+*** DONE discussions list
+    CLOSED: [2019-09-30 lun. 22:35]
+*** TODO discussion filter
+* messages box
+** TODO message list
+** TODO create message
+* profile config page
+** TODO change profile form
+** TODO change config (password, important info) form
+* exports page
+** TODO export form
+* my-exports page
+** TODO exports list
+** TODO exports details
+* top 100 page
+** DONE (sorted) album list
+   CLOSED: [2019-09-30 lun. 22:09]
+* discussions page
+** TODO discussion list
+** TODO discussion detail
+* lists page
+** TODO list of lists
+** DONE album list with description
+   CLOSED: [2019-09-30 lun. 22:09]
+* genres page
+** TODO genres treeview
+** TODO genre details
+*** TODO top 10 for genre
+*** TODO subgenre list
+*** TODO genre description
+* album details page
+** TODO album sidebar
+** TODO star rating
+** TODO ratings chart
+** TODO similar albums / from same artist
+** TODO review lists for album
+* review details page
+** TODO reviews details (pretty text)
+** TODO edit-my-review modal
+** TODO comments treeview
+* artist details page
+** TODO albums list view for artist
+** TODO similar artists
