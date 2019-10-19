@@ -1,14 +1,15 @@
 import React from 'react';
 import './index.css';
 import {Link} from 'react-router-dom';
+import {formatDate} from 'utils/date';
 
 const ProfileSidebar = ({
-    img,
-    pseudo,
+    avatar,
+    user,
     first_name,
-    gender,
-    activity_status,
-    inscription_date,
+    sex,
+    last_activity,
+    date_joined,
     chg_profile_link,
     settings_link
 }) => (
@@ -16,25 +17,37 @@ const ProfileSidebar = ({
       <div className="card-image">
         <figure className="image is-square">
           <img
-            src={img}
+            src={avatar}
             alt="Avatar" />
         </figure>
       </div>
       <div className="card-content is-paddingless">
         <div className="content">
           <div className="list">
-            {pseudo ? (
+            {user ? (
                 <li className="list-item has-text-centered"
                     style={{padding: '1.25rem'}}>
-                  {pseudo}
+                  {user}
                 </li>) : ""}
             {
-                [first_name, gender, activity_status, inscription_date].map((value) => (
+                [first_name, sex].map((value) => (
                     value ?
                         <li className="list-item has-padding-10 has-text-centered">
                           {value}
                         </li> : ""   
                 ))
+            }
+            {
+                    last_activity ?
+                        <li className="list-item has-padding-10 has-text-centered">
+                          Dernière activité : {formatDate(last_activity)}
+                        </li> : ""   
+            }
+            {
+                    date_joined ?
+                        <li className="list-item has-padding-10 has-text-centered">
+                          Inscrit le : {formatDate(date_joined)}
+                        </li> : ""   
             }
             {chg_profile_link && settings_link ?
              (

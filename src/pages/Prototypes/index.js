@@ -1,17 +1,17 @@
 import React from 'react';
-import Gallery from '../Gallery';
-import Logo from '../Logo';
-import ActivityFeedItem from '../ActivityFeed/Item';
-import ActivityFeedList from '../ActivityFeed/List';
-import AlbumPopover from '../AlbumPopover';
-import StarRatings from '../StarRatings';
-import ProfileSidebar from '../Profile/Sidebar';
-import AlbumItem from '../AlbumList/AlbumItem';
-import BadgeList from '../Profile/Badges';
-import FavoriteAlbums from '../Profile/FavoriteAlbums';
-import DiscussionsList from '../Profile/Discussions/DiscussionsList';
+import Gallery from 'components/Gallery';
+import Logo from 'components/Logo';
+import ActivityFeedItem from 'components/ActivityFeed/Item';
+import ActivityFeedList from 'components/ActivityFeed/List';
+import AlbumPopover from 'components/AlbumPopover';
+import StarRatings from 'components/StarRatings';
+import ProfileSidebar from 'components/Profile/Sidebar';
+import AlbumItem from 'components/AlbumList/AlbumItem';
+import BadgeList from 'components/Profile/Badges';
+import FavoriteAlbums from 'components/Profile/FavoriteAlbums';
+import DiscussionsList from 'components/Profile/Discussions/DiscussionsList';
 import {Link} from 'react-router-dom';
-import ContactGallery from '../Profile/Contacts/ContactGallery';
+import ContactGallery from 'components/Profile/Contacts/ContactGallery';
 
 class Prototypes extends React.Component {
 
@@ -84,8 +84,8 @@ class Prototypes extends React.Component {
         ProfileSidebar: {
             component: ProfileSidebar,
             props: {
-                img: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_pwum8OJ.jpg",
-                pseudo: "Risitas",
+                avatar: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_pwum8OJ.jpg",
+                user: "Risitas",
                 first_name: "Jérémy",
                 gender: "Homme",
                 activity_status: "Connecté",
@@ -179,6 +179,20 @@ class Prototypes extends React.Component {
                           </Link> (sur Radiohead)
                         </span>
                     ),
+                    (
+                        <span>
+                          <Link to="/prototypes">
+                            Ca gaz ? 
+                          </Link> (discussion générale)
+                        </span>
+                    ),
+                    (
+                        <span>
+                          <Link to="/prototypes">
+                            MDR
+                          </Link> (sur Maudlin)
+                        </span>
+                    )
                 ]
             }
         },

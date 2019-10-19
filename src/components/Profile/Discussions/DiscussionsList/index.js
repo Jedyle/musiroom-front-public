@@ -1,17 +1,11 @@
 import React from 'react';
+import AbstractList from 'components/Utils/AbstractList';
 
 const DiscussionsList = ({
     discussions
-}) => (
-    <div className="list">
-      {discussions.map(
-          (discussion) => (
-              <div className="list-item">
-                {discussion}
-              </div>)
-      )
-      }
-    </div>
+}) => (<AbstractList
+         items={discussions}
+       />
 );
 
 export default DiscussionsList;

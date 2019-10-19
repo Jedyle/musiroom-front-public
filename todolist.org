@@ -17,31 +17,15 @@ Stateless components:
 * profile page
 ** DONE profile sidebar
    CLOSED: [2019-09-30 lun. 22:05]
-** TODO profile summary (description)
 ** DONE badges div
     CLOSED: [2019-09-30 lun. 22:12]
 *** DONE favorite albums
     CLOSED: [2019-09-30 lun. 22:06]
-** TODO profile ratings page
-** DONE albums list with ratings
+** DONE albums lists
     CLOSED: [2019-09-30 lun. 22:06]
-** TODO profile reviews page
-**** DONE albums list with reviews
-     CLOSED: [2019-09-30 lun. 22:07]
-** TODO profile lists page
-**** TODO lists list
-**** TODO profile interests page
-***** TODO albums list with interests OK
-**** TODO profile discussions page
-***** TODO discussions list
-**** DONE profile contacts page
-     CLOSED: [2019-10-04 ven. 20:56]
-***** DONE contact list (gallery style)
-      CLOSED: [2019-10-04 ven. 20:56]
-** TODO profile discussions page 
-*** DONE discussions list
-    CLOSED: [2019-09-30 lun. 22:35]
-*** TODO discussion filter
+** DONE profile discussions page 
+   CLOSED: [2019-10-15 mar. 21:32]
+
 * messages box
 ** TODO message list
 ** TODO create message
@@ -82,3 +66,8 @@ Stateless components:
 * artist details page
 ** TODO albums list view for artist
 ** TODO similar artists
+
+
+Others:
+* User authentication
+** TODO make persistent authentication

@@ -9,9 +9,9 @@ let buttonClassMapping = {
 };
 
 let buttonContentMapping = {
-    follows_you: "Follows you",
-    does_not_follow_you: "Followed",
-    is_yourself: "It's you !"
+    follows_you: "Vous suit",
+    does_not_follow_you: "Suivi",
+    is_yourself: "C'est vous !"
 };
 
 const ContactItem = ({
@@ -37,7 +37,7 @@ const ContactItem = ({
       <button className={
           `button is-fullwidth ${buttonClassMapping[following_status]}`
       } onClick={onButtonClick}>
-        {buttonContentMapping[following_status] || "Followed"}
+        {buttonContentMapping[following_status] || "Suivi"}
       </button>
     </div>
 );
