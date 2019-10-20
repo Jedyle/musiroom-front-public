@@ -1,6 +1,9 @@
 import * as types from './actionTypes';
 
-export default function authReducer(state = {}, action){
+import {getAuthFromLocalStorage} from './constants';
+
+export default function authReducer(state = getAuthFromLocalStorage(), action){
+    console.log("state", state);
     switch(action.type){
     case types.LOGIN:
         return Object.assign({}, state, {
@@ -10,6 +13,6 @@ export default function authReducer(state = {}, action){
     case types.LOGOUT:
         return {};
     default:
-        return {};
+        return state ? state : {};
     }
 };

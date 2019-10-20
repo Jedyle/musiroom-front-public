@@ -24,7 +24,7 @@ class BadgeList extends Component {
     render() {
         return (
             <div>
-              <h1 className="title is-size-3 has-text-centered">Badges ({this.props.badges.length})</h1>
+              <h1 className="title is-size-5 has-text-centered">Badges ({this.props.badges.length})</h1>
               <div className="columns is-mobile is-multiline">
                 {this.props.badges.map((element, index) => (
                     <div className="column is-one-third">
@@ -32,14 +32,14 @@ class BadgeList extends Component {
                         position={"left"}
                         isOpen={(this.state.openPopoverNumber === index)}
                         onClickOutside={() => this.setState({openPopoverNumber: -1})}
-                        content={PopoverContent(element.title, element.description)}
+                        content={PopoverContent(element.name, element.description)}
                       >
                         <figure className="image is-square has-cursor-pointer"
                                 onClick={() => this.setState(
                                     {openPopoverNumber: index}
                                 )}>
                           <img
-                            src={element.img}
+                            src={element.image}
                             alt={element.title}
                             title={element.title}/>
                         </figure>

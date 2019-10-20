@@ -12,6 +12,7 @@ import FavoriteAlbums from 'components/Profile/FavoriteAlbums';
 import DiscussionsList from 'components/Profile/Discussions/DiscussionsList';
 import {Link} from 'react-router-dom';
 import ContactGallery from 'components/Profile/Contacts/ContactGallery';
+import ProfileTabs from 'components/Profile/Tabs';
 
 class Prototypes extends React.Component {
 
@@ -111,23 +112,23 @@ class Prototypes extends React.Component {
             props: {
                 badges: [
                     {
-                        img: "https://lamusitheque.com/static/images/badges/Pionnier.png",
-                        title: "Pionnier",
+                        image: "https://lamusitheque.com/static/images/badges/Pionnier.png",
+                        name: "Pionnier",
                         description: "Ce membre a dégainé sa plume électronique pour écrire sa première critique. C'est un début prometteur."
                     },
                     {
-                        img: "https://lamusitheque.com/static/images/badges/ContributeurGold.png",
-                        title: "Pionnier",
+                        image: "https://lamusitheque.com/static/images/badges/ContributeurGold.png",
+                        name: "Pionnier",
                         description: "Ce membre a dégainé sa plume électronique pour écrire sa première critique. C'est un début prometteur."
                     },
                     {
-                        img: "https://lamusitheque.com/static/images/badges/Pionnier.png",
-                        title: "Pionnier",
+                        image: "https://lamusitheque.com/static/images/badges/Pionnier.png",
+                        name: "Pionnier",
                         description: "Ce membre a dégainé sa plume électronique pour écrire sa première critique. C'est un début prometteur. !"
                     },
                     {
-                        img: "https://lamusitheque.com/static/images/badges/Pionnier.png",
-                        title: "Pionnier",
+                        image: "https://lamusitheque.com/static/images/badges/Pionnier.png",
+                        name: "Pionnier",
                         description: "Loule"
                     }
                 ]
@@ -138,22 +139,22 @@ class Prototypes extends React.Component {
             props: {
                 albums: [
                     {
-                        img: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_4CRiAhb.jpg",
+                        cover: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_4CRiAhb.jpg",
                         content: (<a href="https://google.com">Maudlin of The Well, Bath</a>),
                         title: "Maudlin of the Well, Bath"
                     },
                     {
-                        img: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
                         content: "OK Computer de Radiohead",
                         title: "OK Computer"
                     },
                     {
-                        img: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
                         content: "OK Computer de Radiohead",
                         title: "OK Computer"
                     },
                     {
-                        img: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
                         content: "OK Computer de Radiohead",
                         title: "OK Computer"
                     }
@@ -194,6 +195,26 @@ class Prototypes extends React.Component {
                         </span>
                     )
                 ]
+            }
+        },
+        ProfileTabs: {
+            component: ProfileTabs,
+            props: {
+                tabs : [
+                      (<a>
+                        <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
+                        <span>Videos</span>
+                       </a>),
+                      (<a>
+                         <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
+                        <span>Videos</span>
+                       </a>),
+                      (<a>
+                        <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
+                        <span>Videos</span>
+                       </a>)
+                ],
+                active_index: 1
             }
         },
         ContactGallery: {

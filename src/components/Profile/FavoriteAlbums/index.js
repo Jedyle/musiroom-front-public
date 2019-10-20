@@ -7,11 +7,11 @@ const FavoriteAlbums = (
 ) => (
     <div className="list">
       {albums.map((album) => (
-        <div className="list-item columns">
+        <div className="list-item columns has-margin-left-5">
           <img
             alt={album.title}
             className="has-margin-right-6"
-            src={album.img}
+            src={album.cover}
             style={{'height': '48px'}}/>
           <div className="column">
             <span style={{'vertical-align': 'middle'}}>

@@ -10,14 +10,14 @@ const ProfileSidebar = ({
     sex,
     last_activity,
     date_joined,
-    chg_profile_link,
-    settings_link
+    user_buttons,
+    follows_you
 }) => (
     <div className="card profile-sidebar">
       <div className="card-image">
         <figure className="image is-square">
           <img
-            src={avatar}
+            src={`${process.env.REACT_APP_API_URL}${avatar}`}
             alt="Avatar" />
         </figure>
       </div>
@@ -28,46 +28,30 @@ const ProfileSidebar = ({
                 <li className="list-item has-text-centered"
                     style={{padding: '1.25rem'}}>
                   {user}
+                  <br/>
+                <small> {follows_you ? "Vous suit" : ""} </small>
                 </li>) : ""}
             {
                 [first_name, sex].map((value) => (
                     value ?
-                        <li className="list-item has-padding-10 has-text-centered">
+                        <li key={value} className="list-item has-padding-10 has-text-centered">
                           {value}
                         </li> : ""   
                 ))
             }
             {
-                    last_activity ?
-                        <li className="list-item has-padding-10 has-text-centered">
-                          Dernière activité : {formatDate(last_activity)}
-                        </li> : ""   
+                last_activity ?
+                    <li className="list-item has-padding-10 has-text-centered">
+                      Dernière activité : {formatDate(last_activity)}
+                    </li> : ""   
             }
             {
-                    date_joined ?
-                        <li className="list-item has-padding-10 has-text-centered">
-                          Inscrit le : {formatDate(date_joined)}
-                        </li> : ""   
+                date_joined ?
+                    <li className="list-item has-padding-10 has-text-centered">
+                      Inscrit le : {formatDate(date_joined)}
+                    </li> : ""   
             }
-            {chg_profile_link && settings_link ?
-             (
-                 <li className="list-item has-text-centered" style={{padding: '1.25rem'}}>
-                   <Link to={chg_profile_link}
-                         className="button is-link is-outlined is-fullwidth">
-                     <span>
-                       <i className="fa fa-user"></i> {" "}
-                       Profile
-                     </span>
-                   </Link>
-                   <Link to={settings_link}
-                         className="button is-info is-outlined is-fullwidth">
-                     <span>
-                       <i className="fa fa-cog"></i> {" "}
-                       Settings
-                     </span>
-                   </Link>
-                 </li>) : ""}
-            
+            {user_buttons}
           </div>
         </div>
       </div>      

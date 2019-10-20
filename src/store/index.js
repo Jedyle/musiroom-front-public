@@ -7,4 +7,8 @@ const store = createStore(
     })
 );
 
+export function getCurrentUserName(){
+    return store.getState().auth.user.username;
+}
+
 export default store;
