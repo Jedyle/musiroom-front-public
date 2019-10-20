@@ -52,15 +52,18 @@ class Profile extends Component {
                 });
             }
         );
-        findIfUserIsFollowedBy(this.props.match.params.username).then(
-            (response) => {
-                this.setState(
-                    {
-                        followsYou: response.data.count === 1
-                    }
-                );
-            }
-        );
+        if (getUser())
+        {
+            findIfUserIsFollowedBy(this.props.match.params.username).then(
+                (response) => {
+                    this.setState(
+                        {
+                            followsYou: response.data.count === 1
+                        }
+                    );
+                }
+            );
+        }
     };
 
     getUserButtons(){
