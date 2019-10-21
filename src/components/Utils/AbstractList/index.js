@@ -6,7 +6,11 @@ const AbstractList = ({
     <div className="list">
       {items.map(
           (item) => (
-              <div className="list-item">
+              <div className="list-item" style={
+                  {
+                      padding: ".75rem 1.25rem"
+                  }
+              }>
                 {item}
               </div>)
       )

@@ -12,6 +12,12 @@ export function getTopAlbums(username){
     );
 }
 
+export function getDiscussions(username, page=1, ordering=''){
+    return api.get(
+        `/users/${username}/discussions/?page=${page}&ordering=${ordering}`
+    );
+}
+
 export function getBadges(username){
     return api.get(
         `/users/${username}/badges`

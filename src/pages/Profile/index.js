@@ -96,7 +96,7 @@ class Profile extends Component {
                     />
                 ) : ''}
               </div>
-              <div className="column is-12-mobile is-7-tablet">
+              <div className="column is-12-mobile is-7-tablet has-padding-left-30">
                 <ProfileTabs
                   tabs = {this.state.tabs.map((tab, index) => (
                       <Link to={join(this.props.match.url, tab.subLink)} activeClassName="is-active">
