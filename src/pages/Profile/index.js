@@ -3,6 +3,7 @@ import ProfileSidebar from 'components/Profile/Sidebar';
 import { getProfile } from 'services/Profile';
 import { findIfUserIsFollowedBy } from 'services/Followers';
 import ProfileTabs from 'components/Profile/Tabs';
+import ListsTab from './ListsTab';
 import ProfileTab from './ProfileTab';
 import ContactsTab from './ContactsTab';
 import DiscussionsTab from './DiscussionsTab';
@@ -27,6 +28,16 @@ class Profile extends Component {
                     subLink: "",
                     exact: true,
                     render: (props) => <ProfileTab
+                                         {...props}
+                                         profile={this.state.profile}
+                                       />
+                },
+                {
+                    icon: "fa fa-list",
+                    title: "Listes",
+                    subLink: "/listes",
+                    exact: true,
+                    render: (props) => <ListsTab
                                          {...props}
                                          profile={this.state.profile}
                                        />

@@ -23,3 +23,9 @@ export function getBadges(username){
         `/users/${username}/badges`
     );
 }
+
+export function getLists(username, page=1){
+    return api.get(
+        `/users/${username}/lists?page=${page}`
+    );
+}

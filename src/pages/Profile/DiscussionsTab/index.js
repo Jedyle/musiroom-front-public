@@ -19,7 +19,7 @@ class DiscussionsTab extends Component {
         this.updateDiscussions(this.state.page);
     };
 
-    componentDidUpdate(prevProps, prevState, snapshot){
+    componentDidUpdate(prevProps, prevState){
         if ((this.state.page !== prevState.page) || (prevProps.profile !== this.props.profile )){
             this.updateDiscussions(this.state.page);
         }
