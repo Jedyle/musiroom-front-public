@@ -14,3 +14,11 @@ export function findIfUserFollows(username){
 export function findIfUserIsFollowedBy(username){
     return api.get(`users/${getCurrentUserName()}/followers/?username=${username}`);
 }
+
+export function getUserFollowers(username){
+    return api.get(`users/${username}/followers`);
+}
+
+export function getUserFollowees(username){
+    return api.get(`users/${username}/followees`);
+}

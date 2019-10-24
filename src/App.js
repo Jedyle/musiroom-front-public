@@ -6,6 +6,7 @@ import Prototypes from './pages/Prototypes';
 import Profile from './pages/Profile';
 import './App.scss';
 import { BrowserRouter as Router, Route} from "react-router-dom";
+import { profileUrl } from 'pages/urls';
 
 function App() {
     return (
@@ -16,7 +17,13 @@ function App() {
               <div className="fill">
                 <Route exact path="/" component={Home}/>
                 <Route path="/prototypes" component={Prototypes}/>
-                <Route path="/profil/u/:username" component={Profile}/>
+                <Route path={profileUrl(":username")}
+                       render={props => {
+                           return (
+                               <Profile key={props.match.params.username} {...props}/>
+                           );
+                       }}
+                />
               </div>
             </Router>
           </div>

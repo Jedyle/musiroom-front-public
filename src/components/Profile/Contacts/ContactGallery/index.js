@@ -7,7 +7,7 @@ const ContactGallery = ({
     <div className="columns is-mobile is-multiline">
       {contacts.map((contact) => (
           <ContactItem
-            key={contact.username}
+            key={contact.user}
             {...contact}
           />
       ))}

@@ -4,6 +4,7 @@ import { getProfile } from 'services/Profile';
 import { findIfUserIsFollowedBy } from 'services/Followers';
 import ProfileTabs from 'components/Profile/Tabs';
 import ProfileTab from './ProfileTab';
+import ContactsTab from './ContactsTab';
 import DiscussionsTab from './DiscussionsTab';
 import {Route, Link} from "react-router-dom";
 import { join } from 'utils/urls';
@@ -40,6 +41,16 @@ class Profile extends Component {
                                          profile={this.state.profile}
                                        />
                 },
+                {
+                    icon: "fa fa-address-book",
+                    title: "Contacts",
+                    subLink: "/contacts",
+                    exact: true,
+                    render: (props) => <ContactsTab
+                                         {...props}
+                                         profile={this.state.profile}
+                                       />
+                }
             ]
         };
     }

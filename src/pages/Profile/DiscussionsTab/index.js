@@ -62,7 +62,7 @@ class DiscussionsTab extends Component {
     render(){
         return (
             <div className="columns">
-              <div className="column is-12-mobile is-9-tablet">
+              <div className="column is-12-mobile is-9-desktop is-9-widescreen">
                 <hr/>
                 <h4 className="title is-4 has-text-centered">Discussions</h4>
                 <hr/>

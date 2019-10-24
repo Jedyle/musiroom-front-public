@@ -73,10 +73,14 @@ Others:
 User authentication
 ** TODO make persistent authentication
 
+--------------------------------------------------------------------------------
+
 Time: 
 1 = fast
 2 = medium
 3 = long
+
+------------------------------------------------------------------------------------
 
 Pages : 
 * Home (3)
@@ -84,7 +88,8 @@ Pages :
 * Profile page
 ** DONE Profile/Profile (4)
    CLOSED: [2019-10-20 dim. 21:14]
-** Profile/Discussions (1)
+** DONE Profile/Discussions (1)
+   CLOSED: [2019-10-21 lun. 21:36]
 ** Profile/Contacts (1)
 ** Profile/Ratings (2)
 ** Profile/Reviews (2)
