@@ -14,7 +14,7 @@ export function getTopAlbums(username){
 
 export function getDiscussions(username, page=1, ordering=''){
     return api.get(
-        `/users/${username}/discussions/?page=${page}&ordering=${ordering}`
+        `/users/${username}/discussions/?page=${page}&ordering=${ordering}&limit=10`
     );
 }
 
@@ -26,6 +26,6 @@ export function getBadges(username){
 
 export function getLists(username, page=1){
     return api.get(
-        `/users/${username}/lists?page=${page}`
+        `/users/${username}/lists?page=${page}&limit=10`
     );
 }
