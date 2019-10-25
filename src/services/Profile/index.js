@@ -29,3 +29,9 @@ export function getLists(username, page=1){
         `/users/${username}/lists?page=${page}&limit=10`
     );
 }
+
+export function getRatings({username, page=1, album_title="", ordering=""}){
+    return api.get(
+      `/users/${username}/ratings?page=${page}&limit=10&ordering=${ordering}&album_title__icontains=${album_title}`  
+    );
+}

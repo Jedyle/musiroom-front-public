@@ -11,8 +11,8 @@ class DiscussionsTab extends Component {
         this.state = {
             discussions: [],
             currentPage: 1,
-            nextPage: null,
-            previousPage: null,
+            nextPageUrl: null,
+            previousPageUrl: null,
             ordering: '-created'
         };
     }
@@ -34,14 +34,12 @@ class DiscussionsTab extends Component {
             (response) => {
                 this.setState({
                     discussions: response.data.results,
-                    previousPage: response.data.previous,
-                    nextPage: response.data.next
+                    previousPageUrl: response.data.previous,
+                    nextPageUrl: response.data.next
                 });
             }
         );
-    }
-
-    
+    }    
 
     formatDiscussions(){
         return this.state.discussions.map(
@@ -82,12 +80,12 @@ class DiscussionsTab extends Component {
                 <hr/>
                 <a
                   className="pagination-previous"
-                  disabled={!this.state.previousPage}
+                  disabled={!this.state.previousPageUrl}
                   onClick={() => this.previousPage()}
                 > {"<"} </a>
                 <a
                   className="pagination-next"
-                  disabled={!this.state.nextPage}
+                  disabled={!this.state.nextPageUrl}
                   onClick={() => this.nextPage()}
                 >{">"}</a>
                 <DiscussionsList discussions={this.formatDiscussions()}/>

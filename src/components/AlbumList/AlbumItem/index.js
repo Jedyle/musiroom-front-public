@@ -3,7 +3,7 @@ import './index.css';
 
 const AlbumItem = (
     {
-        img,
+        cover,
         title,
         description,
         content,
@@ -12,22 +12,23 @@ const AlbumItem = (
         avg_rating
     }
 ) => (
-    <div className="columns has-background-light">
-      <div className="column is-one-quarter is-marginless">
+    <div className="columns has-background-light is-mobile"
+         style={{borderBottom: '0.5px solid lightgrey'}}>
+      <div className="column is-2-mobile is-one-quarter-tablet is-marginless">
         <div className="card">
           <div className="card-image">
             <figure className="image is-square">
-              <img src={img} alt="album"/>
+              <img src={cover} alt="album" />
             </figure>
           </div>
         </div>
       </div>
-      <div className="column is-three-quarters"
-           style={{"padding-left": "1.5rem"}}>
+      <div className="column is-10-mobile is-three-quarters-tablet"
+           style={{paddingLeft: "1.5rem"}}>
         <div className="columns is-mobile">
           <div className="column">
-            <p className="title is-3" style={{'margin-bottom': '0.5rem'}}>{title}</p>
-            <p className="is-6">{description}</p>
+            <p className="title is-size-5-mobile is-size-3-desktop" style={{marginBottom: '0.5rem'}}>{title}</p>
+            <p className="is-size-6">{description}</p>
             <br/>
             <div>{content}</div>
           </div>
@@ -44,7 +45,7 @@ const AlbumItem = (
               {
                   followees_rating ? (
                       <span className="tag is-followees-rating"
-                            title="Ma note">
+                            title="Moyenne de mes abonnements">
                         {followees_rating}
                       </span>
                   ) : ""
@@ -52,7 +53,7 @@ const AlbumItem = (
               {
                   avg_rating ? (
                       <span className="tag is-avg-rating"
-                            title="Ma note">
+                            title="Note moyenne">
                         {avg_rating}
                       </span>
                   ) : ""

@@ -7,6 +7,7 @@ import ListsTab from './ListsTab';
 import ProfileTab from './ProfileTab';
 import ContactsTab from './ContactsTab';
 import DiscussionsTab from './DiscussionsTab';
+import RatingsTab from './RatingsTab';
 import {Route, Link} from "react-router-dom";
 import { join } from 'utils/urls';
 import { getUser } from 'services/Auth/api';
@@ -28,6 +29,16 @@ class Profile extends Component {
                     subLink: "",
                     exact: true,
                     render: (props) => <ProfileTab
+                                         {...props}
+                                         profile={this.state.profile}
+                                       />
+                },
+                {
+                    icon: "fa fa-star",
+                    title: "Notes",
+                    subLink: "/notes",
+                    exact: true,
+                    render: (props) => <RatingsTab
                                          {...props}
                                          profile={this.state.profile}
                                        />
