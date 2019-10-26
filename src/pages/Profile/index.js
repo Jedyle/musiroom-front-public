@@ -18,7 +18,7 @@ class Profile extends Component {
     }
     
     componentDidMount(){
-        getProfile(this.props.match.params.username).then(
+        getProfile(this.props.username).then(
             (response) => {
                 this.setState({
                     profile: response.data
@@ -27,7 +27,7 @@ class Profile extends Component {
         );
         if (getUser())
         {
-            findIfUserIsFollowedBy(this.props.match.params.username).then(
+            findIfUserIsFollowedBy(this.props.username).then(
                 (response) => {
                     this.setState(
                         {

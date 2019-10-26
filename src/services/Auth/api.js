@@ -55,6 +55,18 @@ export function login(username, password){
     });
 };
 
+export function changeUserProfile(newUser){
+    return api.put(`/auth/user/`, newUser);
+}
+
+export function updateProfileInLocalStorage(newData){
+    store.dispatch(actions.login(getToken(), newData));
+    setAuthInLocalStorage({
+        token: getToken(),
+        user: newData
+    });
+}
+
 export function logout(){
     store.dispatch(actions.logout());
     localStorage.removeItem(DATA_LOCATION);

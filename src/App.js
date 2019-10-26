@@ -3,10 +3,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Prototypes from './pages/Prototypes';
-import { ProfileWithTabs } from './pages/Profile/pages';
+import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-import { profileUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl } from 'pages/urls';
+import PrivateRoute from 'pages/Router/PrivateRoute';
 
 function App() {
     return (
@@ -22,11 +23,15 @@ function App() {
                            return (
                                <ProfileWithTabs
                                  key={props.match.params.username}
+                                 username={props.match.params.username}
                                  {...props}
                                />
                            );
                        }}
                 />
+                <PrivateRoute path={changeProfileUrl()}
+                              component={ProfileWithEditForm}
+                />                
               </div>
             </Router>
           </div>
