@@ -30,3 +30,14 @@
 .tags .tag:not(:last-child) {
 	margin-right: 0.3rem!important;
 }
+
+
+.tags.are-medium .tag:not(.is-normal):not(.is-large) {
+    font-size: 1rem!important;
+}
+
+.tag:not(body){
+    padding-left: 0.6rem!important;
+    padding-right: 0.6rem!important;
+    height: auto!important;
+}

@@ -30,8 +30,20 @@ export function getLists(username, page=1){
     );
 }
 
-export function getRatings({username, page=1, album_title="", ordering=""}){
+export function getRatings({username, page=1, albumTitle="", ordering=""}){
     return api.get(
-      `/users/${username}/ratings?page=${page}&limit=10&ordering=${ordering}&album_title__icontains=${album_title}`  
+      `/users/${username}/ratings?page=${page}&limit=10&ordering=${ordering}&album_title__icontains=${albumTitle}`  
+    );
+}
+
+export function getReviews({username, page=1, albumTitle="", ordering=""}){
+    return api.get(
+      `/users/${username}/reviews?page=${page}&limit=10&ordering=${ordering}&album_title__icontains=${albumTitle}`  
+    );
+}
+
+export function getInterests({username, page=1, albumTitle="", ordering=""}){
+    return api.get(
+           `/users/${username}/interests?page=${page}&limit=10&ordering=${ordering}&album_title__icontains=${albumTitle}`     
     );
 }

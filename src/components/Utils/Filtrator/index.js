@@ -6,7 +6,7 @@ const Filtrator = ({
     <input
       className="input has-margin-top-10"
       type="text"
-      placeholder="Titre..."
+      placeholder="Titre d'album..."
       onKeyDown={(event) => {
           if (event.keyCode === 13){
               onPressEnter(event);

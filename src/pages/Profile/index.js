@@ -6,7 +6,9 @@ import ProfileTabs from 'components/Profile/Tabs';
 import ListsTab from './ListsTab';
 import ProfileTab from './ProfileTab';
 import ContactsTab from './ContactsTab';
+import ReviewsTab from './ReviewsTab';
 import DiscussionsTab from './DiscussionsTab';
+import InterestsTab from './InterestsTab';
 import RatingsTab from './RatingsTab';
 import {Route, Link} from "react-router-dom";
 import { join } from 'utils/urls';
@@ -39,6 +41,26 @@ class Profile extends Component {
                     subLink: "/notes",
                     exact: true,
                     render: (props) => <RatingsTab
+                                         {...props}
+                                         profile={this.state.profile}
+                                       />
+                },
+                {
+                    icon: "fa fa-sticky-note",
+                    title: "Critiques",
+                    subLink: "/critiques",
+                    exact: true,
+                    render: (props) => <ReviewsTab
+                                         {...props}
+                                         profile={this.state.profile}
+                                       />
+                },
+                {
+                    icon: "fa fa-map-marker",
+                    title: "Envies",
+                    subLink: "/envies",
+                    exact: true,
+                    render: (props) => <InterestsTab
                                          {...props}
                                          profile={this.state.profile}
                                        />
@@ -120,7 +142,7 @@ class Profile extends Component {
     render(){
         return (
             <div className="columns is-multiline is-marginless is-paddingless">
-              <div className="column is-12-mobile is-3-tablet">
+              <div className="column is-12-mobile is-3-desktop">
                 {this.state.profile ? (
                     <ProfileSidebar
                       {...this.state.profile}
@@ -129,7 +151,7 @@ class Profile extends Component {
                     />
                 ) : ''}
               </div>
-              <div className="column is-12-mobile is-7-tablet has-padding-left-30">
+              <div className="column is-12-mobile is-7-widescreen has-padding-left-30">
                 <ProfileTabs
                   tabs = {this.state.tabs.map((tab, index) => (
                       <Link to={join(this.props.match.url, tab.subLink)} activeClassName="is-active">

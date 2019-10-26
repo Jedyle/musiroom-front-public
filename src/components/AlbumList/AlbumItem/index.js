@@ -27,8 +27,8 @@ const AlbumItem = (
            style={{paddingLeft: "1.5rem"}}>
         <div className="columns is-mobile">
           <div className="column">
-            <p className="title is-size-5-mobile is-size-3-desktop" style={{marginBottom: '0.5rem'}}>{title}</p>
-            <p className="is-size-6">{description}</p>
+            <p className="title is-size-6-mobile is-size-3-desktop" style={{marginBottom: '0.5rem'}}>{title}</p>
+            <p className="is-size-7-mobile is-size-6-desktop">{description}</p>
             <br/>
             <div>{content}</div>
           </div>
