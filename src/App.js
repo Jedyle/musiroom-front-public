@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Prototypes from './pages/Prototypes';
-import Profile from './pages/Profile';
+import { ProfileWithTabs } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import { profileUrl } from 'pages/urls';
@@ -20,7 +20,10 @@ function App() {
                 <Route path={profileUrl(":username")}
                        render={props => {
                            return (
-                               <Profile key={props.match.params.username} {...props}/>
+                               <ProfileWithTabs
+                                 key={props.match.params.username}
+                                 {...props}
+                               />
                            );
                        }}
                 />
