@@ -4,8 +4,10 @@ import AlbumItem from 'components/AlbumList/AlbumItem';
 import { Link } from 'react-router-dom';
 import { profileUrl } from 'pages/urls';
 import { getUser } from 'services/Auth/api';
-import { getSelfRatings, getFolloweesAverage } from 'services/Ratings';
+import { getSelfRatings, getSelfInterests, getFolloweesAverage } from 'services/Ratings';
 import { getReviewsForUserRatings } from 'services/Reviews';
+import Paginator from 'components/Utils/Paginator';
+import Filtrator from 'components/Utils/Filtrator';
 
 class RatingsTab extends Component {
 
@@ -16,51 +18,81 @@ class RatingsTab extends Component {
             ratings: [],
             userReviews: {},
             loggedUserRatings: {},
-            averageFolloweesRatings: {},
+            loggedUserInterests: [],
+            averageFolloweesRatings: {},            
             currentPage: 1,
             previousPageUrl: null,
             nextPageUrl: null,
             ordering: '-modified'
         };
         this.onPressEnter = this.onPressEnter.bind(this);
+        this.onPreviousPage = this.onPreviousPage.bind(this);
+        this.onNextPage = this.onNextPage.bind(this);
     }
 
-    onPressEnter(event){
-        if(event.keyCode === 13){
-            this.setState({
-                currentPage: 1,
-                album_title_query: event.target.value 
-            });
+    componentDidMount(){
+        if (this.props.profile){
+            this.fetchDataFromApi();
         }
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if ((this.props.profile !== prevProps.profile) || (
+            this.state.currentPage !== prevState.currentPage ||
+                this.state.album_title_query !== prevState.album_title_query
+        )){
+            this.fetchDataFromApi();
+        }
+    }
+    
+    onPressEnter(event){
+        this.setState({
+            currentPage: 1,
+            album_title_query: event.target.value 
+        });
+    }
+
+    onPreviousPage(){
+        this.setState({
+            currentPage: this.state.currentPage - 1 
+        });
+    }
+    
+    onNextPage(){
+        this.setState({
+            currentPage: this.state.currentPage + 1 
+        });
+    }
+
+    fetchDataFromApi(){
+        this.fetchRatings().then(
+            (response) => {
+                this.setState({
+                    ratings: response.data.results,
+                    previousPageUrl: response.data.previous,
+                    nextPageUrl: response.data.next
+                });
+                this.fetchReviews();
+                this.fetchDataForLoggedUser();
+            }   
+        );                   
+    }
+    
     fetchRatings(){
-        getRatings({
+        return getRatings({
             username: this.props.profile.user,
             page: this.state.currentPage,
             album_title: this.state.album_title_query,
             ordering: this.state.ordering            
-        }).then(
-                       (response) => {
-                           console.log(response);
-                           this.setState({
-                               ratings: response.data.results,
-                               previousPageUrl: response.data.previous,
-                               nextPageUrl: response.data.next
-                           });
-                           this.fetchReviews();
-                           this.fetchDataForLoggedUser();
-                       }   
-                   );                   
+        });
     }
-
+    
     fetchReviews(){
         let ratings_ids = this.state.ratings.map(
             (rating) => rating.rating
         );
         getReviewsForUserRatings(this.props.profile.user, ratings_ids).then(
             (response) => {
-                console.log("reviews", response.data.results);
                 let reviewsAsList = response.data.results;
                 let userReviews = {};
                 for (var i=0; i< reviewsAsList.length; i++){
@@ -74,13 +106,7 @@ class RatingsTab extends Component {
     }
 
     fetchDataForLoggedUser(){
-        this.fetchLoggedUserRatings();
-        this.fetchFolloweesAvg();
-    }
-
-    fetchLoggedUserRatings(){
-        let loggedUser = getUser();
-        if (loggedUser){
+        if (getUser()){
             let ratings_ids = this.state.ratings.map(
                 (rating) => rating.rating
             );
@@ -91,15 +117,6 @@ class RatingsTab extends Component {
                     });
                 }
             );
-        }
-    }
-
-    fetchFolloweesAvg(){
-        let loggedUser = getUser();
-        if (loggedUser){
-            let ratings_ids = this.state.ratings.map(
-                (rating) => rating.rating
-            );
             getFolloweesAverage(ratings_ids).then(
                 (response) => {
                     this.setState({
@@ -107,39 +124,35 @@ class RatingsTab extends Component {
                     });
                 }
             );
-        }
+            getSelfInterests(ratings_ids).then(
+                (response) => {
+                    this.setState({
+                        loggedUserInterests: response.data.interests
+                    });
+                }
+            );
+        }        
     }
     
-    componentDidMount(){
-        if (this.props.profile){
-            this.fetchRatings();
-        }
-    }
-
-    componentDidUpdate(prevProps, prevState){
-        if ((this.props.profile !== prevProps.profile) || (
-            this.state.currentPage !== prevState.currentPage ||
-                this.state.album_title_query !== prevState.album_title_query
-        )){
-            this.fetchRatings();
-        }
-    }
-
-    previousPage(){
-        this.setState({
-            currentPage: this.state.currentPage - 1 
-        });
-    }
-    
-    nextPage(){
-        this.setState({
-            currentPage: this.state.currentPage + 1 
-        });
-    }
-
     getLoggedUserRatingFor(rating_id){
-        let defaultRating = getUser() ? "-" : null;
-        return this.state.loggedUserRatings[rating_id.toString()] || defaultRating;
+        let userRating = this.state.loggedUserRatings[rating_id.toString()];
+        if (userRating){
+            return userRating;
+        }
+        else{
+            let userHasInterest = this.state.loggedUserInterests.some(
+                id => (id === rating_id)
+            );
+            if (userHasInterest){
+                return (
+                    <span className="icon">
+                      <i className="fa fa-map-marker"></i>
+                    </span>
+                );
+            }         
+        }
+        let defaultRating = getUser() ? "-" : null;      
+        return defaultRating;
     }
 
     getAverageFolloweesRatingsFor(rating_id){       
@@ -150,11 +163,11 @@ class RatingsTab extends Component {
         return getUser() ? "-" : null;
     }
     
-    formatRatings(){
+    renderRatings(){
         return this.state.ratings.map(
             (rating) => (
                 <AlbumItem
-                  key={rating.id}
+                  key={rating.rating}
                   cover={rating.content_object.cover}
                   title={
                       (<Link to="/">
@@ -200,25 +213,19 @@ class RatingsTab extends Component {
                 <hr/>
                 <h4 className="title is-4 has-text-centered">Notes</h4>
                 <hr/>
-                <a
-                  className="pagination-previous"
-                  disabled={!this.state.previousPageUrl}
-                  onClick={() => this.previousPage()}
-                > {"<"} </a>
-                <a
-                  className="pagination-next"
-                  disabled={!this.state.nextPageUrl}
-                  onClick={() => this.nextPage()}
-                >{">"}</a>
-                <input
-                  className="input has-margin-top-10"
-                  type="text"
-                  placeholder="Titre..."
-                  onKeyDown={this.onPressEnter}
+                <Paginator
+                  currentPage={this.state.currentPage}
+                  previousPageUrl={this.state.previousPageUrl}
+                  nextPageUrl={this.state.nextPageUrl}
+                  onPreviousPage={this.onPreviousPage}
+                  onNextPage={this.onNextPage}
+                />
+                <Filtrator
+                  onPressEnter={this.onPressEnter}
                 />
               </div>
               <div className="column is-12-mobile is-10-widescreen">
-                {this.formatRatings()}
+                {this.renderRatings()}
               </div>
             </div>
         );

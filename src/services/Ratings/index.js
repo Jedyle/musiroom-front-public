@@ -6,6 +6,12 @@ export function getSelfRatings(ratings_ids){
     );
 }
 
+export function getSelfInterests(ratings_ids){
+    return api.get(
+        `/interests/self?ids=${ratings_ids.join()}`
+    );
+}
+
 
 export function getFolloweesAverage(ratings_ids){
     return api.get(
