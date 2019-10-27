@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeUserProfile } from 'services/Auth/api';
 import { updateProfileInLocalStorage } from 'services/Auth/api';
+import Input from 'components/Utils/Forms/Input';
+import CheckBox from 'components/Utils/Forms/Checkbox';
+import Radio from 'components/Utils/Forms/Radio';
 
 class _PublicProfileForm extends Component {
 
     constructor(props){
         super(props);
 
-        let birth = this.props.user.birth;
+        let birth = this.props.user.profile.birth;
         let [year, month, day] = birth ? birth.split('-') : ['', '', ''];
         
         this.state = {
@@ -25,7 +28,6 @@ class _PublicProfileForm extends Component {
     }
 
     setSuccess(){
-        console.log("success !!!");
         this.setState({
             isSuccess: true 
         });
@@ -42,6 +44,7 @@ class _PublicProfileForm extends Component {
 
     successAlert(){
         alert("Vos changements ont bien été pris en compte.");
+        document.location.reload(true);
     }
 
     profileErrors(){
@@ -98,41 +101,29 @@ class _PublicProfileForm extends Component {
                 <label className="label">Nom</label>
               </div>
               <div className="field-body">
-                <div className="field">
-                  <p className="control is-expanded">
-                    <input className="input"
-                           type="text"
-                           placeholder="Prénom"
-                           value={this.state.user.first_name}
-                           onChange={(event) => {this.changeUser('first_name', event.target.value);}}
-                    />
-                  </p>
-                  <p className="help is-danger">{this.state.errors.first_name}</p>
-                </div>
-                <div className="field">
-                  <p className="control is-expanded">
-                    <input className="input"
-                           type="text"
-                           placeholder="Nom de famille"
-                           value={this.state.user.last_name}
-                           onChange={(event) => {this.changeUser('last_name', event.target.value);}}
-                    />
-                  </p>
-                  <p className="help is-danger">{this.state.errors.last_name}</p>
-                </div>
-                <div className="field">
-                  <div className="control has-padding-top-5">
-                    <label className="checkout">
-                      <input type="checkbox"
-                             name="member"
-                             checked={this.state.user.profile.display_name}
-                             onChange={(e) => this.changeProfile('display_name', e.target.checked)}
-                      />
-                      {"   "}Afficher sur mon profil
-                    </label>
-                  </div>
-                  <p className="help is-danger">{this.profileErrors().display_name}</p>
-                </div>
+                <Input
+                  type="text"                     
+                  placeholder="Prénom"
+                  name="firstName"
+                  value={this.state.user.first_name}
+                  onChange={(event) => {this.changeUser('first_name', event.target.value);}}
+                  errorMessages={this.state.errors.first_name}
+                />
+                <Input
+                  type="text"
+                  name="lastName"
+                  placeholder="Nom de famille"
+                  value={this.state.user.last_name}
+                  onChange={(event) => {this.changeUser('last_name', event.target.value);}}
+                  errorMessages={this.state.errors.last_name}
+                />
+                <CheckBox
+                  name="displayName"
+                  checked={this.state.user.profile.display_name}
+                  onChange={(e) => this.changeProfile('display_name', e.target.checked)}
+                  message={"   Afficher sur mon profil" }
+                  errorMessages={this.profileErrors().display_name}
+                />
               </div>              
             </div>
         );
@@ -146,58 +137,34 @@ class _PublicProfileForm extends Component {
               </div>
 
               <div className="field-body">
-                <div className="field">
-                  <div className="control">
-                    <input className="input"
-                           name="day"
-                           type="number"
-                           min="1"
-                           max="31"
-                           placeholder="Jour"
-                           value={this.state.birth.day}
-                           onChange={(e) => this.changeDate('day', e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <div className="control">
-                    <input className="input"
-                           name="month"
-                           type="number"
-                           min="1"
-                           max="12"
-                           placeholder="Mois"
-                           value={this.state.birth.month}
-                           onChange={(e) => this.changeDate('month', e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div className="field">
-                  <div className="control">
-                    <input className="input"
-                           name="year"
-                           min="1900"            
-                           type="number"
-                           placeholder="Année"
-                           value={this.state.birth.year}
-                           onChange={(e) => this.changeDate('year', e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div className="field">
-                  <div className="control has-padding-top-5">
-                    <label className="checkout">
-                      <input type="checkbox" name="member"
-                             checked={this.state.user.profile.display_birth}
-                             onChange={(e) => this.changeProfile('display_birth', e.target.checked)}
-                      />
-                      {"   "}Afficher sur mon profil
-                    </label>
-                  </div>
-                </div>
-            <p className="help is-danger">{this.profileErrors().birth}</p>
+                <Input
+                  name="day"
+                  type="text"
+                  placeholder="Jour"
+                  value={this.state.birth.day}
+                  onChange={(e) => this.changeDate('day', e.target.value)}
+                />
+                <Input
+                  name="month"
+                  type="text"
+                  placeholder="Mois"
+                  value={this.state.birth.month}
+                  onChange={(e) => this.changeDate('month', e.target.value)}
+                />
+                <Input 
+                  name="year"
+                  type="text"
+                  placeholder="Année"
+                  value={this.state.birth.year}
+                  onChange={(e) => this.changeDate('year', e.target.value)}
+                />                
+                <CheckBox
+                  name="member"
+                  checked={this.state.user.profile.display_birth}
+                  onChange={(e) => this.changeProfile('display_birth', e.target.checked)}
+                  message={"   Afficher sur mon profil"}
+                />
+                <p className="help is-danger">{this.profileErrors().birth}</p>
               </div>              
             </div>
         );        
@@ -210,52 +177,34 @@ class _PublicProfileForm extends Component {
                 <label className="label">Sexe</label>
               </div>
               <div className="field-body">
-                <div className="field is-narrow">
-                  <div className="control">
-                    <label className="radio">
-                      <input type="radio"
-                             name="sex"
-                             value="H"
-                             onChange={(e) => {this.changeProfile('sex', e.target.value);}}
-                             checked={this.state.user.profile.sex === "H"}
-                      />
-                      {"  "}Homme
-                    </label>
-                    <label className="radio">
-                      <input type="radio"                        
-                             name="sex"
-                             value="F"
-                             onChange={(e) => {this.changeProfile('sex', e.target.value);}}
-                             checked={this.state.user.profile.sex === "F"}
-                      />
-                      {"  "}Femme
-                    </label>
-                    <label className="radio">
-                      <input type="radio"
-                             name="sex"
-                             value="N"
-                             onChange={(e) => {this.changeProfile('sex', e.target.value);}}
-                             checked={this.state.user.profile.sex === "N"}
-                      />
-                      {"  "}Non précisé
-                    </label>
-                  </div>
-                  <p className="help is-danger">{this.profileErrors().sex}</p>
-                </div>
-                <div className="field">
-                  <div className="control has-padding-top-5">
-                    <label className="checkout">
-                      <input type="checkbox" name="member"
-                             checked={this.state.user.profile.display_sex}
-                             onChange={(e) => this.changeProfile('display_sex', e.target.checked)}
-                      />
-                      {"   "}Afficher mon genre sur mon profil
-                    </label>
-                  </div>
-                  <p className="help is-danger">{this.profileErrors().display_sex}</p>
-                </div>
-                
-              </div>
+                <Radio
+                  name="sex"
+                  value={this.state.user.profile.sex}
+                  types={[
+                      {
+                          value: "M",
+                          label: "   Homme"
+                      },
+                      {
+                          value: "F",
+                          label : "   Femme"
+                      },
+                      {
+                          value: "N",
+                          label: "   Non précisé"
+                      }
+                  ]}
+                  onChange={(e) => {this.changeProfile('sex', e.target.value);}}
+                  errorMessages={this.profileErrors().sex}
+                />           
+              <CheckBox
+                name="member"
+                checked={this.state.user.profile.display_sex}
+                onChange={(e) => this.changeProfile('display_sex', e.target.checked)}
+                message={"   Afficher sur mon profil"}
+                errorMessages={this.profileErrors().display_sex}
+              />                
+            </div>
             </div>
         );
     }
@@ -292,7 +241,7 @@ class _PublicProfileForm extends Component {
                 </div>
               </div>
             </div>
-  
+            
         );
     }
     
