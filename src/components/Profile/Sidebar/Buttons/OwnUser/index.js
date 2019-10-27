@@ -13,13 +13,6 @@ const OwnUserButton = ({
           Modifier mon profil
         </span>
       </Link>
-      <Link to={settingsLink}
-            className="button is-info is-outlined is-fullwidth">
-        <span>
-          <i className="fa fa-cog"></i> {" "}
-          Paramètres
-        </span>
-      </Link>
     </li>);
 
 export default OwnUserButton;

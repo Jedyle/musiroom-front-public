@@ -1,5 +1,5 @@
 import React from 'react';
-import PublicProfileForm from './Settings/PublicProfileForm';
+import SettingsForm from './Settings';
 import PublicProfileTabs from './PublicTabs';
 import Profile from './index';
 
@@ -13,7 +13,7 @@ const ProfileWithTabs = (props) => (
 const ProfileWithEditForm = (props) => (
     <Profile
       {...props}
-      body={PublicProfileForm}
+      body={SettingsForm}
     />
 );
 

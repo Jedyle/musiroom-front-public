@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
 import { profileUrl } from 'pages/urls';
+import { changeProfileUrl } from 'pages/urls';
 
 class Navbar extends Component {
 
@@ -34,7 +35,7 @@ class Navbar extends Component {
                     <Link to={profileUrl(getUser())} className="navbar-item">Profil</Link>
                     <Link className="navbar-item">Messagerie</Link>
                     <Link className="navbar-item">Mes exports</Link>
-                    <Link className="navbar-item">Modifier mes infos</Link>
+                    <Link className="navbar-item" to={changeProfileUrl()}>Modifier mes infos</Link>
                     <Link className="navbar-item" onClick={this.props.onLogout}>Déconnexion</Link>
                     </div>
                 </div>                

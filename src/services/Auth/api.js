@@ -59,6 +59,18 @@ export function changeUserProfile(newUser){
     return api.put(`/auth/user/`, newUser);
 }
 
+export function changePassword(data){
+    return api.post(`/auth/password/change/`, data);
+}
+
+export function changeAvatar(file){
+    let form = new FormData();
+    form.append('avatar', file);
+    return api.put(`/auth/user/avatar`, form, {        
+        'Content-Type': 'multipart/form-data'
+    });
+}
+
 export function updateProfileInLocalStorage(newData){
     store.dispatch(actions.login(getToken(), newData));
     setAuthInLocalStorage({

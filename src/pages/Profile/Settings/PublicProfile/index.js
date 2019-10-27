@@ -6,6 +6,7 @@ import Input from 'components/Utils/Forms/Input';
 import CheckBox from 'components/Utils/Forms/Checkbox';
 import Radio from 'components/Utils/Forms/Radio';
 
+
 class _PublicProfileForm extends Component {
 
     constructor(props){
@@ -257,6 +258,7 @@ class _PublicProfileForm extends Component {
               {this.renderSex()}
               {this.renderDescription()}
               {this.renderButton()}
+              <br/>
             </div>
         );
     }    

@@ -6,6 +6,7 @@ import { findIfUserIsFollowedBy } from 'services/Followers';
 import { getUser } from 'services/Auth/api';
 import OwnUserButton from 'components/Profile/Sidebar/Buttons/OwnUser';
 import OtherUserButton from 'components/Profile/Sidebar/Buttons/OtherUser';
+import { changeProfileUrl } from 'pages/urls';
 
 class Profile extends Component {
 
@@ -46,8 +47,7 @@ class Profile extends Component {
         }
         if (getUser() === this.state.profile.user){
             return (<OwnUserButton
-                      changeProfileLink="/"
-                      settingsLinkg="/"
+                      changeProfileLink={changeProfileUrl()}
                     />);
         }
         return (
