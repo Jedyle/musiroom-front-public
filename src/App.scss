@@ -32,6 +32,10 @@
   }
 }
 
+.has-border {
+    border: 1px solid;
+}
+
 $link: #4F6457;
 
 @import '../node_modules/bulma/bulma.sass';

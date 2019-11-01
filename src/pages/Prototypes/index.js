@@ -13,6 +13,7 @@ import DiscussionsList from 'components/Profile/Discussions/DiscussionsList';
 import {Link} from 'react-router-dom';
 import ContactGallery from 'components/Profile/Contacts/ContactGallery';
 import ProfileTabs from 'components/Profile/Tabs';
+import DiscussionListItem from 'components/Discussions/List/ListItem';
 
 class Prototypes extends React.Component {
 
@@ -254,6 +255,20 @@ class Prototypes extends React.Component {
                         profile_url: "/"
                     }
                 ]
+            }
+        },
+        DiscussionItem: {
+            component: DiscussionListItem,
+            props : {
+                numVotes: 2,
+                loggedUserVote: 'up',
+                avatar: "https://lamusitheque.com/media/avatars/user_93/5fc739de38839337943c7d00438eaa80_csH4oFK_7keOVHs_DRLeIe8_8UqroIW_tRXH9z9_qaND2FD.jpg",
+                timeSincePost: "il y a 2 jours",
+                discussionType: 'Discussion générale',
+                discussionTypeLink: "/",
+                discussionLink: "/",
+                title: "A propos des nouveautés sur le site",
+                numComments: 10
             }
         }
     }

@@ -9,13 +9,19 @@ Pages :
    CLOSED: [2019-10-21 lun. 21:36]
 ** DONE Profile/Contacts (1)
    CLOSED: [2019-10-24 jeu. 21:02]
-** Profile/Ratings (2)
-** Profile/Reviews (2)
+** DONE Profile/Ratings (2)
+   CLOSED: [2019-10-29 mar. 20:47]
+** DONE Profile/Reviews (2)
+   CLOSED: [2019-10-29 mar. 20:47]
 ** DONE Profile/Lists (1)
    CLOSED: [2019-10-24 jeu. 21:57]
-** Profile/Interests (2)
-* Change profile (2)
-* Change settings (2)
+** DONE Profile/Interests (2)
+   CLOSED: [2019-10-29 mar. 20:47]
+* DONE Change profile (2)
+  CLOSED: [2019-10-29 mar. 20:47]
+* DELETE ACCOUNT
+* DONE Change settings (2)
+  CLOSED: [2019-10-29 mar. 20:47]
 * Message box (3 - ne sais pas car nouveau fonctionnement)
 ** Inbox
 ** Archive
