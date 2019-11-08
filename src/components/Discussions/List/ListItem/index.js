@@ -10,12 +10,14 @@ const VotePanel = ({
       <p className="has-text-centered">
         <span className={`icon ${loggedUserVote === 'up' ? 'has-text-success' : ''}`}
               onClick={() => onVote('up')}
+              style={{cursor:'pointer'}}
         >
           <i className="fa fa-angle-up fa-lg"></i>
         </span>
         <h5 className="is-size-5 is-marginless">{numVotes}</h5>
         <span className={`icon ${loggedUserVote === 'down' ? 'has-text-danger' : ''}`}
               onClick={() => onVote('down')}
+              style={{cursor:'pointer'}}
         >
           <i className="fa fa-angle-down fa-lg"></i>
         </span>
@@ -25,6 +27,7 @@ const VotePanel = ({
 
 const DiscussionHeader = ({
     avatar,
+    author,
     link,
     timeSincePost,
     discussionType,
@@ -39,7 +42,7 @@ const DiscussionHeader = ({
         </Link>
       </div>
       <div className="column is-paddingless has-margin-left-10">
-        <Link to={link} >Jérémy</Link>
+        <Link to={link} >{author}</Link>
         <span className="has-padding-left-5 has-text-weight-light">
           <small>{timeSincePost}</small>
         </span>
@@ -68,6 +71,8 @@ const DiscussionListItem = ({
     loggedUserVote,
     onVote,
     avatar,
+    author,
+    authorLink,
     timeSincePost,
     discussionType,
     discussionTypeLink,
@@ -75,7 +80,7 @@ const DiscussionListItem = ({
     title,
     numComments
 }) => (
-    <div className="columns has-border" style={{borderColor: 'rgba(0,0,0,.125)'}}>
+    <div className="columns is-mobile is-marginless has-border" style={{borderColor: 'rgba(0,0,0,.125)'}}>
       <div style={{minWidth: '45px'}}>
         <VotePanel
           numVotes={numVotes}
@@ -86,6 +91,8 @@ const DiscussionListItem = ({
       <div className="column is-marginless is-paddingless">
         <DiscussionHeader
           avatar={avatar}
+          author={author}
+          link={authorLink}
           timeSincePost={timeSincePost}
           discussionType={discussionType}
           discussionTypeLink={discussionTypeLink}

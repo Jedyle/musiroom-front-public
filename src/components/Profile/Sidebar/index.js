@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import {formatDate} from 'utils/date';
+import {formatDate, timeSince} from 'utils/date';
 
 const ProfileSidebar = ({
     avatar,
@@ -41,7 +41,7 @@ const ProfileSidebar = ({
             {
                 last_activity ?
                     <li className="list-item has-padding-10 has-text-centered">
-                      Dernière activité : {formatDate(last_activity)}
+                      Dernière activité : {timeSince(last_activity)}
                     </li> : ""   
             }
             {

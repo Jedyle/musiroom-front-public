@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getDiscussions } from 'services/Profile';
 import { Link } from 'react-router-dom';
-import { getDiscussionType, getDiscussionLink, getDiscussionLinkForContentType} from 'services/Discussions';
+import { getDiscussionType, getDiscussionLink, getDiscussionLinkForContentObject} from 'services/Discussions';
 import DiscussionsList from 'components/Profile/Discussions/DiscussionsList';
 
 class DiscussionsTab extends Component {
@@ -50,7 +50,7 @@ class DiscussionsTab extends Component {
                       {discussion.title}
                     </strong>
                   </Link> ({
-                      (<Link to={getDiscussionLinkForContentType(discussion.content_type)}>
+                      (<Link to={getDiscussionLinkForContentObject(discussion.content_type)}>
                          {getDiscussionType(discussion)}
                        </Link>)
                   })
