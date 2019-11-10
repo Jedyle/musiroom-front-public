@@ -14,6 +14,8 @@ import {Link} from 'react-router-dom';
 import ContactGallery from 'components/Profile/Contacts/ContactGallery';
 import ProfileTabs from 'components/Profile/Tabs';
 import DiscussionListItem from 'components/Discussions/List/ListItem';
+import AlbumSidebar from 'components/AlbumDetails/Sidebar';
+import TrackList from 'components/AlbumDetails/TrackList';
 
 class Prototypes extends React.Component {
 
@@ -270,8 +272,143 @@ class Prototypes extends React.Component {
                 title: "A propos des nouveautés sur le site",
                 numComments: 10
             }
+        },
+        AlbumSidebar: {
+            component: AlbumSidebar,
+            props: {
+                "tracks": {
+                    "track_list": [
+                        {
+                            "medium_title": "",
+                            "tracks": [
+                                {
+                                    "title": "In Mist She Was Standing",
+                                    "duration": "14:10"
+                                },
+                                {
+                                    "title": "Under the Weeping Moon",
+                                    "duration": "9:53"
+                                },
+                                {
+                                    "title": "Silhouette",
+                                    "duration": "3:08"
+                                },
+                                {
+                                    "title": "Forest of October",
+                                    "duration": "13:05"
+                                },
+                                {
+                                    "title": "The Twilight Is My Robe",
+                                    "duration": "11:02"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "artists": [
+                    {
+                        "mbid": "c14b4180-dc87-481e-b17a-64e4150f90f6",
+                        "name": "Opeth",
+                        "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/0535aee2661d40ca97185152b9024999.png"
+                    }
+                ],
+                "cover": "https://coverartarchive.org/release/5666e777-3dd7-4d0f-aa74-33f40ba6d0a8/2324310061-250.jpg",
+                "rating": {
+                    "id": 1,
+                    "count": 3,
+                    "total": 15,
+                    "average": "5.000"
+                },
+                "genres": [],
+                "mbid": "1e8e4ce8-f334-3ec7-af9a-d7babbdb2fd2",
+                "title": "Orchid",
+                "release_date": "1995-05-15",
+                "album_type": "LP"
+            },
+            screenSize: "is-3-widescreen"
+        },
+        TrackList: {
+            component: TrackList,
+            props : {
+                tracks: [
+                    {
+                        "medium_title": "",
+                        "tracks": [
+                            {
+                                "title": "14h58 - Casseurs Flowters Opening",
+                                "duration": "1:44"
+                            },
+                            {
+                                "title": "15h02 - Regarde comme il fait beau (dehors)",
+                                "duration": "3:24"
+                            },
+                            {
+                                "title": "15h45 - Stupide ¡ Stupide ¡ Stupide ¡",
+                                "duration": "4:16"
+                            },
+                            {
+                                "title": "16h00 - Tu m'dois d'l'oseille",
+                                "duration": "2:18"
+                            },
+                            {
+                                "title": "16h22 - Deux connards dans un abribus",
+                                "duration": "4:34"
+                            },
+                            {
+                                "title": "17h04 - Prends des pièces",
+                                "duration": "3:44"
+                            },
+                            {
+                                "title": "18h30 - Bloqué",
+                                "duration": "3:49"
+                            },
+                            {
+                                "title": "19h26 - La Mort du disque",
+                                "duration": "2:43"
+                            },
+                            {
+                                "title": "20h08 - Dans la place pour être",
+                                "duration": "3:25"
+                            },
+                            {
+                                "title": "20h13 - La Nouvelle Paire",
+                                "duration": "5:29"
+                            },
+                            {
+                                "title": "22h31 - Fais les backs",
+                                "duration": "3:04"
+                            },
+                            {
+                                "title": "01h16 - Les putes et moi",
+                                "duration": "6:19"
+                            },
+                            {
+                                "title": "01h25 - Johnny Galoche",
+                                "duration": "1:56"
+                            },
+                            {
+                                "title": "01h47 - Change de pote",
+                                "duration": "3:10"
+                            },
+                            {
+                                "title": "03h53 - Manger c'est tricher",
+                                "duration": "4:24"
+                            },
+                            {
+                                "title": "04h41 - Greenje et Orselane",
+                                "duration": "3:33"
+                            },
+                            {
+                                "title": "06h16 - Des histoires à raconter",
+                                "duration": "6:16"
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     }
+
 
     render() {
         const tag = this.state.tag;

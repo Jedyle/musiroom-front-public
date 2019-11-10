@@ -9,8 +9,8 @@ TimeAgo.addLocale(fr);
  
 moment.locale('fr');
 
-function formatDate(date_string){
-    return moment(date_string).format('DD MMMM YYYY, hh:mm');
+function formatDate(date_string, format){
+    return moment(date_string).format(format || 'DD MMMM YYYY');
 }
 
 function timeSince(date_string){

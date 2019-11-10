@@ -12,9 +12,14 @@ export function getSelfInterests(ratings_ids){
     );
 }
 
-
 export function getFolloweesAverage(ratings_ids){
     return api.get(
       `/ratings/followees?ids=${ratings_ids.join()}`  
+    );
+}
+
+export function getAlbumRatingStats(rating_id){
+    return api.get(
+        `/ratings/${rating_id}/stats`
     );
 }

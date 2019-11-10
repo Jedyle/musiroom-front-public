@@ -57,3 +57,8 @@ Pages :
 * Registration
 ** connexion (2)
 ** inscription (2)
+* Discussions
+** DONE List
+   CLOSED: [2019-11-09 sam. 13:46]
+** Create
+** Retrieve

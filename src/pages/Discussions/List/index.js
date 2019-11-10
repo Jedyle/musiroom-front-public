@@ -3,10 +3,10 @@ import queryString from 'query-string';
 import { getDiscussions, getDiscussionType, voteOnDiscussion } from 'services/Discussions';
 import DiscussionListItem from 'components/Discussions/List/ListItem';
 import { timeSince } from 'utils/date';
-import { discussionsUrl } from 'pages/urls';
+import { discussionsUrl, discussionCreateUrl } from 'pages/urls';
 import { Link, withRouter } from 'react-router-dom';
 
-class Discussions extends Component {
+class DiscussionsList extends Component {
 
     constructor(props){
         super(props);
@@ -195,6 +195,11 @@ class Discussions extends Component {
               <div className="column is-hidden-mobile is-2-tablet"></div>
               <div className="column is-12-mobile is-8-tablet has-margin-top-20 has-border"  style={{borderColor: 'rgba(0,0,0,.125)'}}>
                 <h1 className="is-size-2 has-text-centered">Discussions</h1>
+                <p className="has-text-centered">
+                  <Link
+                    to={discussionCreateUrl()}
+                    className="button is-info">Nouvelle discussion</Link>
+                </p>
                 <hr/>
                 <div className="columns">
                   <div className="column is-12-mobile is-offset-2-tablet is-8-tablet">
@@ -211,4 +216,4 @@ class Discussions extends Component {
     
 };
 
-export default withRouter(Discussions);
+export default withRouter(DiscussionsList);

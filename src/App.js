@@ -5,10 +5,18 @@ import Home from './components/Home';
 import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
-import { BrowserRouter as Router, Route} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl } from 'pages/urls';
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl } from 'pages/urls';
 import PrivateRoute from 'pages/Router/PrivateRoute';
-import Discussions from 'pages/Discussions';
+import DiscussionsList from 'pages/Discussions/List';
+import DiscussionCreate from 'pages/Discussions/Create';
+import AlbumDetails from 'pages/Album';
+
+const NotFound = () => (
+    <div>
+      <h1>That page was not found</h1>
+    </div>
+);
 
 function App() {
     return (
@@ -17,12 +25,13 @@ function App() {
             <Router>
               <Navbar />
               <div className="fill">
+                <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route path="/prototypes" component={Prototypes}/>
-                <Route path={discussionsUrl()}
+                <Route exact path="/prototypes" component={Prototypes}/>
+                <Route exact path={discussionsUrl()}
                        render = {props => {
                            return (
-                               <Discussions
+                               <DiscussionsList
                                  object_id={null}
                                  model={null}
                                  key={props.location.search}
@@ -30,6 +39,11 @@ function App() {
                                />  
                            );
                        }}
+                />
+                <PrivateRoute
+                  exact
+                  path={discussionCreateUrl()}
+                  component={DiscussionCreate}
                 />
                 <Route path={profileUrl(":username")}
                        render={props => {
@@ -42,10 +56,20 @@ function App() {
                            );
                        }}
                 />
-                <PrivateRoute path={changeProfileUrl()}
+                <Route exact path={getAlbumUrl(":mbid([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})")}
+                       render={props => {
+                           return (<AlbumDetails
+                                            key={props.match.params.mbid}
+                                            {...props}
+                               />);
+                       }}
+                />
+                <PrivateRoute exact path={changeProfileUrl()}
                               component={ProfileWithEditForm}
-                />                
-              </div>
+                />
+                  <Route path="*" component={NotFound}/>
+                </Switch>
+              </div>            
             </Router>
           </div>
           <Footer/>

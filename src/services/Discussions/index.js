@@ -30,7 +30,6 @@ export function getDiscussionLink(discussion){
     return "/";
 }
 
-
 export function getDiscussions({
     page=1,
     limit=10,
