@@ -3,7 +3,6 @@ import * as types from './actionTypes';
 import {getAuthFromLocalStorage} from './constants';
 
 export default function authReducer(state = getAuthFromLocalStorage(), action){
-    console.log("state", state);
     switch(action.type){
     case types.LOGIN:
         return Object.assign({}, state, {

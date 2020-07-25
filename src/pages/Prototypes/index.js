@@ -8,7 +8,7 @@ import StarRatings from 'components/StarRatings';
 import ProfileSidebar from 'components/Profile/Sidebar';
 import AlbumItem from 'components/AlbumList/AlbumItem';
 import BadgeList from 'components/Profile/Badges';
-import FavoriteAlbums from 'components/Profile/FavoriteAlbums';
+import ShortAlbumList from 'components/AlbumList/ShortAlbumList';
 import DiscussionsList from 'components/Profile/Discussions/DiscussionsList';
 import {Link} from 'react-router-dom';
 import ContactGallery from 'components/Profile/Contacts/ContactGallery';
@@ -16,6 +16,9 @@ import ProfileTabs from 'components/Profile/Tabs';
 import DiscussionListItem from 'components/Discussions/List/ListItem';
 import AlbumSidebar from 'components/AlbumDetails/Sidebar';
 import TrackList from 'components/AlbumDetails/TrackList';
+import AlbumYoutubeLink from 'components/AlbumDetails/YoutubeLink';
+import ArtistSidebar from 'components/Artist/Sidebar';
+import CommentTreeView from 'components/Comments/Tree';
 
 class Prototypes extends React.Component {
 
@@ -61,14 +64,14 @@ class Prototypes extends React.Component {
                       date="some days ago"
                       img="https://media.ouest-france.fr/v1/pictures/09fa38b37ab9c13d4761bd716587c9d0-cinema-les-tournages-d-avatar-2-et-3-sont-boucles_0.jpg?width=1260&height=712&focuspoint=55%2C41&cropresize=1&client_id=cmsfront&sign=141e3dee1e63abd3ae002c4cda5fa783eae535f6484b57f3028dd1413d64d047"
                     />),(
-                    <ActivityFeedItem
-                      author="Bob"
-                      verb="has commented"
-                      object="an album"
-                      date="21 July 2019"
-                      img="https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                    />
-                )]
+                        <ActivityFeedItem
+                          author="Bob"
+                          verb="has commented"
+                          object="an album"
+                          date="21 July 2019"
+                          img="https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        />
+                    )]
             }
         },
         AlbumPopover: {
@@ -105,9 +108,9 @@ class Prototypes extends React.Component {
                 title: "Bath",
                 description: (<span>Album de <a href="https://www.google.com">Maudlin of the Well</a></span>),
                 content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor dolor at volutpat posuere. Mauris fermentum lorem sit amet mauris malesuada, quis tempor nibh porta. Donec eget orci fermentum, dignissim orci eu, ultrices ex. Nunc ac condimentum ex. Suspendisse ullamcorper metus vel faucibus egestas. Suspendisse sit amet nisi ut sapien luctus sollicitudin. Donec euismod est est, sit amet suscipit risus euismod ut.",
-                user_rating: '-',
-                followees_rating: "8.1",
-                avg_rating: '4.6'               
+                user_rating: null,
+                followees_rating: 8.1,
+                avg_rating: 4.6               
             }
         },
         BadgeList: {
@@ -137,8 +140,8 @@ class Prototypes extends React.Component {
                 ]
             }
         },
-        FavoriteAlbums: {
-            component: FavoriteAlbums,
+        ShortAlbumList: {
+            component: ShortAlbumList,
             props: {
                 albums: [
                     {
@@ -204,18 +207,18 @@ class Prototypes extends React.Component {
             component: ProfileTabs,
             props: {
                 tabs : [
-                      (<a>
-                        <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
-                        <span>Videos</span>
-                       </a>),
-                      (<a>
-                         <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
-                        <span>Videos</span>
-                       </a>),
-                      (<a>
-                        <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
-                        <span>Videos</span>
-                       </a>)
+                    (<a>
+                  <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
+                  <span>Videos</span>
+                </a>),
+                    (<a>
+              <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
+              <span>Videos</span>
+            </a>),
+                    (<a>
+                       <span className="icon is-small"><i className="fas fa-film" aria-hidden="true"></i></span>
+                       <span>Videos</span>
+                     </a>)
                 ],
                 active_index: 1
             }
@@ -288,18 +291,6 @@ class Prototypes extends React.Component {
                                 {
                                     "title": "Under the Weeping Moon",
                                     "duration": "9:53"
-                                },
-                                {
-                                    "title": "Silhouette",
-                                    "duration": "3:08"
-                                },
-                                {
-                                    "title": "Forest of October",
-                                    "duration": "13:05"
-                                },
-                                {
-                                    "title": "The Twilight Is My Robe",
-                                    "duration": "11:02"
                                 }
                             ]
                         }
@@ -324,6 +315,16 @@ class Prototypes extends React.Component {
                 "title": "Orchid",
                 "release_date": "1995-05-15",
                 "album_type": "LP"
+            },
+            screenSize: "is-3-widescreen"
+        },
+        ArtistSidebar: {
+            component: ArtistSidebar,
+            props: {
+                mbid: "15b1cbac-060a-4136-9e07-4622c52c0f60",
+                photo: "https://lastfm.freetls.fastly.net/i/u/300x300/8e7833ceae624ae48ca49e110c9064fc.png",
+                name: "Léo Ferré",
+                genres: [{name: "Variété Française", slug: "variete-francaise"}, {name: "Rock", slug: "rock"}]
             },
             screenSize: "is-3-widescreen"
         },
@@ -406,9 +407,78 @@ class Prototypes extends React.Component {
                     }
                 ]
             }
+        },
+        AlbumYoutubeLink: {
+            component: AlbumYoutubeLink,
+            props: {
+                link: "https://youtube.com/watch?v=NRmIZ6IP9Jw"
+            },
+            screenSize: 'is-3-widescreen'
+        },
+        CommentTreeView: {
+            component: CommentTreeView,
+            props: {
+                onCommentVote: (id, action) => {},
+                onSubmitComment: (id, content, event) => {event.preventDefault(); console.log(event); console.log(content);},
+                comments : [{
+                    id: 1,
+                    comment : "whatever you say",
+                    vote_score: 5,
+                    user_vote: null,
+                    user: {
+                        username: "Jeremy",
+                        profile: {
+                            avatar: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_fSZ4Ora.jpg"
+                        }
+                    },
+                    submit_date: "2018-01-17T22:00:35.207719+02:00",                    
+                    children: [
+                            {
+                                id: 5,
+                                comment: "hello",
+                                vote_score: 5,
+                                user_vote: "up",
+                                user: {
+                                    username: "Tester",
+                                    profile: {
+                                        avatar: "https://bulma.io/images/placeholders/128x128.png"
+                                    }
+                                },
+                                submit_date: "2018-07-17T22:00:35.207719+02:00",
+                                children: null
+                            },
+                            {
+                                id: 7,
+                                comment: "world",
+                                vote_score: -1,
+                                user_vote: "down",
+                                user: {
+                                    username: "Cuck",
+                                    profile: {
+                                        avatar: "https://bulma.io/images/placeholders/128x128.png"
+                                    }
+                                },
+                                submit_date: "2020-04-12T21:04:35.207719+02:00",
+                                children: []
+                            }
+                        ],
+                }, {                    
+                    id: 3,
+                    comment: "orphan",
+                    vote_score: 0,
+                    user_vote: "up",
+                    submit_date: "2020-07-17T22:00:35.207719+02:00",
+                    user: {
+                        username: "Orphée",
+                        profile: {
+                            avatar: "https://bulma.io/images/placeholders/128x128.png"
+                        }
+                    },                    
+                }]                                
+            }
         }
     }
-
+    
 
     render() {
         const tag = this.state.tag;

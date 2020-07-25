@@ -1,8 +1,9 @@
-
+*
 Pages : 
 * Home (3)
 * History (1)
-* Profile page
+* DONE Profile page
+  CLOSED: [2020-05-02 sam. 15:30]
 ** DONE Profile/Profile (4)
    CLOSED: [2019-10-20 dim. 21:14]
 ** DONE Profile/Discussions (1)
@@ -39,12 +40,14 @@ Pages :
 ** genre details (1)
 ** add genre (1)
 * Albums page
-** Home album (3)
+** DONE Home album (3)
+   CLOSED: [2020-05-02 sam. 15:35]
 ** Write a review (3)
 ** Detail review (2)
 ** Add album to list (2)
 ** album genres page (votes) (2)
-* Artist page (3)
+* DONE Artist page (3)
+  CLOSED: [2020-07-10 ven. 19:53]
 * Lists
 ** all lists (1)
 ** list details (4)
@@ -60,5 +63,13 @@ Pages :
 * Discussions
 ** DONE List
    CLOSED: [2019-11-09 sam. 13:46]
-** Create
-** Retrieve
+** TODO Create
+*** TODO Create for some topic pre loaded
+** DONE Retrieve
+   CLOSED: [2020-07-25 sam. 20:16]
+
+
+
+* HANDLE 404
+* COMMENTS : delete/signal behavior (decider de comment on fait un back et front)
+* SUPPRIMER DISCUSSION : idem comments

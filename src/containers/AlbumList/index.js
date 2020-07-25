@@ -4,7 +4,7 @@ import AlbumItem from 'components/AlbumList/AlbumItem';
 import { Link } from 'react-router-dom';
 import { getUser } from 'services/Auth/api';
 import { getSelfRatings, getSelfInterests, getFolloweesAverage } from 'services/Ratings';
-
+import { getAlbumUrl, getArtistUrl } from 'pages/urls';
 
 class AlbumList extends Component {
 
@@ -77,16 +77,12 @@ class AlbumList extends Component {
                 );
             }         
         }
-        let defaultRating = getUser() ? "-" : null;      
-        return defaultRating;
+        return null;
     }
 
     getAverageFolloweesRatingsFor(rating_id){       
         let avgRating = this.state.loggedUserAvgFolloweesRatings[rating_id.toString()];
-        if (avgRating){
-            return avgRating.toFixed(1);
-        }
-        return getUser() ? "-" : null;
+        return avgRating;
     }
     
     render(){
@@ -96,18 +92,18 @@ class AlbumList extends Component {
                   key={object.rating.id}
                   cover={object.cover}
                   title={
-                      (<Link to="/">
+                      (<Link to={getAlbumUrl(object.mbid)}>
                          {object.title}
                        </Link>)
                   }
                   user_rating={this.getLoggedUserRatingFor(object.rating.id)}
                   followees_rating={this.getAverageFolloweesRatingsFor(object.rating.id)}
-                  avg_rating={parseFloat(object.rating.average).toFixed(1)}
+                  avg_rating={parseFloat(object.rating.average)}
                   description={
                       (<span>
                          Album de {object.artists.map(
                              (artist) => (
-                                 <Link to="/">
+                                 <Link to={getArtistUrl(artist.mbid)}>
                                    {artist.name}
                                  </Link>
                              )

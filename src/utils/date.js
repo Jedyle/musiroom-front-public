@@ -13,9 +13,15 @@ function formatDate(date_string, format){
     return moment(date_string).format(format || 'DD MMMM YYYY');
 }
 
+const toHumanDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+};
+
+
 function timeSince(date_string){
     let timeAgo = new TimeAgo('fr-FR');
     return timeAgo.format(new Date(date_string));
 }
 
-export {formatDate, timeSince};
+export {toHumanDate, formatDate, timeSince};

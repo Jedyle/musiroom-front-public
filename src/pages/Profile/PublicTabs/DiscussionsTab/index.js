@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { getDiscussions } from 'services/Profile';
 import { Link } from 'react-router-dom';
-import { getDiscussionType, getDiscussionLink, getDiscussionLinkForContentObject} from 'services/Discussions';
+import { getDiscussionType } from 'services/Discussions';
+import { getDiscussionUrl, getDiscussionsUrlForObject} from 'pages/urls';
 import DiscussionsList from 'components/Profile/Discussions/DiscussionsList';
 
 class DiscussionsTab extends Component {
@@ -45,12 +46,12 @@ class DiscussionsTab extends Component {
         return this.state.discussions.map(
             (discussion) => (
                 <span>
-                  <Link to={getDiscussionLink(discussion)}>
+                  <Link to={getDiscussionUrl(discussion)}>
                     <strong>
                       {discussion.title}
                     </strong>
                   </Link> ({
-                      (<Link to={getDiscussionLinkForContentObject(discussion.content_type)}>
+                      (<Link to={getDiscussionsUrlForObject(discussion.content_type, discussion.object_id)}>
                          {getDiscussionType(discussion)}
                        </Link>)
                   })

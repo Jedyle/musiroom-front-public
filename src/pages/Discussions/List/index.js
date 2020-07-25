@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
-import { getDiscussions, getDiscussionType, voteOnDiscussion } from 'services/Discussions';
+import { getDiscussions, getDiscussionType, getObjectForDiscussionType, voteOnDiscussion } from 'services/Discussions';
 import DiscussionListItem from 'components/Discussions/List/ListItem';
 import { timeSince } from 'utils/date';
-import { discussionsUrl, discussionCreateUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, discussionCreateUrl, discussionCreateOnTopicUrl, getDiscussionUrl, getDiscussionsUrlForObject } from 'pages/urls';
 import { Link, withRouter } from 'react-router-dom';
+import DiscussionSidebar from 'components/Discussions/Sidebar';
 
 class DiscussionsList extends Component {
 
@@ -13,14 +14,15 @@ class DiscussionsList extends Component {
         let query = queryString.parse(props.location.search);
         this.state = {
             discussions: [],
-            object_id: props.object_id,
+            objectId: props.objectId,
             model: props.model,
             page: parseInt(query.page) > 0 ? query.page : 1,
             author: query.author || '',
             title: query.title || '',
             ordering: query.ordering || 'modified',
             previousPageExists: false,
-            nextPageExists: false
+            nextPageExists: false,
+            contentObject: null
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -34,8 +36,9 @@ class DiscussionsList extends Component {
             page: this.state.page,
             author: this.state.author,            
             title: this.state.title,
-            object_id: this.state.object_id,
-            ordering: this.state.ordering
+            objectId: this.state.objectId,            
+            ordering: this.state.ordering,
+            model: this.state.model,
         }).then(
             (response) => {
                 this.setState({
@@ -44,7 +47,16 @@ class DiscussionsList extends Component {
                     nextPageExists: response.data.next
                 });
             }
-        );        
+        );
+
+        if (this.state.objectId > 0){
+            getObjectForDiscussionType(this.state.model, this.state.objectId).then((response) => {
+                this.setState({
+                    contentObject: response.data.object 
+                });
+                
+            });
+        }
     }
 
     onVote(index, discussionId, vote){
@@ -60,6 +72,21 @@ class DiscussionsList extends Component {
             }
         );
     }
+
+    getTitle(){
+        if(this.state.contentObject){
+            if (this.state.model === "artist"){
+                return `Discussions sur ${this.state.contentObject.name}`;               
+            }
+            else if (this.state.model === "album"){
+                return `Discussions sur ${this.state.contentObject.title}`;               
+            }
+        }
+        else if (this.state.objectId === 0){
+            return 'Discussions Générales';
+        }
+        return "Discussions";
+    }
     
 
     formatDiscussions(){        
@@ -70,10 +97,14 @@ class DiscussionsList extends Component {
                          loggedUserVote={discussion.user_vote}
                          onVote={(vote) => this.onVote(index, discussion.id, vote)}
                          author={discussion.user.username}
+                         authorLink={profileUrl(discussion.user.username)}
                          avatar={process.env.REACT_APP_API_URL + discussion.user.avatar}
                          timeSincePost={timeSince(discussion.modified)}
-                         discussionType={getDiscussionType(discussion)}
-                         discussionTypeLink="/"
+
+                         discussionType={!this.state.objectId && getDiscussionType(discussion)}
+                         discussionTypeLink={getDiscussionsUrlForObject(discussion.content_type, discussion.object_id)}
+
+                         discussionLink={getDiscussionUrl(discussion.id)}
                          title={discussion.title}
                          numComments={discussion.comment_count}
                        />;
@@ -97,7 +128,9 @@ class DiscussionsList extends Component {
         if (ordering) {
             query += `&ordering=${ordering}`;
         }
-        return discussionsUrl() + query;        
+        
+        let url = this.state.objectId ? getDiscussionsUrlForObject(this.state.model, this.state.objectId) : discussionsUrl();
+        return url + query;        
     }
 
     getPaginator(){
@@ -192,12 +225,25 @@ class DiscussionsList extends Component {
     render(){                
         return (
             <div className="columns is-mobile has-padding-10">
-              <div className="column is-hidden-mobile is-2-tablet"></div>
+              <div className="column is-hidden-mobile is-2-tablet has-margin-top-20">
+                { this.state.contentObject &&
+                  <DiscussionSidebar
+                    contentType={this.state.model}
+                    contentObject={this.state.contentObject}                  
+                />
+                }
+              </div>
               <div className="column is-12-mobile is-8-tablet has-margin-top-20 has-border"  style={{borderColor: 'rgba(0,0,0,.125)'}}>
-                <h1 className="is-size-2 has-text-centered">Discussions</h1>
+                {
+                    this.state.objectId !== null && 
+                        <p>
+                          <Link to={discussionsUrl()}>{"<"} Toutes les discussions</Link>
+                        </p>
+                }
+                <h1 className="is-size-2 has-text-centered">{this.getTitle(this.state.contentObject)}</h1>
                 <p className="has-text-centered">
                   <Link
-                    to={discussionCreateUrl()}
+                    to={this.state.model ? discussionCreateOnTopicUrl(this.state.model, this.state.objectId) : discussionCreateUrl()}
                     className="button is-info">Nouvelle discussion</Link>
                 </p>
                 <hr/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import RatingTagsList from 'components/StarRatings/Tags';
 
 const AlbumItem = (
     {
@@ -33,33 +33,11 @@ const AlbumItem = (
             <div>{content}</div>
           </div>
           <div className="column is-3">
-            <div className="tags are-medium is-pulled-right">
-              {
-                  user_rating ? (
-                      <span className="tag is-user-rating"
-                            title="Ma note">
-                        {user_rating}
-                      </span>
-                  ) : ""
-              }
-              {
-                  followees_rating ? (
-                      <span className="tag is-followees-rating"
-                            title="Moyenne de mes abonnements">
-                        {followees_rating}
-                      </span>
-                  ) : ""
-              }
-              {
-                  avg_rating ? (
-                      <span className="tag is-avg-rating"
-                            title="Note moyenne">
-                        {avg_rating}
-                      </span>
-                  ) : ""
-              }
-              
-            </div>
+            <RatingTagsList
+              userRating={user_rating}
+              followeesRating={followees_rating}
+              avgRating={avg_rating}
+            />             
           </div>
         </div>
       </div>

@@ -1,33 +1,34 @@
 import { api } from 'services/axios';
 
-export function getDiscussionType(discussion){
+export const DISCUSSION_TYPES = {
+    album: 'album',
+    artist: 'artist'
+};
+
+export function getDiscussionObjectName(discussion){
     switch (discussion.content_type){
     case null:
-        return "discussion générale";
-    case "album":
-        return `sur ${discussion.content_object.title}`;
-    case "artist":
-        return `sur ${discussion.content_object.name}`;
+        return "Discussion Générale";
+    case DISCUSSION_TYPES["album"]:
+        return discussion.content_object.title;
+    case DISCUSSION_TYPES["artist"]:
+        return discussion.content_object.name;
     default:
         return '';
     }
 }
 
-export function getDiscussionLinkForContentObject(contentType, contentObject){
-    switch(contentType){
-    case "artist":
-        return "";
-    case "album":
-        return "";
+export function getDiscussionType(discussion){
+    switch (discussion.content_type){
     case null:
-        return "";
+        return "Discussion Générale";
+    case DISCUSSION_TYPES["album"]:
+        return `sur ${discussion.content_object.title}`;
+    case DISCUSSION_TYPES["artist"]:
+        return `sur ${discussion.content_object.name}`;
     default:
-        return "";
+        return null;
     }
-}
-
-export function getDiscussionLink(discussion){
-    return "/";
 }
 
 export function getDiscussions({
@@ -53,7 +54,7 @@ export function getDiscussions({
         queryParams['content_object_id__isnull'] = true;
     }
     else {
-        queryParams['content_object__model'] = model;
+        queryParams['content_type__model'] = model;
     }
 
     return api.get('/discussions', {
@@ -64,5 +65,30 @@ export function getDiscussions({
 export function voteOnDiscussion(discussionId, vote){
     return api.put(`/discussions/${discussionId}/vote/`, {
         vote: vote
+    });
+}
+
+export function createDiscussion(title, content, contentType=null, objectId="0"){
+    // leaving objectId and contentType to their default means creating a general discussion
+    return api.post('/discussions/', {
+        title: title,
+        content: content,
+        object_id: objectId,
+        content_type: contentType
+    });
+}
+
+export function getDiscussion(discussionId){
+    return api.get(`/discussions/${discussionId}`);
+}
+
+export function getObjectForDiscussionType(model, objectId){
+    return api.get(`/discussions/object/${model}/${objectId}`);
+}
+
+export function editDiscussion(discussionId, title, content){
+    return api.patch(`/discussions/${discussionId}/`, {
+        title: title,
+        content: content,
     });
 }

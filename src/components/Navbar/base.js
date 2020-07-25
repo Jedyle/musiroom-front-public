@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
 
 class Navbar extends Component {
@@ -75,6 +75,12 @@ class Navbar extends Component {
                     className="navbar-item"
                     to="/prototypes">
                     Documentation
+                  </Link>
+
+                  <Link
+                    className="navbar-item"
+                    to={discussionsUrl()}>
+                    Discussions
                   </Link>
 
                   <div className="navbar-item has-dropdown is-hoverable">

@@ -23,3 +23,9 @@ export function getAlbumRatingStats(rating_id){
         `/ratings/${rating_id}/stats`
     );
 }
+
+export function getFolloweesRatings(rating_id){
+    return api.get(
+        `/ratings/${rating_id}/followees_ratings`
+    );
+}

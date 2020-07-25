@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatDate } from 'utils/date';
 import { Link } from 'react-router-dom';
-import { getAlbumUrl, getArtistUrl } from 'pages/urls';
+import { getAlbumUrl, getArtistUrl, getGenreUrl } from 'pages/urls';
 
 const AlbumSidebar = ({
     mbid,
@@ -10,7 +10,7 @@ const AlbumSidebar = ({
     artists=[],
     release_date,
     album_type,
-    genres=[]
+    genres
 }) => (
     <div className="card profile-sidebar">
       <div className="card-image">
@@ -31,26 +31,41 @@ const AlbumSidebar = ({
               <p>
                 {
                     artists.map(
-                        (artist) => (<Link to={getArtistUrl(artist.mbid)}>{artist.name}</Link>)
+                        (artist) => (<Link key={artist.mbid}
+                                           to={getArtistUrl(artist.mbid)}>
+                                       {artist.name}
+                                     </Link>)
                     )
                 }
               </p>             
             </li>
-            <li className="list-item">
-              Date de parution : {formatDate(release_date)}
-            </li>
-            <li className="list-item">
-              Type : {album_type}
-            </li>
-            <li className="list-item">
-              Genres : {genres.join(", ") || "Non précisé"} {"  "}
-              (voter sur les genres)
-            </li>
+            {release_date &&
+             <li className="list-item">
+               Date de parution : {formatDate(release_date)}
+             </li>
+            }
+            {album_type && 
+             <li className="list-item">
+               Type : {album_type}
+             </li>
+            }
+            {genres &&
+             <li className="list-item">
+               Genres : {genres.length > 0 ? 
+                         genres.map(
+                             (genre) => (<Link key={genre.slug}
+                              to={getGenreUrl(genre.slug)}>
+                           {genre.name}
+                         </Link>)
+                         ).reduce((prev, curr) => [prev, ', ', curr]) : "Non précisé"
+                        } {"  "}
+               (voter sur les genres)
+             </li>
+            }
           </div>
         </div>
       </div>      
     </div>
-
 );
 
 export default AlbumSidebar;

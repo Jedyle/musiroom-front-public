@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import FavoriteAlbums from 'components/Profile/FavoriteAlbums';
+import ShortAlbumList from 'components/AlbumList/ShortAlbumList';
 import { getTopAlbums, getBadges } from 'services/Profile';
+import { getAlbumUrl } from 'pages/urls';
 import { Link } from 'react-router-dom';
 import BadgesList from 'components/Profile/Badges';
 
@@ -74,7 +75,7 @@ class ProfileTab extends Component {
                 title: album.title,
                 cover: album.cover,
                 content: (<span>
-                            <Link to="/"><strong>{album.title}</strong></Link> de <Link>{album.artists[0].name}</Link>
+                            <Link to={getAlbumUrl(album.mbid)}><strong>{album.title}</strong></Link> de <Link>{album.artists[0].name}</Link>
                           </span>)
             };
         });
@@ -112,7 +113,7 @@ class ProfileTab extends Component {
                   </div>
 
                   <h3 className="title is-5">Ses albums préférés</h3>
-                  <FavoriteAlbums
+                  <ShortAlbumList
                     albums={this.getTopAlbums()}
                   />
                   

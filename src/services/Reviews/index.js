@@ -28,3 +28,7 @@ export function getReviewsForRatedObject({
         }  
     );
 }
+
+export function getReview(id){
+    return api.get(`/reviews/${id}`);
+}

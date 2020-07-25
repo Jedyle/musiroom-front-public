@@ -12,7 +12,7 @@ const ReviewList = ({
       <div className="column">
         {reviews.map(
             (review) => (
-                <div className="has-padding-5">
+                <div className="has-padding-5" key={review.id}>
                   <h1 className="title is-size-4">{review.title}</h1>
                   <p>
                     {review.content.substr(0, 400)}...
@@ -75,20 +75,22 @@ class ReviewsPanel extends Component {
     }
     
     fetchReviews(){
-        getReviewsForRatedObject({
-            rating_id: this.props.album.rating.id,
-            page: this.state.currentPage,
-            ordering: this.state.ordering,
-            title: this.state.title
-        }).then(
-            (response) => {
-                this.setState({
-                    reviews: response.data.results,
-                    previousPage: response.data.previous,
-                    nextPage: response.data.next
-                });
-            }
-        );        
+        if(this.props.album.rating){            
+            getReviewsForRatedObject({
+                rating_id: this.props.album.rating.id,
+                page: this.state.currentPage,
+                ordering: this.state.ordering,
+                title: this.state.title
+            }).then(
+                (response) => {
+                    this.setState({
+                        reviews: response.data.results,
+                        previousPage: response.data.previous,
+                        nextPage: response.data.next
+                    });
+                }
+            );
+        }
     }
 
 

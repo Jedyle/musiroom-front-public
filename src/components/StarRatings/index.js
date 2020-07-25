@@ -12,7 +12,6 @@ const StarRatingsChild = ({
       name="rating"
       {...props}
     />
-    
 );
 
 export default StarRatingsChild;

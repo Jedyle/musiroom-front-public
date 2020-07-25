@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { getUser } from 'services/Auth/api';
 import { getAlbum } from 'services/Albums';
 import AlbumSidebar from 'components/AlbumDetails/Sidebar';
 import TrackList from 'components/AlbumDetails/TrackList';
-import StarRatingsChild from 'components/StarRatings';
-import 'components/AlbumList/AlbumItem/index.css';
+import RatingActions from './ratingActions';
 import ReviewsPanel from './reviews';
-import AlbumStats from './albumStats';
+import { GeneralStats, FolloweesStatsPanel } from './albumStats';
+import AlbumYoutubeLink from './youtubeLink';
+import AlbumsFromSameArtist from './fromSameArtist';
+import { getDiscussionsUrlForObject, discussionCreateOnTopicUrl } from 'pages/urls';
 
 const PleaseSubmitGenreMessage = ({
     album
@@ -30,7 +34,7 @@ class AlbumDetails extends Component {
     constructor(props){
         super(props);
         this.state = {
-            album: null,
+            album: null            
         };
     }
 
@@ -59,8 +63,12 @@ class AlbumDetails extends Component {
                       {...this.state.album}
                     />
                     <span>
-                      <button className="button is-medium has-margin-top-5 is-fullwidth is-info">Discussions sur {this.state.album.title}</button>
-                      <button className="button is-medium has-margin-top-5 is-fullwidth is-success">Nouvelle discussion</button>
+                      <Link
+                        to={getDiscussionsUrlForObject('album', this.state.album.id)}
+                        className="button is-medium has-margin-top-5 is-fullwidth is-info">Discussions sur {this.state.album.title}</Link>
+                      <Link
+                        to={discussionCreateOnTopicUrl('album', this.state.album.id)}
+                        className="button is-medium has-margin-top-5 is-fullwidth is-success">Nouvelle discussion</Link>
                     </span>
                     <hr/>
                     <h3 className="is-size-5">Pistes</h3>
@@ -70,24 +78,21 @@ class AlbumDetails extends Component {
                   </div>
                   <div className="column is-12-mobile is-9-desktop has-padding-left-30">
                     <div className="columns is-multiline">
-                      <div className="column is-12-mobile is-5-desktop">
+                      <div className="column is-12-mobile is-8-desktop">
                         <h1 className="title is-size-2">{this.state.album.title}</h1>
-                        <StarRatingsChild
-                          rating={5}
+                        <RatingActions
+                          rating={this.state.album.rating.id}
+                          albumMbid={this.state.album.mbid}
                           starDimension="30px"
                           starSpacing="4px"
                         />
-                        <br/>
-                        <br/>
-                        <button className="button has-margin-right-5">Ajouter à une liste</button>
-                        <button className="button">Ajouter à mes envies</button>
                       </div>
-                      <div className="column is-8-mobile is-offset-1-desktop is-3-desktop has-margin-top-20">
-                        <AlbumStats
+                      <div className="column is-6-mobile is-4-desktop is-3-widescreen is-offset-1-widescreen has-margin-top-20">
+                        <GeneralStats
                           album={this.state.album}
                         />
                       </div>
-                      <div className="column is-9">
+                      <div className="column is-12-mobile is-9-desktop">
                         <hr/>
                         {
                             this.state.album.genres.length === 0 ?
@@ -97,7 +102,28 @@ class AlbumDetails extends Component {
                         <ReviewsPanel
                           album={this.state.album}
                         />
-                      </div>                      
+                      </div>
+                      <div className="column is-3">
+                        { getUser() && (
+                            <>
+                              <br/>
+                              <FolloweesStatsPanel
+                                album={this.state.album}
+                              />
+                            </>  
+                        )}
+                        <br/>
+                        <div className="columns is-mobile has-margin-right-10">
+                          <AlbumYoutubeLink
+                            mbid={this.state.album.mbid}
+                          />
+                        </div>
+                        <br/>
+                        <AlbumsFromSameArtist
+                          album={this.state.album}
+                        />
+
+                      </div>
                     </div>                                      
                   </div>
                 </div>

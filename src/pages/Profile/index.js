@@ -62,21 +62,21 @@ class Profile extends Component {
         return (
             <div className="columns is-multiline is-marginless is-paddingless">
               <div className="column is-12-mobile is-3-desktop">
-                {this.state.profile ? (
+                {this.state.profile && (
                     <ProfileSidebar
                       {...this.state.profile}
                       follows_you={this.state.followsYou}
                       user_buttons={this.getUserButtons()}
                     />
-                ) : ''}
+                )}
               </div>
               <div className="column is-12-mobile is-7-widescreen has-padding-left-30">
-                {this.state.profile ? (
+                {this.state.profile && (
                     <BodyComponent
                       {...this.props}
                       profile={this.state.profile}
                     />   
-                ) : ""}
+                )}
               </div>
             </div>
         );

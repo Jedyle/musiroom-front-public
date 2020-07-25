@@ -1,99 +1,112 @@
 import React, { Component } from 'react';
-import { Bar } from 'react-chartjs-2';
-import { getAlbumRatingStats } from 'services/Ratings';
+import AlbumStats from 'components/AlbumDetails/AlbumStats';
+import { getAlbumRatingStats, getFolloweesRatings } from 'services/Ratings';
+import { Link } from 'react-router-dom';
+import { profileUrl, getReviewUrl } from 'pages/urls';
 
-const RatingsChart = ({
-    labels,
-    data,
-    bgColor
-}) => (
-    <Bar
-      data={
-          {
-              labels: labels,
-              datasets: [
-                  {                                   
-                      backgroundColor: bgColor,
-                      data: data
-                  }
-              ]
-          }
-      }
-      options={
-          {
-              legend: {
-                  display: false
-              },
-              scales: {
-                  xAxes: [{
-                      gridLines: {
-                          display: false,
-                      },
-                      ticks:{
-                          display: false
-                      },
-                      categoryPercentage: 1.0,
-                      barPercentage: 1.0
-                  }],
-                  yAxes: [{
-                      gridLines: {
-                          display: false,
-                      },
-                      ticks:{
-                          display: false
-                      }
-                  }]
-              }
-          }
-      }
-    />);
-
-class AlbumStats extends Component {
+class GeneralStats extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            generalStats: null  
+            stats: null  
         };
     }
 
     componentDidMount(){
-        getAlbumRatingStats(this.props.album.rating.id).then(
-            (response) => {
-                this.setState({
-                    generalStats: response.data
-                });
-            }  
-        );
+        if(this.props.album.rating){            
+            getAlbumRatingStats(this.props.album.rating.id).then(
+                (response) => {
+                    this.setState({
+                        stats: response.data
+                    });
+                }  
+            );
+        }
     }
 
     render(){
-        console.log(this.state.generalStats);
-        if (this.state.generalStats){
-            return (
-                <div className="columns is-mobile has-border has-margin-right-10">
-                  <div className="column is-4">
-                    <h1 className="is-marginless has-text-centered title is-size-1">
-                      {parseFloat(this.state.generalStats.average).toFixed(1)}
-                    </h1>
-                    <p className="has-text-centered has-margin-top-10">
-                      <span className="icon">
-                        <i className="fa fa-user"></i>
-                      </span>
-                      {this.state.generalStats.count}
-                    </p>
-                  </div>
-                  <div className="column is-8">
-                    <RatingsChart
-                      bgColor="grey"
-                      {...this.state.generalStats.stats}
-                    />
-                  </div>
-                </div>
-            );
-        }
-        return (<div></div>);
+        return (
+            <>
+              <h1 className="title has-text-centered is-size-5">Note moyenne</h1>
+              {
+                  this.state.stats ?
+                      (
+                          <AlbumStats
+                            stats={this.state.stats}
+                            chartColor={this.props.chartColor}
+                            textClass={this.props.textClass}
+                          /> )    : (<div className="has-text-centered">Aucune note</div>) 
+              }
+            </>
+        );
     };
 }
 
-export default AlbumStats;
+const FolloweesRatingsList = ({
+    ratings,
+    album
+}) => (
+    <ul>
+      {ratings.map(
+          (rating) => (
+              <li key={rating.id}>
+                <span className="tag is-success is-light is-medium has-margin-5">
+                  {rating.score}
+                </span>
+                <Link to={profileUrl(rating.user)}>
+                  {rating.user}
+                </Link>
+                {rating.review && <Link to={getReviewUrl(album.mbid, rating.review.id)}>{"      "}<span className="tag is-info has-margin-3">Critique</span></Link>}
+              </li>
+          )
+      )}
+    </ul>
+);
+
+class FolloweesStatsPanel extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            stats: null
+        };
+    }
+
+    componentDidMount(){
+        if(this.props.album.rating){            
+            getFolloweesRatings(this.props.album.rating.id).then(
+                (response) => {
+                    this.setState({
+                        stats: response.data.stats,
+                        ratings: response.data.results
+                    });
+                }  
+            );
+        }
+    }
+
+    render(){
+        return (
+            <>
+              <h1 className="title has-text-centered is-size-5">Mes abonnements</h1>
+              {this.state.stats ? (
+                  <>
+                  <AlbumStats
+                    stats={this.state.stats}
+                    textClass="has-text-success"
+                  />
+                    <FolloweesRatingsList
+                      album={this.props.album}
+                      ratings={this.state.ratings}
+                    />
+                  </>
+              ) : (<div className="has-text-centered">Aucun de vos abonnements n'a noté cet album'</div>)}        
+            </>
+        );
+    };    
+    
+}
+
+
+export { GeneralStats, FolloweesStatsPanel };

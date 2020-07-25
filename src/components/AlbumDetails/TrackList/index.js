@@ -7,14 +7,14 @@ const TrackList = ({
       {
           tracks.map(
               (cd, index) => (
-                  <div>
+                  <div key={index}>
                     <br/>
                     <h1>{cd.medium_title || `CD${index+1}`}</h1>
                     <div className="list">
                       {
                           cd.tracks.map(
                               (track, index) => (
-                                  <div className="list-item has-background-light">
+                                  <div className="list-item has-background-light" key={index}>
                                     <small>{index+1}</small>
                                     <span className="has-padding-left-10">{track.title}</span>
                                     <small> ({track.duration})</small>
