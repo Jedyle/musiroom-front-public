@@ -18,7 +18,7 @@ import AlbumSidebar from 'components/AlbumDetails/Sidebar';
 import TrackList from 'components/AlbumDetails/TrackList';
 import AlbumYoutubeLink from 'components/AlbumDetails/YoutubeLink';
 import ArtistSidebar from 'components/Artist/Sidebar';
-import CommentTreeView from 'components/Comments/Tree';
+import GenreTree from 'components/Genre/Tree';
 
 class Prototypes extends React.Component {
 
@@ -415,66 +415,55 @@ class Prototypes extends React.Component {
             },
             screenSize: 'is-3-widescreen'
         },
-        CommentTreeView: {
-            component: CommentTreeView,
+        GenreTree: {
+            component: GenreTree,
             props: {
-                onCommentVote: (id, action) => {},
-                onSubmitComment: (id, content, event) => {event.preventDefault(); console.log(event); console.log(content);},
-                comments : [{
-                    id: 1,
-                    comment : "whatever you say",
-                    vote_score: 5,
-                    user_vote: null,
-                    user: {
-                        username: "Jeremy",
-                        profile: {
-                            avatar: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_fSZ4Ora.jpg"
-                        }
+                genres: [
+                    {
+                        "name": "Chanson Française",
+                        "description": "",
+                        "slug": "francais",
+                        "parent": null,
+                        "children": []
                     },
-                    submit_date: "2018-01-17T22:00:35.207719+02:00",                    
-                    children: [
+                    {
+                        "name": "Metal",
+                        "description": "",
+                        "slug": "metal",
+                        "parent": null,
+                        "children": [
                             {
-                                id: 5,
-                                comment: "hello",
-                                vote_score: 5,
-                                user_vote: "up",
-                                user: {
-                                    username: "Tester",
-                                    profile: {
-                                        avatar: "https://bulma.io/images/placeholders/128x128.png"
+                                "name": "Death Metal",
+                                "description": "",
+                                "slug": "death-metal",
+                                "parent": "metal",
+                                "children": [
+                                    {
+                                        "name": "Melodical Death Metal",
+                                        "description": "",
+                                        "slug": "melodic-death-metal",
+                                        "parent": "death-metal",
+                                        "children": []
                                     }
-                                },
-                                submit_date: "2018-07-17T22:00:35.207719+02:00",
-                                children: null
-                            },
-                            {
-                                id: 7,
-                                comment: "world",
-                                vote_score: -1,
-                                user_vote: "down",
-                                user: {
-                                    username: "Cuck",
-                                    profile: {
-                                        avatar: "https://bulma.io/images/placeholders/128x128.png"
-                                    }
-                                },
-                                submit_date: "2020-04-12T21:04:35.207719+02:00",
-                                children: []
+                                ]
                             }
-                        ],
-                }, {                    
-                    id: 3,
-                    comment: "orphan",
-                    vote_score: 0,
-                    user_vote: "up",
-                    submit_date: "2020-07-17T22:00:35.207719+02:00",
-                    user: {
-                        username: "Orphée",
-                        profile: {
-                            avatar: "https://bulma.io/images/placeholders/128x128.png"
-                        }
-                    },                    
-                }]                                
+                        ]
+                    },
+                    {
+                        "name": "Rock",
+                        "description": "rock and roll",
+                        "slug": "rock",
+                        "parent": null,
+                        "children": []
+                    },
+                    {
+                        "name": "Techno",
+                        "description": "",
+                        "slug": "techno",
+                        "parent": null,
+                        "children": []
+                    }
+                ]
             }
         }
     }

@@ -24,7 +24,7 @@ const Input = ({
                {...props}
         />
       </p>
-      <p className="help is-success">{errorMessages}</p>
+      <p className="help is-success">{successMessages}</p>
       <p className="help is-danger">{errorMessages}</p>
     </div>
 );

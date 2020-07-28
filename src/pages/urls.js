@@ -7,7 +7,8 @@ export const getAlbumUrl = (id) => `/musique/album/${id}`;
 export const getReviewUrl = (albumId, reviewId) => `/musique/album/${albumId}/critique/${reviewId}`;
 export const getArtistUrl = (id) => `/musique/artiste/${id}`;
 export const getGenreUrl = (slug) => `/musique/genre/${slug}`;
-
+export const getGenresUrl = () => `/musique/genres`;
+export const createGenreUrl = () => '/musique/genres/nouveau';
 export function getDiscussionsUrlForObject(contentType, contentObjectId){
     switch(contentType){
     case "artist":
@@ -22,4 +23,3 @@ export function getDiscussionsUrlForObject(contentType, contentObjectId){
 }
 
 export const getDiscussionUrl = (discussionId) => `/discussions/d/${discussionId}`;
- 

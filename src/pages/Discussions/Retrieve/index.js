@@ -55,7 +55,7 @@ export default class DiscussionRetrieve extends Component {
         editDiscussion(
             this.state.discussion.id,
             this.state.discussionEdit.title,
-            this.state.discussionEdit.content
+            this.state.discussionEdit.content,            
         ).then((response) => {
             this.setState({
                 discussion: response.data,

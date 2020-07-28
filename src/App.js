@@ -6,7 +6,7 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getReviewUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getReviewUrl, getGenresUrl, getGenreUrl, createGenreUrl } from 'pages/urls';
 import PrivateRoute from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
 import DiscussionCreate from 'pages/Discussions/Create';
@@ -14,6 +14,9 @@ import DiscussionRetrieve from 'pages/Discussions/Retrieve';
 import ReviewRetrieve from 'pages/Reviews/Retrieve';
 import AlbumDetails from 'pages/Album';
 import ArtistDetails from 'pages/Artist';
+import GenreList from 'pages/Genres/List';
+import GenreRetrieve from 'pages/Genres/Retrieve';
+import GenreCreate from 'pages/Genres/Create';
 
 const NotFound = () => (
     <div>
@@ -33,6 +36,18 @@ function App() {
                 <Switch>
                   <Route exact path="/" component={Home}/>
                   <Route exact path="/prototypes" component={Prototypes}/>
+                  <Route exact path={getGenresUrl()} component={GenreList}/>
+                  <Route exact path={getGenreUrl(':slug')}
+                         render = {props => (
+                             <GenreRetrieve
+                               key={props.match.params.slug}
+                               genreSlug={props.match.params.slug}
+                             />
+                         )}
+                  />
+                  <PrivateRoute exact path={createGenreUrl()}
+                                component={GenreCreate}
+                  />
                   <Route exact path={discussionsUrl()}
                          render = {props => {
                              return (

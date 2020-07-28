@@ -48,7 +48,8 @@ Pages :
 ** album genres page (votes) (2)
 * DONE Artist page (3)
   CLOSED: [2020-07-10 ven. 19:53]
-* Lists
+* DONE Lists
+  CLOSED: [2020-07-25 sam. 22:27]
 ** all lists (1)
 ** list details (4)
 * Search page
@@ -60,11 +61,14 @@ Pages :
 * Registration
 ** connexion (2)
 ** inscription (2)
-* Discussions
+* DONE Discussions
+  CLOSED: [2020-07-25 sam. 22:27]
 ** DONE List
    CLOSED: [2019-11-09 sam. 13:46]
-** TODO Create
-*** TODO Create for some topic pre loaded
+** DONE Create
+   CLOSED: [2020-07-25 sam. 22:27]
+*** DONE Create for some topic pre loaded
+    CLOSED: [2020-07-25 sam. 22:27]
 ** DONE Retrieve
    CLOSED: [2020-07-25 sam. 20:16]
 
