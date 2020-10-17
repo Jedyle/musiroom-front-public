@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatDate } from 'utils/date';
 import { Link } from 'react-router-dom';
-import { getAlbumUrl, getArtistUrl, getGenreUrl } from 'pages/urls';
+import { getAlbumUrl, getArtistUrl, getGenreUrl, getAlbumGenresUrl } from 'pages/urls';
 
 const AlbumSidebar = ({
     mbid,
@@ -10,7 +10,7 @@ const AlbumSidebar = ({
     artists=[],
     release_date,
     album_type,
-    genres
+    real_genres
 }) => (
     <div className="card profile-sidebar">
       <div className="card-image">
@@ -49,17 +49,19 @@ const AlbumSidebar = ({
                Type : {album_type}
              </li>
             }
-            {genres &&
+            {real_genres &&
              <li className="list-item">
-               Genres : {genres.length > 0 ? 
-                         genres.map(
+               Genres : {real_genres.length > 0 ? 
+                         real_genres.map(
                              (genre) => (<Link key={genre.slug}
                               to={getGenreUrl(genre.slug)}>
                            {genre.name}
                          </Link>)
                          ).reduce((prev, curr) => [prev, ', ', curr]) : "Non précisé"
                         } {"  "}
-               (voter sur les genres)
+               
+               ({<Link to={getAlbumGenresUrl(mbid)}>voter sur les genres</Link>})
+               
              </li>
             }
           </div>

@@ -53,7 +53,7 @@ const AlbumStats = ({
     chartColor,
     textClass
 }) => ( stats &&  (
-    <div className="columns is-mobile has-border has-margin-right-10" style={{}}>
+    <div className="columns is-mobile has-border has-margin-right-10">
                   <div className="column is-4">
                     <h1 className={`is-marginless has-text-centered title is-size-1 ${textClass}`}>
                       {parseFloat(stats.average).toFixed(1)}

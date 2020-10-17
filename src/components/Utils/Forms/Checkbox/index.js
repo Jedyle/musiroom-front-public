@@ -16,7 +16,7 @@ const CheckBox = ({
                  checked={checked}
                  onChange={onChange}
           />
-          {message}
+          {" "}{message}
         </label>
       </div>
       <p className="help is-success">{successMessages}</p>

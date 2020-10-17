@@ -32,3 +32,24 @@ export function getReviewsForRatedObject({
 export function getReview(id){
     return api.get(`/reviews/${id}`);
 }
+
+export function voteOnReview(id, vote){
+    return api.put(`/reviews/${id}/vote/`, {
+        vote: vote
+    });
+}
+
+export function createReview({rating, title, content}){
+    return api.post(`/reviews/`, {
+        rating: rating,
+        title: title,
+        content: content
+    });
+}
+
+export function updateReview(id, title, content){
+    return api.put(`/reviews/${id}/`, {
+        title: title,
+        content: content
+    });
+}

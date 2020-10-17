@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import { truncate } from 'utils/strings';
 
 import Base from "./base";
 import { DISCUSSION_TYPES, createDiscussion, getObjectForDiscussionType, getDiscussionObjectName } from 'services/Discussions';
@@ -38,7 +39,6 @@ class _SubjectForm extends Component {
         if (this.props.objectId && this.props.contentType){
             getObjectForDiscussionType(this.props.contentType, this.props.objectId).then(
                 (response) => {
-                    console.log(response.data);
                     this.setState({
                         selectedItem: {
                             objectId: this.props.objectId,
@@ -165,8 +165,9 @@ class _SubjectForm extends Component {
               onChangeTitle={this.onChangeTitle}
               currentText={this.state.currentText}
               onChangeText={this.onChangeText}
-              autocompleteList={this.state.autocompleteList.map((el) => (el.name))}
+              autocompleteList={this.state.autocompleteList.map((el) => (truncate(el.name, 80)))}
               onChooseItem={this.onChooseItem}
+              onBlur={() => {this.setState({autocompleteList: []});}}
               selectedItem={this.state.selectedItem}
               onResetItem={this.onResetItem}
               onCreateDiscussion={this.onCreateDiscussion}            

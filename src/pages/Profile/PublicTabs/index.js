@@ -7,7 +7,7 @@ import DiscussionsTab from './DiscussionsTab';
 import InterestsTab from './InterestsTab';
 import RatingsTab from './RatingsTab';
 import ProfileTabs from 'components/Profile/Tabs';
-import {Route, Link} from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { join } from 'utils/urls';
 
 class PublicProfileTabs extends Component{

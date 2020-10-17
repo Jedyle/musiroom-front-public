@@ -11,12 +11,12 @@ const Paginator = ({
       <a
         className="pagination-previous"
         disabled={!previousPageUrl}
-        onClick={onPreviousPage}
+        onClick={previousPageUrl && onPreviousPage}
       > {"<"} </a>
       <a
         className="pagination-next"
         disabled={!nextPageUrl}
-        onClick={onNextPage}
+        onClick={nextPageUrl && onNextPage}
       >{">"}</a>
     </span>
 );

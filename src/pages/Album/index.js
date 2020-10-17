@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { getUser } from 'services/Auth/api';
+import { Route, Link } from 'react-router-dom';
 import { getAlbum } from 'services/Albums';
-import AlbumSidebar from 'components/AlbumDetails/Sidebar';
-import TrackList from 'components/AlbumDetails/TrackList';
-import RatingActions from './ratingActions';
-import ReviewsPanel from './reviews';
-import { GeneralStats, FolloweesStatsPanel } from './albumStats';
-import AlbumYoutubeLink from './youtubeLink';
-import AlbumsFromSameArtist from './fromSameArtist';
-import { getDiscussionsUrlForObject, discussionCreateOnTopicUrl } from 'pages/urls';
+import AlbumSidebar from 'components/Album/Sidebar';
+import DetailsPage from './Details';
+import AlbumGenresPage from './Genres';
+import CreateReview from './Review/Create';
+import RetrieveUpdateReview from './Review/RetrieveUpdate';
+import TrackList from 'components/Album/TrackList';
+import { getDiscussionsUrlForObject, discussionCreateOnTopicUrl, getAlbumGenresUrl, createReviewUrl, getReviewUrl } from 'pages/urls';
 
-const PleaseSubmitGenreMessage = ({
-    album
-}) => (
-    <article className="message is-info">
-      <div className="message-header">
-        <p>Quel est le genre de cet album ?</p>
-      </div>
-      <div className="message-body">
-        Cet album n'a pas encore de genre(s) attitré(s). Prenez 5 secondes pour
-        {"  "}
-        <a>proposer un genre</a>
-        {"  "}
-        pour cette oeuvre ! 
-      </div>
-    </article>
+const ExtendedSidebar = ({album}) => (
+    <>
+      <AlbumSidebar
+        {...album}
+      />
+      <span>
+        <Link
+          to={getDiscussionsUrlForObject('album', album.id)}
+          className="button is-medium has-margin-top-5 is-fullwidth is-info">Discussions sur {album.title}</Link>
+        <Link
+          to={discussionCreateOnTopicUrl('album', album.id)}
+          className="button is-medium has-margin-top-5 is-fullwidth is-success">Nouvelle discussion</Link>
+      </span>
+      <hr/>
+      <h3 className="is-size-5">Pistes</h3>
+      <TrackList
+        tracks={album.mbid ? album.tracks.track_list : []}
+      />
+    </>
 );
 
 
@@ -59,72 +61,35 @@ class AlbumDetails extends Component {
             return (
                 <div className="columns is-multiline is-marginless is-paddingless">
                   <div className="column is-12-mobile is-3-desktop">
-                    <AlbumSidebar
-                      {...this.state.album}
-                    />
-                    <span>
-                      <Link
-                        to={getDiscussionsUrlForObject('album', this.state.album.id)}
-                        className="button is-medium has-margin-top-5 is-fullwidth is-info">Discussions sur {this.state.album.title}</Link>
-                      <Link
-                        to={discussionCreateOnTopicUrl('album', this.state.album.id)}
-                        className="button is-medium has-margin-top-5 is-fullwidth is-success">Nouvelle discussion</Link>
-                    </span>
-                    <hr/>
-                    <h3 className="is-size-5">Pistes</h3>
-                    <TrackList
-                      tracks={this.state.album.mbid ? this.state.album.tracks.track_list : []}
-                    />                
+                    <ExtendedSidebar album={this.state.album}/>                  
                   </div>
                   <div className="column is-12-mobile is-9-desktop has-padding-left-30">
-                    <div className="columns is-multiline">
-                      <div className="column is-12-mobile is-8-desktop">
-                        <h1 className="title is-size-2">{this.state.album.title}</h1>
-                        <RatingActions
-                          rating={this.state.album.rating.id}
-                          albumMbid={this.state.album.mbid}
-                          starDimension="30px"
-                          starSpacing="4px"
-                        />
-                      </div>
-                      <div className="column is-6-mobile is-4-desktop is-3-widescreen is-offset-1-widescreen has-margin-top-20">
-                        <GeneralStats
-                          album={this.state.album}
-                        />
-                      </div>
-                      <div className="column is-12-mobile is-9-desktop">
-                        <hr/>
-                        {
-                            this.state.album.genres.length === 0 ?
-                                <PleaseSubmitGenreMessage/> : ""
-                        }
-                        <br/>
-                        <ReviewsPanel
-                          album={this.state.album}
-                        />
-                      </div>
-                      <div className="column is-3">
-                        { getUser() && (
-                            <>
-                              <br/>
-                              <FolloweesStatsPanel
-                                album={this.state.album}
-                              />
-                            </>  
-                        )}
-                        <br/>
-                        <div className="columns is-mobile has-margin-right-10">
-                          <AlbumYoutubeLink
-                            mbid={this.state.album.mbid}
-                          />
-                        </div>
-                        <br/>
-                        <AlbumsFromSameArtist
-                          album={this.state.album}
-                        />
-
-                      </div>
-                    </div>                                      
+                    <Route
+                      exact
+                      path={this.props.match.url}
+                      render={(props) => <DetailsPage {...props}
+                                                      album={this.state.album}
+                                         />}
+                    />
+                    <Route exact
+                           path={getAlbumGenresUrl(this.state.album.mbid)}
+                           render={(props) => <AlbumGenresPage {...props}
+                                                               album={this.state.album}/>
+                                  }
+                    />
+                    <Route exact
+                           path={createReviewUrl(this.state.album.mbid)}
+                           render={(props) => <CreateReview {...props}
+                                                            album={this.state.album}
+                                              />}
+                    />
+                    <Route exact
+                           path={getReviewUrl(this.state.album.mbid, ":reviewId")}
+                           render={(props) => <RetrieveUpdateReview {...props}
+                                                              album={this.state.album}
+                                              />}
+                      
+                    />
                   </div>
                 </div>
             );

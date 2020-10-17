@@ -1,6 +1,6 @@
 import React from 'react';
 import { DISCUSSION_TYPES } from 'services/Discussions';
-import AlbumSidebar from 'components/AlbumDetails/Sidebar';
+import AlbumSidebar from 'components/Album/Sidebar';
 import ArtistSidebar from 'components/Artist/Sidebar';
 
 const Sidebar = ({

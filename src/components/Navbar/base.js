@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
 import { profileUrl, discussionsUrl, getGenresUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
+import SearchInput from 'components/Search/SearchInput';
+import NotificationBell from 'components/Notifications/Bell';
 
 class Navbar extends Component {
 
@@ -109,10 +111,23 @@ class Navbar extends Component {
                         Report an issue
                       </a>
                     </div>
-                  </div>
+                  </div>                  
                 </div>
 
                 <div className="navbar-end" style={{'paddingRight': '10px'}}>
+                  <div className="navbar-item">
+                    <SearchInput />
+                  </div>
+
+                  { this.props.token &&
+                    (
+                        <div className="navbar-item">
+                          <NotificationBell
+                          />
+                        </div>
+                    )
+                  }
+                  
                   {this.userButtons()}
                 </div>
               </div>

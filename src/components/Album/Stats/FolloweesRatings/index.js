@@ -1,47 +1,8 @@
 import React, { Component } from 'react';
-import AlbumStats from 'components/AlbumDetails/AlbumStats';
-import { getAlbumRatingStats, getFolloweesRatings } from 'services/Ratings';
+import RatingsChart from '../RatingsChart';
+import { getFolloweesRatings } from 'services/Ratings';
 import { Link } from 'react-router-dom';
 import { profileUrl, getReviewUrl } from 'pages/urls';
-
-class GeneralStats extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            stats: null  
-        };
-    }
-
-    componentDidMount(){
-        if(this.props.album.rating){            
-            getAlbumRatingStats(this.props.album.rating.id).then(
-                (response) => {
-                    this.setState({
-                        stats: response.data
-                    });
-                }  
-            );
-        }
-    }
-
-    render(){
-        return (
-            <>
-              <h1 className="title has-text-centered is-size-5">Note moyenne</h1>
-              {
-                  this.state.stats ?
-                      (
-                          <AlbumStats
-                            stats={this.state.stats}
-                            chartColor={this.props.chartColor}
-                            textClass={this.props.textClass}
-                          /> )    : (<div className="has-text-centered">Aucune note</div>) 
-              }
-            </>
-        );
-    };
-}
 
 const FolloweesRatingsList = ({
     ratings,
@@ -64,7 +25,7 @@ const FolloweesRatingsList = ({
     </ul>
 );
 
-class FolloweesStatsPanel extends Component {
+export default class FolloweesRatingsStats extends Component {
 
     constructor(props){
         super(props);
@@ -92,10 +53,10 @@ class FolloweesStatsPanel extends Component {
               <h1 className="title has-text-centered is-size-5">Mes abonnements</h1>
               {this.state.stats ? (
                   <>
-                  <AlbumStats
-                    stats={this.state.stats}
-                    textClass="has-text-success"
-                  />
+                    <RatingsChart
+                      stats={this.state.stats}
+                      textClass="has-text-success"
+                    />
                     <FolloweesRatingsList
                       album={this.props.album}
                       ratings={this.state.ratings}
@@ -107,6 +68,3 @@ class FolloweesStatsPanel extends Component {
     };    
     
 }
-
-
-export { GeneralStats, FolloweesStatsPanel };

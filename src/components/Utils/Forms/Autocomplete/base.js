@@ -1,5 +1,4 @@
 import React from 'react';
-import { truncate } from 'utils/strings';
 import './index.css';
 
 const AutocompleteInput = ({
@@ -11,35 +10,42 @@ const AutocompleteInput = ({
     cursor,
     onKeyDown,
     onChooseItem,
-    errorMessages = '',
-    successMessages = '',
+    onBlur,
     additionalFieldClasses = '',
     additionalControlClasses = '',
+    additionalControlElements = null,
     ...props
 
 }) => (
     <>
-      <input
-        className="input"
-        type="text"
-        placeholder={placeholder}
-        name={name}     
-        value={value}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        {...props}
-      />
-    <div className="list" style={{position: 'absolute', zIndex: 10}}>        
+      <div className={`field ${additionalFieldClasses}`}>
+        <p className={`control ${additionalControlClasses}`}>
+          <input
+            className="input"
+            type="text"
+            placeholder={placeholder}
+            name={name}     
+            value={value}
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            onBlur={onBlur}
+            {...props}
+          />
+        </p>
+        {additionalControlElements}
+      </div>
+      <div className="list" style={{position: 'absolute', zIndex: 10}}>        
         {autocompleteList.map(
             (item, index) => (
                 <div
+                  key={index}
                   className={`list-item ${cursor === index && 'is-active'}`}
                   style={{cursor: 'pointer'}}
                   onClick={(e) => {onChooseItem(index);}}
-                >{truncate(item, 80)}</div>
+                >{item}</div>
             )
         )}
-      </div>
+      </div>      
     </>
 );
 

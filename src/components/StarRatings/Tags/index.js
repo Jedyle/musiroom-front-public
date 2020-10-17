@@ -1,7 +1,7 @@
 import React from 'react';
 import { getUser } from 'services/Auth/api';
 import './index.css';
-
+import PropTypes from 'prop-types';
 
 const RatingTagsList = ({userRating, followeesRating, avgRating}) => (
     <div className="tags are-medium is-pulled-right">
@@ -27,5 +27,11 @@ const RatingTagsList = ({userRating, followeesRating, avgRating}) => (
       </span>             
     </div>
 );
+
+RatingTagsList.propTypes = {
+    userRating: PropTypes.number,
+    followeesRating: PropTypes.number,
+    avgRating: PropTypes.number
+};
 
 export default RatingTagsList;

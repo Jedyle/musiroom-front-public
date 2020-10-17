@@ -6,7 +6,7 @@ export default class AutocompleteInput extends Component {
     constructor(props){
         super(props);
         this.state = {
-            cursor: 0
+            cursor: -1
         };
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
@@ -26,15 +26,16 @@ export default class AutocompleteInput extends Component {
             }));
         }
         // press enter
-        else if (e.keyCode === 13){
+        else if (e.keyCode === 13 && this.state.cursor >= 0){
+            e.preventDefault();
             this.props.onChooseItem && this.props.onChooseItem(this.state.cursor);
             this.setState({
-                cursor: 0 
+                cursor: -1 
             });
         }
         else {
             this.setState({
-                cursor: 0 
+                cursor: -1 
             });
         }
     }

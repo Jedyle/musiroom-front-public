@@ -14,11 +14,13 @@ import {Link} from 'react-router-dom';
 import ContactGallery from 'components/Profile/Contacts/ContactGallery';
 import ProfileTabs from 'components/Profile/Tabs';
 import DiscussionListItem from 'components/Discussions/List/ListItem';
-import AlbumSidebar from 'components/AlbumDetails/Sidebar';
-import TrackList from 'components/AlbumDetails/TrackList';
-import AlbumYoutubeLink from 'components/AlbumDetails/YoutubeLink';
+import AlbumSidebar from 'components/Album/Sidebar';
+import TrackList from 'components/Album/TrackList';
+import AlbumYoutubeLink from 'components/Album/YoutubeLink';
 import ArtistSidebar from 'components/Artist/Sidebar';
 import GenreTree from 'components/Genre/Tree';
+import AlbumSearch from 'components/Search/Album';
+import LikeDislikePanel from 'components/Utils/LikeDislikePanel';
 
 class Prototypes extends React.Component {
 
@@ -464,6 +466,196 @@ class Prototypes extends React.Component {
                         "children": []
                     }
                 ]
+            }
+        },
+        AlbumSearch: {
+            component: AlbumSearch,
+            props: {
+                albums :  [
+                    {
+                        "title": "Blackfinger",
+                        "album_mbid": "1dff4dea-180e-40bb-84f9-ab6c672dde4a",
+                        "artist": "Blackfinger",
+                        "artist_mbid": "fdd528e9-0b7c-4923-aa2d-0ef87e53adcf",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfield II",
+                        "album_mbid": "33c0495e-e289-3492-9e98-b298e56e5573",
+                        "artist": "Blackfield",
+                        "artist_mbid": "8e67406d-de61-4e6b-a2a1-5a3725484527",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfield IV",
+                        "album_mbid": "c5337cfd-22a0-4ead-aed0-949290f9ae8a",
+                        "artist": "Blackfield",
+                        "artist_mbid": "8e67406d-de61-4e6b-a2a1-5a3725484527",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfield",
+                        "album_mbid": "1d47a5c2-e06e-33db-8835-332827499f1c",
+                        "artist": "Blackfield",
+                        "artist_mbid": "8e67406d-de61-4e6b-a2a1-5a3725484527",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "greyblackfalconhawk",
+                        "album_mbid": "a0803c2d-232f-49a4-9fff-1cbc86ac8d6d",
+                        "artist": "Ice Dragon",
+                        "artist_mbid": "993e8c86-aa0f-4591-9edc-29302d5cf1b3",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "#BlackFriday",
+                        "album_mbid": "875b82ac-784c-4d10-87d8-8226c068410b",
+                        "artist": "Metasota",
+                        "artist_mbid": "6a2189d6-8ac7-4778-bcbb-c9ead8fa7ad7",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "BLACKFLOWER",
+                        "album_mbid": "e6e80760-10dd-4154-9f95-f0542cd3fde6",
+                        "artist": "SONANCE",
+                        "artist_mbid": "95b2cb55-7063-4f36-9fcc-b0def283be4d",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfellas",
+                        "album_mbid": "e66e5e00-b41b-3d7d-a6fa-842248a53d81",
+                        "artist": "Local Knowledge",
+                        "artist_mbid": "6f6c76a7-a8d4-400b-a295-4ee5f260bd6d",
+                        "type": "Single"
+                    },
+                    {
+                        "title": "Blackfish",
+                        "album_mbid": "7a3b101e-99ea-3e98-a6e1-972a60e05667",
+                        "artist": "Blackfish",
+                        "artist_mbid": "b4bef68d-a696-4edb-8152-66ae4b9adbfc",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackface",
+                        "album_mbid": "37a685e9-681e-35e5-bb13-a435942678bb",
+                        "artist": "Shai",
+                        "artist_mbid": "00b41159-d8c8-4c5d-9ce4-804e67050825",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfly",
+                        "album_mbid": "c870c60e-0726-378f-a5b5-ed1e28e52ca7",
+                        "artist": "Boxsaga",
+                        "artist_mbid": "bdacd120-10fe-45ed-ae01-71b00cfbd1b2",
+                        "type": "Single"
+                    },
+                    {
+                        "title": "Blackflakes",
+                        "album_mbid": "467ff717-5895-4144-8ce2-04c6425faec0",
+                        "artist": "f.lor",
+                        "artist_mbid": "4873f332-7dcd-4486-abcc-4ba79e6ef299",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackflowers",
+                        "album_mbid": "61206e53-0382-465d-844d-ae1ee9e95781",
+                        "artist": "Rammsier",
+                        "artist_mbid": "83ee21e0-fa31-402a-b6a0-e98fca1fbdb7",
+                        "type": "EP"
+                    },
+                    {
+                        "title": "BLACKFOX",
+                        "album_mbid": "a83f1ae5-ab8c-4072-ba1d-fda0dda1b59f",
+                        "artist": "fripSide",
+                        "artist_mbid": "de1d37ff-942a-4c85-a375-ff4f5bf2eaa9",
+                        "type": "Single"
+                    },
+                    {
+                        "title": "Blackfield V",
+                        "album_mbid": "ed2bd6d2-f17e-4d52-91ce-6e253ae0977f",
+                        "artist": "Blackfield",
+                        "artist_mbid": "8e67406d-de61-4e6b-a2a1-5a3725484527",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfire",
+                        "album_mbid": "8dd7f069-41fe-468e-bafd-8b9399020f7f",
+                        "artist": "Dominique Bérose",
+                        "artist_mbid": "6c9985ff-ddf9-4d54-bfae-f97ac859f6d8",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfilm",
+                        "album_mbid": "92d3cbcf-6213-36f6-9d8a-ccf529a6817f",
+                        "artist": "Blackfilm",
+                        "artist_mbid": "328747da-eb27-4049-970c-6a1b23ca56b5",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackface Minstrel",
+                        "album_mbid": "96bbbcb5-5677-495d-ae55-93c1e18619fe",
+                        "artist": "DWNSTRS",
+                        "artist_mbid": "8360f425-823b-4025-a616-289ae5e788b7",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfoot Gypsies",
+                        "album_mbid": "8135c175-20a8-4aea-87a5-4ffac69243e0",
+                        "artist": "Blackfoot Gypsies",
+                        "artist_mbid": "0f4d808e-e2b5-42b3-b9f2-b04b3816a515",
+                        "type": "EP"
+                    },
+                    {
+                        "title": "The Blackfan",
+                        "album_mbid": "4d79edbe-0737-48d4-a1e8-c26d1601cf51",
+                        "artist": "Nazgulum",
+                        "artist_mbid": "9e01308e-0033-40ef-a620-8a74307c0b4e",
+                        "type": "EP + Live"
+                    },
+                    {
+                        "title": "Blackflower / Evergreen",
+                        "album_mbid": "8885d3e1-bf95-4132-b38e-d37863b2b9b3",
+                        "artist": "Dreamscape",
+                        "artist_mbid": "2253bdb9-03fc-499c-999d-ac126f9d2c5e",
+                        "type": "Single"
+                    },
+                    {
+                        "title": "Blackfire Land",
+                        "album_mbid": "d06e700a-4680-3612-bc22-b940bed70260",
+                        "artist": "Asguard",
+                        "artist_mbid": "898ab22b-9751-4024-9350-e7bf09cf7ccf",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Reminiscences of Blackface",
+                        "album_mbid": "1c91c438-d8ce-3e14-b476-7026e174a462",
+                        "artist": "Arthur Francis Collins & Samuel H. Dudley & Ancient City Quartette and Orchestra",
+                        "artist_mbid": "856ba0a6-e2e3-4449-a60c-0e639e7329b3",
+                        "type": "Single"
+                    },
+                    {
+                        "title": "The Blackfeet",
+                        "album_mbid": "135672fc-72a6-4a2d-9cbb-7767a66fb2f2",
+                        "artist": "The Blackfeet",
+                        "artist_mbid": "6bf98072-5217-4746-b7bc-705b8189ebfd",
+                        "type": "Album"
+                    },
+                    {
+                        "title": "Blackfoot Live",
+                        "album_mbid": "f0b980ae-95e4-3727-bded-58bdd46e1369",
+                        "artist": "Blackfoot",
+                        "artist_mbid": "4b24527f-0cfc-4ac0-8d63-ab8d8cfa64e3",
+                        "type": "Album + Live"
+                    }
+                ]
+            }
+        },
+        LikeDislikePanel: {
+            component: LikeDislikePanel,
+            props: {
+                numVoteUp: 50,
+                numVoteDown: 13,
+                loggedUserVote: "down"                
             }
         }
     }

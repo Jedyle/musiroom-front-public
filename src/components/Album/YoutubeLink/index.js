@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getAlbumYoutubeLink } from 'services/Albums';
-import Base from 'components/AlbumDetails/YoutubeLink';
+import Base from './base';
 
 export class AlbumYoutubeLink extends Component {
 

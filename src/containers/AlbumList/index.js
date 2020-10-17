@@ -67,8 +67,6 @@ class AlbumList extends Component {
             let userHasInterest = this.state.loggedUserInterests.some(
                 id => (id === rating_id)
             );
-            console.log(this.state.loggedUserInterests);
-            console.log(userHasInterest);
             if (userHasInterest){
                 return (
                     <span className="icon">
@@ -86,8 +84,9 @@ class AlbumList extends Component {
     }
     
     render(){
-        return this.props.ratedObjects.map(
-            (object) => (
+        let { ratedObjects, content, headerContent, ranks, displayRanks } = this.props;
+        return ratedObjects.map(
+            (object, index) => (
                 <AlbumItem
                   key={object.rating.id}
                   cover={object.cover}
@@ -96,6 +95,7 @@ class AlbumList extends Component {
                          {object.title}
                        </Link>)
                   }
+                  rank={displayRanks ? ranks[index] : null}
                   user_rating={this.getLoggedUserRatingFor(object.rating.id)}
                   followees_rating={this.getAverageFolloweesRatingsFor(object.rating.id)}
                   avg_rating={parseFloat(object.rating.average)}
@@ -112,7 +112,8 @@ class AlbumList extends Component {
                          )}
                        </span>)
                   }
-                  content={this.props.content[object.rating.id]}
+                  headerContent={headerContent && headerContent[object.rating.id]}
+                  content={content[object.rating.id]}
                 />)
         );
     }

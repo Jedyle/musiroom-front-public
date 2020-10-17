@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { profileUrl } from 'pages/urls';
+import { removeHTML } from 'utils/strings';
+import { profileUrl, getReviewUrl } from 'pages/urls';
 import { Link } from 'react-router-dom';
 import { getReviewsForRatedObject } from 'services/Reviews';
 import Paginator from 'components/Utils/Paginator';
@@ -18,7 +19,7 @@ const ReviewList = ({
                     {review.content.substr(0, 400)}...
                   </p>
                   <p className="has-text-right">
-                    <Link>Lire la critique</Link>
+                    <Link to={getReviewUrl(review.rating.content_object.mbid, review.id)}>Lire la critique</Link>
                     {"    "}
                     <span className="icon has-margin-left-20">
                       <i className="fa fa-heart has-margin-right-5"></i>
@@ -83,8 +84,14 @@ class ReviewsPanel extends Component {
                 title: this.state.title
             }).then(
                 (response) => {
+                    let reviews = response.data.results.map((rev) => {
+                        // we remove all html tags from the review
+                        let review = Object.assign({}, rev);
+                        review.content = removeHTML(review.content);
+                        return review;
+                    });
                     this.setState({
-                        reviews: response.data.results,
+                        reviews: reviews,
                         previousPage: response.data.previous,
                         nextPage: response.data.next
                     });

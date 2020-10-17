@@ -1,0 +1,12 @@
+span.notif {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  width: 22px;
+  height: 24px;
+  font-weight: bold;
+  text-align: center;
+  background-color: green;
+  color: white;
+  border-radius: 50%;  
+}

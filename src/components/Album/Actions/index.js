@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getUser } from 'services/Auth/api';
 import StarRatings from 'components/StarRatings';
 import { getOwnRating, changeOwnRating, createOwnRating, deleteOwnRating, changeOwnInterest, getOwnInterest } from 'services/OwnRatings';
 

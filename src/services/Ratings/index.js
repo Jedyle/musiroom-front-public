@@ -29,3 +29,11 @@ export function getFolloweesRatings(rating_id){
         `/ratings/${rating_id}/followees_ratings`
     );
 }
+
+export function getUserRatingsForRatings(username, ratingsIds){
+    return api.get(`/users/${username}/ratings`, {
+        params: {
+            rating_id__in: ratingsIds.join()
+        }
+    });
+}

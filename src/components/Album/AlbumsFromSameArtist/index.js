@@ -21,9 +21,9 @@ export class AlbumsFromSameArtist extends Component {
                         album => {
                             return {
                                 content: (<span>
-                                             <Link to={getAlbumUrl(album.mbid)}>
-                                               <strong>{album.title}</strong>
-                                             </Link>
+                                            <Link to={getAlbumUrl(album.mbid)}>
+                                              <strong>{album.title}</strong>
+                                            </Link>
                                           </span>),
                                 ...album
                             };

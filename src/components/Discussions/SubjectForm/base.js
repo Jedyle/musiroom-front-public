@@ -10,6 +10,7 @@ const SubjectForm = ({
     onChangeValue,    
     autocompleteList,
     onChooseItem,
+    onBlur,
     onResetItem,
     selectedItem,
     currentTitle,
@@ -68,6 +69,8 @@ const SubjectForm = ({
                   onChange={onChangeValue}
                   autocompleteList={autocompleteList}
                   onChooseItem={onChooseItem}
+                  onBlur={onBlur}
+                  additionalControlClasses="has-border"
                 />
               </p>
             </div>

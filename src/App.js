@@ -1,4 +1,5 @@
 import React from 'react';
+import queryString from 'query-string';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -6,17 +7,20 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getReviewUrl, getGenresUrl, getGenreUrl, createGenreUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, createListUrl, getListUrl } from 'pages/urls';
 import PrivateRoute from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
 import DiscussionCreate from 'pages/Discussions/Create';
 import DiscussionRetrieve from 'pages/Discussions/Retrieve';
-import ReviewRetrieve from 'pages/Reviews/Retrieve';
 import AlbumDetails from 'pages/Album';
 import ArtistDetails from 'pages/Artist';
 import GenreList from 'pages/Genres/List';
 import GenreRetrieve from 'pages/Genres/Retrieve';
 import GenreCreate from 'pages/Genres/Create';
+import Search from 'pages/Search';
+import Notifications from 'pages/Notifications';
+import CreateList from 'pages/Lists/Create';
+import RetrieveList from 'pages/Lists/Retrieve';
 
 const NotFound = () => (
     <div>
@@ -34,8 +38,25 @@ function App() {
               <Navbar />
               <div className="fill">
                 <Switch>
+                  <PrivateRoute
+                    exact
+                    path={getNotificationsUrl()}
+                    component={Notifications}
+                  />
                   <Route exact path="/" component={Home}/>
                   <Route exact path="/prototypes" component={Prototypes}/>
+                  <Route exact path={getSearchUrl()}
+                         render={props => {
+                             let query = queryString.parse(props.location.search);
+                             return (
+                                 <Search
+                                   key={props.location.search}
+                                   model={query.model}
+                                   query={query.query}
+                                   page={query.page || 1}
+                                 />
+                             );
+                         }}/>
                   <Route exact path={getGenresUrl()} component={GenreList}/>
                   <Route exact path={getGenreUrl(':slug')}
                          render = {props => (
@@ -103,6 +124,17 @@ function App() {
                          )}
                     
                   />
+                  <Route exact path={createListUrl()}
+                         render={props => <CreateList
+                                            {...props}
+                                          />}
+                  />
+                  <Route exact path={getListUrl(":listId(\\d+)")}
+                         render={props => <RetrieveList
+                                            key={props.match.params.listId}
+                                            {...props}
+                                          />}
+                  />
                   <Route path={profileUrl(":username")}
                          render={props => {
                              return (
@@ -114,21 +146,13 @@ function App() {
                              );
                          }}
                   />
-                  <Route exact path={getAlbumUrl(mbidRegex)}
+                  <Route path={getAlbumUrl(mbidRegex)}
                          render={props => {
                              return (<AlbumDetails
                             key={props.match.params.mbid}
                             {...props}
                />);
                          }}
-                  />
-                  <Route exact path={getReviewUrl(mbidRegex, ":reviewId")}
-                         render={props => 
-                             (<ReviewRetrieve
-                                key={props.match.params.reviewId}
-                                {...props}
-                              />)
-                         }
                   />
                   <Route exact path={getArtistUrl(mbidRegex)}
                          render={props => {

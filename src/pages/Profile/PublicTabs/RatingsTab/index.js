@@ -31,16 +31,17 @@ class RatingsList extends Component {
     }
         
     fetchReviews(){
-        let ratings_ids = this.props.results.map(
-            (rating) => rating.rating
+        let userRatingIds = this.props.results.map(
+            (userRating) => userRating.id
         );
-        getReviewsForUserRatings(this.props.profile.user, ratings_ids).then(
+        getReviewsForUserRatings(this.props.profile.user, userRatingIds).then(
             (response) => {
                 let reviewsAsList = response.data.results;
                 let userReviews = {};
-                for (var i=0; i< reviewsAsList.length; i++){
-                    userReviews[reviewsAsList[i].rating.toString()] = reviewsAsList[i];
+                for (var i=0; i < reviewsAsList.length; i++){
+                    userReviews[reviewsAsList[i].rating.content_object.rating.id] = reviewsAsList[i];
                 }
+                console.log(userReviews);
                 this.setState({
                     userReviews: userReviews
                 });
@@ -50,13 +51,13 @@ class RatingsList extends Component {
 
     formatContent(){
         let formattedRatings = {};
-        for (let rating of this.props.results){
-            formattedRatings[rating.rating] = (
+        for (let userRating of this.props.results){
+            formattedRatings[userRating.rating] = (
                 (<span>
-                   <span className="tag is-medium is-profile-rating">{rating.score}</span>
+                   <span className="tag is-medium is-profile-rating">{userRating.score}</span>
                    {<Link className="has-margin-left-10" to={profileUrl(this.props.profile.user)}>{this.props.profile.user}</Link>}
                    {"   "}
-                 { this.state.userReviews[rating.rating] ?
+                 { this.state.userReviews[userRating.rating] ?
                    (<Link to="/">
                      (voir sa critique)
                     </Link>) : ""}
@@ -67,7 +68,9 @@ class RatingsList extends Component {
     }
 
     render(){
-        return <AlbumList
+        console.log("hello", this.props.results.map((r) => (r.id)));
+        console.log(this.props.results);
+        return this.props.results.length > 0 && <AlbumList
                  ratedObjects={this.props.results.map(
                      (rating) => rating.content_object
                  )}

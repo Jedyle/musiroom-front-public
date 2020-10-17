@@ -14,8 +14,7 @@ function formatDate(date_string, format){
 }
 
 const toHumanDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    return new Date(dateString).toLocaleString('fr-FR', {timezone: 'UTC+2'});
 };
 
 

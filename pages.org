@@ -2,6 +2,7 @@
 Pages : 
 * Home (3)
 * History (1)
+* Login
 * DONE Profile page
   CLOSED: [2020-05-02 sam. 15:30]
 ** DONE Profile/Profile (4)
@@ -20,7 +21,7 @@ Pages :
    CLOSED: [2019-10-29 mar. 20:47]
 * DONE Change profile (2)
   CLOSED: [2019-10-29 mar. 20:47]
-* DELETE ACCOUNT
+* DELETE ACCOUNT (1)
 * DONE Change settings (2)
   CLOSED: [2019-10-29 mar. 20:47]
 * Message box (3 - ne sais pas car nouveau fonctionnement)
@@ -33,29 +34,43 @@ Pages :
 ** List page (1)
 ** Details page (1)
 * Launch export (1)
-* Notifications (1)
+* DONE Notifications (1)
+  CLOSED: [2020-08-01 sam. 21:44]
 * Top albums (3)
-* Genres 
-** genre tree (2)
-** genre details (1)
-** add genre (1)
+* DONE Genres 
+  CLOSED: [2020-07-28 mar. 20:40]
+** DONE genre tree (2)
+   CLOSED: [2020-07-28 mar. 20:40]
+** DONE genre details (1)
+   CLOSED: [2020-07-28 mar. 20:40]
+** DONE add genre (1)
+   CLOSED: [2020-07-28 mar. 20:40]
 * Albums page
 ** DONE Home album (3)
    CLOSED: [2020-05-02 sam. 15:35]
-** Write a review (3)
-** Detail review (2)
+** DONE Write a review (3)
+   CLOSED: [2020-08-11 mar. 21:51]
+** DONE Detail review (2)
+   CLOSED: [2020-08-16 dim. 13:12]
 ** Add album to list (2)
-** album genres page (votes) (2)
+** DONE album genres page (votes) (2)
+   CLOSED: [2020-08-10 lun. 19:16]
 * DONE Artist page (3)
   CLOSED: [2020-07-10 ven. 19:53]
-* DONE Lists
-  CLOSED: [2020-07-25 sam. 22:27]
+* Lists
 ** all lists (1)
-** list details (4)
-* Search page
-** artist search (2)
-** album search (2)
-** user search (2)
+** DONE create list form (1)
+   CLOSED: [2020-10-11 dim. 16:18]
+** DONE list details (4)
+   CLOSED: [2020-10-11 dim. 16:18]
+* DONE Search page
+  CLOSED: [2020-08-10 lun. 19:16]
+** DONE artist search (2)
+   CLOSED: [2020-08-10 lun. 19:16]
+** DONE album search (2)
+   CLOSED: [2020-08-10 lun. 19:16]
+** DONE user search (2)
+   CLOSED: [2020-08-10 lun. 19:16]
 * Feedback page (1)
 * Navbar (3)
 * Registration
@@ -77,3 +92,13 @@ Pages :
 * HANDLE 404
 * COMMENTS : delete/signal behavior (decider de comment on fait un back et front)
 * SUPPRIMER DISCUSSION : idem comments
+
+3 + 1 + 1 + 2 + 1 + 1 + 3 + 9 + 6 + 1 + 2
+* Avatar : probleme avec images pas rondes
+* Refactor 'onChange' common things (setstate(e.target.value) etc)
+* Gerer les erreurs apis de façon plus clean (titleError.. etc)
+* Ajouter titres aux pages
+* Avatars : concaténer REACT_APP_API_URL automatiquement ? ou mettre en backend ? 
+* Refacto layout (columns style etc)
+* Refactor vote function (onVote, onToggleVotes etc are always the same)
+* Refactor edit sections with textarea only
