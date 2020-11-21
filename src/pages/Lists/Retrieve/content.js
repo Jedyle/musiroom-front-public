@@ -65,11 +65,13 @@ class SearchAlbum extends Component {
     }
 
     addAlbumToList = (album) => {
+        let { list, onAddAlbum } = this.props;
         createListItem({
-            listId: this.props.list.id,
+            listId: list.id,
             albumId: album.mbid
         }).then((response) => {
             this.fetchListItems();
+            onAddAlbum();
         });
     }
     
@@ -158,7 +160,7 @@ class AddAlbumSection extends Component {
     }
 
     render(){
-        let { list } = this.props;
+        let { list, onAddAlbum } = this.props;
         let { isActive } = this.state;
         return (
             <>
@@ -179,9 +181,13 @@ class AddAlbumSection extends Component {
                     ></button>
                   </header>
                   <section className="modal-card-body">
-                    <SearchAlbum
-                      list={list}
-                    />
+                    {
+                        isActive &&
+                            <SearchAlbum
+                              onAddAlbum={onAddAlbum}
+                              list={list}
+                            />
+                    }
                   </section>
                 </div>
               </div>
@@ -541,6 +547,7 @@ export default class ListContent extends Component {
                   <p className="has-text-centered">Liste de {count} albums</p>
               )}
               <AddAlbumSection
+                onAddAlbum={() => this.fetchItems(page)}
                 list={list}
               />
               <br/>
