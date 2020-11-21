@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl, discussionsUrl, getGenresUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
 import SearchInput from 'components/Search/SearchInput';
 import NotificationBell from 'components/Notifications/Bell';
@@ -54,7 +54,7 @@ class Navbar extends Component {
             <nav className="navbar" role="navigation" aria-label="main navigation"
                  style={{height: "52px"}}>
               <div className="navbar-brand">
-                <a className="navbar-item is-paddingless-bottom" href="https:lamusitheque.com">
+                <a className="navbar-item is-paddingless-bottom" href="https://lamusitheque.com">
                   <Logo/>
                 </a>
                 
@@ -91,6 +91,12 @@ class Navbar extends Component {
                     Discussions
                   </Link>
 
+                  <Link
+                    className="navbar-item"
+                    to={listListsUrl()}>
+                    Listes
+                  </Link>
+                  
                   <div className="navbar-item has-dropdown is-hoverable">
                     <a className="navbar-link">
                       Token : {this.props.token}
