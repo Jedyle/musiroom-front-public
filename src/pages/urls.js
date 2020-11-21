@@ -28,5 +28,6 @@ export const getDiscussionUrl = (discussionId) => `/discussions/d/${discussionId
 export const getSearchUrl = () => `/rechercher`;
 export const getNotificationsUrl = () => '/profil/notifications';
 
+export const listListsUrl = () => `/listes`;
 export const createListUrl = () => `/listes/nouvelle`;
 export const getListUrl = (id) => `/listes/detail/${id}`;

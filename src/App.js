@@ -7,7 +7,7 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, createListUrl, getListUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl } from 'pages/urls';
 import PrivateRoute from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
 import DiscussionCreate from 'pages/Discussions/Create';
@@ -19,6 +19,7 @@ import GenreRetrieve from 'pages/Genres/Retrieve';
 import GenreCreate from 'pages/Genres/Create';
 import Search from 'pages/Search';
 import Notifications from 'pages/Notifications';
+import ListsList from 'pages/Lists/List';
 import CreateList from 'pages/Lists/Create';
 import RetrieveList from 'pages/Lists/Retrieve';
 
@@ -123,6 +124,12 @@ function App() {
                              />
                          )}
                     
+                  />
+                  <Route exact path={listListsUrl()}
+                         render={props => <ListsList
+                                            {...props}
+                                            key={props.location.search}
+                                          />}
                   />
                   <Route exact path={createListUrl()}
                          render={props => <CreateList

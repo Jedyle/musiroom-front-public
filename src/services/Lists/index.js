@@ -4,6 +4,22 @@ export function createList({title, description, ordered}){
     return api.post(`/lists/`, {title, description, ordered});
 }
 
+export function getLists({
+    page=1,
+    limit=20,
+    title="",
+    ordering=""
+}){
+    return api.get(`/lists/`, {
+        params: {
+            page: page,
+            limit: limit,
+            ordering: ordering,
+            title__icontains: title
+        }
+    });
+}
+
 export function getList(id){
     return api.get(`/lists/${id}`);
 }

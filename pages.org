@@ -1,3 +1,5 @@
+EN COURS : liste de listes
+
 *
 Pages : 
 * Home (3)
@@ -102,3 +104,6 @@ Pages :
 * Refacto layout (columns style etc)
 * Refactor vote function (onVote, onToggleVotes etc are always the same)
 * Refactor edit sections with textarea only
+* Afficher quelque chose special pour les listes d'albums vides / ne pas les afficher dans la liste des listes ?
+* Linter (on emacs too) + remove colons
+* List Retrieve : modal keeps saying "toujours dans la liste" for a deleted item -> use store ?
