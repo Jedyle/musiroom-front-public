@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Paginator = ({
-    currentPage,
     previousPageUrl,
     nextPageUrl,
     onPreviousPage,
