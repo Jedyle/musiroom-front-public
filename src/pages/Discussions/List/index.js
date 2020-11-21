@@ -203,7 +203,7 @@ class DiscussionsList extends Component {
                       onChange={(e) => {this.setState({ordering: e.target.value});}}
                       value={this.state.ordering}
                     >
-                      <option value="modified">Les plus récentes</option>
+                      <option value="-modified">Les plus récentes</option>
                       <option value="-vote_score" >Les mieux votées</option>
                     </select>
                   </div>
