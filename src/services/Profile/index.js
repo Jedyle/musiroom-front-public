@@ -24,9 +24,21 @@ export function getBadges(username){
     );
 }
 
-export function getLists(username, page=1){
+export function getLists(username, page=1, limit=10){
     return api.get(
-        `/users/${username}/lists?page=${page}&limit=10`
+        `/users/${username}/lists?page=${page}&limit=${limit}`
+    );
+}
+
+export function getUserListItemsWithAlbum(mbid){
+    return api.get(
+        `/lists_with_album?mbid=${mbid}`
+    );
+}
+
+export function getListsWithoutAlbum(username, mbid, page=1){
+    return api.get(
+        `/users/${username}/lists?page=${page}&limit=100&not_contains_album=${mbid}`
     );
 }
 

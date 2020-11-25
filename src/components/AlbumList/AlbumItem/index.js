@@ -48,7 +48,7 @@ const AlbumItem = (
                 <br/>
                 <div>{content}</div>
               </div>
-              <div className="column is-3">
+              <div className="column is-2-tablet is-4-desktop">
                 <RatingTagsList
                   userRating={user_rating}
                   followeesRating={followees_rating}

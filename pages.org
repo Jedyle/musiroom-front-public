@@ -1,10 +1,11 @@
+
 EN COURS : liste de listes
 
 *
 Pages : 
-* Home (3)
+* TODO Home (3)
 * History (1)
-* Login
+* TODO Login
 * DONE Profile page
   CLOSED: [2020-05-02 sam. 15:30]
 ** DONE Profile/Profile (4)
@@ -23,7 +24,7 @@ Pages :
    CLOSED: [2019-10-29 mar. 20:47]
 * DONE Change profile (2)
   CLOSED: [2019-10-29 mar. 20:47]
-* DELETE ACCOUNT (1)
+* TODO DELETE ACCOUNT (1)
 * DONE Change settings (2)
   CLOSED: [2019-10-29 mar. 20:47]
 * Message box (3 - ne sais pas car nouveau fonctionnement)
@@ -38,7 +39,7 @@ Pages :
 * Launch export (1)
 * DONE Notifications (1)
   CLOSED: [2020-08-01 sam. 21:44]
-* Top albums (3)
+* TODO Top albums (3)
 * DONE Genres 
   CLOSED: [2020-07-28 mar. 20:40]
 ** DONE genre tree (2)
@@ -47,20 +48,24 @@ Pages :
    CLOSED: [2020-07-28 mar. 20:40]
 ** DONE add genre (1)
    CLOSED: [2020-07-28 mar. 20:40]
-* Albums page
+* DONE Albums page
+  CLOSED: [2020-11-24 mar. 21:32]
 ** DONE Home album (3)
    CLOSED: [2020-05-02 sam. 15:35]
 ** DONE Write a review (3)
    CLOSED: [2020-08-11 mar. 21:51]
 ** DONE Detail review (2)
    CLOSED: [2020-08-16 dim. 13:12]
-** Add album to list (2)
+** DONE Add album to list (2)
+   CLOSED: [2020-11-24 mar. 21:32]
 ** DONE album genres page (votes) (2)
    CLOSED: [2020-08-10 lun. 19:16]
 * DONE Artist page (3)
   CLOSED: [2020-07-10 ven. 19:53]
-* Lists
-** all lists (1)
+* DONE Lists
+  CLOSED: [2020-11-21 sam. 19:03]
+** DONE all lists (1)
+   CLOSED: [2020-11-21 sam. 19:03]
 ** DONE create list form (1)
    CLOSED: [2020-10-11 dim. 16:18]
 ** DONE list details (4)
@@ -74,8 +79,9 @@ Pages :
 ** DONE user search (2)
    CLOSED: [2020-08-10 lun. 19:16]
 * Feedback page (1)
-* Navbar (3)
-* Registration
+* DONE Navbar (3)
+  CLOSED: [2020-11-21 sam. 19:08]
+* TODO Registration
 ** connexion (2)
 ** inscription (2)
 * DONE Discussions
@@ -107,3 +113,30 @@ Pages :
 * Afficher quelque chose special pour les listes d'albums vides / ne pas les afficher dans la liste des listes ?
 * Linter (on emacs too) + remove colons
 * List Retrieve : modal keeps saying "toujours dans la liste" for a deleted item -> use store ?
+* Ajouter images sur les 'hero' sur les pages 'genres', 'top', 'listes', 'discussions'
+* AlbumLists pas responsive (voir top par exemple)
+* Les methodes pour recuperer des ratings a partir d'une liste d'albums peuvent se refactor (ex: dans listes, dans tops...)
+* Ajouter du loading un peu partout pendant les requêtes
+
+Dans l'ordre
+
+
+
+* DONE Top Albums (4h)
+  CLOSED: [2020-11-22 dim. 01:36]
+* DONE Add album to List (4h)
+  CLOSED: [2020-11-24 mar. 21:32]
+** Route pour ajouter un album à plusieurs listes
+** Route pour supprimer un album d'une liste à partir d'un mbid
+** Route qui donne les listes d'un user avec un boolean disant si l'album est dans la liste
+** Frontend (supprimer l'existant)
+* Album Tooltip (4h)
+* Registration (4h)
+* Login + Handle pages where you have to login to do something (8h)
+* Exports (4h)
+* History (2h)
+* Feedback (1h)
+* Home Page (4h)
+* Messaging (decide what to do - 30h)
+* Fix all bugs (8h)
+* Migration old data
