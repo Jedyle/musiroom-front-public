@@ -7,7 +7,8 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activationLinkSentUrl, activateAccountUrl } from 'pages/urls';
+import PublicRoute from 'pages/Router/PublicRoute';
 import PrivateRoute from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
 import DiscussionCreate from 'pages/Discussions/Create';
@@ -23,6 +24,9 @@ import ListsList from 'pages/Lists/List';
 import CreateList from 'pages/Lists/Create';
 import RetrieveList from 'pages/Lists/Retrieve';
 import Top from 'pages/Tops';
+import Registration from 'pages/Registration';
+import ActivationLinkSent from 'pages/Registration/activationLinkSent';
+import ActivateAccount from 'pages/Registration/activateAccount';
 
 const NotFound = () => (
     <div>
@@ -47,6 +51,26 @@ function App() {
                     exact
                     path={getNotificationsUrl()}
                     component={Notifications}
+                  />
+                  <PublicRoute
+                    exact path={getRegistrationUrl()}
+                    component={Registration}
+                  />
+                  <PublicRoute
+                    exact path={activationLinkSentUrl()}
+                    component={ActivationLinkSent}
+                  />
+                  <Route
+                    exact path={activateAccountUrl()}                    
+                    render={props => {
+                        let query = queryString.parse(props.location.search);
+                        return (                     
+                            <ActivateAccount
+                              uid={query.uid}
+                              token={query.token}
+                            />
+                        );
+                    }}
                   />
                   <Route exact path="/" component={Home}/>
                   <Route exact path="/prototypes" component={Prototypes}/>

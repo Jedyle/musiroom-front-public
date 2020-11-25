@@ -33,3 +33,7 @@ export const createListUrl = () => `/listes/nouvelle`;
 export const getListUrl = (id) => `/listes/detail/${id}`;
 
 export const getTopUrl = (genre, period) => `/tops/${genre}/${period}`;
+
+export const getRegistrationUrl = () => `/inscription`;
+export const activationLinkSentUrl = () => `/inscription/fin`;
+export const activateAccountUrl = () => `/confirm`;
