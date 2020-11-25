@@ -15,7 +15,8 @@ const NotificationItem = ({notification}) => {
         ),
         review: ({target}) => (
             <Link to={getReviewUrl(target.rating.content_object.mbid, target.id)}>{target.title}</Link>
-        )
+        ),
+        badgeaward: ({target}) => (target.name)
     };
 
     let Target = targetComponents[notification.target_content_type];
