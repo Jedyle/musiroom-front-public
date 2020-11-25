@@ -68,8 +68,6 @@ class RatingsList extends Component {
     }
 
     render(){
-        console.log("hello", this.props.results.map((r) => (r.id)));
-        console.log(this.props.results);
         return this.props.results.length > 0 && <AlbumList
                  ratedObjects={this.props.results.map(
                      (rating) => rating.content_object

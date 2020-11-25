@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getListUrl } from 'pages/urls';
 import { getLists } from 'services/Profile';
 import { Link } from 'react-router-dom';
 import AbstractList from 'components/Utils/AbstractList';
@@ -57,9 +58,9 @@ class ListsTabs extends Component {
             (list) => {
                 return (
                     <span>
-                      <Link to="/">
+                      <Link to={getListUrl(list.id)}>
                         {list.title}
-                      </Link> ({list.albums.length === 1 ? "1 album" : list.albums.length + " albums"})
+                      </Link> ({list.album_count === 1 ? "1 album" : list.album_count + " albums"})
                     </span>
                 );
             }  
