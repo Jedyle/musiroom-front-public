@@ -7,7 +7,7 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl } from 'pages/urls';
 import PrivateRoute from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
 import DiscussionCreate from 'pages/Discussions/Create';
@@ -22,6 +22,7 @@ import Notifications from 'pages/Notifications';
 import ListsList from 'pages/Lists/List';
 import CreateList from 'pages/Lists/Create';
 import RetrieveList from 'pages/Lists/Retrieve';
+import Top from 'pages/Tops';
 
 const NotFound = () => (
     <div>
@@ -29,7 +30,10 @@ const NotFound = () => (
     </div>
 );
 
-const mbidRegex = ":mbid([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})";
+const mbidRegex = "([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})";
+
+// a period can be either 'tout' (replace by all for multilanguage), a year, or a decade (like 2010s)
+const periodRegex = "(tout|[0-9]{4}|[0-9]{3}0s)";
 
 function App() {
     return (
@@ -69,6 +73,15 @@ function App() {
                   />
                   <PrivateRoute exact path={createGenreUrl()}
                                 component={GenreCreate}
+                  />
+                  <Route exact path={getTopUrl(":genre", `:period${periodRegex}`)}
+                         render = {props => (
+                             <Top
+                               genre={props.match.params.genre}
+                               period={props.match.params.period}
+                               key={props.match.params.genre + props.match.params.period}
+                             />
+                         )}
                   />
                   <Route exact path={discussionsUrl()}
                          render = {props => {
@@ -153,7 +166,7 @@ function App() {
                              );
                          }}
                   />
-                  <Route path={getAlbumUrl(mbidRegex)}
+                  <Route path={getAlbumUrl(`:mbid${mbidRegex}`)}
                          render={props => {
                              return (<AlbumDetails
                             key={props.match.params.mbid}
@@ -161,7 +174,7 @@ function App() {
                />);
                          }}
                   />
-                  <Route exact path={getArtistUrl(mbidRegex)}
+                  <Route exact path={getArtistUrl(`:mbid${mbidRegex}`)}
                          render={props => {
                              return (<ArtistDetails
                                        key={props.match.params.mbid}

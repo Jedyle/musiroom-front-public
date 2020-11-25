@@ -31,3 +31,5 @@ export const getNotificationsUrl = () => '/profil/notifications';
 export const listListsUrl = () => `/listes`;
 export const createListUrl = () => `/listes/nouvelle`;
 export const getListUrl = (id) => `/listes/detail/${id}`;
+
+export const getTopUrl = (genre, period) => `/tops/${genre}/${period}`;
