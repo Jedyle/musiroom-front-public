@@ -140,3 +140,7 @@ Dans l'ordre
 * Messaging (decide what to do - 30h)
 * Fix all bugs (8h)
 * Migration old data
+
+
+Needs :
+* 
