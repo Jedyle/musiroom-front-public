@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {login, logout} from 'services/Auth/api';
+import { logout, openLoginModal } from 'services/Auth/api';
 import Base from './base';
 
 const mapStateToProps = (state, ownProps) => 
@@ -15,7 +15,7 @@ const _Navbar = ({token, user}) => (
     <Base
       token={token}
       user={user}
-      onLogin={() => login("Tester", "testmdp4")}
+      onLogin={() => openLoginModal()}
       onLogout={() => logout()}
     />  
 );

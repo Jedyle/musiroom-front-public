@@ -5,7 +5,8 @@ EN COURS : liste de listes
 Pages : 
 * TODO Home (3)
 * History (1)
-* TODO Login
+* DONE Login
+  CLOSED: [2020-11-27 ven. 19:21]
 * DONE Profile page
   CLOSED: [2020-05-02 sam. 15:30]
 ** DONE Profile/Profile (4)
@@ -39,7 +40,8 @@ Pages :
 * Launch export (1)
 * DONE Notifications (1)
   CLOSED: [2020-08-01 sam. 21:44]
-* TODO Top albums (3)
+* DONE Top albums (3)
+  CLOSED: [2020-11-27 ven. 19:21]
 * DONE Genres 
   CLOSED: [2020-07-28 mar. 20:40]
 ** DONE genre tree (2)
@@ -81,7 +83,8 @@ Pages :
 * Feedback page (1)
 * DONE Navbar (3)
   CLOSED: [2020-11-21 sam. 19:08]
-* TODO Registration
+* DONE Registration
+  CLOSED: [2020-11-27 ven. 19:21]
 ** connexion (2)
 ** inscription (2)
 * DONE Discussions
@@ -120,7 +123,12 @@ Pages :
 
 Dans l'ordre
 
+* Refactor forms : formBuilder (ex: LoginForm et Registration form ont la même structure)
+* Logout : refresh la page apres le logout
 
+* YOUTUBE API : quota exceeded
+* Quand on ouvre le login, mettre focus sur l'input du pseudo pour aller plus vite
+* Refacto listes (à faire plus tard, pas urgent)
 
 * DONE Top Albums (4h)
   CLOSED: [2020-11-22 dim. 01:36]
@@ -130,17 +138,37 @@ Dans l'ordre
 ** Route pour supprimer un album d'une liste à partir d'un mbid
 ** Route qui donne les listes d'un user avec un boolean disant si l'album est dans la liste
 ** Frontend (supprimer l'existant)
-* Album Tooltip (4h)
-* Registration (4h)
-* Login + Handle pages where you have to login to do something (8h)
+* Album Tooltip (8h)
+* DONE Registration (4h)
+  CLOSED: [2020-11-26 jeu. 18:40]
+** DONE Registration
+   CLOSED: [2020-11-25 mer. 23:10]
+** DONE Confirm Link
+   CLOSED: [2020-11-25 mer. 23:10]
+** DONE RESEND LINK PAGE
+   CLOSED: [2020-11-26 jeu. 18:40]
+* DONE Login + Handle pages where you have to login to do something (8h)
+  CLOSED: [2020-11-27 ven. 23:17]
 * Exports (4h)
 * History (2h)
 * Feedback (1h)
 * Home Page (4h)
+* Delete user (2h)
 * Messaging (decide what to do - 30h)
 * Fix all bugs (8h)
 * Migration old data
 
 
 Needs :
-* 
+*
+
+
+
+
+* Objectifs
+** Finir registration, login features
+** Refactor et fix les gros bugs front
+** Lister tout ce qu'il reste à faire et les routes nécessaires pour le faire, et les tester
+*** album tooltip, exports, history, feedback, home page
+** Preparer backend sur un staging
+** Contacter quelqu'un pour finir 

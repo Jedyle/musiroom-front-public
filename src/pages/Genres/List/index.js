@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import GenreTree from 'components/Genre/Tree';
 import { getGenres } from 'services/Genres';
-import { Link } from 'react-router-dom';
-import { createGenreUrl } from 'pages/urls';
+import { CreateGenreLink } from 'pages/Links';
+
 
 export default class GenreList extends Component {
 
@@ -27,7 +27,11 @@ export default class GenreList extends Component {
               <div className="column is-12-mobile is-offset-3-tablet is-6-tablet">
                 <h1 className="title has-text-centered">Genres</h1>
                 <p className="has-text-centered mb-3">
-                  <Link to={createGenreUrl()}>Ajouter un genre</Link>
+
+                  <CreateGenreLink
+                    title="Ajouter un genre"
+                  />
+                                   
                   <br/>
                 </p>
                 <GenreTree genres={this.state.genres} />

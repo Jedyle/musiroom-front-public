@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CommentTreeView from 'components/Comments/Tree';
 import CommentForm from 'components/Comments/CreateForm';
 import { getUser } from 'services/Auth/api';
-import { getCommentsForObject, createComment, updateComment, deleteComment, voteOnComment } from 'services/Comments';
+import { getCommentsForObject, createComment, updateComment, voteOnComment } from 'services/Comments';
 import InfiniteScroll from "react-infinite-scroller";
 
 
@@ -69,7 +69,6 @@ export default class CommentSection extends Component {
     }
 
     fetchComments(page){
-        console.log(this.state.sortMethod);
         return getCommentsForObject(
             {
                 contentType: this.props.contentType,
@@ -163,11 +162,13 @@ export default class CommentSection extends Component {
     render() {
         return (
             <>
-              <CommentForm
-                content={this.state.newCommentContent}
-                onChangeContent={(e) => {this.setState({newCommentContent: e.target.value});}}
-                onSubmitComment={(e) => {this.onSubmitComment(null, this.state.newCommentContent, e); this.setState({newCommentContent: ''});}}
-              />
+              {getUser () &&
+               <CommentForm
+                 content={this.state.newCommentContent}
+                 onChangeContent={(e) => {this.setState({newCommentContent: e.target.value});}}
+                 onSubmitComment={(e) => {this.onSubmitComment(null, this.state.newCommentContent, e); this.setState({newCommentContent: ''});}}
+               />
+              }
               <br/>
               <SortCommentsSelect
                 sortMethod={this.state.sortMethod}

@@ -5,6 +5,7 @@ import { getListUrl } from 'pages/urls';
 import { getUserListItemsWithAlbum, getLists } from 'services/Profile';
 import { createListItem, updateListItem, deleteListItem } from 'services/Lists';
 import { getUser } from 'services/Auth/api';
+import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
 
 class ListsWithAlbum extends Component {
 
@@ -23,6 +24,7 @@ class ListsWithAlbum extends Component {
     
     fetchLists(){
         let { mbid } = this.props;
+        console.log(mbid);
         // CAUTION : there is an issue if a user has more than 1000 items, they won't all be displayed!!! TODO : fix this
         getLists(getUser(), 1, 1000).then((response) => {
             this.setState({
@@ -57,13 +59,13 @@ class ListsWithAlbum extends Component {
     }
 
     onAddToList = (listId) => {
-        let { albumMbid } = this.props;
+        let { mbid } = this.props;
         let { listsInfo } = this.state;
         let comment = listsInfo[listId] ? listsInfo[listId].comment: '';
         createListItem(
             {
                 listId: listId,
-                albumId: albumMbid,
+                albumId: mbid,
                 comment: comment
             }
         ).then((response) => {
@@ -170,7 +172,7 @@ const ListsModal = ({mbid, isActive, onToggleActive}) => (
               </div>                 
 );
 
-export default class AddToListButton extends Component {
+class Base extends Component {
 
     constructor(props) {
         super(props);
@@ -200,9 +202,20 @@ export default class AddToListButton extends Component {
                 onClick={() => {this.setState({modalIsActive: true});}}
               >
                 {children}
-              </button>  
+              </button>
             </>
         );
     }
     
 }
+
+const AddToListButton = ({children, ...props}) => (
+    <SwitchLogButton
+      className="button has-margin-right-5"
+      {...props}
+      userRendering={(props) => <Base{...props}>{children}</Base>}
+      anonymousChildren={children}
+    />
+);
+
+export default AddToListButton;

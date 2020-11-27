@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { getGenre } from 'services/Genres';
 import GenreTree from 'components/Genre/Tree';
-import { Link } from 'react-router-dom';
-import { createGenreUrl } from 'pages/urls';
+import { CreateGenreLink } from 'pages/Links';
 
 class GenreRetrieve extends Component  {
 
@@ -57,7 +56,10 @@ class GenreRetrieve extends Component  {
                      )
                     }
                     <p className="has-text-centered mb-3">
-                      <Link to={createGenreUrl()}>Ajouter un genre</Link>
+                      <CreateGenreLink
+                        className="button is-light"
+                        title="Ajouter un genre"
+                      />
                       <br/>
                     </p>
                   </div>                  

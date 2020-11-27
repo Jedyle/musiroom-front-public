@@ -1,6 +1,66 @@
 import React from 'react';
+import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
 
-const LikeDislikePanel = ({
+const BaseOpinionButtonContent = ({icon, numVote = 0}) => (
+    <>
+      <span className="icon">
+        <i className={`fa fa-lg ${icon}`}></i>
+      </span>
+      <span>
+        <small>
+          | {numVote}
+        </small>            
+      </span>
+    </>
+);
+
+const BaseOpinionButton = ({opinion, icon, buttonColor = 'is-info', numVote = 0, onToggleVote = () => {}, loggedUserVote = null}) => (
+    <button
+      className={`button pr-2 ${buttonColor} ${loggedUserVote === opinion || "is-outlined"}`}
+      onClick={onToggleVote}
+    >
+      <BaseOpinionButtonContent
+        icon={icon}
+        numVote={numVote}
+      />
+    </button>
+);
+
+const OpinionButton = (props) => (
+    <SwitchLogButton
+      {...props}
+      userRendering={props => (
+          <BaseOpinionButton {...props}/>
+      )}
+      anonymousChildren={<BaseOpinionButtonContent icon={props.icon} numVote={0}/>}
+    />
+);
+
+const LikeButton = ({numVoteUp, onToggleVoteUp, loggedUserVote}) => (
+    <OpinionButton
+      className="button pr-2 is-info is-outlined"
+      opinion="up"
+      icon="fa-thumbs-up"
+      buttonColor="is-info"
+      numVote={numVoteUp}
+      onToggleVote={onToggleVoteUp}
+      loggedUserVote={loggedUserVote}
+    />
+);
+
+const DislikeButton = ({numVoteDown, onToggleVoteDown, loggedUserVote}) => (
+    <OpinionButton
+      className="button pr-2 is-danger is-outlined"
+      opinion="down"
+      icon="fa-thumbs-down"
+      buttonColor="is-danger"
+      numVote={numVoteDown}
+      onToggleVote={onToggleVoteDown}
+      loggedUserVote={loggedUserVote}
+    />
+);
+
+const Base = ({
     numVoteUp,
     onToggleVoteUp,
     numVoteDown,
@@ -8,33 +68,17 @@ const LikeDislikePanel = ({
     loggedUserVote
 }) => (
     <p className="buttons is-pulled-right">
-      <button
-        className={"button is-info pr-2 " + (loggedUserVote === "up" || "is-outlined")}
-        onClick={onToggleVoteUp}
-      >
-        <span className="icon">
-          <i className="fa fa-lg fa-thumbs-up"></i>
-        </span>
-        <span>
-          <small>
-            | {numVoteUp}
-          </small>            
-        </span>
-      </button>
-      <button
-        className={"button is-danger pr-2 " + (loggedUserVote === "down" || "is-outlined")}
-        onClick={onToggleVoteDown}
-      >
-        <span className="icon">
-          <i className="fa fa-lg fa-thumbs-down"></i>
-        </span>
-        <span>
-          <small>
-            | {numVoteDown}
-          </small>
-        </span>
-      </button>        
+      <LikeButton
+        numVoteUp={numVoteUp}
+        onToggleVoteUp={onToggleVoteUp}
+        loggedUserVote={loggedUserVote}
+      />
+      <DislikeButton
+        numVoteDown={numVoteDown}
+        onToggleVoteDown={onToggleVoteDown}
+        loggedUserVote={loggedUserVote}
+      />
     </p>
 );
 
-export default LikeDislikePanel;
+export default Base;

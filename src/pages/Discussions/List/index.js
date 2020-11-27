@@ -3,8 +3,9 @@ import queryString from 'query-string';
 import { getDiscussions, getDiscussionType, getObjectForDiscussionType, voteOnDiscussion } from 'services/Discussions';
 import DiscussionListItem from 'components/Discussions/List/ListItem';
 import { timeSince } from 'utils/date';
-import { profileUrl, discussionsUrl, discussionCreateUrl, discussionCreateOnTopicUrl, getDiscussionUrl, getDiscussionsUrlForObject } from 'pages/urls';
+import { profileUrl, discussionsUrl, getDiscussionUrl, getDiscussionsUrlForObject } from 'pages/urls';
 import { Link, withRouter } from 'react-router-dom';
+import { CreateDiscussionLink } from 'pages/Links';
 import DiscussionSidebar from 'components/Discussions/Sidebar';
 
 class DiscussionsList extends Component {
@@ -242,9 +243,12 @@ class DiscussionsList extends Component {
                 }
                 <h1 className="is-size-2 has-text-centered">{this.getTitle(this.state.contentObject)}</h1>
                 <p className="has-text-centered">
-                  <Link
-                    to={this.state.model ? discussionCreateOnTopicUrl(this.state.model, this.state.objectId) : discussionCreateUrl()}
-                    className="button is-info">Nouvelle discussion</Link>
+                  <CreateDiscussionLink
+                    className="button is-success"
+                    title="Nouvelle discussion"
+                    contentType={this.state.model}
+                    objectId={this.state.objectId}
+                  />
                 </p>
                 <hr/>
                 <div className="columns">

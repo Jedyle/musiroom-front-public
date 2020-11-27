@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Editor } from 'react-draft-wysiwyg';
 import { getUser } from 'services/Auth/api';
 import { getReview, voteOnReview, updateReview } from 'services/Reviews';
 import CommentSection from 'components/Comments/Section';
 import LikeDislikePanel from 'components/Utils/LikeDislikePanel';
-import Input from 'components/Utils/Forms/Input';
 import { toHumanDate } from 'utils/date';
 import { profileUrl } from 'pages/urls';
 import { cleanHTML } from 'utils/strings';
@@ -13,6 +11,7 @@ import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
+import ReviewEditModal from 'components/Album/Review/EditModal';
 
 import '../index.css';
 import 'components/StarRatings/Tags/index.css';
@@ -24,35 +23,28 @@ export default class RetrieveUpdateReview extends Component {
             review: null,
             isEditable: false,
             isActive: false,
-
             editTitle: '',
-            editContent: EditorState.createEmpty()
-            
+            editContent: EditorState.createEmpty()            
         };
-        this.onClose = this.onClose.bind(this);
-        this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeContent = this.onChangeContent.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onToggleVote = this.onToggleVote.bind(this);
     }
 
-    onClose(){
+    onClose = () => {
         this.setState({isActive: false});
     }
 
-    onChangeTitle(event){
+    onChangeTitle = (event) => {
         this.setState({
             editTitle: event.target.value 
         });
     }
 
-    onChangeContent(editorState){
+    onChangeContent = (editorState) => {
         this.setState({
             editContent: editorState
         });
     }
     
-    onSubmit(){
+    onSubmit = () => {
         updateReview(this.state.review.id,
                      this.state.editTitle,
                      draftToHtml(convertToRaw(this.state.editContent.getCurrentContent()))).then((response) => {
@@ -64,7 +56,7 @@ export default class RetrieveUpdateReview extends Component {
                      });
     }
 
-    onToggleVote(vote){
+    onToggleVote = (vote) => {
         let newVote;
         if (this.state.review.user_vote === vote){
             newVote = "null";
@@ -143,7 +135,7 @@ export default class RetrieveUpdateReview extends Component {
                 onToggleVoteDown={() => {this.onToggleVote("down");}}
                 loggedUserVote={review.user_vote}
               />              
-              <br className="mt-6 mb-6"/>
+              <br className="mt-6 mb-6"/>              
               <UserSummaryPanel
                 user={review.rating.user}
                 additionalHeaders={
@@ -170,50 +162,3 @@ export default class RetrieveUpdateReview extends Component {
     }
 }
 
-class ReviewEditModal extends Component {
-    render(){
-        let { isActive, onClose, title, onChangeTitle, content, onChangeContent, onSubmit } = this.props;
-        return (
-            <div className={`modal ${isActive && 'is-active'}`}>
-              <div className="modal-background"></div>
-              <div className="modal-card">
-                <header className="modal-card-head">
-                  <p className="modal-card-title">Modifier la critique</p>
-                  <button className="delete" onClick={onClose}></button>
-                </header>
-                <section className="modal-card-body">
-                  <Input
-                    placeholder="Titre"
-                    value={title}
-                    onChange={onChangeTitle}
-                  />
-                  <Editor
-                    wrapperClassName="wrapper"
-                    editorClassName="editor"
-                    editorState={content}
-                    onEditorStateChange={onChangeContent}
-                    toolbar={{
-                        inline: {
-                            options: ['bold', 'italic', 'underline', 'strikethrough'],
-                        },
-                        list: {
-                            options: ['unordered', 'ordered'],
-                        },
-                        blockType: {
-                            options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6']
-                        },
-                        options: ['blockType', 'inline', 'list', 'fontSize', 'colorPicker', 'emoji', 'image'],
-
-                    }}                                    
-                  />
-                  
-                </section>
-                <footer className="modal-card-foot">
-                  <button className="button is-success" onClick={onSubmit}>Enregistrer</button>
-                  <button className="button" onClick={onClose}>Annuler</button>
-                </footer>
-              </div>
-            </div>  
-        );
-    }
-}

@@ -31,10 +31,11 @@ const AlbumSidebar = ({
               <p>
                 {
                     artists.map(
-                        (artist) => (<Link key={artist.mbid}
-                                           to={getArtistUrl(artist.mbid)}>
-                                       {artist.name}
-                                     </Link>)
+                        (artist) => (
+                            <Link key={artist.mbid}
+                                  to={getArtistUrl(artist.mbid)}>
+                              {artist.name}
+                            </Link>)
                     )
                 }
               </p>             

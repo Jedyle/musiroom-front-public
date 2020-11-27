@@ -11,7 +11,7 @@ export default class AllRatingsStats extends Component {
             stats: null  
         };
     }
-
+    
     componentDidMount(){
         if(this.props.album.rating){            
             getAlbumRatingStats(this.props.album.rating.id).then(
@@ -23,7 +23,7 @@ export default class AllRatingsStats extends Component {
             );
         }
     }
-
+    
     render(){
         return (
             <>

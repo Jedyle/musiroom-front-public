@@ -7,7 +7,8 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activationLinkSentUrl, activateAccountUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl } from 'pages/urls';
+import LoginForm from 'components/LoginForm';
 import PublicRoute from 'pages/Router/PublicRoute';
 import PrivateRoute from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
@@ -25,7 +26,6 @@ import CreateList from 'pages/Lists/Create';
 import RetrieveList from 'pages/Lists/Retrieve';
 import Top from 'pages/Tops';
 import Registration from 'pages/Registration';
-import ActivationLinkSent from 'pages/Registration/activationLinkSent';
 import ActivateAccount from 'pages/Registration/activateAccount';
 
 const NotFound = () => (
@@ -55,10 +55,6 @@ function App() {
                   <PublicRoute
                     exact path={getRegistrationUrl()}
                     component={Registration}
-                  />
-                  <PublicRoute
-                    exact path={activationLinkSentUrl()}
-                    component={ActivationLinkSent}
                   />
                   <Route
                     exact path={activateAccountUrl()}                    
@@ -212,7 +208,8 @@ function App() {
                   />
                   <Route path="*" component={NotFound}/>
                 </Switch>
-              </div>            
+              </div>
+              <LoginForm/>
             </Router>
           </div>
           <Footer/>

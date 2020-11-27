@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { profileUrl } from 'pages/urls';
 import { Link } from 'react-router-dom';
 import { toHumanDate } from 'utils/date';
+import { getUser } from 'services/Auth/api';
 import VotePanel from 'components/Utils/VotePanel';
 import CommentCreateForm from 'components/Comments/CreateForm';
 import CommentEditForm from 'components/Comments/EditForm';
@@ -32,6 +33,8 @@ class CommentItem extends Component {
             editContent: e.target.value
         });
     }
+
+    canUserReply = () => ((this.props.depthLevel < this.props.maxDepth) && getUser())
     
     render() {
         let comment = this.props.comment;
@@ -95,7 +98,7 @@ class CommentItem extends Component {
                     <p>
                       <span className="is-pulled-right is-size-7">{toHumanDate(comment.submit_date)}</span>
                       {
-                          this.props.depthLevel < this.props.maxDepth &&
+                          this.canUserReply() &&
                               (<Link className="is-size-7" to="#"
                               onClick={(e) => {
                                   e.preventDefault();

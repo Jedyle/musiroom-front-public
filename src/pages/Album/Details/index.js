@@ -31,7 +31,7 @@ const DetailsPage = ({album}) => (
         <h1 className="title is-size-2">{album.title}</h1>
         <RatingActions
           rating={album.rating.id}
-          albumMbid={album.mbid}
+          mbid={album.mbid}
           starDimension="30px"
           starSpacing="4px"
         />

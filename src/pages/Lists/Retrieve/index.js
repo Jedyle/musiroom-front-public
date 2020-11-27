@@ -4,65 +4,9 @@ import { ProfileLink } from 'components/Utils/Links';
 import LikeDislikePanel from 'components/Utils/LikeDislikePanel';
 import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
 import ListContent from './content';
-import { getUser } from 'services/Auth/api';
 import { updateList } from 'services/Lists';
+import ListDescription from './description';
 
-class ListDescription extends Component{
-    
-    userCanEdit = (list) => (getUser() === list.user.username)
-    
-    render(){
-        let {list, newDescription, isEditable, onEdit, onSubmit, onChange, onCancel} = this.props;
-
-        if (isEditable){
-            return (
-                <div className="field">
-                  <textarea
-                    className="textarea"
-                    value={newDescription}
-                    onChange={onChange}
-                  />
-                  <div className="buttons">
-                    <button
-                      className="button is-info"
-                      onClick={onSubmit}
-                    >Modifier</button>
-                    <button
-                      className="button is-danger"
-                      onClick={onCancel}
-                    >Annuler</button>
-                  </div>
-                </div>
-            );
-        }
-
-        let userCanEdit = this.userCanEdit(list);
-        
-        
-        return (
-            <div>
-              <span className="is-pulled-right">
-                {userCanEdit && (
-                    <span className="icon"
-                          style={{cursor: 'pointer'}}
-                          onClick={onEdit}
-                    >
-                      <i title="Editer" className="fa fa-lg fa-edit"></i>
-                    </span>
-                )}
-              </span>
-              <p className="has-text-centered">
-                {list.description ||
-                 (userCanEdit && (
-                     <em>
-                       Ajouter une description
-                     </em>))                       
-                }
-              </p>
-            </div>
-        );
-    }
-}
 
 export default class RetrieveList extends Component {
 

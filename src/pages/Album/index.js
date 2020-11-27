@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { getAlbum } from 'services/Albums';
-import AlbumSidebar from 'components/Album/Sidebar';
 import DetailsPage from './Details';
 import AlbumGenresPage from './Genres';
 import CreateReview from './Review/Create';
 import RetrieveUpdateReview from './Review/RetrieveUpdate';
-import TrackList from 'components/Album/TrackList';
-import { getDiscussionsUrlForObject, discussionCreateOnTopicUrl, getAlbumGenresUrl, createReviewUrl, getReviewUrl } from 'pages/urls';
-
-const ExtendedSidebar = ({album}) => (
-    <>
-      <AlbumSidebar
-        {...album}
-      />
-      <span>
-        <Link
-          to={getDiscussionsUrlForObject('album', album.id)}
-          className="button is-medium has-margin-top-5 is-fullwidth is-info">Discussions sur {album.title}</Link>
-        <Link
-          to={discussionCreateOnTopicUrl('album', album.id)}
-          className="button is-medium has-margin-top-5 is-fullwidth is-success">Nouvelle discussion</Link>
-      </span>
-      <hr/>
-      <h3 className="is-size-5">Pistes</h3>
-      <TrackList
-        tracks={album.mbid ? album.tracks.track_list : []}
-      />
-    </>
-);
-
+import { getAlbumGenresUrl, createReviewUrl, getReviewUrl } from 'pages/urls';
+import ExtendedSidebar from 'components/Album/ExtendedSidebar';
 
 class AlbumDetails extends Component {
 

@@ -465,7 +465,7 @@ export default class ListContent extends Component {
     formatHeaderContent(){
         let headers = {};
         this.state.items.forEach((item, index) => {
-            headers[item.album.rating.id] = (
+            headers[item.album.rating.id] = (getUser() &&
                 <ItemHeader
                   onChangePosition={() => this.onOpenPositionModal(item)}
                   onDelete={() => this.onOpenDeleteModal(item)}
@@ -546,10 +546,12 @@ export default class ListContent extends Component {
               {count && (
                   <p className="has-text-centered">Liste de {count} albums</p>
               )}
-              <AddAlbumSection
-                onAddAlbum={() => this.fetchItems(page)}
-                list={list}
-              />
+              { getUser() &&
+                <AddAlbumSection
+                  onAddAlbum={() => this.fetchItems(page)}
+                  list={list}
+                />
+              }
               <br/>
               <p className="has-text-centered">
                 {paginator}
@@ -567,7 +569,7 @@ export default class ListContent extends Component {
               <p className="has-text-centered">
                 {paginator}
               </p>
-              {positionModalCurrentItem &&
+              {getUser() && positionModalCurrentItem &&
                (
                    <PositionModal
                      list={list}
@@ -578,7 +580,7 @@ export default class ListContent extends Component {
                    />    
                )
               }
-            {deleteModalCurrentItem &&
+            {getUser() && deleteModalCurrentItem &&
              (
                  <DeleteModal
                    list={list}

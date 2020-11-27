@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
 
-import {getAuthFromLocalStorage} from './constants';
+import { getAuthFromLocalStorage } from './constants';
 
 export default function authReducer(state = getAuthFromLocalStorage(), action){
     switch(action.type){
@@ -11,6 +11,10 @@ export default function authReducer(state = getAuthFromLocalStorage(), action){
         });
     case types.LOGOUT:
         return {};
+    case types.TOGGLE_LOGIN_MODAL:
+        return Object.assign({}, state, {
+            loginModalIsActive: action.loginModalIsActive
+        });
     default:
         return state ? state : {};
     }

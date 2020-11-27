@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
 import SearchInput from 'components/Search/SearchInput';
 import NotificationBell from 'components/Notifications/Bell';
@@ -20,9 +20,11 @@ class Navbar extends Component {
         if (!this.props.token){
             return (
                 <div className="buttons">
-                  <button className="button is-primary">
-                    <strong>Inscription</strong>
-                  </button>
+                  <Link to={getRegistrationUrl()}>
+                    <button className="button is-primary">
+                      <strong>Inscription</strong>
+                    </button>
+                  </Link>                 
                   <button className="button is-light" onClick={this.props.onLogin}>Connexion</button>
                 </div>
             );
