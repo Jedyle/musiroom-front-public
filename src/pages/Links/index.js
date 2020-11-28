@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createGenreUrl, discussionCreateOnTopicUrl, discussionCreateUrl } from 'pages/urls';
+import { profileUrl, createGenreUrl, discussionCreateOnTopicUrl, discussionCreateUrl, getDiscussionUrl, getAlbumUrl, getReviewUrl } from 'pages/urls';
 import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
 
 
@@ -29,4 +29,23 @@ export const CreateDiscussionLink = ({title, contentType=null, objectId=null, ..
       anonymousChildren={title}
       {...props}
     />       
+);
+
+
+export const UserLink = ({username}) => (
+    <Link to={profileUrl(username)}>{username}</Link>
+);
+
+
+export const GetAlbumLink = ({title, mbid}) => (
+    <Link to={getAlbumUrl(mbid)}>{title}</Link>
+);
+
+
+export const GetDiscussionLink = ({id, name}) => (
+    <Link to={getDiscussionUrl(id)}>{name}</Link>
+);
+
+export const GetReviewLink = ({albumId, reviewId, title}) => (
+    <Link to={getReviewUrl(albumId, reviewId)}>{title}</Link>
 )

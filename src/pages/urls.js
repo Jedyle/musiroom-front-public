@@ -37,3 +37,6 @@ export const getTopUrl = (genre, period) => `/tops/${genre}/${period}`;
 export const getRegistrationUrl = () => `/inscription`;
 export const activationLinkSentUrl = () => `/inscription/fin`;
 export const activateAccountUrl = () => `/confirm`;
+
+export const getAllActivityUrl = () => `/live/tout`;
+export const getSelfActivityUrl = () => `/live/perso`;

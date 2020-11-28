@@ -7,10 +7,10 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl, getAllActivityUrl, getSelfActivityUrl } from 'pages/urls';
 import LoginForm from 'components/LoginForm';
 import PublicRoute from 'pages/Router/PublicRoute';
-import PrivateRoute from 'pages/Router/PrivateRoute';
+import { PrivateRoute, PrivateRouteRender } from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
 import DiscussionCreate from 'pages/Discussions/Create';
 import DiscussionRetrieve from 'pages/Discussions/Retrieve';
@@ -27,6 +27,7 @@ import RetrieveList from 'pages/Lists/Retrieve';
 import Top from 'pages/Tops';
 import Registration from 'pages/Registration';
 import ActivateAccount from 'pages/Registration/activateAccount';
+import Activity from 'pages/Activity';
 
 const NotFound = () => (
     <div>
@@ -47,6 +48,16 @@ function App() {
               <Navbar />
               <div className="fill">
                 <Switch>
+                  <PrivateRouteRender
+                    exact
+                    path={getAllActivityUrl()}
+                    render={props => <Activity key='all' type='all'/>}
+                  />
+                  <PrivateRouteRender
+                    exact
+                    path={getSelfActivityUrl()}
+                    render={props => <Activity key='self' type='self'/>}
+                  />                  
                   <PrivateRoute
                     exact
                     path={getNotificationsUrl()}

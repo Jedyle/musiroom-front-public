@@ -61,7 +61,6 @@ export default class CommentSection extends Component {
                 commentStack.push(child);
             });
         }
-        console.log(rootComments);
         return {
             commentMap: commentMap,
             rootComments: rootComments
@@ -78,7 +77,6 @@ export default class CommentSection extends Component {
                 ordering: this.state.sortMethod
             }).then((response) => {            
                 this.setState((prevState) => {
-                    console.log(prevState);
                     let comments = prevState.comments.concat(response.data.results);
                     let hasMore = response.data.next !== null; 
                     let { commentMap, rootComments} = this.generateCommentMap(comments);
