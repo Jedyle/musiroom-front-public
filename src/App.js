@@ -7,7 +7,7 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl, getAllActivityUrl, getSelfActivityUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl, getAllActivityUrl, getSelfActivityUrl, createExportUrl, exportTaskLaunchedUrl, listExportsUrl, getExportUrl } from 'pages/urls';
 import LoginForm from 'components/LoginForm';
 import PublicRoute from 'pages/Router/PublicRoute';
 import { PrivateRoute, PrivateRouteRender } from 'pages/Router/PrivateRoute';
@@ -28,6 +28,10 @@ import Top from 'pages/Tops';
 import Registration from 'pages/Registration';
 import ActivateAccount from 'pages/Registration/activateAccount';
 import Activity from 'pages/Activity';
+import ExportCreate from 'pages/Exports/Create';
+import ExportTaskLaunched from 'pages/Exports/TaskLaunched';
+import ExportsList from 'pages/Exports/List';
+import ExportRetrieve from 'pages/Exports/Retrieve';
 
 const NotFound = () => (
     <div>
@@ -216,6 +220,25 @@ function App() {
                   />
                   <PrivateRoute exact path={changeProfileUrl()}
                                 component={ProfileWithEditForm}
+                  />
+                  <PrivateRoute exact path={createExportUrl()}
+                                component={ExportCreate}
+                  />
+                  <PrivateRoute exact path={exportTaskLaunchedUrl()}
+                                component={ExportTaskLaunched}
+                  />
+                  <PrivateRoute exact path={listExportsUrl()}
+                                component={ExportsList}                    
+                  />
+                  <PrivateRouteRender
+                    exact
+                    path={getExportUrl(":exportId(\\d+)")}
+                    render={
+                        (props) =>
+                            <ExportRetrieve
+                              id={props.match.params.exportId}
+                            />
+                    }                    
                   />
                   <Route path="*" component={NotFound}/>
                 </Switch>

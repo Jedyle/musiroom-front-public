@@ -129,6 +129,10 @@ Dans l'ordre
 * YOUTUBE API : quota exceeded
 * Quand on ouvre le login, mettre focus sur l'input du pseudo pour aller plus vite
 * Refacto listes (à faire plus tard, pas urgent)
+* Verifier responsive : root columns : mettre ml-0 mr-0 partout (refacto) 
+* Traduire les réponses en français
+* Loading un peu partout (sauf la où SSR plus tard)
+* Refacto  layout : certaines pages ont le même systeme "gros titre" puis colonne de données -> use HeadLine component !
 
 * DONE Top Albums (4h)
   CLOSED: [2020-11-22 dim. 01:36]
@@ -138,7 +142,6 @@ Dans l'ordre
 ** Route pour supprimer un album d'une liste à partir d'un mbid
 ** Route qui donne les listes d'un user avec un boolean disant si l'album est dans la liste
 ** Frontend (supprimer l'existant)
-* Album Tooltip (8h)
 * DONE Registration (4h)
   CLOSED: [2020-11-26 jeu. 18:40]
 ** DONE Registration
@@ -151,25 +154,25 @@ Dans l'ordre
   CLOSED: [2020-11-27 ven. 23:17]
 * DONE History (2h)
   CLOSED: [2020-11-28 sam. 01:09]
+* DONE Delete user (2h)
+  CLOSED: [2020-11-28 sam. 01:43]
+* Album Tooltip (8h)
 * Feedback (1h)
 * Exports (4h)
 * Home Page (4h)
-* Delete user (2h)
-* Messaging (decide what to do - 30h)
 * Fix all bugs (8h)
-* Migration old data
+* Migration old data (1 week end)
+* Messaging (8h)
+* Passage à nextjs (20h)
+* TOTAL : 30h
 
 
-Needs :
-*
 
 
 
+* DEPLOIEMENT 
+** backend : use firefox headless webdriver : installer dans docker
 
-* Objectifs
-** Finir registration, login features
-** Refactor et fix les gros bugs front
-** Lister tout ce qu'il reste à faire et les routes nécessaires pour le faire, et les tester
-*** album tooltip, exports, history, feedback, home page
-** Preparer backend sur un staging
-** Contacter quelqu'un pour finir 
+
+But : avoir une version qui marche comme la précédente sur django, mais avec react et nextjs !
+

@@ -1,8 +1,6 @@
 import React from 'react';
 import Gallery from 'components/Gallery';
 import Logo from 'components/Logo';
-import ActivityFeedItem from 'components/ActivityFeed/Item';
-import ActivityFeedList from 'components/ActivityFeed/List';
 import AlbumPopover from 'components/AlbumPopover';
 import StarRatings from 'components/StarRatings';
 import ProfileSidebar from 'components/Profile/Sidebar';
@@ -54,27 +52,6 @@ class Prototypes extends React.Component {
         Logo: {
             component: Logo,
             props: {}
-        },
-        ActivityFeedList: {
-            component: ActivityFeedList,
-            props: {
-                children : [(
-                    <ActivityFeedItem
-                      author="Bob"
-                      verb="has liked"
-                      object={<a href="https://google.com">a video</a>}
-                      date="some days ago"
-                      img="https://media.ouest-france.fr/v1/pictures/09fa38b37ab9c13d4761bd716587c9d0-cinema-les-tournages-d-avatar-2-et-3-sont-boucles_0.jpg?width=1260&height=712&focuspoint=55%2C41&cropresize=1&client_id=cmsfront&sign=141e3dee1e63abd3ae002c4cda5fa783eae535f6484b57f3028dd1413d64d047"
-                    />),(
-                        <ActivityFeedItem
-                          author="Bob"
-                          verb="has commented"
-                          object="an album"
-                          date="21 July 2019"
-                          img="https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                        />
-                    )]
-            }
         },
         AlbumPopover: {
             component: AlbumPopover,

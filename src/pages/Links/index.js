@@ -41,7 +41,6 @@ export const GetAlbumLink = ({title, mbid}) => (
     <Link to={getAlbumUrl(mbid)}>{title}</Link>
 );
 
-
 export const GetDiscussionLink = ({id, name}) => (
     <Link to={getDiscussionUrl(id)}>{name}</Link>
 );

@@ -11,7 +11,7 @@ function ActionObject({contentType, object}){
     case "review":
         return <GetReviewLink title={object.name} albumId={object.album_id} reviewId={object.id}/>;
     default:
-        return <span>{object.name}</span>;
+        return object && <span>{object.name}</span>;
     }
 }
 
