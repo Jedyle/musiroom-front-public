@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listExportsUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
 import SearchInput from 'components/Search/SearchInput';
 import NotificationBell from 'components/Notifications/Bell';
@@ -38,7 +38,7 @@ class Navbar extends Component {
                   <div className="navbar-dropdown">
                     <Link to={profileUrl(getUser())} className="navbar-item">Profil</Link>
                     <Link className="navbar-item">Messagerie</Link>
-                    <Link className="navbar-item">Mes exports</Link>
+                    <Link className="navbar-item" to={listExportsUrl()}>Mes exports</Link>
                     <Link className="navbar-item" to={changeProfileUrl()}>Modifier mes infos</Link>
                     <Link className="navbar-item" onClick={this.props.onLogout}>Déconnexion</Link>
                     </div>
@@ -77,12 +77,6 @@ class Navbar extends Component {
                   
                   <Link
                     className="navbar-item"
-                    to="/prototypes">
-                    Documentation
-                  </Link>
-
-                  <Link
-                    className="navbar-item"
                     to={getGenresUrl()}>
                     Genres
                   </Link>
@@ -97,6 +91,12 @@ class Navbar extends Component {
                     className="navbar-item"
                     to={listListsUrl()}>
                     Listes
+                  </Link>
+
+                  <Link
+                    className="navbar-item"
+                    to={createExportUrl()}>
+                    Export
                   </Link>
                   
                   <div className="navbar-item has-dropdown is-hoverable">

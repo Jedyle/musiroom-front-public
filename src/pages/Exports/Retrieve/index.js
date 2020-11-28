@@ -68,13 +68,13 @@ export default class ExportRetrieve extends Component {
                 </div>
                 <div className="column is-12-mobile is-9-tablet is-10-desktop">
                   <div className="columns is-mobile is-multiline">
-                    <div className="column is-12-mobile is-one-third-desktop">
+                    <div className="column is-12-mobile is-one-third-desktop has-background-success-light">
                       <NewRatings results={newRatings} stats={exportItem.stats}/>
                     </div>
-                    <div className="column is-12-mobile is-one-third-desktop">
+                    <div className="column is-12-mobile is-one-third-desktop has-background-warning-light">
                       <Conflicts results={conflicts} stats={exportItem.stats}/>
                     </div>
-                    <div className="column is-12-mobile is-one-third-desktop">
+                    <div className="column is-12-mobile is-one-third-desktop has-background-danger-light">
                       <NotFound results={notFound} stats={exportItem.stats}/>
                     </div>
                   </div>
