@@ -149,9 +149,10 @@ Dans l'ordre
    CLOSED: [2020-11-26 jeu. 18:40]
 * DONE Login + Handle pages where you have to login to do something (8h)
   CLOSED: [2020-11-27 ven. 23:17]
-* Exports (4h)
-* History (2h)
+* DONE History (2h)
+  CLOSED: [2020-11-28 sam. 01:09]
 * Feedback (1h)
+* Exports (4h)
 * Home Page (4h)
 * Delete user (2h)
 * Messaging (decide what to do - 30h)

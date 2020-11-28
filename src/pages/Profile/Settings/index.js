@@ -2,6 +2,7 @@ import React from 'react';
 import PublicProfileForm from './PublicProfile';
 import PasswordForm from './Password';
 import AvatarForm from './Avatar';
+import DeleteUserForm from './DeleteUser';
 
 const SettingsForm = (props) => (
     <div>
@@ -10,6 +11,8 @@ const SettingsForm = (props) => (
       <AvatarForm />
       <hr/>
       <PasswordForm />
+      <hr/>
+      <DeleteUserForm />
     </div>  
 );
 

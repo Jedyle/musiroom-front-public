@@ -70,6 +70,14 @@ export function changeAvatar(file){
     });
 }
 
+export function deleteUser(password){
+    return api.post(`/auth/user/delete`, {
+        password: password
+    }).then((response) => {
+        logout();
+    });
+}
+
 export function updateProfileInLocalStorage(newData){
     store.dispatch(actions.login(getToken(), newData));
     setAuthInLocalStorage({
@@ -81,6 +89,7 @@ export function updateProfileInLocalStorage(newData){
 export function logout(){
     store.dispatch(actions.logout());
     localStorage.removeItem(DATA_LOCATION);
+    window.location.reload(false);
 }
 
 export function openLoginModal(){
