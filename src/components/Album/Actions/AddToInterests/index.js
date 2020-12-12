@@ -33,23 +33,24 @@ class Base extends Component {
     
     render() {
         let { ownInterest } = this.state;
+        let { contentWhenInterest = "Je veux l'écouter", contentWhenNoInterest = "Ajouter à mes envies"} = this.props;
         return (
             <button
               {...this.props}
               onClick={this.changeInterest}
               className={`button ${ownInterest && "is-success"}`}
             >
-              {ownInterest ? "Je veux l'écouter" : "Ajouter à mes envies"}
+              {ownInterest ? contentWhenInterest : contentWhenNoInterest}
             </button>
         );
     }
 }
 
-const InterestButton = (props) => (
+const InterestButton = ({anonymousContent = "Ajouter à mes envies", ...props}) => (
     <SwitchLogButton
       {...props}
       userRendering={(props) => <Base {...props}/>}
-      anonymousChildren={"Ajouter à mes envies"}
+      anonymousChildren={anonymousContent}
     />
 );
 

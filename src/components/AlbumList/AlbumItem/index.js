@@ -3,6 +3,7 @@ import RatingTagsList from 'components/StarRatings/Tags';
 
 const AlbumItem = (
     {
+        mbid,
         cover,
         title,
         description,
@@ -50,6 +51,7 @@ const AlbumItem = (
               </div>
               <div className="column is-2-tablet is-4-desktop">
                 <RatingTagsList
+                  mbid={mbid}
                   userRating={user_rating}
                   followeesRating={followees_rating}
                   avgRating={avg_rating}

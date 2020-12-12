@@ -1,10 +1,8 @@
 
-EN COURS : liste de listes
-
-*
 Pages : 
 * TODO Home (3)
-* History (1)
+* DONE History (1)
+  CLOSED: [2020-12-06 dim. 18:58]
 * DONE Login
   CLOSED: [2020-11-27 ven. 19:21]
 * DONE Profile page
@@ -25,7 +23,8 @@ Pages :
    CLOSED: [2019-10-29 mar. 20:47]
 * DONE Change profile (2)
   CLOSED: [2019-10-29 mar. 20:47]
-* TODO DELETE ACCOUNT (1)
+* DONE DELETE ACCOUNT (1)
+  CLOSED: [2020-12-06 dim. 18:57]
 * DONE Change settings (2)
   CLOSED: [2019-10-29 mar. 20:47]
 * Message box (3 - ne sais pas car nouveau fonctionnement)
@@ -34,10 +33,12 @@ Pages :
 ** New message
 ** Sent messages
 ** Trash
-* My Exports
+* DONE My Exports
+  CLOSED: [2020-12-06 dim. 18:57]
 ** List page (1)
 ** Details page (1)
-* Launch export (1)
+* DONE Launch export (1)
+  CLOSED: [2020-12-06 dim. 18:58]
 * DONE Notifications (1)
   CLOSED: [2020-08-01 sam. 21:44]
 * DONE Top albums (3)
@@ -98,7 +99,7 @@ Pages :
 ** DONE Retrieve
    CLOSED: [2020-07-25 sam. 20:16]
 
-
+   
 
 * HANDLE 404
 * COMMENTS : delete/signal behavior (decider de comment on fait un back et front)
@@ -134,6 +135,10 @@ Dans l'ordre
 * Loading un peu partout (sauf la où SSR plus tard)
 * Refacto  layout : certaines pages ont le même systeme "gros titre" puis colonne de données -> use HeadLine component !
 
+* LIMITER nombre membres d'une conversation (à 5 ou 10 ?)
+
+* Conversations : ne pas trier par date les conversations qui sont 'bloquées' (on ne veut pas les voir remonter -> fetch 2 batchs de conversations ? )
+
 * DONE Top Albums (4h)
   CLOSED: [2020-11-22 dim. 01:36]
 * DONE Add album to List (4h)
@@ -156,13 +161,23 @@ Dans l'ordre
   CLOSED: [2020-11-28 sam. 01:09]
 * DONE Delete user (2h)
   CLOSED: [2020-11-28 sam. 01:43]
-* Album Tooltip (8h)
+* TODO TOFIX Album Popover (2h)
 * Feedback (1h)
-* Exports (4h)
+* DONE Exports (4h)
+  CLOSED: [2020-11-28 sam. 17:58]
 * Home Page (4h)
 * Fix all bugs (8h)
 * Migration old data (1 week end)
-* Messaging (8h)
+* DONE Messaging (8h)
+  CLOSED: [2020-12-12 sam. 20:56]
+** DONE retrieve conv : messages + create msg + update name & members
+   CLOSED: [2020-12-11 ven. 22:39]
+** DONE list conv
+   CLOSED: [2020-11-29 dim. 02:53]
+** DONE merge list & retrieve ?
+   CLOSED: [2020-12-11 ven. 22:39]
+** DONE create conv
+   CLOSED: [2020-12-12 sam. 20:56]
 * Passage à nextjs (20h)
 * TOTAL : 30h
 

@@ -7,7 +7,7 @@ import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl, getAllActivityUrl, getSelfActivityUrl, createExportUrl, exportTaskLaunchedUrl, listExportsUrl, getExportUrl } from 'pages/urls';
+import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl, getAllActivityUrl, getSelfActivityUrl, createExportUrl, exportTaskLaunchedUrl, listExportsUrl, getExportUrl, listConversationsUrl } from 'pages/urls';
 import LoginForm from 'components/LoginForm';
 import PublicRoute from 'pages/Router/PublicRoute';
 import { PrivateRoute, PrivateRouteRender } from 'pages/Router/PrivateRoute';
@@ -32,6 +32,7 @@ import ExportCreate from 'pages/Exports/Create';
 import ExportTaskLaunched from 'pages/Exports/TaskLaunched';
 import ExportsList from 'pages/Exports/List';
 import ExportRetrieve from 'pages/Exports/Retrieve';
+import Conversations from 'pages/Conversations';
 
 const NotFound = () => (
     <div>
@@ -239,6 +240,10 @@ function App() {
                               id={props.match.params.exportId}
                             />
                     }                    
+                  />
+                  <PrivateRoute
+                    path={listConversationsUrl()}
+                    component={Conversations}
                   />
                   <Route path="*" component={NotFound}/>
                 </Switch>

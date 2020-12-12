@@ -1,9 +1,11 @@
 import { createStore, combineReducers } from 'redux';
-import authReducer from '../services/Auth/reducers';
+import authReducer from 'services/Auth/reducers';
+import conversationsReducer from 'services/Conversations/reducers';
 
 const store = createStore(
     combineReducers({
-        auth: authReducer
+        auth: authReducer,
+        conversations: conversationsReducer
     })
 );
 

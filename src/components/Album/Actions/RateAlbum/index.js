@@ -52,10 +52,11 @@ class Base extends Component {
                 rating={userRating}
                 changeRating={this.changeRating}
               />
+              {"   "}
               {
                   userRating !== 0 &&
-                      <button className="button is-borderless" title="Supprimer ma note" onClick={this.deleteRating}>
-                        <span className="icon is-small mb-2 ml-5">
+                      <button className="button is-borderless is-paddingless" title="Supprimer ma note" onClick={this.deleteRating}>
+                        <span className="icon is-small mb-2 ml-3">
                           <i className="fa fa-lg fa-trash"></i>
                         </span>
                       </button>

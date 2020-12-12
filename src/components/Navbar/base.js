@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listExportsUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listExportsUrl, listConversationsUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
 import SearchInput from 'components/Search/SearchInput';
 import NotificationBell from 'components/Notifications/Bell';
@@ -37,7 +37,7 @@ class Navbar extends Component {
                   </a>
                   <div className="navbar-dropdown">
                     <Link to={profileUrl(getUser())} className="navbar-item">Profil</Link>
-                    <Link className="navbar-item">Messagerie</Link>
+                    <Link className="navbar-item" to={listConversationsUrl()}>Messagerie</Link>
                     <Link className="navbar-item" to={listExportsUrl()}>Mes exports</Link>
                     <Link className="navbar-item" to={changeProfileUrl()}>Modifier mes infos</Link>
                     <Link className="navbar-item" onClick={this.props.onLogout}>Déconnexion</Link>

@@ -88,6 +88,7 @@ class AlbumList extends Component {
         return ratedObjects.map(
             (object, index) => (
                 <AlbumItem
+                  mbid={object.mbid}
                   key={object.rating.id}
                   cover={object.cover}
                   title={

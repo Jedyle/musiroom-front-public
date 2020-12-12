@@ -1,7 +1,7 @@
 import React from 'react';
 import Gallery from 'components/Gallery';
 import Logo from 'components/Logo';
-import AlbumPopover from 'components/AlbumPopover';
+import AlbumPopover from 'components/Album/Popover';
 import StarRatings from 'components/StarRatings';
 import ProfileSidebar from 'components/Profile/Sidebar';
 import AlbumItem from 'components/AlbumList/AlbumItem';
@@ -25,11 +25,18 @@ class Prototypes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tag: "Gallery"
+            tag: "AlbumPopover"
         };        
     }
 
     components = {
+        AlbumPopover: {
+            component: AlbumPopover,
+            props : {
+                mbid: "1e8e4ce8-f334-3ec7-af9a-d7babbdb2fd2",
+                children: (<button>Test</button>)
+            }
+        },
         Gallery: {
             component: Gallery,
             props: {
@@ -52,14 +59,6 @@ class Prototypes extends React.Component {
         Logo: {
             component: Logo,
             props: {}
-        },
-        AlbumPopover: {
-            component: AlbumPopover,
-            props : {
-                button: (<a className="button" href="https://google.com">Hover Me</a>),
-                img: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg" ,
-                children: (<div>Hello</div>)
-            }
         },
         StarRatings: {
             component: StarRatings,

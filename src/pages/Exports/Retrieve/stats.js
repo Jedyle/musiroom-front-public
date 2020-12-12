@@ -8,7 +8,7 @@ const ExportStats = ({stats}) => (
           Origine : {stats.site}
         </div>
         <div className="list-item">
-          Exportés : {Object.keys(stats.data_to_export).filter(key => stats.data_to_export[key]).join(',')}
+          Exportés : {Object.keys(stats.data_to_export).filter(key => stats.data_to_export[key]).join(', ')}
         </div>
         <div className="list-item">
           Nouvelles notes : <strong className="has-text-success">{stats.new_ratings}</strong>

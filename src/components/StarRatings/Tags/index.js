@@ -2,15 +2,20 @@ import React from 'react';
 import { getUser } from 'services/Auth/api';
 import './index.css';
 import PropTypes from 'prop-types';
+import AlbumPopover from 'components/Album/Popover';
 
-const RatingTagsList = ({userRating, followeesRating, avgRating}) => (
-    <div className="tags are-medium is-pulled-right">
+const RatingTagsList = ({mbid, userRating, followeesRating, avgRating}) => (
+    <div className="tags are-large is-pulled-right">
       {
           getUser() && (
-              <span className="tag is-user-rating"
+              <AlbumPopover
+                mbid={mbid}
+              >
+                <span className="tag is-user-rating mr-1" style={{cursor: 'pointer', backgroundClip: 'border-box'}}
                     title="Ma note">
-                {userRating || '-'}
-              </span>
+                  {userRating || '-'}
+                </span>
+              </AlbumPopover>              
           )
       }
       {

@@ -44,4 +44,7 @@ export const getSelfActivityUrl = () => `/live/perso`;
 export const createExportUrl = () => `/export/creer`;
 export const exportTaskLaunchedUrl = () => `/export/ok`;
 export const listExportsUrl = () => `/profil/exports`;
-export const getExportUrl = (id) => `/profile/exports/${id}`;
+export const getExportUrl = (id) => `/profil/exports/${id}`;
+
+export const listConversationsUrl = () => `/profil/messagerie`;
+export const getConversationUrl = (id) => `/profil/messagerie/${id}`;
