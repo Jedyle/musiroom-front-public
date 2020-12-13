@@ -27,7 +27,8 @@ Pages :
   CLOSED: [2020-12-06 dim. 18:57]
 * DONE Change settings (2)
   CLOSED: [2019-10-29 mar. 20:47]
-* Message box (3 - ne sais pas car nouveau fonctionnement)
+* DONE Message box (3 - ne sais pas car nouveau fonctionnement)
+  CLOSED: [2020-12-13 dim. 10:44]
 ** Inbox
 ** Archive
 ** New message

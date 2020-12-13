@@ -143,33 +143,33 @@ class ListsWithAlbum extends Component {
 }
 
 const ListsModal = ({mbid, isActive, onToggleActive}) => (
-        <div className={`modal ${isActive && 'is-active'}`}>
-                <div className="modal-background"></div>
-                <div className="modal-card">
-                  <header className="modal-card-head">
-                    <p className="modal-card-title">Ajouter à une liste</p>
-                    <button
-                      className="delete"
-                      aria-label="close"
-                      onClick={() => {onToggleActive(false);}}
-                    ></button>
-                  </header>
-                  <section className="modal-card-body">
-                    <div className="list">
-                      {isActive &&
-                       <ListsWithAlbum
-                         mbid={mbid}
-                       />
-                      }                     
-                    </div>
-                  </section>
-                </div>
-                <button
-                  className="modal-close is-large"
-                  aria-label="close"
-                  onClick={() => {onToggleActive(true);}}
-                ></button>
-              </div>                 
+    <div className={`modal ${isActive && 'is-active'}`}>
+      <div className="modal-background"></div>
+      <div className="modal-card">
+        <header className="modal-card-head">
+          <p className="modal-card-title">Ajouter à une liste</p>
+          <button
+            className="delete"
+            aria-label="close"
+            onClick={() => {onToggleActive(false);}}
+          ></button>
+        </header>
+        <section className="modal-card-body">
+          <div className="list">
+            {isActive &&
+             <ListsWithAlbum
+               mbid={mbid}
+             />
+            }                     
+          </div>
+        </section>
+      </div>
+      <button
+        className="modal-close is-large"
+        aria-label="close"
+        onClick={() => {onToggleActive(true);}}
+      ></button>
+    </div>                 
 );
 
 class Base extends Component {

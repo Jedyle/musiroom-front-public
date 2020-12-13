@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ReactAwesomePopover from 'react-awesome-popover';
+import Popover from 'react-popover';
 import RateAlbum from 'components/Album/Actions/RateAlbum';
 import InterestButton from 'components/Album/Actions/AddToInterests';
 import AddToListButton from 'components/Album/Actions/AddToList';
@@ -9,6 +9,9 @@ import { GetArtistLink } from 'pages/Links';
 import { truncate } from 'utils/strings';
 import { getUser } from 'services/Auth/api';
 import { getAlbum } from 'services/Albums';
+
+// this css makes sure we can use a modal inside the popover (dirty fix)
+import './index.css';
 
 class PopoverContent extends Component {
 
@@ -31,7 +34,7 @@ class PopoverContent extends Component {
         let { mbid, ...props } = this.props;
         let { album } = this.state;
         return (
-            <div className="box" style={{width: '400px', padding: '0.5rem'}} {...props}>
+            <div className="box" style={{width: '400px', padding: '0.6rem', boxShadow: 'none'}} {...props}>
               { album ?
                 (
                     <article className="media">
@@ -99,19 +102,32 @@ class PopoverContent extends Component {
 
 export default class AlbumPopover extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
+    }
+
+    setOpen = (value) => {
+        this.setState({open: value});
+    }
+
     render() {
         let { mbid, children } = this.props;
+        let { open } = this.state;
         return (
             getUser() ?
-                <ReactAwesomePopover           
-                  action="hover"
-                  overlayColor="rgb(0,0,0,0)"
+                <Popover
+                  body={<PopoverContent mbid={mbid}/>}
+                  isOpen={open}
+                  onOuterAction={(e) => this.setOpen(false)}
                 >
-                  {children}
-                  <PopoverContent
-                    mbid={mbid}
-                  />                
-                </ReactAwesomePopover> : children  
+                  <span onMouseOver={() => this.setOpen(true)}>
+                    {children}
+                  </span>
+                </Popover>
+            : children  
         );        
     }
 }
