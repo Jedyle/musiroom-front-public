@@ -9,6 +9,7 @@ import DiscussionSidebar from 'components/Discussions/Sidebar';
 import CommentSection from 'components/Comments/Section';
 import DiscussionEditForm from 'components/Discussions/EditForm';
 
+import Avatar from 'components/Profile/Avatar';
 
 export default class DiscussionRetrieve extends Component {
 
@@ -119,10 +120,12 @@ export default class DiscussionRetrieve extends Component {
                       { discussion.user && 
                         <div className="columns">
                           <div className="has-margin-left-10">
-                          <Link to="">
-                            <figure className="image is-24x24" style={{display: "inline-block"}}>
-                              <img className="is-rounded" src={process.env.REACT_APP_API_URL + discussion.user.avatar} />
-                            </figure>
+                            <Link to="">
+                              <Avatar
+                                avatar={process.env.REACT_APP_API_URL + discussion.user.avatar}
+                                alt={discussion.user.username}
+                                size="is-24x24"
+                              />
                           </Link>
                           </div>
                           <div className="column is-paddingless has-margin-left-10">

@@ -3,6 +3,8 @@ import { getReviews } from 'services/Profile';
 import AlbumList from 'containers/AlbumList';
 import AbstractListTab from '../AbstractListTab';
 import { Link } from 'react-router-dom';
+import { getReviewUrl } from 'pages/urls';
+import { removeHTML } from 'utils/strings';
 
 const ReviewFormatter = ({
     title,
@@ -38,7 +40,8 @@ class ReviewsList extends Component {
             formattedReviews[review.rating.id] = (           
                 <ReviewFormatter
                   title={review.title}
-                  content={review.content}
+                  content={removeHTML(review.content)}
+                  reviewLink={getReviewUrl(review.rating.content_object.mbid, review.id)}
                 />
             );
         }

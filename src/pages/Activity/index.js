@@ -18,7 +18,6 @@ export default class Activity extends Component {
     }      
 
     fetchActivity = (page) => {
-        console.log(page);
         let getActivity = this.props.type === "all" ? getAllActivity : getSelfActivity;
         getActivity({page: page}).then((response) => {
             this.setState((prevState) => {

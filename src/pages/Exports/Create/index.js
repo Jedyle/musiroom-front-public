@@ -3,6 +3,8 @@ import { exportTaskLaunchedUrl } from 'pages/urls';
 import { validateSCUser, launchExport } from 'services/Exports';
 import HeadLine from 'components/Utils/HeadLine';
 
+import Avatar from 'components/Profile/Avatar';
+
 const SCUserForm = ({username, onChangeUser, onValidateUser, SCData, SCErrors}) => (
     <form className="columns" onSubmit={(e) => {e.preventDefault();  onValidateUser(e);}}>
       <div className="column is-12-mobile is-6-tablet">
@@ -35,9 +37,12 @@ const SCUserForm = ({username, onChangeUser, onValidateUser, SCData, SCErrors}) 
             <div className="box">
               <article className="media">
                 <div className="media-left">
-                  <figure className="image is-64x64">
-                    <img src={SCData.avatar} alt={SCData.username}/>
-                  </figure>
+                  <Avatar
+                    figureStyle={{display: "auto"}}
+                    avatar={SCData.avatar}
+                    alt={SCData.username}
+                    size="is-64x64"
+                  />
                 </div>
                 <div className="media-content">
                   <div className="content">

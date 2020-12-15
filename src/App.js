@@ -36,7 +36,7 @@ import Conversations from 'pages/Conversations';
 
 const NotFound = () => (
     <div>
-      <h1>That page was not found</h1>
+      <h1>This page was not found</h1>
     </div>
 );
 

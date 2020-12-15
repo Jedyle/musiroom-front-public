@@ -10,6 +10,7 @@ import { search } from 'services/Search';
 import { getAlbumUrl } from 'pages/urls';
 import { previewUrl } from 'utils/urls';
 
+import Avatar from 'components/Profile/Avatar';
 
 class SearchAlbum extends Component {
 
@@ -483,9 +484,11 @@ export default class ListContent extends Component {
             formattedRatings[item.album.rating.id] = (
                 (<div>
                    <p style={{maxHeight: "48px"}}>
-                       <figure className="image is-48x48 is-inline-block">
-                         <img className="is-rounded" src={process.env.REACT_APP_API_URL + list.user.avatar}/>
-                       </figure>
+                     <Avatar
+                       size="is-48x48"
+                       avatar={process.env.REACT_APP_API_URL + list.user.avatar}
+                       alt={list.user.username}
+                     />
                      <span className="tag ml-3 mt-3 is-medium is-profile-rating"
                            style={{position: "absolute"}}
                      >

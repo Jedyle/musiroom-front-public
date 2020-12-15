@@ -102,9 +102,12 @@ Pages :
 
    
 
-* HANDLE 404
-* COMMENTS : delete/signal behavior (decider de comment on fait un back et front)
-* SUPPRIMER DISCUSSION : idem comments
+* DONE HANDLE 404 - Voir plus tard car changement probable avec nextjs
+  CLOSED: [2020-12-14 lun. 20:14]
+* DONE COMMENTS : delete/signal behavior (decider de comment on fait un back et front)
+  CLOSED: [2020-12-15 mar. 15:30]
+* DONE SUPPRIMER DISCUSSION : idem comments
+  CLOSED: [2020-12-15 mar. 15:30]
 
 3 + 1 + 1 + 2 + 1 + 1 + 3 + 9 + 6 + 1 + 2
 * Avatar : probleme avec images pas rondes
@@ -126,8 +129,9 @@ Pages :
 Dans l'ordre
 
 * Refactor forms : formBuilder (ex: LoginForm et Registration form ont la même structure)
-* Logout : refresh la page apres le logout
-
+* DONE Logout : refresh la page apres le logout
+  CLOSED: [2020-12-13 dim. 19:33]
+  
 * YOUTUBE API : quota exceeded
 * Quand on ouvre le login, mettre focus sur l'input du pseudo pour aller plus vite
 * Refacto listes (à faire plus tard, pas urgent)
@@ -162,7 +166,8 @@ Dans l'ordre
   CLOSED: [2020-11-28 sam. 01:09]
 * DONE Delete user (2h)
   CLOSED: [2020-11-28 sam. 01:43]
-* TODO TOFIX Album Popover (2h)
+* DONE TOFIX Album Popover (2h)
+  CLOSED: [2020-12-13 dim. 19:22]
 * Feedback (1h)
 * DONE Exports (4h)
   CLOSED: [2020-11-28 sam. 17:58]

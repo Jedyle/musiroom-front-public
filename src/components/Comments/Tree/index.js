@@ -6,6 +6,7 @@ import { getUser } from 'services/Auth/api';
 import VotePanel from 'components/Utils/VotePanel';
 import CommentCreateForm from 'components/Comments/CreateForm';
 import CommentEditForm from 'components/Comments/EditForm';
+import Avatar from 'components/Profile/Avatar';
 
 
 class CommentItem extends Component {
@@ -37,20 +38,22 @@ class CommentItem extends Component {
     canUserReply = () => ((this.props.depthLevel < this.props.maxDepth) && getUser())
     
     render() {
-        let comment = this.props.comment;
-        let commentMap = this.props.commentMap;
+        let { comment, commentMap, onCommentVote, isEditable, onEditComment, onSubmitComment, depthLevel, maxDepth } = this.props;
         return (
             <div className="columns" id={comment.id}>
               <div className="column is-narrow mt-2" style={{width: "60px"}}>
-                <figure className="image is-48x48">
-                  <img src={comment.user.profile.avatar}/>
-                </figure>        
+                <Avatar
+                  size="is-48x48"
+                  avatar={comment.user.profile.avatar}                  
+                  alt={comment.user.username}
+                  figureStyle={{display: 'auto'}}
+                />
               </div>
               <div className="column is-narrow is-paddingless" style={{width: "35px"}}>
                 <VotePanel
                   numVotes={comment.vote_score}
                   loggedUserVote={comment.user_vote}
-                  onVote={(action) => this.props.onCommentVote(comment.id, action)}
+                  onVote={(action) => onCommentVote(comment.id, action)}
                 />
               </div>
               <div className="column">
@@ -61,7 +64,7 @@ class CommentItem extends Component {
                         {comment.user.username}
                       </Link>
                       <span className="is-pulled-right">
-                        { this.props.isEditable && 
+                        { isEditable && 
                           <span className="icon"
                                 style={{cursor: 'pointer'}}
                                 onClick={(e) => {this.setState((prevState) => ({hasEditForm: !prevState.hasEditForm}));}}
@@ -69,12 +72,17 @@ class CommentItem extends Component {
                             <i title="Editer" className="fa fa-lg fa-edit mr-10"></i>
                           </span>
                         }
-                        <span className="icon">
-                          <i className="fa fa-lg fa-flag mr-10"></i>                        
-                        </span>
-                        <span className="icon">
-                          <i className="fa fa-lg fa-trash"></i>
-                        </span>
+                        {/* <span className="icon"> */}
+                        {/*   <i className="fa fa-lg fa-flag mr-10"></i>                         */}
+                        {/* </span> */}
+                        {/* TODO : signal / delete comments */}
+                        {/* { isEditable && */}
+                        {/*   <span className="icon" */}
+                        {/*         style={{cursor: 'pointer'}} */}
+                        {/*   > */}
+                        {/*     <i className="fa fa-lg fa-trash"></i> */}
+                        {/*   </span> */}
+                        {/* } */}
                       </span>
                     </p>
                   </div>
@@ -88,7 +96,7 @@ class CommentItem extends Component {
                             content={this.state.editContent}
                             onChange={this.onChangeEdit}
                             onSubmit={(e) => {
-                                this.props.onEditComment(comment.id, this.state.editContent, e);
+                                onEditComment(comment.id, this.state.editContent, e);
                                 this.setState({hasEditForm: false});
                             }}
                             onCancel={() => {this.setState({hasEditForm: false});}}
@@ -115,7 +123,7 @@ class CommentItem extends Component {
                               content={this.state.replyContent}
                               onChangeContent={this.onChangeReply}
                               onSubmitComment={(e) => {
-                                  this.props.onSubmitComment(comment.id, this.state.replyContent, e);
+                                  onSubmitComment(comment.id, this.state.replyContent, e);
                                   this.setState({hasReplyForm: false});
                               }}
                             />
@@ -132,11 +140,11 @@ class CommentItem extends Component {
                             <CommentTreeView
                               rootComments={commentMap[comment.id].children}
                               commentMap={commentMap}
-                              onCommentVote={this.props.onCommentVote}
-                              onSubmitComment={this.props.onSubmitComment}
-                              onEditComment={this.props.onEditComment}
-                              depthLevel={this.props.depthLevel + 1}
-                              maxDepth={this.props.maxDepth}
+                              onCommentVote={onCommentVote}
+                              onSubmitComment={onSubmitComment}
+                              onEditComment={onEditComment}
+                              depthLevel={depthLevel + 1}
+                              maxDepth={maxDepth}
                             />
                           </div>
                   }

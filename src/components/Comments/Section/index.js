@@ -107,7 +107,8 @@ export default class CommentSection extends Component {
         delete comment.children;
         commentMap[comment.id] = {
             data: comment,
-            children: []
+            children: [],
+            isEditable: (comment.user.username === getUser())
         };
         if (parentId){
             commentMap[parentId].children.unshift(comment.id);

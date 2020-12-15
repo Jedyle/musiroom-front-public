@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getUser } from 'services/Auth/api';
 import { toHumanDate } from 'utils/date';
 import { UserLink } from 'pages/Links';
+import Avatar from 'components/Profile/Avatar';
 
 import './index.css';
 
@@ -12,9 +13,12 @@ const Message = ({message}) => {
         <div className={`column is-7 ${isAuthor && 'is-offset-5'}`}>
           <div className="columns mb-0">
             <div className="column is-narrow pb-1 pr-1">
-              <figure className="image is-24x24">
-                <img className="is-rounded" src={process.env.REACT_APP_API_URL + message.user.avatar} />
-              </figure>
+              <Avatar
+                avatar={process.env.REACT_APP_API_URL + message.user.avatar}
+                alt={message.user.username}
+                size="is-24x24"
+                figureStyle={{display: "auto"}}
+              />
             </div>
             <div className="column pb-1 pl-1">
               <p >

@@ -6,7 +6,7 @@ import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
 import ListContent from './content';
 import { updateList } from 'services/Lists';
 import ListDescription from './description';
-
+import Avatar from 'components/Profile/Avatar';
 
 export default class RetrieveList extends Component {
 
@@ -95,9 +95,11 @@ export default class RetrieveList extends Component {
                       <ProfileLink username={list.user.username}/>
                     </h2>                    
                     <p className="has-text-centered is-centered">
-                      <figure className="image is-64x64 is-inline-block">
-                        <img className="is-rounded" src={process.env.REACT_APP_API_URL + list.user.avatar}/>
-                      </figure>
+                      <Avatar
+                        avatar={process.env.REACT_APP_API_URL + list.user.avatar}
+                        size="is-64x64"
+                        alt={list.user.username}
+                      />
                     </p>
                     <br/>
                     <div className="columns">

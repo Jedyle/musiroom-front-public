@@ -7,6 +7,7 @@ import Input from 'components/Utils/Forms/Input';
 
 import { getOwnRating } from 'services/OwnRatings';
 import { createReview } from 'services/Reviews';
+import { getReviewUrl } from 'pages/urls';
 
 import '../index.css';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -61,6 +62,7 @@ class CreateReview extends Component {
             content: draftToHtml(convertToRaw(editorState.getCurrentContent()))
         }).then((response) => {
             alert("Votre critique a bien été créée !");
+            this.props.history.push(getReviewUrl(this.props.album.mbid, response.data.id));
         }).catch((error) => {
             if (error.response.status === 400){
                 this.setState({

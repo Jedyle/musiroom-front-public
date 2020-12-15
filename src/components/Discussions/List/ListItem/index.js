@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Avatar from 'components/Profile/Avatar';
 import VotePanel from 'components/Utils/VotePanel';
 
 
@@ -14,9 +15,7 @@ const DiscussionHeader = ({
     <div className="is-marginless has-margin-top-5 columns">      
       <div className="has-margin-left-10">
         <Link to={link}>
-          <figure className="image is-24x24" style={{display: "inline-block"}}>
-            <img className="is-rounded" src={avatar} />
-          </figure>
+          <Avatar size="is-24x24" avatar={avatar}/>
         </Link>
       </div>
       <div className="column is-paddingless has-margin-left-10">
