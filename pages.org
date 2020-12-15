@@ -144,7 +144,8 @@ Pages :
   CLOSED: [2020-12-15 mar. 20:24]
 * Traduire les réponses en français
 * Loading un peu partout (sauf la où SSR plus tard)
-* Refacto  layout : certaines pages ont le même systeme "gros titre" puis colonne de données -> use HeadLine component !
+* DONE Refacto  layout : certaines pages ont le même systeme "gros titre" puis colonne de données -> use HeadLine component !
+  CLOSED: [2020-12-15 mar. 21:00]
 
 * LIMITER nombre membres d'une conversation (à 5 ou 10 ?)
 
