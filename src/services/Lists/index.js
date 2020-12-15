@@ -8,14 +8,16 @@ export function getLists({
     page=1,
     limit=20,
     title="",
-    ordering=""
+    ordering="",
+    notEmpty=true
 }){
     return api.get(`/lists/`, {
         params: {
             page: page,
             limit: limit,
             ordering: ordering,
-            title__icontains: title
+            title__icontains: title,
+            not_empty: notEmpty
         }
     });
 }

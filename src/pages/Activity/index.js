@@ -5,6 +5,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import ActivityItem from 'components/Activity/Item';
 import { getAllActivity, getSelfActivity } from 'services/Activity';
 import { getAllActivityUrl, getSelfActivityUrl } from 'pages/urls';
+import HeadLine from 'components/Utils/HeadLine';
 
 export default class Activity extends Component {
 
@@ -38,15 +39,11 @@ export default class Activity extends Component {
               <div className="columns is-mobile is-multiline">
                 <div className="column is-12">
                   <br/>
-                  <section className="hero has-background-primary">
-                    <div className="hero-body">
-                      <div className="container">
-                        <h1 className="title has-text-centered is-size-1 has-text-white">
-                          Activité {type === "all" ? "(tout)" : "(perso)"}
-                        </h1>
-                      </div>
-                    </div>
-                  </section>
+                  <HeadLine
+                    heroClasses="has-background-primary"
+                    title={`Activité ${type === "all" ? "(tout)" : "(perso)"}`}
+                    titleClasses="is-size-1 has-text-white"
+                  />
                 </div>
 
                 <div className="column is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop has-background-white-ter">

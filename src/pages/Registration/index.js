@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { register, resendLink } from 'services/Registration';
 import FormBuilder from 'components/Utils/Forms/Builder';
+import HeadLine from 'components/Utils/HeadLine';
 
 class RegistrationForm extends Component {
 
@@ -115,15 +116,10 @@ class RegistrationForm extends Component {
         return (
             <div className="columns is-multiline is-mobile">
               <div className="column is-12">
-                <section className="hero has-background-grey-lighter">
-                  <div className="hero-body">
-                    <div className="container">
-                      <h1 className="title has-text-centered is-size-1">
-                        Rejoignez La Musithèque
-                      </h1>
-                    </div>
-                  </div>
-                </section>
+                <HeadLine
+                  title="Rejoignez La Musithèque"
+                  titleClasses="is-size-1"
+                />
               </div>
               <div className="column has-background-white-ter is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
                 <h1 className="title has-text-centered mt-5">Inscription</h1>

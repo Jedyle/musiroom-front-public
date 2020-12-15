@@ -12,6 +12,7 @@ import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
 import ReviewEditModal from 'components/Album/Review/EditModal';
+import HeadLine from 'components/Utils/HeadLine';
 
 import '../index.css';
 import 'components/StarRatings/Tags/index.css';
@@ -94,22 +95,15 @@ export default class RetrieveUpdateReview extends Component {
         
     }
     
-    render() {                
+    render() {
         let review = this.state.review;
         return review && (
             <div className="column is-full-mobile is-two-thirds-widescreen">
-              <section className="hero is-light">
-                <div className="hero-body">
-                  <div className="container">                    
-                    <h1 className="title has-text-centered">
-                      {review.title}
-                    </h1>
-                    <h2 className="subtitle has-text-centered is-size-6">
-                      <Link to={profileUrl(review.rating.user.username)}>{review.rating.user.username}</Link>, le {toHumanDate(review.date_publication)}
-                    </h2>
-                  </div>
-                </div>
-              </section>
+              <HeadLine
+                title={review.title}
+                heroClasses="is-light"
+                subtitle={<><Link to={profileUrl(review.rating.user.username)}>{review.rating.user.username}</Link>, le {toHumanDate(review.date_publication)}</>}
+              />
               <br/>
               {
                   this.state.isEditable &&

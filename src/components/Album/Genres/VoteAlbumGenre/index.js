@@ -16,7 +16,7 @@ const VoteButton = (props) => (
       anonymousChildren={props.children}
       {...props}
     />
-)
+);
 
 const UpVoteButton = ({userVote, numVotes, onVote}) => (
     <VoteButton
@@ -55,7 +55,7 @@ const CancelVoteButton = ({userVote, onVote}) => (
     >
       Annuler
     </VoteButton>
-)
+);
 
 const VoteAlbumGenre = ({genres, onVote}) => (
     <div>

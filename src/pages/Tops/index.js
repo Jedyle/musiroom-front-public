@@ -5,6 +5,7 @@ import { range } from 'utils/numbers';
 import { getTopUrl } from 'pages/urls';
 import { getTop } from 'services/Tops';
 import AlbumList from 'containers/AlbumList';
+import HeadLine from 'components/Utils/HeadLine';
 
 const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
     let currentYear = new Date().getFullYear();
@@ -95,15 +96,11 @@ class Top extends Component {
             <div className="columns is-mobile is-multiline">
               <div className="column is-12">
                 <br/>
-                <section className="hero has-border has-background-white-ter">
-                  <div className="hero-body">
-                    <div className="container">
-                      <h1 className="title has-text-centered is-size-1">
-                        Top 100 Albums
-                      </h1>
-                    </div>
-                  </div>
-                </section>
+                <HeadLine
+                  title="Top 100 Albums"
+                  titleClasses="is-size-1"
+                  heroClasses="has-border has-background-white-ter"
+                />
               </div>
 
               <div className="column">

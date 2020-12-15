@@ -4,6 +4,7 @@ import { getLists } from 'services/Lists';
 import { withRouter, Link } from 'react-router-dom';
 import { profileUrl, getListUrl, listListsUrl } from 'pages/urls';
 import Paginator from 'components/Utils/Paginator';
+import HeadLine from 'components/Utils/HeadLine';
 
 class ListsList extends Component {
 
@@ -117,15 +118,10 @@ class ListsList extends Component {
             <div className="columns is-mobile has-padding-10">
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
 
-                <section className="hero mb-5">
-                  <div className="hero-body has-background-grey-lighter">
-                    <div className="container">
-                      <h1 className="title has-text-centered">
-                        Listes
-                      </h1>
-                    </div>
-                  </div>
-                </section>
+                <HeadLine
+                  heroClasses="mb-5 has-background-grey-lighter"
+                  title="Listes"
+                />
 
                 <div className="columns is-mobile">
                   <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">

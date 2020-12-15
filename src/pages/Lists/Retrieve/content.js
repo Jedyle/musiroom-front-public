@@ -546,32 +546,35 @@ export default class ListContent extends Component {
             
         return (
             <div>
-              {count && (
+              {count !== null && (
                   <p className="has-text-centered">Liste de {count} albums</p>
               )}
-              { getUser() &&
+              { getUser() === list.user.username &&
                 <AddAlbumSection
                   onAddAlbum={() => this.fetchItems(page)}
                   list={list}
                 />
               }
               <br/>
-              <p className="has-text-centered">
-                {paginator}
-              </p>
-              <br/>
-              {items && 
-               <AlbumList
-                 ranks={items.map((item) => (item.order))}
-                 displayRanks={list.ordered}
-                 ratedObjects={items.map((item) => (item.album))}
-                 content={this.formatContent()}
-                 headerContent={this.formatHeaderContent()}
-               />
+              {items && items.length > 0 ?
+               <>
+                 <p className="has-text-centered">
+                   {paginator}
+                 </p>
+                 <br/>
+                 <AlbumList
+                   ranks={items.map((item) => (item.order))}
+                   displayRanks={list.ordered}
+                   ratedObjects={items.map((item) => (item.album))}
+                   content={this.formatContent()}
+                   headerContent={this.formatHeaderContent()}
+                 />
+                 <p className="has-text-centered">
+                   {paginator}
+                 </p>
+               </>
+               : <p className="has-text-centered">Cette liste est vide :(</p>
               }
-              <p className="has-text-centered">
-                {paginator}
-              </p>
               {getUser() && positionModalCurrentItem &&
                (
                    <PositionModal

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getGenre } from 'services/Genres';
 import GenreTree from 'components/Genre/Tree';
 import { CreateGenreLink } from 'pages/Links';
+import HeadLine from 'components/Utils/HeadLine';
 
 class GenreRetrieve extends Component  {
 
@@ -25,15 +26,11 @@ class GenreRetrieve extends Component  {
         return genre && (
             <div className="columns is-mobile is-multiline">
               <div className="column is-full">
-                <section className="hero is-light">
-                  <div className="hero-body">
-                    <div className="container">
-                      <h1 className="title is-size-1 has-text-centered">
-                        {genre.name}
-                      </h1>
-                    </div>
-                  </div>
-                </section>               
+                <HeadLine
+                  title={genre.name}
+                  titleClasses="is-size-1"
+                  heroClasses="is-light"
+                />
               </div>              
               <div className="column is-10-mobile is-offset-1-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
                 <p style={{textAlign: 'justify'}}>

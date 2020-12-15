@@ -110,32 +110,37 @@ Pages :
   CLOSED: [2020-12-15 mar. 15:30]
 
 3 + 1 + 1 + 2 + 1 + 1 + 3 + 9 + 6 + 1 + 2
-* Avatar : probleme avec images pas rondes
-* Refactor 'onChange' common things (setstate(e.target.value) etc)
-* Gerer les erreurs apis de façon plus clean (titleError.. etc)
+* DONE Avatar : probleme avec images pas rondes
+  CLOSED: [2020-12-15 mar. 19:52]
+* DONE Refactor 'onChange' common things (setstate(e.target.value) etc)
+  CLOSED: [2020-12-15 mar. 19:52]
+* DONE Gerer les erreurs apis de façon plus clean (titleError.. etc)
+  CLOSED: [2020-12-15 mar. 19:56]
 * Ajouter titres aux pages
-* Avatars : concaténer REACT_APP_API_URL automatiquement ? ou mettre en backend ? 
-* Refacto layout (columns style etc)
-* Refactor vote function (onVote, onToggleVotes etc are always the same)
-* Refactor edit sections with textarea only
-* Afficher quelque chose special pour les listes d'albums vides / ne pas les afficher dans la liste des listes ?
+* DONE Avatars : concaténer REACT_APP_API_URL automatiquement ? ou mettre en backend ? 
+  CLOSED: [2020-12-15 mar. 19:52]
+* DONE Refactor vote function (onVote, onToggleVotes etc are always the same)
+  CLOSED: [2020-12-15 mar. 20:22]
+* DONE Refactor edit sections with textarea only
+  CLOSED: [2020-12-15 mar. 20:22]
+* DONE Afficher quelque chose special pour les listes d'albums vides / ne pas les afficher dans la liste des listes ?
+  CLOSED: [2020-12-15 mar. 20:21]
 * Linter (on emacs too) + remove colons
-* List Retrieve : modal keeps saying "toujours dans la liste" for a deleted item -> use store ?
-* Ajouter images sur les 'hero' sur les pages 'genres', 'top', 'listes', 'discussions'
-* AlbumLists pas responsive (voir top par exemple)
-* Les methodes pour recuperer des ratings a partir d'une liste d'albums peuvent se refactor (ex: dans listes, dans tops...)
+* DONE List Retrieve : modal keeps saying "toujours dans la liste" for a deleted item -> use store ?
+  CLOSED: [2020-12-15 mar. 19:59]
+* DONE Les methodes pour recuperer des ratings a partir d'une liste d'albums peuvent se refactor (ex: dans listes, dans tops...)
+  CLOSED: [2020-12-15 mar. 20:23]
 * Ajouter du loading un peu partout pendant les requêtes
 
-Dans l'ordre
-
-* Refactor forms : formBuilder (ex: LoginForm et Registration form ont la même structure)
+* DONE Refactor forms : formBuilder (ex: LoginForm et Registration form ont la même structure)
+  CLOSED: [2020-12-15 mar. 20:23]
 * DONE Logout : refresh la page apres le logout
   CLOSED: [2020-12-13 dim. 19:33]
   
 * YOUTUBE API : quota exceeded
 * Quand on ouvre le login, mettre focus sur l'input du pseudo pour aller plus vite
-* Refacto listes (à faire plus tard, pas urgent)
-* Verifier responsive : root columns : mettre ml-0 mr-0 partout (refacto) 
+* DONE Refacto listes (à faire plus tard, pas urgent)
+  CLOSED: [2020-12-15 mar. 20:24]
 * Traduire les réponses en français
 * Loading un peu partout (sauf la où SSR plus tard)
 * Refacto  layout : certaines pages ont le même systeme "gros titre" puis colonne de données -> use HeadLine component !
@@ -190,6 +195,14 @@ Dans l'ordre
 
 
 
+
+
+* DESIGN
+** Ajouter images sur les 'hero' sur les pages 'genres', 'top', 'listes', 'discussions'
+** 
+** AlbumLists pas responsive (voir top par exemple)
+** responsive !!!
+** Verifier responsive : root columns : mettre ml-0 mr-0 partout (refacto) 
 
 * DEPLOIEMENT 
 ** backend : use firefox headless webdriver : installer dans docker

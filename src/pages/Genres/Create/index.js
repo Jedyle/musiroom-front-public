@@ -3,7 +3,7 @@ import { listAllGenres, createGenre } from 'services/Genres';
 import { getGenresUrl } from 'pages/urls';
 import { withRouter } from 'react-router-dom';
 import Input from 'components/Utils/Forms/Input';
-
+import HeadLine from 'components/Utils/HeadLine';
 
 class GenreCreate extends Component {
 
@@ -47,15 +47,11 @@ class GenreCreate extends Component {
         return (
             <div className="columns is-mobile is-multiline">
               <div className="column is-full">
-                <section className="hero is-light">
-                  <div className="hero-body">
-                    <div className="container">
-                      <h1 className="title is-size-1 has-text-centered">
-                        Ajouter un genre
-                      </h1>
-                    </div>
-                  </div>
-                </section>
+                <HeadLine
+                  title="Ajouter un genre"
+                  titleClasses="is-size-1"
+                  heroClasses="is-light"
+                />
               </div>
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
                 <div>
