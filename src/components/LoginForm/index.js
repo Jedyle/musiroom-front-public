@@ -13,6 +13,7 @@ class _LoginForm extends Component {
 
     constructor(props) {
         super(props);
+        this.loginRef = React.createRef();
         this.state = {
             form: {
                 username: '',
@@ -49,7 +50,8 @@ class _LoginForm extends Component {
                     value: form.username,
                     error: formErrors.username,
                     icon: (<i className="fa fa-user"></i>),
-                    onChange: this.setFormData('username')
+                    onChange: this.setFormData('username'),
+                    ref: this.loginRef
                 },
                 {
                     verboseName: 'Mot de passe',
@@ -82,6 +84,12 @@ class _LoginForm extends Component {
                 formErrors: error.response.data 
             });
         });        
+    }
+
+    componentDidUpdate(prevProps){
+        if (!prevProps.isActive && this.props.isActive){
+            this.loginRef.current.focus();
+        }
     }
     
     render() {

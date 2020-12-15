@@ -130,7 +130,7 @@ Pages :
   CLOSED: [2020-12-15 mar. 19:59]
 * DONE Les methodes pour recuperer des ratings a partir d'une liste d'albums peuvent se refactor (ex: dans listes, dans tops...)
   CLOSED: [2020-12-15 mar. 20:23]
-* Ajouter du loading un peu partout pendant les requêtes
+* Ajouter du loading un peu partout pendant les requêtes 
 
 * DONE Refactor forms : formBuilder (ex: LoginForm et Registration form ont la même structure)
   CLOSED: [2020-12-15 mar. 20:23]
@@ -138,7 +138,8 @@ Pages :
   CLOSED: [2020-12-13 dim. 19:33]
   
 * YOUTUBE API : quota exceeded
-* Quand on ouvre le login, mettre focus sur l'input du pseudo pour aller plus vite
+* DONE Quand on ouvre le login, mettre focus sur l'input du pseudo pour aller plus vite
+  CLOSED: [2020-12-15 mar. 20:55]
 * DONE Refacto listes (à faire plus tard, pas urgent)
   CLOSED: [2020-12-15 mar. 20:24]
 * Traduire les réponses en français
@@ -148,6 +149,8 @@ Pages :
 * LIMITER nombre membres d'une conversation (à 5 ou 10 ?)
 
 * Conversations : ne pas trier par date les conversations qui sont 'bloquées' (on ne veut pas les voir remonter -> fetch 2 batchs de conversations ? )
+
+* Ajouter top 10 sur les pages de genre
 
 * DONE Top Albums (4h)
   CLOSED: [2020-11-22 dim. 01:36]

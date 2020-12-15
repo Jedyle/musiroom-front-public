@@ -5,30 +5,33 @@ const FormBuilder = ({config, onSubmit}) => (
 
       <p className="help is-danger">{config.nonFieldErrors}</p>
       
-      { config.fields.map((field) => (
-          <div className="field">
-            <label className="label">{field.verboseName}</label>
-            <div className={`control ${field.icon && 'has-icons-left'} has-icons-right`}>
-              <input className={`input ${field.error && 'is-danger'}`} type={field.inputType} placeholder={field.placeholder} value={field.value} onChange={field.onChange} />
-              {field.icon &&
-               <span className="icon is-small is-left">
-                 {field.icon}
-               </span>
-              }
-              {field.error &&
-               (
-                   <span className="icon is-small is-right">
-                     <i className="fa fa-exclamation-triangle"></i>
-                   </span>    
-               )
-              }                                           
-            </div>
-            {field.helpText &&
-             <p className="help">{field.helpText}</p>
-            }                        
-            <p className="help is-danger">{field.error}</p>
-          </div>
-      ))}
+      { config.fields.map((field) => {
+          let { verboseName, icon, error, inputType, placeholder, value, onChange, helpText, ...other} = field;
+          return (
+              <div className="field">
+                <label className="label">{verboseName}</label>
+                <div className={`control ${icon && 'has-icons-left'} has-icons-right`}>
+                  <input className={`input ${error && 'is-danger'}`} type={inputType} placeholder={placeholder} value={value} onChange={onChange} {...other}  />
+                  {icon &&
+                   <span className="icon is-small is-left">
+                     {icon}
+                   </span>
+                  }
+                  {error &&
+                   (
+                       <span className="icon is-small is-right">
+                         <i className="fa fa-exclamation-triangle"></i>
+                       </span>    
+                   )
+                  }                                           
+                </div>
+                {helpText &&
+                 <p className="help">{helpText}</p>
+                }                        
+                <p className="help is-danger">{error}</p>
+              </div>
+          );
+      })}
 
       <div className="field is-grouped">
         <div className="control is-expanded">
