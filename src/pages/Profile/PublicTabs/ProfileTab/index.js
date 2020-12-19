@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ShortAlbumList from 'components/AlbumList/ShortAlbumList';
+import { getUser } from 'services/Auth/api';
 import { getTopAlbums, getBadges } from 'services/Profile';
-import { getAlbumUrl } from 'pages/urls';
+import { getAlbumUrl, createListUrl } from 'pages/urls';
 import { Link } from 'react-router-dom';
 import BadgesList from 'components/Profile/Badges';
 
@@ -106,12 +107,18 @@ class ProfileTab extends Component {
                 
                 <div className="column is-6">
                   
-                  <div className="columns">
-                    <div className="column has-margin-left-10">
+                  <div className="columns is-multiline">
+                    <div className="column is-12 has-margin-left-10">
                       {this.getStatistics()}
                     </div>
+                    <div className="column is-12">
+                      {
+                          getUser() &&
+                              <Link className="button is-fullwidth is-success" to={createListUrl()}>Nouvelle liste</Link>
+                      }
+                    </div>
                   </div>
-
+                  
                   <h3 className="title is-5">Ses albums préférés</h3>
                   <ShortAlbumList
                     albums={this.getTopAlbums()}

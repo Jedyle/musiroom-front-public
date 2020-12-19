@@ -156,7 +156,8 @@ Pages :
 
 * Ajouter top 10 sur les pages de genre
 
-* Bouton 'Nouvelle liste' sur les pages listes générales + profil
+* DONE Bouton 'Nouvelle liste' sur les pages listes générales + profil
+  CLOSED: [2020-12-19 sam. 23:58]
 
 * DONE Top Albums (4h)
   CLOSED: [2020-11-22 dim. 01:36]

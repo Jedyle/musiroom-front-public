@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
+import { getUser } from 'services/Auth/api';
 import { getLists } from 'services/Lists';
 import { withRouter, Link } from 'react-router-dom';
-import { profileUrl, getListUrl, listListsUrl } from 'pages/urls';
+import { profileUrl, getListUrl, listListsUrl, createListUrl } from 'pages/urls';
 import Paginator from 'components/Utils/Paginator';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
@@ -96,6 +97,9 @@ class ListsList extends Component {
                       <button
                         className="button is-primary"
                         type="submit">Rechercher</button>
+                      { getUser() &&
+                        <Link className="button is-success ml-5" to={createListUrl()}>Nouvelle liste</Link>
+                      }
                     </p>
                   </div>
                 </div>
@@ -132,7 +136,8 @@ class ListsList extends Component {
                 </div>
                 
                 <div className="columns is-mobile">
-                  <div className="column">                    
+                  <div className="column">
+
                     {paginator}
 
                     <table className="table" style={{width: '100%'}}>
