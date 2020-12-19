@@ -7,6 +7,7 @@ import { profileUrl, discussionsUrl, getDiscussionUrl, getDiscussionsUrlForObjec
 import { Link, withRouter } from 'react-router-dom';
 import { CreateDiscussionLink } from 'pages/Links';
 import DiscussionSidebar from 'components/Discussions/Sidebar';
+import Title from 'components/Utils/Title';
 
 class DiscussionsList extends Component {
 
@@ -226,6 +227,7 @@ class DiscussionsList extends Component {
     render(){                
         return (
             <div className="columns is-mobile has-padding-10">
+              <Title title={this.getTitle()}/>
               <div className="column is-hidden-mobile is-2-tablet has-margin-top-20">
                 { this.state.contentObject &&
                   <DiscussionSidebar

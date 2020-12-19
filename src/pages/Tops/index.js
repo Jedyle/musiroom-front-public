@@ -6,6 +6,7 @@ import { getTopUrl } from 'pages/urls';
 import { getTop } from 'services/Tops';
 import AlbumList from 'containers/AlbumList';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
     let currentYear = new Date().getFullYear();
@@ -88,12 +89,27 @@ class Top extends Component {
             });
         });        
     }
+
+    getTitle = () => {
+        let { genre, period } = this.props;
+        console.log(this.state.genres);
+        let title = "Top 100 Albums";
+        if (genre !== "tout"){
+            let genreObj = this.state.genres.find(el => el.slug === genre);
+            title += " - " + (genreObj && genreObj.name);
+        }
+        if (period !== "tout"){
+            title += " - " + period;
+        }
+        return title;
+    }
     
     render() {
         let { genre, period } = this.props;
         let { genres, topAlbums } = this.state;
         return (
             <div className="columns is-mobile is-multiline">
+              <Title title={this.getTitle()}/>
               <div className="column is-12">
                 <br/>
                 <HeadLine

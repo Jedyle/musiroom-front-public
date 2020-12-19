@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { confirmToken } from 'services/Registration';
+import Title from 'components/Utils/Title';
 
 export default class ActivateAccount extends Component {
 
@@ -30,13 +31,16 @@ export default class ActivateAccount extends Component {
                 { isLinkConfirmed ?
                   (
                       <div>
+                        <Title title="Compte activé"/>
                         Vous pouvez maintenant vous connecter !
                       </div>
                   ) :
                   (                      
                       isLinkInvalid ?
                           (
-                              <div>Token invalide ou expiré</div>
+                              <div>
+                                <Title title="Lien invalide"/>
+                                Token invalide ou expiré</div>
                           ) :
                           (
                               <div>Confirmation en cours...</div>

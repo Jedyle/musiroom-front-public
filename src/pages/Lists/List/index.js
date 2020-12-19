@@ -5,6 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { profileUrl, getListUrl, listListsUrl } from 'pages/urls';
 import Paginator from 'components/Utils/Paginator';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 class ListsList extends Component {
 
@@ -116,6 +117,7 @@ class ListsList extends Component {
         );
         return (
             <div className="columns is-mobile has-padding-10">
+              <Title title="Listes"/>
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
 
                 <HeadLine

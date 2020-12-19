@@ -13,6 +13,7 @@ import htmlToDraft from 'html-to-draftjs';
 import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
 import ReviewEditModal from 'components/Album/Review/EditModal';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 import '../index.css';
 import 'components/StarRatings/Tags/index.css';
@@ -96,9 +97,11 @@ export default class RetrieveUpdateReview extends Component {
     }
     
     render() {
-        let review = this.state.review;
+        let { album } = this.props;
+        let { review } = this.state;
         return review && (
             <div className="column is-full-mobile is-two-thirds-widescreen">
+              <Title title={`${review.title} - Critique de ${review.rating.user.username} sur ${album.title}`}/>
               <HeadLine
                 title={review.title}
                 heroClasses="is-light"

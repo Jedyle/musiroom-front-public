@@ -3,6 +3,7 @@ import { getGenre } from 'services/Genres';
 import GenreTree from 'components/Genre/Tree';
 import { CreateGenreLink } from 'pages/Links';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 class GenreRetrieve extends Component  {
 
@@ -22,9 +23,10 @@ class GenreRetrieve extends Component  {
     }
     
     render(){
-        let genre = this.state.genre;
+        let { genre } = this.state;
         return genre && (
             <div className="columns is-mobile is-multiline">
+              <Title title={genre.name}/>
               <div className="column is-full">
                 <HeadLine
                   title={genre.name}

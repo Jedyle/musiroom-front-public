@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PrivateRouteRender } from 'pages/Router/PrivateRoute';
 import { listConversationsUrl, getConversationUrl } from 'pages/urls';
+import Title from 'components/Utils/Title';
 
 import ConversationsList from './List';
 import ConversationRetrieve from './Retrieve';
@@ -17,7 +18,9 @@ export default class Conversations extends Component {
               <div className="column is-12-mobile is-9-tablet">
                 <PrivateRouteRender
                   exact path={listConversationsUrl()}
-                  render={(props) => <div className="column"></div>}
+                  render={(props) => <div className="column">
+                                       <Title title="Messagerie"/>
+                                     </div>}
                 />
                 <PrivateRouteRender
                   exact path={getConversationUrl(":convId(\\d+)")}

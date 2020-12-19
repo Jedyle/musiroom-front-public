@@ -8,6 +8,7 @@ import VotePanel from 'components/Utils/VotePanel';
 import DiscussionSidebar from 'components/Discussions/Sidebar';
 import CommentSection from 'components/Comments/Section';
 import DiscussionEditForm from 'components/Discussions/EditForm';
+import Title from 'components/Utils/Title';
 
 import Avatar from 'components/Profile/Avatar';
 
@@ -90,6 +91,7 @@ export default class DiscussionRetrieve extends Component {
         let discussion = this.state.discussion;
         return (
             <div className="columns is-mobile is-multiline">
+              <Title title={`${discussion.title} - Discussions`}/>
               <div className="column is-12 has-background-light">
                 <h1 className="title has-text-centered has-padding-10">
                   <Link to={discussionsUrl()}>Discussions</Link>

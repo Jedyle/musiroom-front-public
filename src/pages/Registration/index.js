@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { register, resendLink } from 'services/Registration';
 import FormBuilder from 'components/Utils/Forms/Builder';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 class RegistrationForm extends Component {
 
@@ -183,14 +184,19 @@ class RegistrationPage extends Component {
     render(){
         let { isRegistrationComplete, username } = this.state;
         return (
-            isRegistrationComplete ?
-                <ActivationLinkSent
-                  username={username}
-                  sendLink={this.sendLink}
-                /> :
-            <RegistrationForm
-              registrationCallback={this.onRegistrationComplete}
-            />
+            <>
+              <Title title="Inscription"/>
+              {
+                  isRegistrationComplete ?
+                      <ActivationLinkSent
+                        username={username}
+                        sendLink={this.sendLink}
+                      /> :
+                  <RegistrationForm
+                    registrationCallback={this.onRegistrationComplete}
+                  />
+              }
+            </>
         );
     }
     

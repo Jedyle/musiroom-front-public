@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { exportTaskLaunchedUrl } from 'pages/urls';
 import { validateSCUser, launchExport } from 'services/Exports';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 import Avatar from 'components/Profile/Avatar';
 
@@ -234,6 +235,7 @@ export default class ExportCreate extends Component {
         let { SCUser, SCData, SCErrors, exportForm, exportErrors } = this.state;
         return (
             <div className="columns is-multiline is-mobile ml-0 mr-0">
+              <Title title="Exporter mes données depuis un autre site"/>
               <div className="column is-12">
                 <HeadLine
                   title={"Exportez vos données"}

@@ -6,7 +6,7 @@ import Paginator from 'components/Utils/Paginator';
 import AlbumSearch from 'components/Search/Album';
 import ArtistSearch from 'components/Search/Artist';
 import UserSearch from 'components/Search/User';
-
+import Title from 'components/Utils/Title';
 
 class Search extends Component {
 
@@ -113,6 +113,7 @@ class Search extends Component {
         );
         return this.state.results && (
             <div className="columns is-mobile is-multiline">
+              <Title title={`Résultats pour ${this.props.query}`}/>
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
                 <div className="container">
                   <h1 className="title has-text-centered">Résultats pour {this.props.query}</h1>

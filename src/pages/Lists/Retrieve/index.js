@@ -7,6 +7,7 @@ import ListContent from './content';
 import { updateList } from 'services/Lists';
 import ListDescription from './description';
 import Avatar from 'components/Profile/Avatar';
+import Title from 'components/Utils/Title';
 
 export default class RetrieveList extends Component {
 
@@ -84,6 +85,7 @@ export default class RetrieveList extends Component {
         const { list, newDescription, isEditable } = this.state;
         return list && (
             <div>
+              <Title title={`${list.title} - Liste de ${list.user.username}`}/>
               <section className="hero is-light">
                 <div className="hero-body">
                   <div className="container">

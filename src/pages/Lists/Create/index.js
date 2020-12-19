@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from 'components/Utils/Forms/Input';
 import CheckBox from 'components/Utils/Forms/Checkbox';
+import Title from 'components/Utils/Title';
 
 import { createList } from 'services/Lists';
 
@@ -44,6 +45,7 @@ export default class CreateList extends Component {
     render() {
         return (
             <div className="columns is-mobile">
+              <Title title="Nouvelle liste"/>
               <div className="column is-12-mobile is-6-desktop is-offset-3-desktop">
                 <br/>
                 <h1 className="title">Nouvelle Liste</h1>

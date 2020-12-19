@@ -4,6 +4,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import { profileUrl, getDiscussionUrl, getReviewUrl } from 'pages/urls';
 import { getNotifications, markAllNotifsAsRead } from 'services/Notifications';
 import { toHumanDate } from 'utils/date';
+import Title from 'components/Utils/Title';
 
 import './index.css';
 
@@ -79,6 +80,7 @@ export default class Notifications extends Component {
     render() {
         return (
             <div className="columns">
+              <Title title="Notifications"/>
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
                 <h1 className="title has-text-centered">
                   Notifications

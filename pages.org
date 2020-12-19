@@ -116,7 +116,8 @@ Pages :
   CLOSED: [2020-12-15 mar. 19:52]
 * DONE Gerer les erreurs apis de façon plus clean (titleError.. etc)
   CLOSED: [2020-12-15 mar. 19:56]
-* Ajouter titres aux pages
+* DONE Ajouter titres aux pages
+  CLOSED: [2020-12-19 sam. 23:43]
 * DONE Avatars : concaténer REACT_APP_API_URL automatiquement ? ou mettre en backend ? 
   CLOSED: [2020-12-15 mar. 19:52]
 * DONE Refactor vote function (onVote, onToggleVotes etc are always the same)
@@ -130,7 +131,8 @@ Pages :
   CLOSED: [2020-12-15 mar. 19:59]
 * DONE Les methodes pour recuperer des ratings a partir d'une liste d'albums peuvent se refactor (ex: dans listes, dans tops...)
   CLOSED: [2020-12-15 mar. 20:23]
-* Ajouter du loading un peu partout pendant les requêtes 
+* DONE Ajouter du loading un peu partout pendant les requêtes 
+  CLOSED: [2020-12-19 sam. 23:43]
 
 * DONE Refactor forms : formBuilder (ex: LoginForm et Registration form ont la même structure)
   CLOSED: [2020-12-15 mar. 20:23]
@@ -142,7 +144,8 @@ Pages :
   CLOSED: [2020-12-15 mar. 20:55]
 * DONE Refacto listes (à faire plus tard, pas urgent)
   CLOSED: [2020-12-15 mar. 20:24]
-* Traduire les réponses en français
+* DONE Traduire les réponses en français
+  CLOSED: [2020-12-19 sam. 23:48]
 * Loading un peu partout (sauf la où SSR plus tard)
 * DONE Refacto  layout : certaines pages ont le même systeme "gros titre" puis colonne de données -> use HeadLine component !
   CLOSED: [2020-12-15 mar. 21:00]
@@ -152,6 +155,8 @@ Pages :
 * Conversations : ne pas trier par date les conversations qui sont 'bloquées' (on ne veut pas les voir remonter -> fetch 2 batchs de conversations ? )
 
 * Ajouter top 10 sur les pages de genre
+
+* Bouton 'Nouvelle liste' sur les pages listes générales + profil
 
 * DONE Top Albums (4h)
   CLOSED: [2020-11-22 dim. 01:36]

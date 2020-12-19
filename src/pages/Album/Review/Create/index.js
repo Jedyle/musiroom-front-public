@@ -8,6 +8,7 @@ import Input from 'components/Utils/Forms/Input';
 import { getOwnRating } from 'services/OwnRatings';
 import { createReview } from 'services/Reviews';
 import { getReviewUrl } from 'pages/urls';
+import Title from 'components/Utils/Title';
 
 import '../index.css';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -80,6 +81,7 @@ class CreateReview extends Component {
         const { title, editorState } = this.state;
         return (
             <div className="column is-full-mobile is-two-thirds-widescreen">
+              <Title title={`Nouvelle critique sur ${this.props.album.title}`}/>
               <h1 className="title has-text-centered">Nouvelle critique sur {this.props.album.title}</h1>
               <h2 className="is-size-6 has-text-centered">Votre note : {this.state.ownRating.score}</h2>
               <p className="help-is-danger">{this.state.errors.nonField}</p>

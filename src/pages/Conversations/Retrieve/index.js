@@ -7,6 +7,7 @@ import { storeUpdateConversation, highlightConversation } from 'services/Convers
 import Conversation from './conversation';
 import ConvUsers from './convUsers';
 import MessageForm from 'components/Utils/Forms/MessageForm';
+import Title from 'components/Utils/Title';
 
 import './index.css';
 
@@ -88,41 +89,42 @@ class ConversationRetrieve extends Component {
         let { conversation } = this.props;
         let { messages, hasMore, isLoading, newMessage, editConversationError } = this.state;
         return (conversation ?
-            <div className="columns is-mobile is-multiline">
-              <div className="column is-12">
-                <HeadLine
-                  title={conversation.title}
-                  titleClasses="has-text-white"
-                  heroClasses="has-background-success"
-                />
-                <p className="help is-danger">{!this.isActiveUser() && "Vous ne faites plus partie de cette conversation"}</p>
-                <ConvUsers                 
-                  members={this.activeMembers(conversation.members)}
-                  onChangeMembers={this.onChangeMembers}
-                />
-                <p className="help">{editConversationError.users}</p>
+                <div className="columns is-mobile is-multiline">
+                  <Title title={`${conversation.title} - Messagerie`}/>
+                  <div className="column is-12">
+                    <HeadLine
+                      title={conversation.title}
+                      titleClasses="has-text-white"
+                      heroClasses="has-background-success"
+                    />
+                    <p className="help is-danger">{!this.isActiveUser() && "Vous ne faites plus partie de cette conversation"}</p>
+                    <ConvUsers                 
+                      members={this.activeMembers(conversation.members)}
+                      onChangeMembers={this.onChangeMembers}
+                    />
+                    <p className="help">{editConversationError.users}</p>
 
-                <br/>                
-                <Conversation
-                  messages={messages}
-                  loadMore={this.fetchMessages}
-                  hasMore={hasMore}
-                  isLoading={isLoading}
-                  loader={<div><p className="has-text-centered">Chargement...</p></div>}
-                />
+                    <br/>                
+                    <Conversation
+                      messages={messages}
+                      loadMore={this.fetchMessages}
+                      hasMore={hasMore}
+                      isLoading={isLoading}
+                      loader={<div><p className="has-text-centered">Chargement...</p></div>}
+                    />
 
-                {this.isActiveUser() &&
-                 <MessageForm
-                   content={newMessage}
-                   onChange={(e) => this.setState({newMessage: e.target.value})}
-                   messagePlaceholder="Votre message"
-                   buttonClasses="is-info"
-                   onSubmit={this.onSubmitMessage}
-                 />
-                }
-              </div>              
-            </div> : <div></div>
-        );
+                    {this.isActiveUser() &&
+                     <MessageForm
+                       content={newMessage}
+                       onChange={(e) => this.setState({newMessage: e.target.value})}
+                       messagePlaceholder="Votre message"
+                       buttonClasses="is-info"
+                       onSubmit={this.onSubmitMessage}
+                     />
+                    }
+                  </div>              
+                </div> : <div></div>
+               );
     }
 }
 

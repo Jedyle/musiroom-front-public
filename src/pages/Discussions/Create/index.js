@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import queryString from 'query-string';
 
 import SubjectForm from 'components/Discussions/SubjectForm';
+import Title from 'components/Utils/Title';
 
 class DiscussionCreate extends Component {
 
@@ -10,6 +11,7 @@ class DiscussionCreate extends Component {
         let query = queryString.parse(this.props.location.search);
         return (
             <div className="columns is-mobile has-padding-10">
+              <Title title="Nouvelle discussion"/>
                 <SubjectForm
                   types={[
                       {

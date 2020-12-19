@@ -4,6 +4,7 @@ import { getGenresUrl } from 'pages/urls';
 import { withRouter } from 'react-router-dom';
 import Input from 'components/Utils/Forms/Input';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 class GenreCreate extends Component {
 
@@ -46,6 +47,7 @@ class GenreCreate extends Component {
     render(){
         return (
             <div className="columns is-mobile is-multiline">
+              <Title title="Nouveau Genre"/>
               <div className="column is-full">
                 <HeadLine
                   title="Ajouter un genre"
@@ -55,9 +57,7 @@ class GenreCreate extends Component {
               </div>
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
                 <div>
-
                   <div className="help is-danger is-size-5">{this.state.nonFieldErrors}</div>
-                  
                   <Input
                     placeholder="Nom"
                     name="name"
@@ -91,14 +91,14 @@ class GenreCreate extends Component {
                     </div>
                   </div>                                    
 
-                <div className="field">
-                  <div className="control">
-                    <button
-                      className="button is-info is-fullwidth"
-                      onClick={this.onCreateGenre}
-                    >Créer</button>
-                  </div>
-                </div>                  
+                  <div className="field">
+                    <div className="control">
+                      <button
+                        className="button is-info is-fullwidth"
+                        onClick={this.onCreateGenre}
+                      >Créer</button>
+                    </div>
+                  </div>                  
                 </div>
               </div>
             </div>

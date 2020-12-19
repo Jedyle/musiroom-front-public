@@ -6,6 +6,7 @@ import ActivityItem from 'components/Activity/Item';
 import { getAllActivity, getSelfActivity } from 'services/Activity';
 import { getAllActivityUrl, getSelfActivityUrl } from 'pages/urls';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 export default class Activity extends Component {
 
@@ -16,7 +17,7 @@ export default class Activity extends Component {
             hasMore: true,
             count: 0
         };
-    }      
+    }
 
     fetchActivity = (page) => {
         let getActivity = this.props.type === "all" ? getAllActivity : getSelfActivity;
@@ -36,6 +37,7 @@ export default class Activity extends Component {
         let { hasMore, results } = this.state;
         return (
             <div>
+              <Title title={type === "all" ? "Activité sur le site" : "Activité de mes abonnements"}/>
               <div className="columns is-mobile is-multiline">
                 <div className="column is-12">
                   <br/>

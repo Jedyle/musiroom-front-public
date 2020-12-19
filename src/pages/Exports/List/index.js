@@ -4,6 +4,7 @@ import { toHumanDate } from 'utils/date';
 import { getExportUrl } from 'pages/urls';
 import { listExports } from 'services/Exports';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 export default class ExportsList extends Component {
 
@@ -26,6 +27,7 @@ export default class ExportsList extends Component {
         let { results } = this.state;
         return (
             <div className="columns is-mobile is-multiline ml-0 mr-0">
+              <Title title="Mes exports"/>
               <div className="column is-12">
                 <HeadLine
                   heroClasses="has-background-white-ter"

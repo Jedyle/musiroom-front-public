@@ -4,6 +4,7 @@ import ArtistSidebar from 'components/Artist/Sidebar';
 import { getArtist } from 'services/Artists';
 import { getDiscussionsUrlForObject, discussionCreateOnTopicUrl } from 'pages/urls';
 import ArtistBody from './body';
+import Title from 'components/Utils/Title';
 
 class ArtistDetails extends Component {
 
@@ -27,24 +28,26 @@ class ArtistDetails extends Component {
     }
     
     render() {
+        let { artist } = this.state;
         return (
             <div className="columns is-multiline is-marginless is-paddingless">
               <div className="column is-12-mobile is-3-desktop">
                 {
-                    this.state.artist && (
+                    artist && (
                         <>
-                        <ArtistSidebar
-                          {...this.state.artist}
-                        />
+                          <Title title={artist.name}/>
+                          <ArtistSidebar
+                            {...artist}
+                          />
                           <hr/>
                           <span>
                             <Link
                               className="button is-medium has-margin-top-5 is-fullwidth is-info"
-                              to={getDiscussionsUrlForObject('artist', this.state.artist.id)}
-                            >Discussions sur {this.state.artist.name}</Link>
+                              to={getDiscussionsUrlForObject('artist', artist.id)}
+                            >Discussions sur {artist.name}</Link>
                             <Link
                               className="button is-medium has-margin-top-5 is-fullwidth is-success"
-                              to={discussionCreateOnTopicUrl('artist', this.state.artist.id)}
+                              to={discussionCreateOnTopicUrl('artist', artist.id)}
                             >Nouvelle discussion</Link>
                           </span>
                         </>
@@ -52,10 +55,10 @@ class ArtistDetails extends Component {
                 }
               </div>
               <div className="column is-12-mobile is-7-widescreen has-padding-left-30">          
-                { this.state.artist &&
+                { artist &&
                   (
                       <ArtistBody
-                        artist={this.state.artist}
+                        artist={artist}
                       />)
                 }
               </div>

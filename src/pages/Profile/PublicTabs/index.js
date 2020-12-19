@@ -7,6 +7,7 @@ import DiscussionsTab from './DiscussionsTab';
 import InterestsTab from './InterestsTab';
 import RatingsTab from './RatingsTab';
 import ProfileTabs from 'components/Profile/Tabs';
+import Title from 'components/Utils/Title';
 import { Route, Link } from "react-router-dom";
 import { join } from 'utils/urls';
 
@@ -94,6 +95,7 @@ class PublicProfileTabs extends Component{
     render(){
         return (
             <div>
+              <Title title={`Profil de ${this.props.profile.user}`}/>              
               <ProfileTabs
                 tabs = {this.state.tabs.map((tab, index) => (
                     <Link to={join(this.props.match.url, tab.subLink)} activeClassName="is-active">

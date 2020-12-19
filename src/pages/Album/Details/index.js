@@ -6,6 +6,7 @@ import FolloweesRatingsStats from 'components/Album/Stats/FolloweesRatings';
 import AlbumYoutubeLink from 'components/Album/YoutubeLink';
 import AlbumsFromSameArtist from 'components/Album/AlbumsFromSameArtist';
 import { getUser } from 'services/Auth/api';
+import Title from 'components/Utils/Title';
 
 const PleaseSubmitGenreMessage = ({
     album
@@ -27,6 +28,7 @@ const PleaseSubmitGenreMessage = ({
 
 const DetailsPage = ({album}) => (
     <div className="columns is-multiline">
+      <Title title={album.title}/>
       <div className="column is-12-mobile is-8-desktop">
         <h1 className="title is-size-2">{album.title}</h1>
         <RatingActions

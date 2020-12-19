@@ -93,33 +93,16 @@ class Navbar extends Component {
                     Listes
                   </Link>
 
-                  <Link
-                    className="navbar-item"
-                    to={createExportUrl()}>
-                    Export
-                  </Link>
+                  { this.props.token &&
+                    (
+                        <Link
+                          className="navbar-item"
+                          to={createExportUrl()}>
+                          Export
+                        </Link>
+                    )
+                  }
                   
-                  <div className="navbar-item has-dropdown is-hoverable">
-                    <a className="navbar-link">
-                      Token : {this.props.token}
-                    </a>
-
-                    <div className="navbar-dropdown">
-                      <a className="navbar-item">
-                        About
-                      </a>
-                      <a className="navbar-item">
-                        Jobs
-                      </a>
-                      <a className="navbar-item">
-                        Contact
-                      </a>
-                      <hr className="navbar-divider"/>
-                      <a className="navbar-item">
-                        Report an issue
-                      </a>
-                    </div>
-                  </div>                  
                 </div>
 
                 <div className="navbar-end" style={{'paddingRight': '10px'}}>
