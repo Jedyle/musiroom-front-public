@@ -21,9 +21,10 @@ class ProfileTab extends Component {
         {
             getTopAlbums(this.props.profile.user).then(
                 (response) => {
+                    console.log(response);
                     this.setState(
                         {
-                            topAlbums: response.data.albums
+                            topAlbums: response.data.items
                         }
                     );
                 }
