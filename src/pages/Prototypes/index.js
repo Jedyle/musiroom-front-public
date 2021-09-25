@@ -40,19 +40,47 @@ class Prototypes extends React.Component {
         Gallery: {
             component: Gallery,
             props: {
-                images: [
-                    "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg",
-                    "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg",
-                    "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg",
-                    "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg",
-                    "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg",
-                    "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg",
-                    "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg",
-                    "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg",
-                    "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg",
-                    "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg",
-                    "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg",
-                    "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg",
+                albums: [
+                    {
+                        name: "Test",
+                        mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
+                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                    },
+                    {
+                        name: "Lol",
+                        mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
+                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                    },
+                    {
+                        name: "Test",
+                        mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
+                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                    },
+                    {
+                        name: "Lol",
+                        mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
+                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                    },
+                    {
+                        name: "Test",
+                        mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
+                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                    },
+                    {
+                        name: "Lol",
+                        mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
+                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                    },
+                    {
+                        name: "Test",
+                        mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
+                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                    },
+                    {
+                        name: "Lol",
+                        mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
+                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                    }                    
                 ]
             }
         },

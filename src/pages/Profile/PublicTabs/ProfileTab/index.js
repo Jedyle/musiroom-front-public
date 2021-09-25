@@ -24,7 +24,7 @@ class ProfileTab extends Component {
                     console.log(response);
                     this.setState(
                         {
-                            topAlbums: response.data.items
+                            topAlbums: response.data.items.map((item) => item.album)
                         }
                     );
                 }
@@ -72,6 +72,7 @@ class ProfileTab extends Component {
     }
 
     getTopAlbums(){
+        console.log("tops", this.state.topAlbums);
         return this.state.topAlbums.map((album) => {
             return {
                 title: album.title,

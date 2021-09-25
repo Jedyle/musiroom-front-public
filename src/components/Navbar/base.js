@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listExportsUrl, listConversationsUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listExportsUrl, listConversationsUrl, getTopUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
 import SearchInput from 'components/Search/SearchInput';
 import NotificationBell from 'components/Notifications/Bell';
@@ -35,7 +35,7 @@ class Navbar extends Component {
                   <a className="navbar-link">
                     {this.props.user ? this.props.user.username : "Mon Compte"}
                   </a>
-                  <div className="navbar-dropdown">
+                  <div className="navbar-dropdown is-right">
                     <Link to={profileUrl(getUser())} className="navbar-item">Profil</Link>
                     <Link className="navbar-item" to={listConversationsUrl()}>Messagerie</Link>
                     <Link className="navbar-item" to={listExportsUrl()}>Mes exports</Link>
@@ -56,9 +56,9 @@ class Navbar extends Component {
             <nav className="navbar" role="navigation" aria-label="main navigation"
                  style={{height: "52px"}}>
               <div className="navbar-brand">
-                <a className="navbar-item is-paddingless-bottom" href="https://lamusitheque.com">
+                <Link className="navbar-item is-paddingless-bottom" to="">
                   <Logo/>
-                </a>
+                </Link>
                 
                 <a role="button"
                    className={`navbar-burger burger ${this.activeClass()}`} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
@@ -71,9 +71,13 @@ class Navbar extends Component {
 
               <div id="navbarBasicExample" className={`navbar-menu ${this.activeClass()}`}>
                 <div className="navbar-start">
-                  <Link className="navbar-item" to="/">
-                    Home
+
+                  <Link
+                    className="navbar-item"
+                    to={getTopUrl()}>
+                    Tops
                   </Link>
+
                   
                   <Link
                     className="navbar-item"

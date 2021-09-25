@@ -209,7 +209,6 @@ Pages :
 
 * DESIGN
 ** Ajouter images sur les 'hero' sur les pages 'genres', 'top', 'listes', 'discussions'
-** 
 ** AlbumLists pas responsive (voir top par exemple)
 ** responsive !!!
 ** Verifier responsive : root columns : mettre ml-0 mr-0 partout (refacto) 
@@ -220,3 +219,7 @@ Pages :
 
 But : avoir une version qui marche comme la précédente sur django, mais avec react et nextjs !
 
+
+
+* TODO Notification when new message
+* TODO Home Page

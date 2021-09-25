@@ -16,6 +16,10 @@ export function listAlbums(title='', perPage=10){
     return api.get(`/albums?title__icontains=${title}&limit=${perPage}`);
 }
 
+export function getLatestAlbums(){
+    return api.get(`/albums/latest/`)
+}
+
 export function getAlbumGenres(mbid){
     return api.get(`/albums/${mbid}/genres`);
 }
