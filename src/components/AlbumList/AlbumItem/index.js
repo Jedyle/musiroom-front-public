@@ -4,7 +4,7 @@ import RatingTagsList from 'components/StarRatings/Tags';
 const AlbumItem = (
     {
         mbid,
-        cover,
+        media_cover,
         title,
         description,
         content,
@@ -27,7 +27,7 @@ const AlbumItem = (
             <div className="card">
               <div className="card-image">
                 <figure className="image is-square">
-                  <img src={cover} alt="album" />
+                  <img src={media_cover} alt="album" />
                 </figure>
               </div>
             </div>

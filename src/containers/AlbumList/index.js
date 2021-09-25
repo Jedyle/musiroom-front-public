@@ -90,7 +90,7 @@ class AlbumList extends Component {
                 <AlbumItem
                   mbid={object.mbid}
                   key={object.rating.id}
-                  cover={object.cover}
+                  media_cover={object.media_cover}
                   title={
                       (<Link to={getAlbumUrl(object.mbid)}>
                          {object.title}

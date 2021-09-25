@@ -12,8 +12,8 @@ const Gallery = ({albums}) => (
             >
 
               <Link to={getAlbumUrl(album.mbid)}>
-                <figure key={album.cover} className="image is-square">
-                  <img alt={album.title} src={album.cover} title={album.title}/>
+                <figure key={album.media_cover} className="image is-square">
+                  <img alt={album.title} src={album.media_cover} title={album.title}/>
                 </figure>
               </Link>
             </div>

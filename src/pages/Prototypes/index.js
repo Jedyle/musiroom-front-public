@@ -44,42 +44,42 @@ class Prototypes extends React.Component {
                     {
                         name: "Test",
                         mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
-                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
                     },
                     {
                         name: "Lol",
                         mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
-                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
                     },
                     {
                         name: "Test",
                         mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
-                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
                     },
                     {
                         name: "Lol",
                         mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
-                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
                     },
                     {
                         name: "Test",
                         mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
-                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
                     },
                     {
                         name: "Lol",
                         mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
-                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
                     },
                     {
                         name: "Test",
                         mbid: "84cfc318-dca0-4a8e-bedb-fb74f87e4f1a",
-                        cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/84cfc318-dca0-4a8e-bedb-fb74f87e4f1a/22564992520-250.jpg"
                     },
                     {
                         name: "Lol",
                         mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
-                        cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
+                        media_cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
                     }                    
                 ]
             }
@@ -151,22 +151,22 @@ class Prototypes extends React.Component {
             props: {
                 albums: [
                     {
-                        cover: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_4CRiAhb.jpg",
+                        media_cover: "https://lamusitheque.com/media/avatars/user_1/maxresdefault_WhhSswd_QHKlJqP_kXlqJMP_btWhBu3_0JDcb2I_EyY7T4s_J4owVz1_mxm_4CRiAhb.jpg",
                         content: (<a href="https://google.com">Maudlin of The Well, Bath</a>),
                         title: "Maudlin of the Well, Bath"
                     },
                     {
-                        cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        media_cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
                         content: "OK Computer de Radiohead",
                         title: "OK Computer"
                     },
                     {
-                        cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        media_cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
                         content: "OK Computer de Radiohead",
                         title: "OK Computer"
                     },
                     {
-                        cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
+                        media_cover: "https://ia800802.us.archive.org/13/items/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea/mbid-1834eae1-741b-3c03-9ca5-0df3decb43ea-18174904878_thumb250.jpg",
                         content: "OK Computer de Radiohead",
                         title: "OK Computer"
                     }
@@ -309,7 +309,7 @@ class Prototypes extends React.Component {
                         "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/0535aee2661d40ca97185152b9024999.png"
                     }
                 ],
-                "cover": "https://coverartarchive.org/release/5666e777-3dd7-4d0f-aa74-33f40ba6d0a8/2324310061-250.jpg",
+                "media_cover": "https://coverartarchive.org/release/5666e777-3dd7-4d0f-aa74-33f40ba6d0a8/2324310061-250.jpg",
                 "rating": {
                     "id": 1,
                     "count": 3,

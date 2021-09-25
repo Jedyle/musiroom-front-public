@@ -40,7 +40,7 @@ class PopoverContent extends Component {
                     <article className="media">
                       <div className="media-left">
                         <figure className="image is-96x96">
-                          <img src={album.cover} alt={album.title}/>
+                          <img src={album.media_cover} alt={album.title}/>
                         </figure>
                       </div>
                       <div className="media-content">

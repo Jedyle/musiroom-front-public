@@ -5,7 +5,7 @@ import { getAlbumUrl, getArtistUrl, getGenreUrl, getAlbumGenresUrl } from 'pages
 
 const AlbumSidebar = ({
     mbid,
-    cover,
+    media_cover,
     title,
     artists=[],
     release_date,
@@ -16,7 +16,7 @@ const AlbumSidebar = ({
       <div className="card-image">
         <figure className="image is-square">
           <img
-            src={cover}
+            src={media_cover}
             alt={title}
           />
         </figure>

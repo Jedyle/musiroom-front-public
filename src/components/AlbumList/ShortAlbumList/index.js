@@ -11,7 +11,7 @@ const ShortAlbumList = (
           <img
             alt={album.title}
             className="has-margin-right-6"
-            src={album.cover}
+            src={album.media_cover}
             style={{'height': '48px'}}/>
           <div className="column">
             <span style={{verticalAlign: 'middle'}}>

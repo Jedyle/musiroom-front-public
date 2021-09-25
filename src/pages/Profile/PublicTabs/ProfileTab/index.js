@@ -76,7 +76,7 @@ class ProfileTab extends Component {
         return this.state.topAlbums.map((album) => {
             return {
                 title: album.title,
-                cover: album.cover,
+                media_cover: album.media_cover,
                 content: (<span>
                             <Link to={getAlbumUrl(album.mbid)}><strong>{album.title}</strong></Link> de <Link>{album.artists[0].name}</Link>
                           </span>)
