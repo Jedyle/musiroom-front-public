@@ -1,4 +1,5 @@
 * Make popover work with rating (on both profile page and artist page)
 * Check remaining french words
+* translate exports (french because senscritique)
 * SSR
 * Deploy with docker
