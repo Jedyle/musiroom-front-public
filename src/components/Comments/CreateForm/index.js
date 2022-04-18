@@ -10,7 +10,7 @@ const CommentCreateForm = ({
       content={content}
       onChange={onChangeContent}
       onSubmit={onSubmitComment}
-      messagePlaceholder="Votre commentaire"
+      messagePlaceholder="Your comment"
       buttonClasses="is-info"
     />
 );

@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import RatingActions from 'components/Album/Actions';
 import ReviewsPanel from 'components/Reviews/Panel';
 import AllRatingsStats from 'components/Album/Stats/AllRatings';
 import FolloweesRatingsStats from 'components/Album/Stats/FolloweesRatings';
 import AlbumYoutubeLink from 'components/Album/YoutubeLink';
 import AlbumsFromSameArtist from 'components/Album/AlbumsFromSameArtist';
+import { getAlbumGenresUrl } from 'pages/urls';
 import { getUser } from 'services/Auth/api';
 import Title from 'components/Utils/Title';
 
@@ -13,14 +15,11 @@ const PleaseSubmitGenreMessage = ({
 }) => (
     <article className="message is-info">
       <div className="message-header">
-        <p>Quel est le genre de cet album ?</p>
+        <p>What is the genre of this album ?</p>
       </div>
       <div className="message-body">
-        Cet album n'a pas encore de genre(s) attitré(s). Prenez 5 secondes pour
-        {"  "}
-        <a>proposer un genre</a>
-        {"  "}
-        pour cette oeuvre ! 
+        This album is not assigned to any genre yet.
+        Please <Link to={getAlbumGenresUrl(album.mbid)}>propose one</Link> !
       </div>
     </article>
 );
@@ -47,7 +46,7 @@ const DetailsPage = ({album}) => (
         <hr/>
         {
             album.genres.length === 0 ?
-                <PleaseSubmitGenreMessage/> : ""
+                <PleaseSubmitGenreMessage album={album}/> : ""
         }
         <br/>
         <ReviewsPanel

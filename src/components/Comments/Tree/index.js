@@ -69,7 +69,7 @@ class CommentItem extends Component {
                                 style={{cursor: 'pointer'}}
                                 onClick={(e) => {this.setState((prevState) => ({hasEditForm: !prevState.hasEditForm}));}}
                           >
-                            <i title="Editer" className="fa fa-lg fa-edit mr-10"></i>
+                            <i title="Edit" className="fa fa-lg fa-edit mr-10"></i>
                           </span>
                         }
                         {/* <span className="icon"> */}
@@ -114,7 +114,7 @@ class CommentItem extends Component {
                                       {hasReplyForm: !prevState.hasReplyForm}
                                   ));}}
                          >
-                           Répondre
+                           Reply
                          </Link>)
                       }
                       { this.state.hasReplyForm &&

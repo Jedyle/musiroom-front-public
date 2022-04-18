@@ -92,9 +92,9 @@ class ContactsTab extends Component {
             <div>
               <div className="select">
                 <select value={this.state.value} onChange={this.onFilterChange}>
-                  <option value="all">Tous les contacts</option>
-                  <option value="followers">Abonnés</option>
-                  <option value="followees">Abonnements</option>
+                  <option value="all">All</option>
+                  <option value="followers">Followers</option>
+                  <option value="followees">Followees</option>
                 </select>
               </div>
               <br/>

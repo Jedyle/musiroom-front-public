@@ -42,7 +42,7 @@ const AlbumSidebar = ({
             </li>
             {release_date &&
              <li className="list-item">
-               Date de parution : {formatDate(release_date)}
+               Release date : {formatDate(release_date)}
              </li>
             }
             {album_type && 
@@ -58,10 +58,10 @@ const AlbumSidebar = ({
                               to={getGenreUrl(genre.slug)}>
                            {genre.name}
                          </Link>)
-                         ).reduce((prev, curr) => [prev, ', ', curr]) : "Non précisé"
+                         ).reduce((prev, curr) => [prev, ', ', curr]) : "Unknown"
                         } {"  "}
                
-               ({<Link to={getAlbumGenresUrl(mbid)}>voter sur les genres</Link>})
+               ({<Link to={getAlbumGenresUrl(mbid)}>vote on genres</Link>})
                
              </li>
             }

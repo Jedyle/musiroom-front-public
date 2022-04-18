@@ -59,7 +59,7 @@ class RatingsList extends Component {
                    {"   "}
                  { this.state.userReviews[userRating.rating] ?
                    (<Link to="/">
-                     (voir sa critique)
+                     (read his review)
                     </Link>) : ""}
                 </span>)
             );            
@@ -82,7 +82,7 @@ const RatingsTab = (props) => (
       header={
           (<span>
              <hr/>
-             <h4 className="title is-4 has-text-centered">Notes</h4>
+             <h4 className="title is-4 has-text-centered">Ratings</h4>
              <hr/>
            </span>)
       }

@@ -8,8 +8,8 @@ export default function AlbumSearch({results}) {
         <table className="table is-fullwidth">
           <thead>
             <tr>
-              <th>Nom</th>
-              <th>Artiste</th>
+              <th>Name</th>
+              <th>Artist</th>
               <th>Type</th>
             </tr>
           </thead>

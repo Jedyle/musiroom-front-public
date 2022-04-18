@@ -33,7 +33,7 @@ class CreateForm extends Component {
                     }}
               />
               <p className="help is-danger">{errors.members}</p>
-              <textarea className="textarea" placeholder="Premier message" value={message} onChange={(e) => onChange("message", e.target.value)}></textarea>
+              <textarea className="textarea" placeholder="First message" value={message} onChange={(e) => onChange("message", e.target.value)}></textarea>
             </div>
         );
     }    
@@ -85,7 +85,7 @@ class ConversationCreate extends Component {
         }).catch((error) => {
             if (error.response.status === 404){
                 let { errors } = this.state;
-                errors.members = [`L'utilisateur ${newMembers[error.index]} n'existe pas`];
+                errors.members = [`User ${newMembers[error.index]} does not exist`];
                 this.setState({
                     errors: errors
                 });
@@ -129,12 +129,12 @@ class ConversationCreate extends Component {
         return (
             <div>
               <br/>
-              <button className="button is-fullwidth" onClick={() => {this.setState({isActive: true});}}>Nouvelle conversation</button>
+              <button className="button is-fullwidth" onClick={() => {this.setState({isActive: true});}}>New conversation</button>
               <div className={`modal ${isActive && 'is-active'}`}>
                 <div className="modal-background"></div>
                 <div className="modal-card">
                   <header className="modal-card-head">
-                    <p className="modal-card-title">Nouvelle conversation</p>
+                    <p className="modal-card-title">New conversation</p>
                     <button className="delete" aria-label="close" onClick={() => {this.setState({isActive: false});}}></button>
                   </header>
                   <section className="modal-card-body">
@@ -148,8 +148,8 @@ class ConversationCreate extends Component {
                     />
                   </section>
                   <footer className="modal-card-foot">
-                    <button className="button is-success" onClick={this.onSubmitConversation}>Créer</button>
-                    <button className="button" onClick={() => {this.setState({isActive: false});}}>Annuler</button>
+                    <button className="button is-success" onClick={this.onSubmitConversation}>Create</button>
+                    <button className="button" onClick={() => {this.setState({isActive: false});}}>Cancel</button>
                   </footer>
                 </div>
               </div>              

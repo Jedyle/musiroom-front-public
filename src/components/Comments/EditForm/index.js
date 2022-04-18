@@ -16,11 +16,11 @@ const CommentEditForm = ({
         <button
           className="button is-small is-info mt-1"
           onClick={onSubmit}
-        >Modifier</button>
+        >Edit</button>
         <button
           className="button is-small is-danger mt-1"
           onClick={onCancel}
-        >Annuler</button>
+        >Cancel</button>
       </div>
     </form>                    
 );

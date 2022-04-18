@@ -48,7 +48,7 @@ export default class ConvUsers extends Component {
     render() {
         return (            
             <div className="mt-2">
-              <h1 className="title is-size-5 mb-1">Membres</h1>
+              <h1 className="title is-size-5 mb-1">Members</h1>
               <TagsInput
                 value={this.getUsers()}
                 onChange={(tags) => this.props.onChangeMembers(this.makeMemberObjectsFromTags(tags))}

@@ -72,7 +72,7 @@ class ListsTabs extends Component {
             <div className="columns">
               <div className="column is-12-mobile is-9-desktop is-9-widescreen">
                 <hr/>
-                <h4 className="title is-4 has-text-centered">Listes</h4>
+                <h4 className="title is-4 has-text-centered">Lists</h4>
                 <hr/>
                 <a
                   className="pagination-previous"

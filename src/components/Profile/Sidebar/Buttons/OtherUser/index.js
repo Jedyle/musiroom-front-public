@@ -15,7 +15,6 @@ class OtherUserButtons extends Component {
     componentDidMount(){
         findIfUserFollows(this.props.username).then(
             (response) => {
-                console.log("res", response.data);
                 this.setState({
                     is_followed: response.data.length === 1
                 });

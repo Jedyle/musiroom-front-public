@@ -102,7 +102,7 @@ class AlbumList extends Component {
                   avg_rating={parseFloat(object.rating.average)}
                   description={
                       (<span>
-                         Album de {object.artists.map(
+                         by {object.artists.map(
                              (artist) => (
                                  <Link to={getArtistUrl(artist.mbid)}>
                                    {artist.name}

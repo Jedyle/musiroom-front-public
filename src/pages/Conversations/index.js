@@ -19,7 +19,7 @@ export default class Conversations extends Component {
                 <PrivateRouteRender
                   exact path={listConversationsUrl()}
                   render={(props) => <div className="column">
-                                       <Title title="Messagerie"/>
+                                       <Title title="Message Box"/>
                                      </div>}
                 />
                 <PrivateRouteRender

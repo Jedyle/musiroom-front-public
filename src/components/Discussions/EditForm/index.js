@@ -31,7 +31,7 @@ const DiscussionEditForm = ({
       </div>
       <div className="field">
         <div className="control">
-          <textarea className="textarea" placeholder="Contenu"
+          <textarea className="textarea" placeholder="Content"
                     style={{minHeight: '250px'}}
                     value={content}
                     onChange={onChangeContent}
@@ -43,8 +43,8 @@ const DiscussionEditForm = ({
       <div className="field">
         <div className="control">
           <div className="buttons">
-            <button className="button is-info" onClick={onSubmit}>Modifier</button>
-            <button className="button is-danger" onClick={onCancel}>Annuler</button>
+            <button className="button is-info" onClick={onSubmit}>Edit</button>
+            <button className="button is-danger" onClick={onCancel}>Cancel</button>
           </div>
         </div>
       </div>

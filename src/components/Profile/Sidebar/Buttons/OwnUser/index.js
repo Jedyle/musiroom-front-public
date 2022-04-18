@@ -10,7 +10,7 @@ const OwnUserButton = ({
             className="button is-link is-outlined has-margin-bottom-5 is-fullwidth">
         <span>
           <i className="fa fa-user"></i> {" "}
-          Modifier mon profil
+          Account settings
         </span>
       </Link>
     </li>);

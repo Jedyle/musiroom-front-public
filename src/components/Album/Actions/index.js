@@ -43,7 +43,7 @@ class RatingActions extends Component {
     deleteRating = () => {
         let doDelete = true;
         if (this.userHasReview()){
-            doDelete = window.confirm("Votre critique sera également supprimée ! Continuer ?");
+            doDelete = window.confirm("This will also delete your review ! Proceed ?");
         }
         if (doDelete){
             deleteOwnRating(this.props.rating).then((response) => {
@@ -73,7 +73,7 @@ class RatingActions extends Component {
               <div>
                 <AddToListButton
                   mbid={mbid}
-                >Ajouter à une liste</AddToListButton>
+                >Add to List</AddToListButton>
                 <AddToInterests
                   mbid={mbid}
                 />
@@ -81,12 +81,12 @@ class RatingActions extends Component {
                     this.userHasReview() ?
                         (
                             <Link className="button ml-1 is-success" to={getReviewUrl(mbid, userRatingObj.review.id)}>
-                              Ma critique
+                              My review
                             </Link>)
                     :
                     (
                         <Link className="button ml-1" to={createReviewUrl(mbid)}>
-                          Ecrire une critique
+                          Write a review
                         </Link>
                     )
                 )}

@@ -53,7 +53,7 @@ const CancelVoteButton = ({userVote, onVote}) => (
       upOrDown={null}
       disabled={true}
     >
-      Annuler
+      Cancel
     </VoteButton>
 );
 

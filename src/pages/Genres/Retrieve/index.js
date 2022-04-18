@@ -46,7 +46,7 @@ class GenreRetrieve extends Component  {
                   <div className="column is-full-mobile is-full-tablet is-half-desktop">
                     {genre.children.length > 0 && 
                      (<>
-                        <h1 className="title is-size-4 has-text-centered">Sous-genres</h1>
+                        <h1 className="title is-size-4 has-text-centered">Subgenres</h1>
                         <GenreTree
                           genres={genre.children}
                           initShowChildren={true}
@@ -57,7 +57,7 @@ class GenreRetrieve extends Component  {
                     <p className="has-text-centered mb-3">
                       <CreateGenreLink
                         className="button is-light"
-                        title="Ajouter un genre"
+                        title="Add a genre"
                       />
                       <br/>
                     </p>

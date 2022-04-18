@@ -179,7 +179,7 @@ export default class CommentSection extends Component {
                 pageStart={0}
                 loadMore={this.fetchComments}
                 hasMore={this.state.hasMore}
-                loader={<h4>Chargement...</h4>}
+                loader={<h4>Loading...</h4>}
               >
 
                 <CommentTreeView

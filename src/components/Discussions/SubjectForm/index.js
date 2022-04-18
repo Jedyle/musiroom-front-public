@@ -140,7 +140,7 @@ class _SubjectForm extends Component {
         
         createDiscussion(this.state.currentTitle, this.state.currentText, ct, objectId).then(
             (response) => {
-                alert("Votre discussion a bien été créée !");
+                alert("Your discussion has been created !");
                 this.props.history.push(getDiscussionUrl(response.data.id));
             }
         ).catch((error) => {

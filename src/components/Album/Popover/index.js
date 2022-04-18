@@ -9,9 +9,11 @@ import { GetArtistLink } from 'pages/Links';
 import { truncate } from 'utils/strings';
 import { getUser } from 'services/Auth/api';
 import { getAlbum } from 'services/Albums';
+import { getOwnRating, changeOwnRating, createOwnRating, deleteOwnRating } from 'services/OwnRatings';
 
 // this css makes sure we can use a modal inside the popover (dirty fix)
 import './index.css';
+
 
 class PopoverContent extends Component {
 
@@ -33,6 +35,7 @@ class PopoverContent extends Component {
     render(){
         let { mbid, ...props } = this.props;
         let { album } = this.state;
+        console.log(album);
         return (
             <div className="box" style={{width: '400px', padding: '0.6rem', boxShadow: 'none'}} {...props}>
               { album ?
@@ -61,7 +64,7 @@ class PopoverContent extends Component {
                           </p>
                           <div>
                             <RateAlbum
-                              rating={album.rating.id}
+                              userRating={album.user_rating || 0}
                               starDimension='20px'
                               starSpacing='0px'
                             />

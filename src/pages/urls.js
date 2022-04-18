@@ -1,16 +1,16 @@
-export const profileUrl = (username) => `/profil/u/${username}`;
-export const changeProfileUrl = () => "/profil/modifier";
+export const profileUrl = (username) => `/account/u/${username}`;
+export const changeProfileUrl = () => "/account/change";
 export const discussionsUrl = () => "/discussions";
-export const discussionCreateUrl = () => "/discussions/nouvelle";
-export const discussionCreateOnTopicUrl = (contentType, objectId) => `/discussions/nouvelle?model=${contentType}&objectId=${objectId}`;
-export const getAlbumUrl = (id) => `/musique/album/${id}`;
+export const discussionCreateUrl = () => "/discussions/new";
+export const discussionCreateOnTopicUrl = (contentType, objectId) => `/discussions/new?model=${contentType}&objectId=${objectId}`;
+export const getAlbumUrl = (id) => `/music/album/${id}`;
 export const getAlbumGenresUrl = (id) => `${getAlbumUrl(id)}/genres`;
-export const createReviewUrl = (id) => `${getAlbumUrl(id)}/critiquer`;
-export const getReviewUrl = (albumId, reviewId) => `/musique/album/${albumId}/critique/${reviewId}`;
-export const getArtistUrl = (id) => `/musique/artiste/${id}`;
-export const getGenreUrl = (slug) => `/musique/genre/${slug}`;
-export const getGenresUrl = () => `/musique/genres`;
-export const createGenreUrl = () => '/musique/genres/nouveau';
+export const createReviewUrl = (id) => `${getAlbumUrl(id)}/review`;
+export const getReviewUrl = (albumId, reviewId) => `/music/album/${albumId}/review/${reviewId}`;
+export const getArtistUrl = (id) => `/music/artist/${id}`;
+export const getGenreUrl = (slug) => `/music/genre/${slug}`;
+export const getGenresUrl = () => `/music/genres`;
+export const createGenreUrl = () => '/music/genres/new';
 export function getDiscussionsUrlForObject(contentType, contentObjectId){
     switch(contentType){
     case "artist":
@@ -25,26 +25,26 @@ export function getDiscussionsUrlForObject(contentType, contentObjectId){
 }
 
 export const getDiscussionUrl = (discussionId) => `/discussions/d/${discussionId}`;
-export const getSearchUrl = () => `/rechercher`;
-export const getNotificationsUrl = () => '/profil/notifications';
+export const getSearchUrl = () => `/search`;
+export const getNotificationsUrl = () => '/account/notifications';
 
-export const listListsUrl = () => `/listes`;
-export const createListUrl = () => `/listes/nouvelle`;
-export const getListUrl = (id) => `/listes/detail/${id}`;
+export const listListsUrl = () => `/lists`;
+export const createListUrl = () => `/lists/new`;
+export const getListUrl = (id) => `/lists/detail/${id}`;
 
-export const getTopUrl = (genre = "tout", period = "tout") => `/tops/${genre}/${period}`;
+export const getTopUrl = (genre = "all", period = "all") => `/tops/${genre}/${period}`;
 
-export const getRegistrationUrl = () => `/inscription`;
-export const activationLinkSentUrl = () => `/inscription/fin`;
+export const getRegistrationUrl = () => `/register`;
+export const activationLinkSentUrl = () => `/register/done`;
 export const activateAccountUrl = () => `/confirm`;
 
-export const getAllActivityUrl = () => `/live/tout`;
-export const getSelfActivityUrl = () => `/live/perso`;
+export const getAllActivityUrl = () => `/live/all`;
+export const getSelfActivityUrl = () => `/live/personal`;
 
-export const createExportUrl = () => `/export/creer`;
+export const createExportUrl = () => `/export/create`;
 export const exportTaskLaunchedUrl = () => `/export/ok`;
 export const listExportsUrl = () => `/profil/exports`;
 export const getExportUrl = (id) => `/profil/exports/${id}`;
 
-export const listConversationsUrl = () => `/profil/messagerie`;
-export const getConversationUrl = (id) => `/profil/messagerie/${id}`;
+export const listConversationsUrl = () => `/account/messages`;
+export const getConversationUrl = (id) => `/account/messages/${id}`;

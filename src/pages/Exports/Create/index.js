@@ -11,7 +11,7 @@ const SCUserForm = ({username, onChangeUser, onValidateUser, SCData, SCErrors}) 
       <div className="column is-12-mobile is-6-tablet">
         <div className="field">
           <p className="control">
-            <input className="input" type="text" placeholder="Pseudo sencritique"
+            <input className="input" type="text" placeholder="Username sencritique"
                    value={username}
                    onChange={onChangeUser}
             />

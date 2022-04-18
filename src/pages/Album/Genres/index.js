@@ -65,7 +65,7 @@ export default class AlbumGenresPage extends Component {
             <div className="columns is-multiline">
               <Title title={"Genres de " + this.props.album.title}/>
               <Link to={getAlbumUrl(this.props.album.mbid)}>
-                {"< "} Retour à l'album
+                {"< "} Back to album
               </Link>
               <SubmitAlbumGenreForm
                 album={this.props.album}

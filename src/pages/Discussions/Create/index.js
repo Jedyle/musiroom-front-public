@@ -11,7 +11,7 @@ class DiscussionCreate extends Component {
         let query = queryString.parse(this.props.location.search);
         return (
             <div className="columns is-mobile has-padding-10">
-              <Title title="Nouvelle discussion"/>
+              <Title title="New discussion"/>
                 <SubjectForm
                   types={[
                       {
@@ -19,9 +19,9 @@ class DiscussionCreate extends Component {
                           value: 'album'
                       },
                       {
-                          name: 'Artiste',
+                          name: 'Artist',
                           value: 'artist'
-                      }
+                      }                  
                   ]}
                   key={query.objectId + query.model}
                   objectId={query.objectId}

@@ -78,14 +78,14 @@ class DiscussionsList extends Component {
     getTitle(){
         if(this.state.contentObject){
             if (this.state.model === "artist"){
-                return `Discussions sur ${this.state.contentObject.name}`;               
+                return `Discussions about ${this.state.contentObject.name}`;               
             }
             else if (this.state.model === "album"){
-                return `Discussions sur ${this.state.contentObject.title}`;               
+                return `Discussions about ${this.state.contentObject.title}`;               
             }
         }
         else if (this.state.objectId === 0){
-            return 'Discussions Générales';
+            return 'General Discussions';
         }
         return "Discussions";
     }
@@ -205,8 +205,8 @@ class DiscussionsList extends Component {
                       onChange={(e) => {this.setState({ordering: e.target.value});}}
                       value={this.state.ordering}
                     >
-                      <option value="-modified">Les plus récentes</option>
-                      <option value="-vote_score" >Les mieux votées</option>
+                      <option value="-modified">Recent</option>
+                      <option value="-vote_score" >Most popular</option>
                     </select>
                   </div>
                     </p>
@@ -215,7 +215,7 @@ class DiscussionsList extends Component {
                     <p className="control">
                       <button
                         className="button is-primary"
-                        type="submit">Rechercher</button>
+                        type="submit">Search</button>
                     </p>
                   </div>
                 </div>
@@ -240,7 +240,7 @@ class DiscussionsList extends Component {
                 {
                     this.state.objectId !== null && 
                         <p>
-                          <Link to={discussionsUrl()}>{"<"} Toutes les discussions</Link>
+                          <Link to={discussionsUrl()}>{"<"} All discussions</Link>
                         </p>
                 }
                 <h1 className="is-size-2 has-text-centered">{this.getTitle(this.state.contentObject)}</h1>

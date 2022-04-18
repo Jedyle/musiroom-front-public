@@ -25,10 +25,10 @@ const SubjectForm = ({
 }) => (
     <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
       <div className="box has-background-light has-padding-20">
-        <h1 className="title is-size-3 has-text-centered">Nouvelle Discussion</h1>      
+        <h1 className="title is-size-3 has-text-centered">New Discussion</h1>      
         <div className="has-margin-bottom-10">
           <p className="has-text-centered">
-            <span className="is-size-5">Sujet : </span>
+            <span className="is-size-5">Subject : </span>
             <span className={`tag is-large ${selectedItem ? 'is-success' : 'is-info'}`}>
               {selectedItem ?
                (
@@ -39,13 +39,13 @@ const SubjectForm = ({
                        onClick={onResetItem}
                      ></button>
                    </>
-               ) : "Discussion Générale"}
+               ) : "General Discussion"}
             </span>
           </p>
         </div>
         <div className="columns">
           <div className="column is-6-desktop is-offset-3-desktop">
-            <div className="has-text-centered has-margin-bottom-10">ou choisissez un sujet</div>
+            <div className="has-text-centered has-margin-bottom-10">ou choose a topic</div>
             <div className="field has-addons has-margin-top-6">
               <p className="control">
                 <span className="select">
@@ -63,7 +63,7 @@ const SubjectForm = ({
                 <AutocompleteInput
                   className="input"
                   type="text"
-                  placeholder="Sujet..."
+                  placeholder="Topic..."
                   disabled={!currentType}
                   value={currentValue}
                   onChange={onChangeValue}
@@ -92,7 +92,7 @@ const SubjectForm = ({
               <input
                 className="input"
                 type="text"
-                placeholder="Titre"
+                placeholder="Title"
                 value={currentTitle}
                 onChange={onChangeTitle}
               />
@@ -101,7 +101,7 @@ const SubjectForm = ({
           </div>
           <div className="field">
             <div className="control">
-              <textarea className="textarea" placeholder="Contenu"
+              <textarea className="textarea" placeholder="Content"
                         style={{minHeight: '250px'}}
                         value={currentText}
                         onChange={onChangeText}
@@ -112,7 +112,7 @@ const SubjectForm = ({
 
           <div className="field">
             <div className="control">
-              <button className="button is-info" onClick={onCreateDiscussion}>Créer</button>
+              <button className="button is-info" onClick={onCreateDiscussion}>Create</button>
             </div>
           </div>
         </div>

@@ -27,7 +27,7 @@ export default class AllRatingsStats extends Component {
     render(){
         return (
             <>
-              <h1 className="title has-text-centered is-size-5">Note moyenne</h1>
+              <h1 className="title has-text-centered is-size-5">Average Rating</h1>
               {
                   this.state.stats ?
                       (
@@ -35,7 +35,7 @@ export default class AllRatingsStats extends Component {
                             stats={this.state.stats}
                             chartColor={this.props.chartColor}
                             textClass={this.props.textClass}
-                          /> )    : (<div className="has-text-centered">Aucune note</div>) 
+                          /> )    : (<div className="has-text-centered">No rating</div>) 
               }
             </>
         );

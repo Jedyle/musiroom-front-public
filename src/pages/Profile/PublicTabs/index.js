@@ -20,7 +20,7 @@ class PublicProfileTabs extends Component{
             tabs: [
                 {
                     icon: "fa fa-user",
-                    title: "Profil",
+                    title: "Account",
                     subLink: "",
                     exact: true,
                     render: (props) => <ProfileTab
@@ -30,8 +30,8 @@ class PublicProfileTabs extends Component{
                 },
                 {
                     icon: "fa fa-star",
-                    title: "Notes",
-                    subLink: "/notes",
+                    title: "Ratings",
+                    subLink: "/ratings",
                     exact: true,
                     render: (props) => <RatingsTab
                                          {...props}
@@ -40,8 +40,8 @@ class PublicProfileTabs extends Component{
                 },
                 {
                     icon: "fa fa-sticky-note",
-                    title: "Critiques",
-                    subLink: "/critiques",
+                    title: "Reviews",
+                    subLink: "/reviews",
                     exact: true,
                     render: (props) => <ReviewsTab
                                          {...props}
@@ -50,8 +50,8 @@ class PublicProfileTabs extends Component{
                 },
                 {
                     icon: "fa fa-map-marker",
-                    title: "Envies",
-                    subLink: "/envies",
+                    title: "Interests",
+                    subLink: "/interests",
                     exact: true,
                     render: (props) => <InterestsTab
                                          {...props}
@@ -60,8 +60,8 @@ class PublicProfileTabs extends Component{
                 },
                 {
                     icon: "fa fa-list",
-                    title: "Listes",
-                    subLink: "/listes",
+                    title: "Lists",
+                    subLink: "/lists",
                     exact: true,
                     render: (props) => <ListsTab
                                          {...props}
@@ -95,7 +95,7 @@ class PublicProfileTabs extends Component{
     render(){
         return (
             <div>
-              <Title title={`Profil de ${this.props.profile.user}`}/>              
+              <Title title={`${this.props.profile.user}'s profile`}/>              
               <ProfileTabs
                 tabs = {this.state.tabs.map((tab, index) => (
                     <Link to={join(this.props.match.url, tab.subLink)} activeClassName="is-active">

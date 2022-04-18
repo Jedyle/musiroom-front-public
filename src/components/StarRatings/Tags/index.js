@@ -12,7 +12,7 @@ const RatingTagsList = ({mbid, userRating, followeesRating, avgRating}) => (
                 mbid={mbid}
               >
                 <span className="tag is-user-rating mr-1" style={{cursor: 'pointer', backgroundClip: 'border-box'}}
-                    title="Ma note">
+                    title="My rating">
                   {userRating || '-'}
                 </span>
               </AlbumPopover>              
@@ -21,13 +21,13 @@ const RatingTagsList = ({mbid, userRating, followeesRating, avgRating}) => (
       {
           getUser() && (
               <span className="tag is-followees-rating"
-                    title="Moyenne de mes abonnements">
+                    title="Average of my followees">
                 {followeesRating ? followeesRating.toFixed(1) : '-'}
               </span>
           )
       }
       <span className="tag is-avg-rating"
-            title="Note moyenne">
+            title="Average rating">
         {avgRating ? avgRating.toFixed(1) : '-'}
       </span>             
     </div>

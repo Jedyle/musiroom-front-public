@@ -15,7 +15,7 @@ class AvatarForm extends Component{
     onClick(){
         changeAvatar(this.state.file).then(
             (response) => {
-                alert("Votre avatar a été mis à jour.");
+                alert("Your profile pic has been updated.");
                 document.location.reload(true);
             }
         ).catch(error => {
@@ -30,7 +30,7 @@ class AvatarForm extends Component{
         return (
             <div className="has-background-light has-padding-10">
               <hr/>
-              <h1 className="title is-4 has-text-centered">Modifier votre avatar</h1>
+              <h1 className="title is-4 has-text-centered">Change picture</h1>
               <hr/>
 
               <div className="field is-horizontal">
@@ -51,7 +51,7 @@ class AvatarForm extends Component{
                           <i className="fa fa-upload"></i>
                         </span>
                         <span className="file-label">
-                          Choisissez un fichier...
+                          Choose a file...
                         </span>
                         <p className="has-margin-left-5 help is-danger">{this.state.errors}</p>
                       </span>
@@ -64,7 +64,7 @@ class AvatarForm extends Component{
                       }
                     </label>
                   </div>
-                  <button className="button is-info" onClick={this.onClick}>Mettre à jour</button>
+                  <button className="button is-info" onClick={this.onClick}>Update</button>
                 </div>
               </div>
             </div>

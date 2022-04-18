@@ -16,11 +16,11 @@ export default function ListDescription({list, newDescription, isEditable, onEdi
                 <button
                   className="button is-info"
                   onClick={onSubmit}
-                >Modifier</button>
+                >Edit</button>
                 <button
                   className="button is-danger"
                   onClick={onCancel}
-                >Annuler</button>
+                >Cancel</button>
               </div>
             </div>
         );
@@ -34,7 +34,7 @@ export default function ListDescription({list, newDescription, isEditable, onEdi
                       style={{cursor: 'pointer'}}
                       onClick={onEdit}
                 >
-                  <i title="Editer" className="fa fa-lg fa-edit"></i>
+                  <i title="Edit" className="fa fa-lg fa-edit"></i>
                 </span>
             )}
           </span>
@@ -42,7 +42,7 @@ export default function ListDescription({list, newDescription, isEditable, onEdi
             {list.description ||
              (userCanEdit && (
                  <em>
-                   Ajouter une description
+                   Add description
                  </em>))                       
             }
           </p>

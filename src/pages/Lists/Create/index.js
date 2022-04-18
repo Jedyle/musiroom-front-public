@@ -31,7 +31,7 @@ export default class CreateList extends Component {
                 description: description,
                 ordered: ordered
             }).then((response) => {
-            alert("Votre liste a bien été créée !");
+            alert("Your list has been created !");
             // redirect to list details
             }).catch((error) => {
                 if (error.response.status === 400){
@@ -45,13 +45,13 @@ export default class CreateList extends Component {
     render() {
         return (
             <div className="columns is-mobile">
-              <Title title="Nouvelle liste"/>
+              <Title title="New list"/>
               <div className="column is-12-mobile is-6-desktop is-offset-3-desktop">
                 <br/>
-                <h1 className="title">Nouvelle Liste</h1>
+                <h1 className="title">New list</h1>
                 <div>
                   <Input
-                    placeholder="Titre"
+                    placeholder="Title"
                     name="title"
                     value={this.state.title}
                     onChange={(e) => {this.setState({title: e.target.value});}}
@@ -68,12 +68,12 @@ export default class CreateList extends Component {
                     name="ordered"
                     checked={this.state.ordered}
                     onChange={this.toggleCheck}
-                    message="Liste ordonnée (top)"
+                    message="Ordered List (top)"
                     errorMessages={this.state.errors.ordered}
                   />
                   <button className="button is-info is-fullwidth"
                           onClick={this.onSubmit}
-                  >Valider</button>
+                  >Validate</button>
                 </div>
               </div>
             </div>

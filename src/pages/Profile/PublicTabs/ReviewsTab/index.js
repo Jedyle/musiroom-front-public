@@ -19,13 +19,13 @@ const ReviewFormatter = ({
                 <h1 className="title is-size-5 is-size-6-mobile">
                   {title.length > maxTitleLength ? title.slice(0, maxTitleLength) + "..." : title}
                   <span className="is-hidden-tablet">
-                    {"   "} (<Link to={reviewLink}>voir la critique</Link>)
+                    {"   "} (<Link to={reviewLink}>read review</Link>)
                   </span>
                 </h1>
                 <p className="is-hidden-mobile">
                   {content.length > maxContentLength ? content.slice(0, maxContentLength) + "..." : content}
                   {"   "}
-                  (<Link to={reviewLink}>voir la critique</Link>)
+                  (<Link to={reviewLink}>read review</Link>)
                 </p>
               </div>
           );
@@ -65,7 +65,7 @@ const ReviewsTab = (props) => (
       header={
           (<span>
              <hr/>
-             <h4 className="title is-4 has-text-centered">Critiques</h4>
+             <h4 className="title is-4 has-text-centered">Reviews</h4>
              <hr/>
            </span>)
       }

@@ -8,7 +8,7 @@ export default function ArtistSearch({results}) {
         <table className="table is-fullwidth">
           <thead>
             <tr>
-              <th>Nom</th>
+              <th>Name</th>
             </tr>
           </thead>
           <tbody>

@@ -11,10 +11,10 @@ const DiscographyTable = ({
     <table className="table is-fullwidth">
       <tbody>
       <tr>
-        <th>Année</th>
-        <th>Titre</th>
+        <th>Year</th>
+        <th>Title</th>
         <th>
-          <span className="is-pulled-right">Notes</span>
+          <span className="is-pulled-right">Ratings</span>
         </th>
       </tr>
         {
@@ -29,6 +29,7 @@ const DiscographyTable = ({
                       </th>
                       <th className="ratings">
                         <RatingTags
+                          mbid={album.mbid}
                           userRating={album.details && album.details.user_rating}
                           followeesRating={album.details && album.details.followees_avg}
                           avgRating={album.details && album.details.rating.average}

@@ -87,7 +87,7 @@ class SearchAlbum extends Component {
                   <input
                     className="input"
                     type="text"
-                    placeholder="Rechercher un album"
+                    placeholder="Search album"
                     name="query"
                     value={query}
                     onChange={this.onChange}
@@ -116,13 +116,13 @@ class SearchAlbum extends Component {
                                 this.albumIsInList(album) ?
                                     (
                                         <button className="button is-small is-outlined is-success" disabled>
-                                          Dans la liste
+                                          in the list
                                         </button>
                                     ) : (
                                         <button className="button is-info is-small"
                                                 onClick={() => this.addAlbumToList(album)}
                                         >
-                                          Ajouter
+                                          add
                                         </button>
                                     )
                             }      
@@ -168,13 +168,13 @@ class AddAlbumSection extends Component {
               <div>
                 <button className="button is-info"
                         onClick={this.onSetActive}
-                >Ajouter un album</button>
+                >Add album</button>
               </div>
               <div className={`modal ${isActive && 'is-active'}`}>
                 <div className="modal-background"></div>
                 <div className="modal-card">
                   <header className="modal-card-head">
-                    <p className="modal-card-title">Ajouter un album</p>
+                    <p className="modal-card-title">Add an album</p>
                     <button
                       className="delete"
                       aria-label="close"
@@ -243,7 +243,7 @@ class ItemComment extends Component {
                        style={{cursor: "pointer"}}
                        onClick={this.onEdit}
                      >
-                       <i title="Editer" className="fa fa-lg fa-edit"></i>
+                       <i title="Edit" className="fa fa-lg fa-edit"></i>
                      </span>
                    </span>
                )
@@ -263,11 +263,11 @@ class ItemComment extends Component {
                 <button
                   className="button is-info"
                   onClick={this.onSubmit}
-                >Modifier</button>
+                >Edit</button>
                 <button
                   className="button is-danger"
                   onClick={this.onCancel}
-                >Annuler</button>
+                >Cancel</button>
               </div>
             </div>
         );
@@ -338,7 +338,7 @@ class PositionModal extends Component {
               <div className="modal-background" onClick={onClose}></div>
               <div className="modal-card">
                 <header className="modal-card-head">
-                  <p className="modal-card-title">Déplacer l'élément {truncate(currentItem.album.title, 20)}</p>
+                  <p className="modal-card-title">Move item {truncate(currentItem.album.title, 20)}</p>
                   <button className="delete" aria-label="close"
                           onClick={onClose}
                   ></button>
@@ -346,7 +346,7 @@ class PositionModal extends Component {
                 <section className="modal-card-body">
                   <div className="select">
                     <select value={newPosition} onChange={(e) => {this.setState({newPosition: e.target.value});}}>
-                      <option>Sélectionner une position</option>
+                      <option>Select a rank</option>
                       {positionsFiltered.map((position) => (
                           <option value={position.order}>{position.order} - {position.album.title}</option> 
                       ))}
@@ -357,7 +357,7 @@ class PositionModal extends Component {
                 <footer className="modal-card-foot">
                   <button className="button is-info"
                           onClick={() => {onSubmit(currentItem, newPosition);}}
-                  >Déplacer</button>
+                  >Move</button>
                 </footer>
               </div>
             </div>
@@ -375,20 +375,20 @@ class DeleteModal extends Component {
               <div className="modal-background" onClick={onClose}></div>
               <div className="modal-card">
                 <header className="modal-card-head">
-                  <p className="modal-card-title">Supprimer {truncate(currentItem.album.title, 20)} ?</p>
+                  <p className="modal-card-title">Delete {truncate(currentItem.album.title, 20)} ?</p>
                   <button className="delete" aria-label="close"
                           onClick={onClose}
                   ></button>
                 </header>
                 <section className="modal-card-body">
                   <div>
-                    Supprimer {truncate(currentItem.album.title, 20)} de la liste ?
+                    Delete {truncate(currentItem.album.title, 20)} from the list ?
                   </div>             
                 </section>
                 <footer className="modal-card-foot">
                   <button className="button is-danger is-fullwidth"
                           onClick={() => {onSubmit(currentItem);}}
-                  >Supprimer</button>
+                  >Delete</button>
                 </footer>
               </div>
             </div>
@@ -547,7 +547,7 @@ export default class ListContent extends Component {
         return (
             <div>
               {count !== null && (
-                  <p className="has-text-centered">Liste de {count} albums</p>
+                  <p className="has-text-centered">List of {count} albums</p>
               )}
               { getUser() === list.user.username &&
                 <AddAlbumSection
@@ -573,7 +573,7 @@ export default class ListContent extends Component {
                    {paginator}
                  </p>
                </>
-               : <p className="has-text-centered">Cette liste est vide :(</p>
+               : <p className="has-text-centered">This list is empty :(</p>
               }
               {getUser() && positionModalCurrentItem &&
                (

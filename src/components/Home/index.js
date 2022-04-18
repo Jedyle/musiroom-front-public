@@ -19,8 +19,8 @@ const Home = () => {
         <div className="columns is-mobile is-multiline">
           <div className="column is-12">
             <HeadLine
-              title="La Musithèque, votre bibliothèque musicale"
-              subtitle="Ecoutez, notez, critiquez."
+              title="MusicTechh, your musical library."
+              subtitle="Listen, review, share."
             />
           </div>
           <Gallery albums={albums}/>         

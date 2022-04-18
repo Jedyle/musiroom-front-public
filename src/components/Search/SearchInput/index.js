@@ -8,8 +8,8 @@ class SearchInput extends Component {
 
     choices = {
         album: 'Album',
-        artist: 'Artiste',
-        user: 'Utilisateur'
+        artist: 'Artist',
+        user: 'User'
     }
     
     constructor(props){
@@ -102,7 +102,7 @@ class SearchInput extends Component {
             <form onSubmit={this.onSubmit} autocomplete="off">
               <AutoCompleteInput
                 name="query"
-                placeholder="Rechercher..."
+                placeholder="Search..."
                 value={this.state.query}
                 onChange={this.onChangeQuery}
                 additionalFieldClasses="has-addons mb-0"

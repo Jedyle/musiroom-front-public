@@ -32,7 +32,7 @@ const ArtistSidebar = ({
                                        to={getGenreUrl(genre.slug)}>
                                        {genre.name}
                                      </Link>)
-                    ).reduce((prev, curr) => [prev, ', ', curr]) : "Non précisé"
+                    ).reduce((prev, curr) => [prev, ', ', curr]) : "Unknown"
                 }
               </p>             
             </li>

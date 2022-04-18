@@ -32,7 +32,7 @@ class ConversationsList extends Component {
                   pageStart={0}
                   loadMore={this.fetchConversationsAPI}
                   hasMore={hasMore}
-                  loader={<h4>Chargement...</h4>}
+                  loader={<h4>Loading...</h4>}
                 >
                   <div className="list">
                     <div className="list-item has-background-light">
@@ -54,7 +54,7 @@ class ConversationsList extends Component {
                                   )).reduce((prev, curr) => [prev, ', ', curr])
                               }
                               {
-                                  otherUsers.length > 2 && ` et ${otherUsers.length - 2} autre(s)`
+                                  otherUsers.length > 2 && ` et ${otherUsers.length - 2} other(s)`
                               }
                             </>
                         );

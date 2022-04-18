@@ -31,19 +31,19 @@ export default class ActivateAccount extends Component {
                 { isLinkConfirmed ?
                   (
                       <div>
-                        <Title title="Compte activé"/>
-                        Vous pouvez maintenant vous connecter !
+                        <Title title="Account activated"/>
+                        You may now log in !
                       </div>
                   ) :
                   (                      
                       isLinkInvalid ?
                           (
                               <div>
-                                <Title title="Lien invalide"/>
-                                Token invalide ou expiré</div>
+                                <Title title="Invalid link"/>
+                                Invalid or expired token</div>
                           ) :
                           (
-                              <div>Confirmation en cours...</div>
+                              <div>Loading...</div>
                           )
                   )
                 }

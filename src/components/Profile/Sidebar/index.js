@@ -28,7 +28,7 @@ const ProfileSidebar = ({
                     style={{padding: '1.25rem'}}>
                   {user}
                   <br/>
-                <small> {follows_you ? "Vous suit" : ""} </small>
+                <small> {follows_you ? "Follows you" : ""} </small>
                 </li>) : ""}
             {
                 [first_name, sex].map((value) => (
@@ -41,13 +41,13 @@ const ProfileSidebar = ({
             {
                 last_activity ?
                     <li className="list-item has-padding-10 has-text-centered">
-                      Dernière activité : {timeSince(last_activity)}
+                      Last activity : {timeSince(last_activity)}
                     </li> : ""   
             }
             {
                 date_joined ?
                     <li className="list-item has-padding-10 has-text-centered">
-                      Inscrit le : {formatDate(date_joined)}
+                      Registration date : {formatDate(date_joined)}
                     </li> : ""   
             }
             {user_buttons}

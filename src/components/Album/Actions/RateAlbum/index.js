@@ -12,7 +12,7 @@ const Base = ({ userRating, changeRating, deleteRating, ...props }) => (
       {"   "}
       {
           userRating !== 0 &&
-              <button className="button is-borderless is-paddingless" title="Supprimer ma note" onClick={deleteRating}>
+              <button className="button is-borderless is-paddingless" title="Delete my rating" onClick={deleteRating}>
                 <span className="icon is-small mb-2 ml-3">
                   <i className="fa fa-lg fa-trash"></i>
                 </span>
@@ -27,7 +27,7 @@ const RateAlbum = (props) => (
     <LoginPlaceholder
       {...props}
       userRendering={(props) => <Base {...props}/>}
-      anonymousRendering={props => <div>Connectez-vous pour noter cet album !</div>}
+      anonymousRendering={props => <div>Log in to rate this album !</div>}
     />
 );
 

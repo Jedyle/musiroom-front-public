@@ -50,7 +50,7 @@ export default class RetrieveUpdateReview extends Component {
         updateReview(this.state.review.id,
                      this.state.editTitle,
                      draftToHtml(convertToRaw(this.state.editContent.getCurrentContent()))).then((response) => {
-                         alert("Votre critique a bien été modifiée !");
+                         alert("Your review has been modified !");
                          this.setState({
                              review: response.data,
                              isActive: false
@@ -101,7 +101,7 @@ export default class RetrieveUpdateReview extends Component {
         let { review } = this.state;
         return review && (
             <div className="column is-full-mobile is-two-thirds-widescreen">
-              <Title title={`${review.title} - Critique de ${review.rating.user.username} sur ${album.title}`}/>
+              <Title title={`${review.title} - Review by m${review.rating.user.username} on ${album.title}`}/>
               <HeadLine
                 title={review.title}
                 heroClasses="is-light"
@@ -113,7 +113,7 @@ export default class RetrieveUpdateReview extends Component {
                       <div className="columns">
                         <div className="column">
                           <p className="is-pulled-right">
-                            <button className="button" onClick={() => {this.setState({isActive: true});}}>Modifier</button>
+                            <button className="button" onClick={() => {this.setState({isActive: true});}}>Edit</button>
                           </p>
                         </div>
                       </div>

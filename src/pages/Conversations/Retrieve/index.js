@@ -90,14 +90,14 @@ class ConversationRetrieve extends Component {
         let { messages, hasMore, isLoading, newMessage, editConversationError } = this.state;
         return (conversation ?
                 <div className="columns is-mobile is-multiline">
-                  <Title title={`${conversation.title} - Messagerie`}/>
+                  <Title title={`${conversation.title} - Message Box`}/>
                   <div className="column is-12">
                     <HeadLine
                       title={conversation.title}
                       titleClasses="has-text-white"
                       heroClasses="has-background-success"
                     />
-                    <p className="help is-danger">{!this.isActiveUser() && "Vous ne faites plus partie de cette conversation"}</p>
+                    <p className="help is-danger">{!this.isActiveUser() && "You are not in this conversation"}</p>
                     <ConvUsers                 
                       members={this.activeMembers(conversation.members)}
                       onChangeMembers={this.onChangeMembers}
@@ -110,14 +110,14 @@ class ConversationRetrieve extends Component {
                       loadMore={this.fetchMessages}
                       hasMore={hasMore}
                       isLoading={isLoading}
-                      loader={<div><p className="has-text-centered">Chargement...</p></div>}
+                      loader={<div><p className="has-text-centered">Loading...</p></div>}
                     />
 
                     {this.isActiveUser() &&
                      <MessageForm
                        content={newMessage}
                        onChange={(e) => this.setState({newMessage: e.target.value})}
-                       messagePlaceholder="Votre message"
+                       messagePlaceholder="Your message"
                        buttonClasses="is-info"
                        onSubmit={this.onSubmitMessage}
                      />

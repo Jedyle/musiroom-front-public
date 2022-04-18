@@ -73,7 +73,7 @@ class ListsList extends Component {
                         className="input"
                         type="text"
                         name="title"
-                        placeholder="Titre"
+                        placeholder="Title"
                         value={title}
                         onChange={(e) => {this.setState({title: e.target.value});}}
                       />
@@ -86,8 +86,8 @@ class ListsList extends Component {
                           onChange={(e) => {this.setState({ordering: e.target.value});}}
                           p                      value={ordering}
                         >
-                          <option value="-vote_score" >Les plus appréciées</option>
-                          <option value="-modified">Dernières modifications</option>
+                          <option value="-vote_score" >Most popular</option>
+                          <option value="-modified">Last modified</option>
                         </select>
                       </div>
                     </p>
@@ -96,9 +96,9 @@ class ListsList extends Component {
                     <p className="control">
                       <button
                         className="button is-primary"
-                        type="submit">Rechercher</button>
+                        type="submit">Search</button>
                       { getUser() &&
-                        <Link className="button is-success ml-5" to={createListUrl()}>Nouvelle liste</Link>
+                        <Link className="button is-success ml-5" to={createListUrl()}>New list</Link>
                       }
                     </p>
                   </div>
@@ -121,12 +121,12 @@ class ListsList extends Component {
         );
         return (
             <div className="columns is-mobile has-padding-10">
-              <Title title="Listes"/>
+              <Title title="Lists"/>
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
 
                 <HeadLine
                   heroClasses="mb-5 has-background-grey-lighter"
-                  title="Listes"
+                  title="Lists"
                 />
 
                 <div className="columns is-mobile">
@@ -143,7 +143,7 @@ class ListsList extends Component {
                     <table className="table" style={{width: '100%'}}>
                       <tbody>
                         <tr>
-                          <th>Listes</th>
+                          <th>Lists</th>
                         </tr>
                         {lists.map((list) => (
                             <tr>
@@ -152,7 +152,7 @@ class ListsList extends Component {
                                   {list.title}
                                 </Link>                                
                                 {" "}
-                                (liste de {" "}
+                                (list of {" "}
                                 <Link to={profileUrl(list.user.username)}>
                                   {list.user.username}
                                 </Link>

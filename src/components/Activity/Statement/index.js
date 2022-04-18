@@ -2,7 +2,6 @@ import React from 'react';
 import { UserLink, GetAlbumLink, GetDiscussionLink, GetReviewLink } from 'pages/Links';
 
 function ActionObject({contentType, object}){
-    console.log(object);
     switch (contentType){
     case "album":
         return <GetAlbumLink mbid={object.mbid} title={object.name}/>;

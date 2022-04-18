@@ -90,7 +90,7 @@ export default class Notifications extends Component {
                     pageStart={0}
                     loadMore={this.fetchNotifications}
                     hasMore={this.state.hasNext}
-                    loader={<div>Chargement...</div>}
+                    loader={<div>Loading...</div>}
                   >
                     {this.state.notifications.map((notification) => (
                         <div className="list-item">

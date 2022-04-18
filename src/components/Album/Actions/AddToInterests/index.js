@@ -33,7 +33,7 @@ class Base extends Component {
     
     render() {
         let { ownInterest } = this.state;
-        let { contentWhenInterest = "Je veux l'écouter", contentWhenNoInterest = "Ajouter à mes envies"} = this.props;
+        let { contentWhenInterest = "I want to listen", contentWhenNoInterest = "Add to my interests"} = this.props;
         return (
             <button
               {...this.props}
@@ -46,7 +46,7 @@ class Base extends Component {
     }
 }
 
-const InterestButton = ({anonymousContent = "Ajouter à mes envies", ...props}) => (
+const InterestButton = ({anonymousContent = "Add to my interests", ...props}) => (
     <SwitchLogButton
       {...props}
       userRendering={(props) => <Base {...props}/>}

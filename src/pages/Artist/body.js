@@ -62,11 +62,9 @@ export default class ArtistBody extends Component {
                 <br/>
                 <div className="">
                   <Input
-                    placeholder="Filtrer par nom exact"
+                    placeholder="Filter by exact name"
                     name="search"                   
                     onKeyDown={(e) => {
-                        console.log("pouet");
-                        console.log(e);
                         if (e.keyCode === 13){
                             this.onPressEnter(e);
                         }

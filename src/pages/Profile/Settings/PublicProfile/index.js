@@ -44,7 +44,7 @@ class _PublicProfileForm extends Component {
     }
 
     successAlert(){
-        alert("Vos changements ont bien été pris en compte.");
+        alert("Your changes have been recorded.");
         document.location.reload(true);
     }
 
@@ -104,7 +104,7 @@ class _PublicProfileForm extends Component {
               <div className="field-body">
                 <Input
                   type="text"                     
-                  placeholder="Prénom"
+                  placeholder="First Name"
                   name="firstName"
                   value={this.state.user.first_name}
                   onChange={(event) => {this.changeUser('first_name', event.target.value);}}
@@ -113,7 +113,7 @@ class _PublicProfileForm extends Component {
                 <Input
                   type="text"
                   name="lastName"
-                  placeholder="Nom de famille"
+                  placeholder="Last Name"
                   value={this.state.user.last_name}
                   onChange={(event) => {this.changeUser('last_name', event.target.value);}}
                   errorMessages={this.state.errors.last_name}
@@ -122,7 +122,7 @@ class _PublicProfileForm extends Component {
                   name="displayName"
                   checked={this.state.user.profile.display_name}
                   onChange={(e) => this.changeProfile('display_name', e.target.checked)}
-                  message={"   Afficher sur mon profil" }
+                  message={"   Public display" }
                   errorMessages={this.profileErrors().display_name}
                 />
               </div>              
@@ -134,28 +134,28 @@ class _PublicProfileForm extends Component {
         return (
             <div className="field is-horizontal is-grouped">
               <div className="field-label is-normal">
-                <label className="label">Date de naissance</label>
+                <label className="label">Birth date</label>
               </div>
 
               <div className="field-body">
                 <Input
                   name="day"
                   type="text"
-                  placeholder="Jour"
+                  placeholder="Day"
                   value={this.state.birth.day}
                   onChange={(e) => this.changeDate('day', e.target.value)}
                 />
                 <Input
                   name="month"
                   type="text"
-                  placeholder="Mois"
+                  placeholder="Month"
                   value={this.state.birth.month}
                   onChange={(e) => this.changeDate('month', e.target.value)}
                 />
                 <Input 
                   name="year"
                   type="text"
-                  placeholder="Année"
+                  placeholder="Year"
                   value={this.state.birth.year}
                   onChange={(e) => this.changeDate('year', e.target.value)}
                 />                
@@ -163,7 +163,7 @@ class _PublicProfileForm extends Component {
                   name="member"
                   checked={this.state.user.profile.display_birth}
                   onChange={(e) => this.changeProfile('display_birth', e.target.checked)}
-                  message={"   Afficher sur mon profil"}
+                  message={"   Public display"}
                 />
                 <p className="help is-danger">{this.profileErrors().birth}</p>
               </div>              
@@ -175,7 +175,7 @@ class _PublicProfileForm extends Component {
         return (
             <div className="field is-horizontal">
               <div className="field-label">
-                <label className="label">Sexe</label>
+                <label className="label">Gender</label>
               </div>
               <div className="field-body">
                 <Radio
@@ -184,15 +184,15 @@ class _PublicProfileForm extends Component {
                   types={[
                       {
                           value: "M",
-                          label: "   Homme"
+                          label: "   Man"
                       },
                       {
                           value: "F",
-                          label : "   Femme"
+                          label : "   Woman"
                       },
                       {
                           value: "N",
-                          label: "   Non précisé"
+                          label: "   Not given"
                       }
                   ]}
                   onChange={(e) => {this.changeProfile('sex', e.target.value);}}
@@ -202,7 +202,7 @@ class _PublicProfileForm extends Component {
                 name="member"
                 checked={this.state.user.profile.display_sex}
                 onChange={(e) => this.changeProfile('display_sex', e.target.checked)}
-                message={"   Afficher sur mon profil"}
+                message={"   Public display"}
                 errorMessages={this.profileErrors().display_sex}
               />                
             </div>
@@ -219,7 +219,7 @@ class _PublicProfileForm extends Component {
               <div className="field-body">
                 <div className="field">
                   <div className="control">
-                    <textarea className="textarea" placeholder="Votre description sera visble sur votre profil" value={this.state.user.profile.description} onChange={(e) => this.changeProfile('description', e.target.value)}></textarea>
+                    <textarea className="textarea" placeholder="Your description will be publicly visible" value={this.state.user.profile.description} onChange={(e) => this.changeProfile('description', e.target.value)}></textarea>
                   </div>
                 </div>
               </div>

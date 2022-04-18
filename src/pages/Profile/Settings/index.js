@@ -7,7 +7,7 @@ import Title from 'components/Utils/Title';
 
 const SettingsForm = (props) => (
     <div>
-      <Title title="Paramètres"/>
+      <Title title="Settings"/>
       <PublicProfileForm {...props} />
       <hr/>
       <AvatarForm />

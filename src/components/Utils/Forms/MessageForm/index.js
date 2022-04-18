@@ -14,7 +14,7 @@ const MessageForm = ({
           value={content}
           onChange={onChange}
         ></textarea>
-      <button className={`button mt-1 ${buttonClasses}`}>Répondre</button>
+      <button className={`button mt-1 ${buttonClasses}`}>Reply</button>
     </form>
 );
 

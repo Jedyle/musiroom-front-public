@@ -19,7 +19,7 @@ const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
             <div className="control is-expanded">
               <div className="select is-fullwidth">
                 <select value={currentGenre} onChange={(e) => onChange(e.target.value, currentPeriod)}>
-                  <option value="tout">Tout</option>
+                  <option value="all">All</option>
                   {genres.map((genre) => (
                       <option value={genre.slug}>
                         {genre.name}
@@ -30,11 +30,11 @@ const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
             </div>
           </div>
           <div className="field">
-            <label className="label">Période</label>
+            <label className="label">Period</label>
             <div className="control is-expanded">
               <div className="select is-fullwidth">
                 <select value={currentPeriod} onChange={(e) => onChange(currentGenre, e.target.value)}>
-                  <option value="tout">Tout</option>
+                  <option value="all">All</option>
                   <option disabled>──────────</option>
                   {
                       decades.map((decade) => (
@@ -94,11 +94,11 @@ class Top extends Component {
         let { genre, period } = this.props;
         console.log(this.state.genres);
         let title = "Top 100 Albums";
-        if (genre !== "tout"){
+        if (genre !== "all"){
             let genreObj = this.state.genres.find(el => el.slug === genre);
             title += " - " + (genreObj && genreObj.name);
         }
-        if (period !== "tout"){
+        if (period !== "all"){
             title += " - " + period;
         }
         return title;

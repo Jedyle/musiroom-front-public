@@ -37,13 +37,13 @@ export default class Activity extends Component {
         let { hasMore, results } = this.state;
         return (
             <div>
-              <Title title={type === "all" ? "Activité sur le site" : "Activité de mes abonnements"}/>
+              <Title title={type === "all" ? "Full" : "My followees"}/>
               <div className="columns is-mobile is-multiline">
                 <div className="column is-12">
                   <br/>
                   <HeadLine
                     heroClasses="has-background-primary"
-                    title={`Activité ${type === "all" ? "(tout)" : "(perso)"}`}
+                    title={`Activity ${type === "all" ? "(all)" : "(personal)"}`}
                     titleClasses="is-size-1 has-text-white"
                   />
                 </div>
@@ -51,7 +51,7 @@ export default class Activity extends Component {
                 <div className="column is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop has-background-white-ter">
 
                   <p className="has-text-centered">
-                    <Link className="button" to={type === "all" ? getSelfActivityUrl() : getAllActivityUrl()}>{type === "all" ? "Voir mon flux personalisé" : "Voir tout l'historique"}</Link>
+                    <Link className="button" to={type === "all" ? getSelfActivityUrl() : getAllActivityUrl()}>{type === "all" ? "View personal stream" : "View all history"}</Link>
                     <br/>
                     <br/>
                   </p>                  
@@ -61,7 +61,7 @@ export default class Activity extends Component {
                     pageStart={0}
                     loadMore={this.fetchActivity}
                     hasMore={hasMore}
-                    loader={<h4>Chargement...</h4>}
+                    loader={<h4>Loading...</h4>}
                   >
                     <div className="list">
                       {results.map((result) => (

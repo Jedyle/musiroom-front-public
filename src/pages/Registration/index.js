@@ -40,12 +40,12 @@ class RegistrationForm extends Component {
             nonFieldErrors: formErrors.non_field_errors,
             fields: [
                 {
-                    verboseName: 'Pseudo',
+                    verboseName: 'Username',
                     name: 'username',
                     errorField: 'username',
                     inputType: 'text',
                     placeholder: 'JohnDoe',
-                    helpText: 'Un pseudo peut contenir des chiffres, des lettres, _ et -',
+                    helpText: 'Might contain letters, numbers, - and _',
                     value: form.username,
                     error: formErrors.username,
                     icon: (<i className="fa fa-user"></i>),
@@ -64,7 +64,7 @@ class RegistrationForm extends Component {
                     onChange: this.setFormData('email')
                 },
                 {
-                    verboseName: 'Mot de passe',
+                    verboseName: 'Password',
                     name: 'password',
                     errorField: 'password',
                     inputType: 'password',
@@ -76,7 +76,7 @@ class RegistrationForm extends Component {
                     onChange: this.setFormData('password')
                 },
                 {
-                    verboseName: 'Confirmez votre mot de passe',
+                    verboseName: 'Confirm password',
                     name: 'password_confirm',
                     errorField: 'password_confirm',
                     inputType: 'password',
@@ -118,12 +118,12 @@ class RegistrationForm extends Component {
             <div className="columns is-multiline is-mobile">
               <div className="column is-12">
                 <HeadLine
-                  title="Rejoignez La Musithèque"
+                  title="Join MusicTech"
                   titleClasses="is-size-1"
                 />
               </div>
               <div className="column has-background-white-ter is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
-                <h1 className="title has-text-centered mt-5">Inscription</h1>
+                <h1 className="title has-text-centered mt-5">Sign up</h1>
                 <FormBuilder
                   config={this.formConfig()}
                 />                

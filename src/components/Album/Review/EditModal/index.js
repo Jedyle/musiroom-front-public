@@ -7,12 +7,12 @@ const ReviewEditModal = ({ isActive, onClose, title, onChangeTitle, content, onC
       <div className="modal-background"></div>
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">Modifier la critique</p>
+          <p className="modal-card-title">Edit review</p>
           <button className="delete" onClick={onClose}></button>
         </header>
         <section className="modal-card-body">
           <Input
-            placeholder="Titre"
+            placeholder="Title"
             value={title}
             onChange={onChangeTitle}
           />
@@ -38,8 +38,8 @@ const ReviewEditModal = ({ isActive, onClose, title, onChangeTitle, content, onC
           
         </section>
         <footer className="modal-card-foot">
-          <button className="button is-success" onClick={onSubmit}>Enregistrer</button>
-          <button className="button" onClick={onClose}>Annuler</button>
+          <button className="button is-success" onClick={onSubmit}>Save</button>
+          <button className="button" onClick={onClose}>Cancel</button>
         </footer>
       </div>
     </div>  

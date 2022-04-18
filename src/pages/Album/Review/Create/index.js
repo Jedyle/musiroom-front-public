@@ -62,7 +62,7 @@ class CreateReview extends Component {
             title: title,
             content: draftToHtml(convertToRaw(editorState.getCurrentContent()))
         }).then((response) => {
-            alert("Votre critique a bien été créée !");
+            alert("Your review has been created !");
             this.props.history.push(getReviewUrl(this.props.album.mbid, response.data.id));
         }).catch((error) => {
             if (error.response.status === 400){
@@ -82,12 +82,12 @@ class CreateReview extends Component {
         return (
             <div className="column is-full-mobile is-two-thirds-widescreen">
               <Title title={`Nouvelle critique sur ${this.props.album.title}`}/>
-              <h1 className="title has-text-centered">Nouvelle critique sur {this.props.album.title}</h1>
-              <h2 className="is-size-6 has-text-centered">Votre note : {this.state.ownRating.score}</h2>
+              <h1 className="title has-text-centered">New review for {this.props.album.title}</h1>
+              <h2 className="is-size-6 has-text-centered">Your rating : {this.state.ownRating.score}</h2>
               <p className="help-is-danger">{this.state.errors.nonField}</p>
               <br/>              
               <Input
-                placeholder="Titre"
+                placeholder="Title"
                 name="title"
                 value={title}
                 onChange={(e) => this.setState({title: e.target.value})}
@@ -115,7 +115,7 @@ class CreateReview extends Component {
               />
               <button className="button is-fullwidth is-info is-outlined"
                       onClick={this.onSubmitReview}
-              >Valider</button>
+              >Validate</button>
             </div>
         );
     }

@@ -64,8 +64,8 @@ class ProfileTab extends Component {
         if (this.props.profile){
         return (
             <ul style={{listStyleType: 'circle'}}>
-              <li>{this.props.profile.nb_ratings} albums notés</li>
-              <li>{this.props.profile.nb_reviews} critiques</li>
+              <li>{this.props.profile.nb_ratings} rated albums</li>
+              <li>{this.props.profile.nb_reviews} reviews</li>
             </ul>            
         );}
         return "";
@@ -98,7 +98,7 @@ class ProfileTab extends Component {
         return (
             <div>
               <hr/>
-              <h3 className="title is-4 has-text-centered">Profil {this.props.profile ? "de " + this.props.profile.user : ''}</h3>
+              <h3 className="title is-4 has-text-centered">{this.props.profile ? this.props.profile.user + "'s" : ''} profile</h3>
               <hr/>
               <article className="message">
                 <div className="message-body has-text-centered">
@@ -116,18 +116,18 @@ class ProfileTab extends Component {
                     <div className="column is-12">
                       {
                           getUser() &&
-                              <Link className="button is-fullwidth is-success" to={createListUrl()}>Nouvelle liste</Link>
+                              <Link className="button is-fullwidth is-success" to={createListUrl()}>New list</Link>
                       }
                     </div>
                   </div>
                   
-                  <h3 className="title is-5">Ses albums préférés</h3>
+                  <h3 className="title is-5">His top albums</h3>
                   <ShortAlbumList
                     albums={this.getTopAlbums()}
                   />
                   
                   <a className="has-text-right">
-                    Voir son top
+                    See top
                   </a>
                   
                 </div>

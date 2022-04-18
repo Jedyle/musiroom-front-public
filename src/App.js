@@ -110,6 +110,15 @@ function App() {
                   <PrivateRoute exact path={createGenreUrl()}
                                 component={GenreCreate}
                   />
+                  <Route exact path={getTopUrl()}
+                         render = {props => (
+                             <Top
+                               genre="all"
+                               period="all"
+                               key="all"
+                             />
+                         )}
+                  />
                   <Route exact path={getTopUrl(":genre", `:period${periodRegex}`)}
                          render = {props => (
                              <Top

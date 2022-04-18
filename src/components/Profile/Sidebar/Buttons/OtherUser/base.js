@@ -11,7 +11,7 @@ const OtherUserButtons = ({
         className={`button is-fullwidth has-margin-bottom-5 is-success ${is_followed ? 'is-outlined' : ''}`}
         onClick={onToggleFollow}
       >
-        {is_followed ? "Suivi" : "Suivre"}
+        {is_followed ? "Followed" : "Follow"}
       </button>
       <Link to={message_link} className="button is-fullwidth">
         Message

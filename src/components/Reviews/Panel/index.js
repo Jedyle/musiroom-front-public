@@ -19,7 +19,7 @@ const ReviewList = ({
                     {review.content.substr(0, 400)}...
                   </p>
                   <p className="has-text-right">
-                    <Link to={getReviewUrl(review.rating.content_object.mbid, review.id)}>Lire la critique</Link>
+                    <Link to={getReviewUrl(review.rating.content_object.mbid, review.id)}>Read the review</Link>
                     {"    "}
                     <span className="icon has-margin-left-20">
                       <i className="fa fa-heart has-margin-right-5"></i>
@@ -104,11 +104,11 @@ class ReviewsPanel extends Component {
     render(){
         return (
             <div>
-              <h4 className="title is-size-4">Critiques</h4>
+              <h4 className="title is-size-4">Reviews</h4>
               <div className="field is-horizontal">
                 <div className="field-body">
                   <Input
-                    placeholder="Titre"
+                    placeholder="Title"
                     value={this.state.title}
                     onChange={(e) => {this.setState({title: e.target.value});}}
                   />
@@ -116,9 +116,9 @@ class ReviewsPanel extends Component {
                     <div className="select has-padding-left-10">
                       <select value={this.state.ordering}
                               onChange={(e) => {this.setParam('ordering', e);}}>
-                        <option value="-date_publication">Les plus récentes</option>
-                        <option value="-rating__score">Meilleures notes</option>
-                        <option value="rating__score">Moins bonnes notes</option>
+                        <option value="-date_publication">Recent</option>
+                        <option value="-rating__score">Best ratings</option>
+                        <option value="rating__score">Worst ratings</option>
                       </select>
                     </div>
                   </div>

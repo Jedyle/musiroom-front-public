@@ -32,7 +32,7 @@ class GenreCreate extends Component {
 
     onCreateGenre(){
         createGenre(this.state.name, this.state.description, this.state.parent).then((response) => {
-            alert("Votre ajout a bien été pris en compte ! Un modérateur l'examinera dans les meilleurs délais.");
+            alert("Your suggestion has been saved ! A moderator will validate it as soon as possible..");
             this.props.history.push(getGenresUrl());
         }).catch((error) => {
             if (error.response.status === 400){
@@ -47,7 +47,7 @@ class GenreCreate extends Component {
     render(){
         return (
             <div className="columns is-mobile is-multiline">
-              <Title title="Nouveau Genre"/>
+              <Title title="New genre"/>
               <div className="column is-full">
                 <HeadLine
                   title="Ajouter un genre"
@@ -59,7 +59,7 @@ class GenreCreate extends Component {
                 <div>
                   <div className="help is-danger is-size-5">{this.state.nonFieldErrors}</div>
                   <Input
-                    placeholder="Nom"
+                    placeholder="Name"
                     name="name"
                     value={this.state.name}
                     onChange={(e) => {this.setState({name: e.target.value});}}
@@ -81,7 +81,7 @@ class GenreCreate extends Component {
                     <div className="control">
                       <div className="select">
                         <select onChange={(e) => {this.setState({parent: e.target.value});}}>
-                          <option value={null}>Parent (optionnel)</option>
+                          <option value={null}>Parent (optional)</option>
                           {this.state.genreChoices.map(
                               (genre) =>
                                   (<option value={genre.slug}>{genre.name}</option>)          
@@ -96,7 +96,7 @@ class GenreCreate extends Component {
                       <button
                         className="button is-info is-fullwidth"
                         onClick={this.onCreateGenre}
-                      >Créer</button>
+                      >Create</button>
                     </div>
                   </div>                  
                 </div>

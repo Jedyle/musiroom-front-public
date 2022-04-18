@@ -41,7 +41,7 @@ class _LoginForm extends Component {
             nonFieldErrors: formErrors.non_field_errors,
             fields:  [
                 {
-                    verboseName: 'Pseudo',
+                    verboseName: 'password',
                     name: 'username',
                     errorField: 'username',
                     inputType: 'text',
@@ -54,7 +54,7 @@ class _LoginForm extends Component {
                     ref: this.loginRef
                 },
                 {
-                    verboseName: 'Mot de passe',
+                    verboseName: 'password',
                     name: 'password',
                     errorField: 'password',
                     inputType: 'password',
@@ -69,7 +69,7 @@ class _LoginForm extends Component {
             buttons: [{
                 classes: "is-fullwidth is-info",
                 onClick: this.onLogin,
-                text: "Connexion"
+                text: "Log In"
             }]
         }
         );        
@@ -99,7 +99,7 @@ class _LoginForm extends Component {
             <div className="modal-background"></div>
               <div className="modal-card">
                 <div className="modal-card-head">
-                  <p className="modal-card-title">Connectez-vous</p>
+                  <p className="modal-card-title">Log-In</p>
                   <button className="delete" aria-label="close" onClick={closeLoginModal}></button>
                 </div>
                 <div className="modal-card-body">
@@ -109,10 +109,10 @@ class _LoginForm extends Component {
                     onSubmit={this.onLogin}
                   />
 
-                  <p className="mt-2">Pas de compte ? <Link
+                  <p className="mt-2">No account ? <Link
                                        to={getRegistrationUrl()}
                                        onClick={closeLoginModal}
-                                     >Inscrivez-vous !</Link></p>
+                                     >Sign up !</Link></p>
                   
                 </div>
             </div>

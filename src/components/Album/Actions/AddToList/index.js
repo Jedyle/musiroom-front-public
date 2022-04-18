@@ -114,7 +114,7 @@ class ListsWithAlbum extends Component {
                             className="button is-small is-success"
                             onClick={() => this.onAddToList(list.id)}
                           >
-                            Ajouter
+                            Add
                           </button>
                       ) :
                       (
@@ -122,17 +122,17 @@ class ListsWithAlbum extends Component {
                             <button
                               className="button is-small is-outlined is-info"
                               onClick={() => this.onEditItem(list.id)}
-                            >Modifier</button>
+                            >Edit</button>
                             <button
                               className="button is-small is-danger"
                               onClick={() => this.onDeleteFromList(list.id)}
-                            >Supprimer</button>
+                            >Delete</button>
                           </p>)
               }
               </span>              
               <textarea
                 className="textarea"
-                placeholder="Ajouter un commentaire"
+                placeholder="Add comment"
                 onChange={(e) => this.onChangeComment(list.id, e.target.value)}
                 value={listsInfo[list.id] ? listsInfo[list.id].comment : ''}
                 rows="2"></textarea>
@@ -147,7 +147,7 @@ const ListsModal = ({mbid, isActive, onToggleActive}) => (
       <div className="modal-background"></div>
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">Ajouter à une liste</p>
+          <p className="modal-card-title">Add to List</p>
           <button
             className="delete"
             aria-label="close"

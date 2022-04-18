@@ -52,10 +52,10 @@ export default class SubmitAlbumGenreForm extends Component {
             <div className="column is-full">
               <div className="columns">
                 <div className="column is-12-mobile is-6-widescreen">
-                  <p>Ajouter un genre</p>
+                  <p>Add a genre</p>
                   <br/>
                   <AutocompleteInput
-                    placeholder="Choisissez un genre"
+                    placeholder="Pick a genre"
                     name="genre"
                     value={this.state.query}
                     onChange={this.onChange}
@@ -87,16 +87,16 @@ export default class SubmitAlbumGenreForm extends Component {
                             <button {...props}
                                     onClick={() => this.props.onSubmitAlbumGenre(this.state.selectedItem)}
                             >
-                              Ajouter {this.state.selectedItem && this.state.selectedItem.name}
+                              Add {this.state.selectedItem && this.state.selectedItem.name}
                             </button>)
                     }
                     anonymousChildren={
-                        <span>Ajouter {this.state.selectedItem && this.state.selectedItem.name}</span>
+                        <span>Add {this.state.selectedItem && this.state.selectedItem.name}</span>
                     }
                   />
 
                   <p>
-                    Vous ne trouvez pas un genre musical ? <Link to={createGenreUrl()}>Ajoutez-le</Link> !
+                    You can't find a genre ? <Link to={createGenreUrl()}>Add it</Link> !
                   </p>                 
                 </div>
               </div>

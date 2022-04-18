@@ -93,7 +93,7 @@ export default class RetrieveList extends Component {
                       {list.title}
                     </h1>
                     <h2 className="subtitle is-size-3 has-text-centered mb-0">
-                      Liste de
+                      List by
                       <ProfileLink username={list.user.username}/>
                     </h2>                    
                     <p className="has-text-centered is-centered">

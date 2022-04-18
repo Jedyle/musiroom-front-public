@@ -18,7 +18,7 @@ const FolloweesRatingsList = ({
                 <Link to={profileUrl(rating.user)}>
                   {rating.user}
                 </Link>
-                {rating.review && <Link to={getReviewUrl(album.mbid, rating.review.id)}>{"      "}<span className="tag is-info has-margin-3">Critique</span></Link>}
+                {rating.review && <Link to={getReviewUrl(album.mbid, rating.review.id)}>{"      "}<span className="tag is-info has-margin-3">Review</span></Link>}
               </li>
           )
       )}
@@ -50,7 +50,7 @@ export default class FolloweesRatingsStats extends Component {
     render(){
         return (
             <>
-              <h1 className="title has-text-centered is-size-5">Mes abonnements</h1>
+              <h1 className="title has-text-centered is-size-5">My followees</h1>
               {this.state.stats ? (
                   <>
                     <RatingsChart
@@ -62,7 +62,7 @@ export default class FolloweesRatingsStats extends Component {
                       ratings={this.state.ratings}
                     />
                   </>
-              ) : (<div className="has-text-centered">Aucun de vos abonnements n'a noté cet album'</div>)}        
+              ) : (<div className="has-text-centered">Nobody among your followees rated this album</div>)}        
             </>
         );
     };    

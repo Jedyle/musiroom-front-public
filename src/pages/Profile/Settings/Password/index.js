@@ -41,7 +41,7 @@ class PasswordForm extends Component {
     onClick(){
         changePassword(this.state).then(
             (response) => {
-                alert("Votre mot de passe a été modifié.");
+                alert("Your password has been changed.");
                 document.location.reload(true);
             }
         ).catch(
@@ -57,32 +57,32 @@ class PasswordForm extends Component {
         return (
             <div className="has-background-light has-padding-10 has-padding-right-20">
               <hr/>
-              <h1 className="title is-4 has-text-centered">Modifier votre mot de passe</h1>
+              <h1 className="title is-4 has-text-centered">Change password</h1>
               <hr/>
               <PasswordInput
-                label="Nouveau mot de passe"
+                label="New password"
                 password={this.state.new_password1}
                 onChange={(e)=> {this.onChange('new_password1', e.target.value);}}
-                placeholder="Nouveau mot de passe"
+                placeholder="New password"
                 error={this.state.errors.new_password1}
               />
               <PasswordInput
-                label="Confirmer votre nouveau mot de passe"
+                label="Confirm new password"
                 password={this.state.new_password2}
                 onChange={(e)=> {this.onChange('new_password2', e.target.value);}}
-                placeholder="Confirmer votre nouveau mot de passe"
+                placeholder="Confirm new password"
                 error={this.state.errors.new_password2}
               />
               <PasswordInput
-                label="Mot de passe actuel"
+                label="Current password"
                 password={this.state.old_password}
                 onChange={(e)=> {this.onChange('old_password', e.target.value);}}
-                placeholder="Mot de passe actuel"
+                placeholder="Current password"
                 error={this.state.errors.old_password}
               />
               <Button
                 buttonClass="is-info"
-                message="Modifier votre mot de passe"
+                message="Change password"
                 onClick={this.onClick}
               />
               <br/>
