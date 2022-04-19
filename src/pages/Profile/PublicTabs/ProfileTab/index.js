@@ -72,7 +72,6 @@ class ProfileTab extends Component {
     }
 
     getTopAlbums(){
-        console.log("tops", this.state.topAlbums);
         return this.state.topAlbums.map((album) => {
             return {
                 title: album.title,
@@ -115,20 +114,16 @@ class ProfileTab extends Component {
                     </div>
                     <div className="column is-12">
                       {
-                          getUser() &&
+                          (getUser() === this.props.profile.user) &&
                               <Link className="button is-fullwidth is-success" to={createListUrl()}>New list</Link>
                       }
                     </div>
-                  </div>
+                  </div>                  
                   
                   <h3 className="title is-5">His top albums</h3>
                   <ShortAlbumList
                     albums={this.getTopAlbums()}
-                  />
-                  
-                  <a className="has-text-right">
-                    See top
-                  </a>
+                  />               
                   
                 </div>
 
