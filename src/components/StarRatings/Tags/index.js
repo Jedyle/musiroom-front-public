@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getUser } from 'services/Auth/api';
 import './index.css';
 import PropTypes from 'prop-types';
@@ -6,7 +6,11 @@ import AlbumPopover from 'components/Album/Popover';
 
 const RatingTagsList = ({mbid, userRating, followeesRating, avgRating}) => {
 
-    const [realUserRating, changeRealUserRating] = useState(userRating);
+    const [realUserRating, changeRealUserRating] = useState(0);
+
+    useEffect(() => {
+        changeRealUserRating(userRating);
+    }, [userRating]);
 
     const changeRating = (newRating) => {
         changeRealUserRating(newRating);
