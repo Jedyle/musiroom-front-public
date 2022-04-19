@@ -85,6 +85,7 @@ class SearchAlbum extends Component {
               <div className="field">
                 <p className="control">
                   <input
+                    autoComplete="off"
                     className="input"
                     type="text"
                     placeholder="Search album"
@@ -100,7 +101,7 @@ class SearchAlbum extends Component {
                       <article className="media">
                         <div className="media-left">
                           <figure className="image is-64x64">
-                            <img src={previewUrl(album.preview)} alt="Image" />
+                            <img src={previewUrl(album.preview)} alt="Preview"/>
                           </figure>
                         </div>                        
                         <div className="media-content">
