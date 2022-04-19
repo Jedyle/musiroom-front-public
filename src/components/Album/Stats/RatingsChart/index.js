@@ -56,7 +56,7 @@ const RatingsChart = ({
     <div className="columns is-mobile has-border has-margin-right-10">
                   <div className="column is-4">
                     <h1 className={`is-marginless has-text-centered title is-size-1 ${textClass}`}>
-                      {parseFloat(stats.average).toFixed(1)}
+                      {stats.average ? parseFloat(stats.average).toFixed(1) : '-'}
                     </h1>
                     <p className={`has-text-centered has-margin-top-10 ${textClass}`}>
                       <span className="icon">

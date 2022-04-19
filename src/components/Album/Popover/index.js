@@ -73,7 +73,8 @@ class PopoverContent extends Component {
                           >
                             <Link to={getAlbumUrl(album.mbid)}>{truncate(album.title, 25)}</Link>
                             <span className="tag is-avg-rating is-pulled-right">
-                              {album.rating.average.toFixed(1)}
+                              {
+                                  album.rating.average !== 0 ? album.rating.average.toFixed(1) : '-'}
                             </span>
                           </h1>
                           <p className="is-marginless">
