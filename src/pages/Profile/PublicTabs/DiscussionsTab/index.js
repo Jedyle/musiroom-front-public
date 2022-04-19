@@ -46,7 +46,7 @@ class DiscussionsTab extends Component {
         return this.state.discussions.map(
             (discussion) => (
                 <span>
-                  <Link to={getDiscussionUrl(discussion)}>
+                  <Link to={getDiscussionUrl(discussion.id)}>
                     <strong>
                       {discussion.title}
                     </strong>
