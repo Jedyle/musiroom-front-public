@@ -24,7 +24,6 @@ class ListsWithAlbum extends Component {
     
     fetchLists(){
         let { mbid } = this.props;
-        console.log(mbid);
         // CAUTION : there is an issue if a user has more than 1000 items, they won't all be displayed!!! TODO : fix this
         getLists(getUser(), 1, 1000).then((response) => {
             this.setState({
@@ -76,8 +75,7 @@ class ListsWithAlbum extends Component {
     onEditItem = (listId) => {
         let { listsInfo } = this.state;
         let itemId = listsInfo[listId] ? listsInfo[listId].itemId : '';
-        let comment = listsInfo[listId] ? listsInfo[listId].comment: '';
-        console.log(listId, itemId, listsInfo, comment);
+        let comment = listsInfo[listId] ? listsInfo[listId].comment: '';     
         updateListItem(listId, itemId, {
             comment: comment
         }).then((response) => {

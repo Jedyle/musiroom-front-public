@@ -27,8 +27,7 @@ class NotificationBell extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        if (this.props.location.pathname !== prevProps.location.pathname){
-            console.log(this.props.location.pathname, prevProps.location.pathname);
+        if (this.props.location.pathname !== prevProps.location.pathname){           
             this.fetchCount();
         }
     }

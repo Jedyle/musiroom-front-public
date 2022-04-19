@@ -681,8 +681,7 @@ class Prototypes extends React.Component {
                           <div key={item}>
                             <a
                               href="/"
-                              onClick={(e) => {
-                                  console.log(item);
+                              onClick={(e) => {                                  
                                   e.preventDefault();
                                   this.setState({
                                       tag: item

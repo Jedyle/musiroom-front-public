@@ -40,8 +40,7 @@ class RatingsList extends Component {
                 let userReviews = {};
                 for (var i=0; i < reviewsAsList.length; i++){
                     userReviews[reviewsAsList[i].rating.content_object.rating.id] = reviewsAsList[i];
-                }
-                console.log(userReviews);
+                }                
                 this.setState({
                     userReviews: userReviews
                 });

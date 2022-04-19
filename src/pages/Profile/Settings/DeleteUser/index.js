@@ -18,9 +18,7 @@ export default class DeleteUserForm extends Component {
     deleteAccount(){
         if (window.confirm("Are you sure you want to delete your account ? This action cannot be reverted.")){
             deleteUser(this.state.password).catch(error => {
-                console.log(error.response);
-                if (error.response.status === 400){
-                    console.log(error.response.data);
+                if (error.response.status === 400){                   
                     this.setState({
                         formErrors: error.response.data
                     });

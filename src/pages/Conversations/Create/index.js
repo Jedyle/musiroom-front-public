@@ -115,8 +115,7 @@ class ConversationCreate extends Component {
                 this.redirectToNewConversation(convId);
             });
         }).catch(error => {
-            if (error.response.status === 400){
-                console.log(error.response);
+            if (error.response.status === 400){                
                 this.setState({
                     errors: error.response.data
                 });

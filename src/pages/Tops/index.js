@@ -91,8 +91,7 @@ class Top extends Component {
     }
 
     getTitle = () => {
-        let { genre, period } = this.props;
-        console.log(this.state.genres);
+        let { genre, period } = this.props;        
         let title = "Top 100 Albums";
         if (genre !== "all"){
             let genreObj = this.state.genres.find(el => el.slug === genre);

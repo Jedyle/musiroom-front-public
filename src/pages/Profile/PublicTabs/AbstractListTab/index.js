@@ -30,7 +30,6 @@ class AbstractListTab extends Component {
             this.state.currentPage !== prevState.currentPage ||
                 this.state.albumTitleQuery !== prevState.albumTitleQuery
         )){
-            console.log("fetch");
             this.fetchBaseElementsFromApi();
         }
     }
@@ -54,8 +53,7 @@ class AbstractListTab extends Component {
         });
     }
 
-    fetchBaseElementsFromApi(){
-        console.log(this.props.fetchElements);
+    fetchBaseElementsFromApi(){       
         this.props.fetchElements(
             {
                 username: this.props.profile.user,
@@ -64,8 +62,7 @@ class AbstractListTab extends Component {
                 ordering: this.state.ordering
             }
         ).then(
-            (response) => {
-                console.log(response.data);
+            (response) => {                
                 this.setState({
                     results: response.data.results,
                     previousPageUrl: response.data.previous,

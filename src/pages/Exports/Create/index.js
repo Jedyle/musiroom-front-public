@@ -181,8 +181,7 @@ export default class ExportCreate extends Component {
                 SCData: response.data,
                 SCErrors: null
             });
-        }).catch((error) => {
-            console.log(error);
+        }).catch((error) => {            
             if (error.response.status === 404){
                 this.setState({
                     SCData: null,
