@@ -43,7 +43,7 @@ const NotFound = () => (
 const mbidRegex = "([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})";
 
 // a period can be either 'tout' (replace by all for multilanguage), a year, or a decade (like 2010s)
-const periodRegex = "(tout|[0-9]{4}|[0-9]{3}0s)";
+const periodRegex = "(all|[0-9]{4}|[0-9]{3}0s)";
 
 function App() {
     return (
