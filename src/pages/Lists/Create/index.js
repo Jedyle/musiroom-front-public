@@ -3,6 +3,8 @@ import Input from 'components/Utils/Forms/Input';
 import CheckBox from 'components/Utils/Forms/Checkbox';
 import Title from 'components/Utils/Title';
 
+import { getListUrl } from 'pages/urls';
+
 import { createList } from 'services/Lists';
 
 export default class CreateList extends Component {
@@ -30,8 +32,9 @@ export default class CreateList extends Component {
                 title: title,
                 description: description,
                 ordered: ordered
-            }).then((response) => {
-            alert("Your list has been created !");
+            }).then((response) => {         
+                alert("Your list has been created !");
+                this.props.history.push(getListUrl(response.data.id))
             // redirect to list details
             }).catch((error) => {
                 if (error.response.status === 400){

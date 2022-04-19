@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { getInterests } from 'services/Profile';
-import Paginator from 'components/Utils/Paginator';
-import Filtrator from 'components/Utils/Filtrator';
 import AbstractListTab from '../AbstractListTab';
 import AlbumList from 'containers/AlbumList';
 
