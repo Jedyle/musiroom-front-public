@@ -29,7 +29,6 @@ export default class SubmitAlbumGenreForm extends Component {
     }
 
     onChooseItem = (index) => {
-        console.log(index);
         this.setState((prevState) => {
             return (
                 {
@@ -41,6 +40,13 @@ export default class SubmitAlbumGenreForm extends Component {
         });
     }
 
+    onSubmit = (item) => {
+        this.props.onSubmitAlbumGenre(item);
+        this.setState({
+            selectedItem: ''
+        })
+    }
+    
     onReset = (index) => {
         this.setState({
             selectedItem: ''
@@ -85,7 +91,7 @@ export default class SubmitAlbumGenreForm extends Component {
                     userRendering={
                         props => (
                             <button {...props}
-                                    onClick={() => this.props.onSubmitAlbumGenre(this.state.selectedItem)}
+                                    onClick={() => this.onSubmit(this.state.selectedItem)}
                             >
                               Add {this.state.selectedItem && this.state.selectedItem.name}
                             </button>)

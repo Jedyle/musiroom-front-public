@@ -51,7 +51,6 @@ export default class AlbumGenresPage extends Component {
         addAlbumGenre(this.props.album.mbid, item.slug).then((response) => {
             this.fetchAlbumGenres();
         }).catch((err) => {
-            console.log(err.response);
             if (err.response.status === 400){
                 this.setState({
                     submitGenreErrors: err.response.data.genre
@@ -63,7 +62,7 @@ export default class AlbumGenresPage extends Component {
     render(){
         return(
             <div className="columns is-multiline">
-              <Title title={"Genres de " + this.props.album.title}/>
+              <Title title={"Genres for " + this.props.album.title}/>
               <Link to={getAlbumUrl(this.props.album.mbid)}>
                 {"< "} Back to album
               </Link>
