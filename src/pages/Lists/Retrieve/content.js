@@ -466,8 +466,9 @@ export default class ListContent extends Component {
 
     formatHeaderContent(){
         let headers = {};
+        let userCanEdit = getUser() === this.props.list.user.username;
         this.state.items.forEach((item, index) => {
-            headers[item.album.rating.id] = (getUser() &&
+            headers[item.album.rating.id] = (userCanEdit &&
                 <ItemHeader
                   onChangePosition={() => this.onOpenPositionModal(item)}
                   onDelete={() => this.onOpenDeleteModal(item)}
