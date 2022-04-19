@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Base from './base';
 import { toggleFollow, findIfUserFollows } from 'services/Followers';
+import { listConversationsUrl } from 'pages/urls';
 
 class OtherUserButtons extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message_link : "/",
+            message_link : listConversationsUrl(),
             is_followed: false            
         };
         this.onToggleFollow = this.onToggleFollow.bind(this);
