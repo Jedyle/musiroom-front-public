@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import { Link } from 'react-router-dom';
 import Popover from 'react-popover';
 import RateAlbum from 'components/Album/Actions/RateAlbum';
@@ -31,11 +31,31 @@ class PopoverContent extends Component {
             });
         });
     }
+
+    onChangeRating = (score) => {
+        const changeRating = this.props.changeRating;
+        const call = this.state.album.user_rating ? changeOwnRating : createOwnRating;
+        call(this.state.album.rating.id, score).then((response) => {
+            changeRating(score);
+            this.setState(prevState => {
+                let album = Object.assign({}, prevState.album);
+                album.user_rating = score;
+                return {
+                    album: album
+                }
+            })
+        });
+    }
+
+    onDeleteRating(score){
+        deleteOwnRating(this.props.album.rating.id).then((response) => {
+            this.props.changeRating(0);
+        })
+    }
     
     render(){
-        let { mbid, ...props } = this.props;
+        let { mbid, changeRating, deleteRating, ...props } = this.props;
         let { album } = this.state;
-        console.log(album);
         return (
             <div className="box" style={{width: '400px', padding: '0.6rem', boxShadow: 'none'}} {...props}>
               { album ?
@@ -65,8 +85,10 @@ class PopoverContent extends Component {
                           <div>
                             <RateAlbum
                               userRating={album.user_rating || 0}
+                              changeRating={this.onChangeRating}
+                              deleteRating={this.onDeleteRating}
                               starDimension='20px'
-                              starSpacing='0px'
+                              starSpacing='0px'                              
                             />
                           </div>
                           <div>
@@ -103,34 +125,27 @@ class PopoverContent extends Component {
     
 }
 
-export default class AlbumPopover extends Component {
+const AlbumPopover = ({mbid, changeRating, deleteRating, children}) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: false
-        };
-    }
+    const [open, setOpen] = useState(false);
 
-    setOpen = (value) => {
-        this.setState({open: value});
-    }
-
-    render() {
-        let { mbid, children } = this.props;
-        let { open } = this.state;
-        return (
-            getUser() ?
-                <Popover
-                  body={<PopoverContent mbid={mbid}/>}
-                  isOpen={open}
-                  onOuterAction={(e) => this.setOpen(false)}
-                >
-                  <span onMouseOver={() => this.setOpen(true)}>
-                    {children}
-                  </span>
-                </Popover>
-            : children  
-        );        
-    }
+    return (
+        getUser() ?
+            <Popover
+              body={<PopoverContent
+                      mbid={mbid}
+                      changeRating={changeRating}
+                      deleteRating={deleteRating}
+                    />}
+              isOpen={open}
+              onOuterAction={(e) => setOpen(false)}
+            >
+              <span onMouseOver={() => setOpen(true)}>
+                {children}
+              </span>
+            </Popover>
+        : children  
+    );
 }
+
+export default AlbumPopover;
