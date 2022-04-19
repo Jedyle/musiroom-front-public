@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Logo from '../Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listExportsUrl, listConversationsUrl, getTopUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listConversationsUrl, getTopUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
 import SearchInput from 'components/Search/SearchInput';
 import NotificationBell from 'components/Notifications/Bell';
@@ -38,7 +38,7 @@ class Navbar extends Component {
                   <div className="navbar-dropdown is-right">
                     <Link to={profileUrl(getUser())} className="navbar-item">Profil</Link>
                     <Link className="navbar-item" to={listConversationsUrl()}>Messagerie</Link>
-                    <Link className="navbar-item" to={listExportsUrl()}>Mes exports</Link>
+                    {/* <Link className="navbar-item" to={listExportsUrl()}>Mes exports</Link> */}
                     <Link className="navbar-item" to={changeProfileUrl()}>Modifier mes infos</Link>
                     <Link className="navbar-item" onClick={this.props.onLogout}>Déconnexion</Link>
                     </div>
@@ -62,7 +62,9 @@ class Navbar extends Component {
                 
                 <a role="button"
                    className={`navbar-burger burger ${this.activeClass()}`} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
-                   onClick={() => {this.setState({burger_active: !this.state.burger_active});}}>
+                   onClick={() => { //
+                       this.setState({burger_active: !this.state.burger_active});
+                   }}>
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
@@ -97,15 +99,15 @@ class Navbar extends Component {
                     Listes
                   </Link>
 
-                  { this.props.token &&
-                    (
-                        <Link
-                          className="navbar-item"
-                          to={createExportUrl()}>
-                          Export
-                        </Link>
-                    )
-                  }
+                  {/* { this.props.token && */}
+                  {/*   ( */}
+                  {/*       <Link */}
+                  {/*         className="navbar-item" */}
+                  {/*         to={createExportUrl()}> */}
+                  {/*         Export */}
+                  {/*       </Link> */}
+                  {/*   ) */}
+                  {/* } */}
                   
                 </div>
 
