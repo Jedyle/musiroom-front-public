@@ -1,15 +1,20 @@
-FROM node:16 AS builder
+FROM node:14 AS base
+
+RUN mkdir -p /app
+WORKDIR /app
+
+FROM builder as builder
 
 ARG REACT_APP_API_URL
 ARG REACT_APP_SENTRY_DSN
+ARG REACT_APP_SITE_TITLE
+ARG NODE_PATH=src/
 
-WORKDIR /app
 COPY . .
-RUN npm install -g ionic
 RUN npm install
-RUN ionic build --production
+RUN npm run build
 
-FROM nginx:alpine
+FROM nginx:alpine as prod
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]

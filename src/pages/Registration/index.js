@@ -91,7 +91,7 @@ class RegistrationForm extends Component {
             buttons: [{
                 classes: "is-fullwidth is-info",
                 onClick: this.register,
-                text: "Je m'inscris"                
+                text: "Register"                
             }]
         }
         );        
@@ -126,6 +126,7 @@ class RegistrationForm extends Component {
                 <h1 className="title has-text-centered mt-5">Sign up</h1>
                 <FormBuilder
                   config={this.formConfig()}
+                  onSubmit={this.register}
                 />                
               </div>
             </div>
@@ -139,14 +140,14 @@ const ActivationLinkSent = ({sendLink}) => (
       <div className="column">
         <br/>
         <br/>
-        <h1 className="title has-text-centered">Un email de confirmation vous a été envoyé</h1>
+        <h1 className="title has-text-centered">A confirmation email has been sent to you.</h1>
         <p className="has-text-centered">
-          Vous n'avez pas reçu de lien ?
+          You didn't receive any link ?
           <div className="has-text-centered mt-3">
             <button
               className="button is-info"
               onClick={sendLink}
-            >Renvoyez moi un lien</button>
+            >Send me another link</button>
           </div>          
         </p>
         </div>
@@ -173,7 +174,7 @@ class RegistrationPage extends Component {
 
     sendLink = () => {
         resendLink(this.state.username).then((response) => {
-            alert("Un email vous a été renvoyé !"); 
+            alert("An email has been sent to you !"); 
         }).catch((error) => {
             if (error.response.status === 400){
                 alert(error.response.data[0]);
@@ -185,7 +186,7 @@ class RegistrationPage extends Component {
         let { isRegistrationComplete, username } = this.state;
         return (
             <>
-              <Title title="Inscription"/>
+              <Title title="Register"/>
               {
                   isRegistrationComplete ?
                       <ActivationLinkSent

@@ -22,10 +22,10 @@ class Navbar extends Component {
                 <div className="buttons">
                   <Link to={getRegistrationUrl()}>
                     <button className="button is-primary">
-                      <strong>Inscription</strong>
+                      <strong>Register</strong>
                     </button>
                   </Link>                 
-                  <button className="button is-light" onClick={this.props.onLogin}>Connexion</button>
+                  <button className="button is-light" onClick={this.props.onLogin}>Log In</button>
                 </div>
             );
         }
@@ -33,14 +33,14 @@ class Navbar extends Component {
             return (
                 <div className="navbar-item has-dropdown is-hoverable">
                   <a className="navbar-link">
-                    {this.props.user ? this.props.user.username : "Mon Compte"}
+                    {this.props.user ? this.props.user.username : "My Account"}
                   </a>
                   <div className="navbar-dropdown is-right">
-                    <Link to={profileUrl(getUser())} className="navbar-item">Profil</Link>
-                    <Link className="navbar-item" to={listConversationsUrl()}>Messagerie</Link>
+                    <Link to={profileUrl(getUser())} className="navbar-item">Account</Link>
+                    <Link className="navbar-item" to={listConversationsUrl()}>Messages</Link>
                     {/* <Link className="navbar-item" to={listExportsUrl()}>Mes exports</Link> */}
-                    <Link className="navbar-item" to={changeProfileUrl()}>Modifier mes infos</Link>
-                    <Link className="navbar-item" onClick={this.props.onLogout}>Déconnexion</Link>
+                    <Link className="navbar-item" to={changeProfileUrl()}>Settings</Link>
+                    <Link className="navbar-item" onClick={this.props.onLogout}>Logout</Link>
                     </div>
                 </div>                
             );
@@ -96,7 +96,7 @@ class Navbar extends Component {
                   <Link
                     className="navbar-item"
                     to={listListsUrl()}>
-                    Listes
+                    Lists
                   </Link>
 
                   {/* { this.props.token && */}

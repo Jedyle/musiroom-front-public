@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import queryString from 'query-string';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -34,11 +35,15 @@ import ExportsList from 'pages/Exports/List';
 import ExportRetrieve from 'pages/Exports/Retrieve';
 import Conversations from 'pages/Conversations';
 
-const NotFound = () => (
-    <div>
-      <h1>This page was not found</h1>
-    </div>
-);
+const NotFound = () => {
+    let history = useHistory();
+    history.push("/");
+    return (
+        <div>          
+          <h1>This page was not found</h1>
+        </div>
+    )
+};
 
 const mbidRegex = "([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})";
 
