@@ -247,7 +247,7 @@ class DiscussionsList extends Component {
                 <p className="has-text-centered">
                   <CreateDiscussionLink
                     className="button is-success"
-                    title="Nouvelle discussion"
+                    title="New discussion"
                     contentType={this.state.model}
                     objectId={this.state.objectId}
                   />

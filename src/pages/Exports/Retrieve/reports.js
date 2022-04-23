@@ -3,8 +3,8 @@ import { GetAlbumLink } from 'pages/Links';
 
 export const NewRatings = ({results, stats}) => (
     <>
-      <h1 className="title is-size-4">Nouvelles notes ({stats.new_ratings})</h1>
-      <p>Ces albums ont été ajoutés à votre collection</p>
+      <h1 className="title is-size-4">New ratings ({stats.new_ratings})</h1>
+      <p>These albums have been added to your collection</p>
       <br/>
       <div className="list">
         {results.map(
