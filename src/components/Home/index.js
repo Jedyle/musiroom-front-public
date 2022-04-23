@@ -19,7 +19,7 @@ const Home = () => {
         <div className="columns is-mobile is-multiline">
           <div className="column is-12">
             <HeadLine
-              title="MusicTechh, your musical library."
+              title="La Musitheque, your musical library."
               subtitle="Listen, review, share."
             />
           </div>
