@@ -97,7 +97,7 @@ class RegistrationForm extends Component {
         );        
     }
 
-    register = () => {
+    registerUser = () => {
         let { registrationCallback } = this.props;
         let { form } = this.state;
         register(form).then((response) => {
@@ -126,7 +126,7 @@ class RegistrationForm extends Component {
                 <h1 className="title has-text-centered mt-5">Sign up</h1>
                 <FormBuilder
                   config={this.formConfig()}
-                  onSubmit={this.register}
+                  onSubmit={() => this.registerUser()}
                 />                
               </div>
             </div>

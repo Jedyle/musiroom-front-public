@@ -10,7 +10,7 @@ import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl, getAllActivityUrl, getSelfActivityUrl, createExportUrl, exportTaskLaunchedUrl, listExportsUrl, getExportUrl, listConversationsUrl } from 'pages/urls';
 import LoginForm from 'components/LoginForm';
-import PublicRoute from 'pages/Router/PublicRoute';
+import { PublicRoute, PublicRouteRender } from 'pages/Router/PublicRoute';
 import { PrivateRoute, PrivateRouteRender } from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';
 import DiscussionCreate from 'pages/Discussions/Create';
@@ -77,7 +77,7 @@ function App() {
                     exact path={getRegistrationUrl()}
                     component={Registration}
                   />
-                  <Route
+                  <PublicRouteRender
                     exact path={activateAccountUrl()}                    
                     render={props => {
                         let query = queryString.parse(props.location.search);
