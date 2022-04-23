@@ -3,7 +3,7 @@ FROM node:14 AS base
 RUN mkdir -p /app
 WORKDIR /app
 
-FROM builder as builder
+FROM base as builder
 
 ARG REACT_APP_API_URL
 ARG REACT_APP_SENTRY_DSN
