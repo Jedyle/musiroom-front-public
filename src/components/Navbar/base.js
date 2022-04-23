@@ -47,11 +47,17 @@ class Navbar extends Component {
         }
     };
 
-    activeClass(){
+    activeClass = () => {
         return this.state.burger_active ? 'is-active' : '';
     }
+
+    setBurgerInactive = () => {
+        this.setState({
+            burger_active: false
+        })
+    }
     
-    render() {
+    render() {        
         return (
             <nav className="navbar" role="navigation" aria-label="main navigation"
                  style={{height: "52px"}}>
@@ -72,10 +78,10 @@ class Navbar extends Component {
               </div>
 
               <div id="navbarBasicExample" className={`navbar-menu ${this.activeClass()}`}>
-                <div className="navbar-start">
-
+                <div className="navbar-start">                  
                   <Link
                     className="navbar-item"
+                    onClick={this.setBurgerInactive}
                     to={getTopUrl()}>
                     Tops
                   </Link>
@@ -83,18 +89,21 @@ class Navbar extends Component {
                   
                   <Link
                     className="navbar-item"
+                    onClick={this.setBurgerInactive}                    
                     to={getGenresUrl()}>
                     Genres
                   </Link>
 
                   <Link
                     className="navbar-item"
+                    onClick={this.setBurgerInactive}                    
                     to={discussionsUrl()}>
                     Discussions
                   </Link>
 
                   <Link
                     className="navbar-item"
+                    onClick={this.setBurgerInactive}
                     to={listListsUrl()}>
                     Lists
                   </Link>
