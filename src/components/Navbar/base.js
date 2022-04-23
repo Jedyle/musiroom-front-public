@@ -20,7 +20,10 @@ class Navbar extends Component {
         if (!this.props.token){
             return (
                 <div className="buttons">
-                  <Link to={getRegistrationUrl()}>
+                  <Link
+                    to={getRegistrationUrl()}
+                    onClick={this.setBurgerInactive}
+                  >
                     <button className="button is-primary">
                       <strong>Register</strong>
                     </button>
@@ -36,11 +39,26 @@ class Navbar extends Component {
                     {this.props.user ? this.props.user.username : "My Account"}
                   </a>
                   <div className="navbar-dropdown is-right">
-                    <Link to={profileUrl(getUser())} className="navbar-item">Account</Link>
-                    <Link className="navbar-item" to={listConversationsUrl()}>Messages</Link>
+                    <Link
+                      to={profileUrl(getUser())}
+                      onClick={this.setBurgerInactive}
+                      className="navbar-item"
+                    >Account</Link>
+                    <Link
+                      className="navbar-item"
+                      to={listConversationsUrl()}
+                      onClick={this.setBurgerInactive}
+                    >Messages</Link>
                     {/* <Link className="navbar-item" to={listExportsUrl()}>Mes exports</Link> */}
-                    <Link className="navbar-item" to={changeProfileUrl()}>Settings</Link>
-                    <Link className="navbar-item" onClick={this.props.onLogout}>Logout</Link>
+                    <Link
+                      className="navbar-item"
+                      to={changeProfileUrl()}
+                      onClick={this.setBurgerInactive}
+                    >Settings</Link>
+                    <Link
+                      className="navbar-item"
+                      onClick={this.props.onLogout}
+                    >Logout</Link>
                     </div>
                 </div>                
             );
