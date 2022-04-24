@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { getAlbumUrl } from 'pages/urls';
 import { getAlbumGenres, voteOnAlbumGenre, addAlbumGenre } from 'services/Albums';
 import { listAllGenres } from 'services/Genres';
-import SubmitAlbumGenreForm from 'components/Album/Genres/SubmitAlbumGenreForm';
-import VoteAlbumGenre from 'components/Album/Genres/VoteAlbumGenre';
+import SubmitAlbumGenreForm from 'containers/Album/Genres/SubmitAlbumGenreForm';
+import VoteAlbumGenre from 'containers/Album/Genres/VoteAlbumGenre';
 import Title from 'components/Utils/Title';
 
 export default class AlbumGenresPage extends Component {

@@ -5,7 +5,7 @@ import ReviewsPanel from 'components/Reviews/Panel';
 import AllRatingsStats from 'components/Album/Stats/AllRatings';
 import FolloweesRatingsStats from 'components/Album/Stats/FolloweesRatings';
 import AlbumYoutubeLink from 'components/Album/YoutubeLink';
-import AlbumsFromSameArtist from 'components/Album/AlbumsFromSameArtist';
+import AlbumsFromSameArtist from 'containers/Album/AlbumsFromSameArtist';
 import { getAlbumGenresUrl } from 'pages/urls';
 import { getUser } from 'services/Auth/api';
 import Title from 'components/Utils/Title';

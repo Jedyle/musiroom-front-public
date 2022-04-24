@@ -9,7 +9,7 @@ import { GetArtistLink } from 'containers/Links';
 import { truncate } from 'utils/strings';
 import { getUser } from 'services/Auth/api';
 import { getAlbum } from 'services/Albums';
-import { getOwnRating, changeOwnRating, createOwnRating, deleteOwnRating } from 'services/OwnRatings';
+import { changeOwnRating, createOwnRating, deleteOwnRating } from 'services/OwnRatings';
 
 // this css makes sure we can use a modal inside the popover (dirty fix)
 import './index.css';
