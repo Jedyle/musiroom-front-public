@@ -37,12 +37,12 @@ const DetailsPage = ({album}) => (
           starSpacing="4px"
         />
       </div>
-      <div className="column is-6-mobile is-4-desktop is-3-widescreen is-offset-1-widescreen has-margin-top-20">
+      <div className="column is-12-mobile is-4-desktop is-3-widescreen is-offset-1-widescreen has-margin-top-20">
         <AllRatingsStats
           album={album}
         />
       </div>
-      <div className="column is-12-mobile is-9-desktop">
+      <div className="column is-12-mobile is-8-desktop is-9-widescreen">
         <hr/>
         {
             album.genres.length === 0 ?
@@ -53,7 +53,7 @@ const DetailsPage = ({album}) => (
           album={album}
         />
       </div>
-      <div className="column is-3">
+      <div className="column is-12-mobile is-4-desktop is-3-widescreen">
         { getUser() && (
             <>
               <br/>
