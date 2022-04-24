@@ -21,7 +21,7 @@ const AlbumItem = (
         <div className="columns has-background-light is-mobile"
              style={{borderBottom: '0.5px solid lightgrey'}}
         >
-          <div className="column is-3-mobile is-one-quarter-tablet is-marginless">
+          <div className="column is-2-mobile is-one-quarter-tablet is-marginless">
             <div className="card">
               <div className="card-image">
                 <figure className="image is-square">
@@ -30,7 +30,7 @@ const AlbumItem = (
               </div>
             </div>
           </div>          
-          <div className="column is-9-mobile is-three-quarters-tablet"
+          <div className="column is-10-mobile is-three-quarters-tablet"
                style={{paddingLeft: "1.5rem"}}>
             <div className="columns is-mobile is-multiline">
               <div className="column is-10-tablet is-8-desktop">
