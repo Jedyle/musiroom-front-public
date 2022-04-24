@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GenreTree from 'components/Genre/Tree';
 import { getGenres } from 'services/Genres';
-import { CreateGenreLink } from 'pages/Links';
+import { CreateGenreLink } from 'containers/Links';
 import Title from 'components/Utils/Title';
 
 export default class GenreList extends Component {

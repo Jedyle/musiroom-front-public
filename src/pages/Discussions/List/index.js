@@ -5,7 +5,7 @@ import DiscussionListItem from 'components/Discussions/List/ListItem';
 import { timeSince } from 'utils/date';
 import { profileUrl, discussionsUrl, getDiscussionUrl, getDiscussionsUrlForObject } from 'pages/urls';
 import { Link, withRouter } from 'react-router-dom';
-import { CreateDiscussionLink } from 'pages/Links';
+import { CreateDiscussionLink } from 'containers/Links';
 import DiscussionSidebar from 'components/Discussions/Sidebar';
 import Title from 'components/Utils/Title';
 

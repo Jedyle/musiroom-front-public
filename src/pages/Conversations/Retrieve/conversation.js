@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getUser } from 'services/Auth/api';
 import { toHumanDate } from 'utils/date';
-import { UserLink } from 'pages/Links';
+import { UserLink } from 'containers/Links';
 import Avatar from 'components/Profile/Avatar';
 
 import './index.css';

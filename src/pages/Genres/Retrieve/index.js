@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getGenre } from 'services/Genres';
 import GenreTree from 'components/Genre/Tree';
-import { CreateGenreLink } from 'pages/Links';
+import { CreateGenreLink } from 'containers/Links';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
 

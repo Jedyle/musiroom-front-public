@@ -5,7 +5,7 @@ import RateAlbum from 'components/Album/Actions/RateAlbum';
 import InterestButton from 'components/Album/Actions/AddToInterests';
 import AddToListButton from 'components/Album/Actions/AddToList';
 import { getAlbumUrl } from 'pages/urls';
-import { GetArtistLink } from 'pages/Links';
+import { GetArtistLink } from 'containers/Links';
 import { truncate } from 'utils/strings';
 import { getUser } from 'services/Auth/api';
 import { getAlbum } from 'services/Albums';

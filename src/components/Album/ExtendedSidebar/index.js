@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import TrackList from 'components/Album/TrackList';
 import AlbumSidebar from 'components/Album/Sidebar';
 import { getDiscussionsUrlForObject } from 'pages/urls';
-import { CreateDiscussionLink } from 'pages/Links';
+import { CreateDiscussionLink } from 'containers/Links';
 
 const ExtendedSidebar = ({album}) => (
     <>

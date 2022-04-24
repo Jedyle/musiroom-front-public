@@ -7,6 +7,10 @@ import { getAllActivity, getSelfActivity } from 'services/Activity';
 import { getAllActivityUrl, getSelfActivityUrl } from 'pages/urls';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
+import Avatar from 'components/Profile/Avatar';
+import ActivityStatement from 'components/Activity/Statement';
+import { UserLink } from 'containers/Links';
+import ActionObject from 'containers/Activity/ActionObject';
 
 export default class Activity extends Component {
 
@@ -65,7 +69,29 @@ export default class Activity extends Component {
                   >
                     <div className="list">
                       {results.map((result) => (
-                          <ActivityItem {...result}/>
+                          <ActivityItem
+                            activityMedia={
+                                <Avatar
+                                  avatar={process.env.REACT_APP_API_URL + result.actor.avatar}
+                                  size="is-64x64"
+                                  alt={`User ${result.actor.name}`}
+                                />}
+                            activityStatement={
+                                <ActivityStatement
+                                  actorComponent={
+                                      <UserLink username={result.actor.name}/>
+                                  }
+                                  verb={result.verb}
+                                  actionObjectComponent={
+                                      <ActionObject
+                                        contentType={result.action_object_content_type}
+                                        object={result.action_object}
+                                      />
+                                  }
+                                />
+                            }
+                            timestamp={result.timestamp}
+                          />
                       ))}
                     </div>                   
                   </InfiniteScroll>

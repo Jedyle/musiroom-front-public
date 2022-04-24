@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import InfiniteScroll from "react-infinite-scroller";
-import { UserLink } from 'pages/Links';
+import { UserLink } from 'containers/Links';
 import { getConversationUrl } from 'pages/urls';
 import { getUser } from 'services/Auth/api';
 import { listConversations } from 'services/Conversations';

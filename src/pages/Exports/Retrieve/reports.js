@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetAlbumLink } from 'pages/Links';
+import { GetAlbumLink } from 'containers/Links';
 
 export const NewRatings = ({results, stats}) => (
     <>
