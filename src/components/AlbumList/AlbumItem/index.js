@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingTagsList from 'containers/StarRatings/Tags';
+
 
 const AlbumItem = (
     {
@@ -8,9 +8,7 @@ const AlbumItem = (
         title,
         description,
         content,
-        user_rating,
-        followees_rating,
-        avg_rating,
+        ratingsComponent,
         rank,
         headerContent
     }
@@ -50,12 +48,7 @@ const AlbumItem = (
                 <div>{content}</div>
               </div>
               <div className="column is-2-tablet is-4-desktop">
-                <RatingTagsList
-                  mbid={mbid}
-                  userRating={user_rating}
-                  followeesRating={followees_rating}
-                  avgRating={avg_rating}
-                />             
+                {ratingsComponent}
               </div>
             </div>
           </div>

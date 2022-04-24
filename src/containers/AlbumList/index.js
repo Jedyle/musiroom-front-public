@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import AlbumItem from 'components/AlbumList/AlbumItem';
+import RatingTagsList from 'containers/StarRatings/Tags';
 import { Link } from 'react-router-dom';
 import { getUser } from 'services/Auth/api';
 import { getSelfRatings, getSelfInterests, getFolloweesAverage } from 'services/Ratings';
@@ -97,9 +98,14 @@ class AlbumList extends Component {
                        </Link>)
                   }
                   rank={displayRanks ? ranks[index] : null}
-                  user_rating={this.getLoggedUserRatingFor(object.rating.id)}
-                  followees_rating={this.getAverageFolloweesRatingsFor(object.rating.id)}
-                  avg_rating={parseFloat(object.rating.average)}
+                  ratingsComponent={
+                      <RatingTagsList
+                        mbid={object.mbid}
+                        userRating={this.getLoggedUserRatingFor(object.rating.id)}
+                        followeesRating={this.getAverageFolloweesRatingsFor(object.rating.id)}
+                        avgRating={parseFloat(object.rating.average)}
+                      />             
+                  }
                   description={
                       (<span>
                          by {object.artists.map(
