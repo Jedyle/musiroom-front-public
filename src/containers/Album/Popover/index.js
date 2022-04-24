@@ -47,9 +47,16 @@ class PopoverContent extends Component {
         });
     }
 
-    onDeleteRating(score){
-        deleteOwnRating(this.props.album.rating.id).then((response) => {
+    onDeleteRating = (score) => {
+        deleteOwnRating(this.state.album.rating.id).then((response) => {
             this.props.changeRating(0);
+            this.setState(prevState => {
+                let album = Object.assign({}, prevState.album);
+                album.user_rating = 0;
+                return {
+                    album: album
+                }
+            })            
         })
     }
     
