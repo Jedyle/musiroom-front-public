@@ -59,8 +59,8 @@ class RatingActions extends Component {
                 this.setState({
                     userRatingObj: null
                 });
+                window.location.reload();
             });
-            window.location.reload();
         }
     }
 
