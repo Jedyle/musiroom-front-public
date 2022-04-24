@@ -1,9 +1,9 @@
 import React, { useState, Component } from 'react';
 import { Link } from 'react-router-dom';
 import Popover from 'react-popover';
-import RateAlbum from 'components/Album/Actions/RateAlbum';
-import InterestButton from 'components/Album/Actions/AddToInterests';
-import AddToListButton from 'components/Album/Actions/AddToList';
+import RateAlbum from 'containers/Album/Actions/RateAlbum';
+import InterestButton from 'containers/Album/Actions/AddToInterests';
+import AddToListButton from 'containers/Album/Actions/AddToList';
 import { getAlbumUrl } from 'pages/urls';
 import { GetArtistLink } from 'containers/Links';
 import { truncate } from 'utils/strings';

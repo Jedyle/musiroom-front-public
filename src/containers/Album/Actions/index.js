@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AddToListButton from 'components/Album/Actions/AddToList';
-import AddToInterests from 'components/Album/Actions/AddToInterests';
-import RateAlbum from 'components/Album/Actions/RateAlbum';
+import AddToListButton from 'containers/Album/Actions/AddToList';
+import AddToInterests from 'containers/Album/Actions/AddToInterests';
+import RateAlbum from 'containers/Album/Actions/RateAlbum';
 import { createReviewUrl, getReviewUrl } from 'pages/urls';
 
 import { getUser } from 'services/Auth/api';

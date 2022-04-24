@@ -22,7 +22,6 @@ const Base = ({ userRating, changeRating, deleteRating, ...props }) => (
     
 );
 
-
 const RateAlbum = (props) => (
     <LoginPlaceholder
       {...props}

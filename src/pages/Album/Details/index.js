@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RatingActions from 'components/Album/Actions';
+import RatingActions from 'containers/Album/Actions';
 import ReviewsPanel from 'components/Reviews/Panel';
 import AllRatingsStats from 'components/Album/Stats/AllRatings';
 import FolloweesRatingsStats from 'components/Album/Stats/FolloweesRatings';
