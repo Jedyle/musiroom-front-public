@@ -7,7 +7,7 @@ const SimilarArtistsPanel = ({
 }) => (
       <div className="columns is-multiline is-mobile is-marginless">
         {artists.map((artist, index) => (
-            <div className="column is-2"
+            <div className="column is-4-mobile is-2-tablet"
                  key={index}
             >
               <Link to={getArtistUrl(artist.mbid)}>
