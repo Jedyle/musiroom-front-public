@@ -8,6 +8,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { CreateDiscussionLink } from 'containers/Links';
 import DiscussionSidebar from 'containers/Discussions/Sidebar';
 import Title from 'components/Utils/Title';
+import VotePanel from 'containers/VotePanel';
 
 class DiscussionsList extends Component {
 
@@ -95,9 +96,12 @@ class DiscussionsList extends Component {
         return this.state.discussions.map(
             (discussion, index) => {
                 return <DiscussionListItem
-                         numVotes={discussion.vote_score}
-                         loggedUserVote={discussion.user_vote}
-                         onVote={(vote) => this.onVote(index, discussion.id, vote)}
+                         voteComponent={
+                             <VotePanel
+                               numVotes={discussion.vote_score}
+                               loggedUserVote={discussion.user_vote}
+                               onVote={(vote) => this.onVote(index, discussion.id, vote)}
+                             />}                          
                          author={discussion.user.username}
                          authorLink={profileUrl(discussion.user.username)}
                          avatar={process.env.REACT_APP_API_URL + discussion.user.avatar}

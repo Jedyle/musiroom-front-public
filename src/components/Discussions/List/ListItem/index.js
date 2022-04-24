@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Avatar from 'components/Profile/Avatar';
-import VotePanel from 'containers/VotePanel';
 
 
 const DiscussionHeader = ({
@@ -46,9 +45,7 @@ const CommentPanel = ({
 );
 
 const DiscussionListItem = ({
-    numVotes,
-    loggedUserVote,
-    onVote,
+    voteComponent,
     avatar,
     author,
     authorLink,
@@ -61,11 +58,7 @@ const DiscussionListItem = ({
 }) => (
     <div className="columns is-mobile is-marginless has-border" style={{borderColor: 'rgba(0,0,0,.125)'}}>
       <div style={{minWidth: '45px'}}>
-        <VotePanel
-          numVotes={numVotes}
-          loggedUserVote={loggedUserVote}
-          onVote={onVote}
-        />
+        {voteComponent}
       </div>
       <div className="column is-marginless is-paddingless">
         <DiscussionHeader
