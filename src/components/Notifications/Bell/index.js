@@ -34,7 +34,7 @@ class NotificationBell extends Component {
     
     render(){
         return (
-            <Link to={getNotificationsUrl()}>
+            <Link to={getNotificationsUrl()} onClick={this.props.onClick}>
               <span className="icon">                     
                 <i className="fa fa-lg fa-bell"></i>
               </span>

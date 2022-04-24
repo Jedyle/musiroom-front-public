@@ -38,6 +38,7 @@ class SearchInput extends Component {
 
     onSubmit(e){
         e.preventDefault();
+        this.props.onSubmit && this.props.onSubmit();
         this.props.history.push({
             pathname: getSearchUrl(),
             search: `?model=${this.state.type}&query=${this.state.query}`

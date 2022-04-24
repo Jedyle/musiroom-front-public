@@ -140,13 +140,16 @@ class Navbar extends Component {
 
                 <div className="navbar-end" style={{'paddingRight': '10px'}}>
                   <div className="navbar-item">
-                    <SearchInput />
+                    <SearchInput
+                      onSubmit={this.setBurgerInactive}
+                    />
                   </div>
 
                   { this.props.token &&
                     (
                         <div className="navbar-item">
                           <NotificationBell
+                            onClick={this.setBurgerInactive}
                           />
                         </div>
                     )
