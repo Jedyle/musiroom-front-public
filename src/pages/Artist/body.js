@@ -3,6 +3,7 @@ import Input from 'components/Utils/Forms/Input';
 import { getSimilarArtists, getArtistDiscography } from 'services/Artists';
 import SimilarArtistsPanel from 'components/Artist/SimilarArtistsPanel';
 import DiscographyTable from 'components/Artist/DiscographyTable';
+import RatingTags from 'containers/StarRatings/Tags';
 
 export default class ArtistBody extends Component {
 
@@ -78,7 +79,10 @@ export default class ArtistBody extends Component {
                  (releaseType) => (
                      <>
                        <h1 className="title is-size-3">{releaseType.release_type}</h1>
-                       <DiscographyTable albums={releaseType.items}/>
+                       <DiscographyTable
+                         albums={releaseType.items}
+                         RatingComponent={RatingTags}
+                       />
                      </>
                  )
              )

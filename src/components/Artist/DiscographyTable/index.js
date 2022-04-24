@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAlbumUrl } from 'pages/urls';
-import RatingTags from 'containers/StarRatings/Tags';
 
 import './index.css';
 
 const DiscographyTable = ({
-    albums
+    albums,
+    RatingComponent
 }) => (
     <table className="table is-fullwidth">
       <tbody>
@@ -28,7 +28,7 @@ const DiscographyTable = ({
                         </Link>
                       </th>
                       <th className="ratings">
-                        <RatingTags
+                        <RatingComponent
                           mbid={album.mbid}
                           userRating={album.details && album.details.user_rating}
                           followeesRating={album.details && album.details.followees_avg}
