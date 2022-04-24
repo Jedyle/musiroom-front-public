@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Gallery from 'components/Gallery';
 import HeadLine from 'components/Utils/HeadLine';
+import Title from 'components/Utils/Title';
 
 import { getLatestAlbums } from 'services/Albums';
 
@@ -17,6 +18,7 @@ const Home = () => {
     
     return (
         <div className="columns is-mobile is-multiline">
+          <Title title="La Musithèque"/>
           <div className="column is-12">
             <HeadLine
               title="La Musitheque, your musical library."

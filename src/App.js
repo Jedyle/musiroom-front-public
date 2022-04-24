@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import queryString from 'query-string';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './components/Home';
+import Home from './pages/Home';
 import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
