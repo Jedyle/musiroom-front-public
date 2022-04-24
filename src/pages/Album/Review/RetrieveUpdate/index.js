@@ -10,12 +10,13 @@ import { cleanHTML } from 'utils/strings';
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
+import { UserLink } from 'containers/Links';
 import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
 import ReviewEditModal from 'components/Album/Review/EditModal';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
 
-import '../index.css';
+import 'pages/Album/Review/index.css';
 import 'containers/StarRatings/Tags/index.css';
 
 export default class RetrieveUpdateReview extends Component {
@@ -137,6 +138,12 @@ export default class RetrieveUpdateReview extends Component {
                 user={review.rating.user}
                 additionalHeaders={
                     <span className="tag is-medium ml-3">{review.rating.score}</span>
+                }
+                userLink={
+                    <UserLink
+                      username={review.rating.user.username}
+                      style={{fontSize: '22px'}}
+                    />
                 }
               />                
               <ReviewEditModal

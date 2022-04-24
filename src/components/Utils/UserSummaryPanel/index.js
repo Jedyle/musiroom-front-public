@@ -1,8 +1,7 @@
 import React from 'react';
-import { UserLink } from 'containers/Links';
 import Avatar from 'components/Profile/Avatar';
 
-const UserSummaryPanel = ({user, additionalHeaders, children}) => (
+const UserSummaryPanel = ({user, userLink, additionalHeaders, children}) => (
     <div className="columns is-mobile box has-background-grey-lighter">
       <div className="column is-one-quarter">
         <Avatar
@@ -14,10 +13,7 @@ const UserSummaryPanel = ({user, additionalHeaders, children}) => (
       </div>
       <div className="column">
         <p>
-          <UserLink
-            username={user.username}
-            style={{fontSize: '22px'}}
-          />    {" "}
+          {userLink}
           {additionalHeaders}          
         </p>
         <br/>

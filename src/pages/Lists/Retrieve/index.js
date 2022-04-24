@@ -136,6 +136,12 @@ export default class RetrieveList extends Component {
                   <br className="mt-6 mb-6"/>
                   <UserSummaryPanel
                     user={list.user}
+                    userLink={
+                        <UserLink
+                          username={list.user.username}
+                          style={{fontSize: '22px'}}
+                        />
+                    }
                   />                
                 </div>
               </div>              
