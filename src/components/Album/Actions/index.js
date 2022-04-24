@@ -5,6 +5,7 @@ import AddToInterests from 'components/Album/Actions/AddToInterests';
 import RateAlbum from 'components/Album/Actions/RateAlbum';
 import { createReviewUrl, getReviewUrl } from 'pages/urls';
 
+import { getUser } from 'services/Auth/api';
 import { getOwnRating, changeOwnRating, createOwnRating, deleteOwnRating } from 'services/OwnRatings';
 
 class RatingActions extends Component {
@@ -20,7 +21,9 @@ class RatingActions extends Component {
     userHasReview = () => this.state.userRatingObj && this.state.userRatingObj.review
 
     componentDidMount(){
-        this.fetchRating();
+        if (getUser()){
+            this.fetchRating();   
+        }
     }
 
     fetchRating = () => {
@@ -28,6 +31,12 @@ class RatingActions extends Component {
             this.setState({
                 userRatingObj: response.data
             });
+        }).catch(error => {
+            if (error.response.status === 404){
+                this.setState({
+                    userRatingObj: null
+                })
+            }
         });
     }
 
