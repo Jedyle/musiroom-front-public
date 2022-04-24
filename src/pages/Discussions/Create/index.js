@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import queryString from 'query-string';
 
-import SubjectForm from 'components/Discussions/SubjectForm';
+import SubjectForm from 'containers/Discussions/SubjectForm';
 import Title from 'components/Utils/Title';
 
 class DiscussionCreate extends Component {

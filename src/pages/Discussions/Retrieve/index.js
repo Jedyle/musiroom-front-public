@@ -5,8 +5,8 @@ import { getDiscussion, getDiscussionObjectName, voteOnDiscussion, editDiscussio
 import { getDiscussionUrl, discussionsUrl, getDiscussionsUrlForObject, profileUrl } from 'pages/urls';
 import { timeSince } from 'utils/date';
 import VotePanel from 'components/Utils/VotePanel';
-import DiscussionSidebar from 'components/Discussions/Sidebar';
-import CommentSection from 'components/Comments/Section';
+import DiscussionSidebar from 'containers/Discussions/Sidebar';
+import CommentSection from 'containers/Comments/Section';
 import DiscussionEditForm from 'components/Discussions/EditForm';
 import Title from 'components/Utils/Title';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from 'services/Auth/api';
 import { getReview, voteOnReview, updateReview } from 'services/Reviews';
-import CommentSection from 'components/Comments/Section';
+import CommentSection from 'containers/Comments/Section';
 import LikeDislikePanel from 'components/Utils/LikeDislikePanel';
 import { toHumanDate } from 'utils/date';
 import { profileUrl } from 'pages/urls';

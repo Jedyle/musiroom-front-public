@@ -1,192 +1,123 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from "react-router";
+import React from 'react';
+import AutocompleteInput from 'components/Utils/Forms/Autocomplete';
 import { truncate } from 'utils/strings';
 
-import Base from "./base";
-import { DISCUSSION_TYPES, createDiscussion, getObjectForDiscussionType, getDiscussionObjectName } from 'services/Discussions';
-import { listAlbums } from 'services/Albums';
-import { listArtists } from 'services/Artists';
-import { getDiscussionUrl } from 'pages/urls';
+const SubjectForm = ({
+    types,
+    currentType,
+    onChangeType,
+    currentValue,
+    onChangeValue,    
+    autocompleteList,
+    onChooseItem,
+    onBlur,
+    onResetItem,
+    selectedItem,
+    currentTitle,
+    onChangeTitle,    
+    currentText,
+    onChangeText,
+    onCreateDiscussion,
+    nonFieldErrors,
+    titleErrors,
+    textErrors,
+    user
+}) => (
+    <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
+      <div className="box has-background-light has-padding-20">
+        <h1 className="title is-size-3 has-text-centered">New Discussion</h1>      
+        <div className="has-margin-bottom-10">
+          <p className="has-text-centered">
+            <span className="is-size-5">Subject : </span>
+            <span className={`tag is-large ${selectedItem ? 'is-success' : 'is-info'}`}>
+              {selectedItem ?
+               (
+                   <>
+                     {truncate(selectedItem.name, 30)}
+                     <button
+                       className="delete is-small"
+                       onClick={onResetItem}
+                     ></button>
+                   </>
+               ) : "General Discussion"}
+            </span>
+          </p>
+        </div>
+        <div className="columns">
+          <div className="column is-6-desktop is-offset-3-desktop">
+            <div className="has-text-centered has-margin-bottom-10">ou choose a topic</div>
+            <div className="field has-addons has-margin-top-6">
+              <p className="control">
+                <span className="select">
+                  <select className="" value={currentType} onChange={onChangeType}>
+                    <option value="" disabled>Type</option>
+                    {types.map(
+                        (type) => (
+                            <option value={type.value}>{type.name}</option>
+                        )
+                    )}
+                  </select>
+                </span>
+              </p>
+              <p className="control is-expanded">
+                <AutocompleteInput
+                  className="input"
+                  type="text"
+                  placeholder="Topic..."
+                  disabled={!currentType}
+                  value={currentValue}
+                  onChange={onChangeValue}
+                  autocompleteList={autocompleteList}
+                  onChooseItem={onChooseItem}
+                  onBlur={onBlur}
+                  additionalControlClasses="has-border"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-class _SubjectForm extends Component {
+      <div className="columns is-marginless">
+        <div className="column is-2 is-1-widescreen is-offset-1-widescreen">
+          <figure className="image is-square is-hidden-touch">
+            <img className="is-rounded" src={user.profile.avatar} />
+          </figure>
+        </div>
+        <div className="column box is-8">
+          <div className="help is-danger is-size-5">{nonFieldErrors}</div>
+          <br/>
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="Title"
+                value={currentTitle}
+                onChange={onChangeTitle}
+              />
+            </div>
+            <div className="help is-danger">{titleErrors}</div>
+          </div>
+          <div className="field">
+            <div className="control">
+              <textarea className="textarea" placeholder="Content"
+                        style={{minHeight: '250px'}}
+                        value={currentText}
+                        onChange={onChangeText}
+              ></textarea>
+            </div>
+            <div className="help is-danger">{textErrors}</div>
+          </div>
 
-    constructor(props){
-        super(props);
-        this.state = {
-            currentType: '',
-            currentValue: '',
-            currentTitle: '',
-            currentText: '',
-            selectedItem: null,
-            // list of object with keys (name, object_id)
-            autocompleteList: [],
-
-            nonFieldErrors: null,
-            textErrors: null,
-            titleErrors: null
-        };
-        this.onChangeType = this.onChangeType.bind(this);
-        this.onChangeValue = this.onChangeValue.bind(this);
-        this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeText = this.onChangeText.bind(this);
-        this.onChooseItem = this.onChooseItem.bind(this);
-        this.onResetItem = this.onResetItem.bind(this);
-        this.onCreateDiscussion = this.onCreateDiscussion.bind(this);
-    }
-
-    componentDidMount(){
-        if (this.props.objectId && this.props.contentType){
-            getObjectForDiscussionType(this.props.contentType, this.props.objectId).then(
-                (response) => {
-                    this.setState({
-                        selectedItem: {
-                            objectId: this.props.objectId,
-                            contentType: this.props.contentType,
-                            name: getDiscussionObjectName({
-                                content_type: this.props.contentType,
-                                content_object: response.data.object
-                            })
-                        } 
-                    });
-                }  
-            );
-        }
-    }
-
-    onChangeType(event){
-        this.setState({
-            currentType: event.target.value,
-            currentValue: ''
-        });
-    }
-
-    onChangeValue(event){
-        this.setState({
-            currentValue: event.target.value 
-        });
-        if (event.target.value.length > 2){
-            this.fetchAutocompleteValues(event.target.value);
-        }
-        else {
-            this.setState({
-                autocompleteList: [] 
-            });
-        }
-    }
-
-    onChangeTitle(event){
-        this.setState({
-            currentTitle: event.target.value 
-        });
-    }
-
-    onChangeText(event){
-        this.setState({
-            currentText: event.target.value 
-        });
-    }
-
-    fetchAutocompleteValues(search){
-        switch(this.state.currentType){
-        case DISCUSSION_TYPES['album']:
-            listAlbums(search).then((response) => {
-                this.setState({
-                    autocompleteList: response.data.results.map((album) => (
-                        {
-                            name: `${album.title} (${album.artists[0].name})`,
-                            objectId: album.id,
-                            contentType: 'album'
-                        }
-                    )) 
-                });
-            });
-            break;
-        case DISCUSSION_TYPES['artist']:
-            listArtists(search).then((response) => {
-                this.setState({
-                    autocompleteList: response.data.results.map((artist) => (
-                        {
-                            name: artist.name,
-                            objectId: artist.id,
-                            contentType: 'artist'
-                        }
-                    ))
-                });
-            });
-            break;
-        default:
-            break;
-        }
-    }
-
-    onChooseItem(index){
-        this.setState((prevState) => ({
-            autocompleteList: [],
-            currentValue: '',
-            selectedItem: prevState.autocompleteList[index],
-        }));
-    }
-
-    onResetItem(){
-        this.setState({
-            selectedItem: null 
-        });
-    }
-    
-    onCreateDiscussion(){
-        let ct = this.state.selectedItem ? this.state.selectedItem.contentType : null;
-        let objectId = this.state.selectedItem ? this.state.selectedItem.objectId : 0; 
-        
-        createDiscussion(this.state.currentTitle, this.state.currentText, ct, objectId).then(
-            (response) => {
-                alert("Your discussion has been created !");
-                this.props.history.push(getDiscussionUrl(response.data.id));
-            }
-        ).catch((error) => {
-            if (error.response.status === 400){
-                this.setState({
-                    nonFieldErrors: error.response.data.non_field_errors,
-                    titleErrors: error.response.data.title,
-                    textErrors: error.response.data.content
-                });
-            }
-        });       
-    }
-    
-    render() {        
-        return (
-            <Base
-              currentType={this.state.currentType}
-              onChangeType={this.onChangeType}
-              currentValue={this.state.currentValue}
-              onChangeValue={this.onChangeValue}
-              currentTitle={this.state.currentTitle}
-              onChangeTitle={this.onChangeTitle}
-              currentText={this.state.currentText}
-              onChangeText={this.onChangeText}
-              autocompleteList={this.state.autocompleteList.map((el) => (truncate(el.name, 80)))}
-              onChooseItem={this.onChooseItem}
-              onBlur={() => {this.setState({autocompleteList: []});}}
-              selectedItem={this.state.selectedItem}
-              onResetItem={this.onResetItem}
-              onCreateDiscussion={this.onCreateDiscussion}            
-              nonFieldErrors={this.state.nonFieldErrors}
-              titleErrors={this.state.titleErrors}
-              textErrors={this.state.textErrors}
-              {...this.props}/>
-        );
-    }
-}
-
-const mapStateToProps = (state, ownProps) => (
-    {
-        user: state.auth.user
-    }  
+          <div className="field">
+            <div className="control">
+              <button className="button is-info" onClick={onCreateDiscussion}>Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 );
 
-const SubjectForm = connect(
-    mapStateToProps
-)(_SubjectForm);
-
-export default withRouter(SubjectForm);
+export default SubjectForm;

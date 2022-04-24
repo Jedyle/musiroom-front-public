@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CommentTreeView from 'components/Comments/Tree';
+import CommentTreeView from 'containers/Comments/Tree';
 import CommentForm from 'components/Comments/CreateForm';
 import { getUser } from 'services/Auth/api';
 import { getCommentsForObject, createComment, updateComment, voteOnComment } from 'services/Comments';
