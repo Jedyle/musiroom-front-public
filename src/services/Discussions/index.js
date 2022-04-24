@@ -8,7 +8,7 @@ export const DISCUSSION_TYPES = {
 export function getDiscussionObjectName(discussion){
     switch (discussion.content_type){
     case null:
-        return "Discussion Générale";
+        return "General Discussion";
     case DISCUSSION_TYPES["album"]:
         return discussion.content_object.title;
     case DISCUSSION_TYPES["artist"]:
@@ -21,11 +21,11 @@ export function getDiscussionObjectName(discussion){
 export function getDiscussionType(discussion){
     switch (discussion.content_type){
     case null:
-        return "Discussion Générale";
+        return "General Discussion";
     case DISCUSSION_TYPES["album"]:
-        return `sur ${discussion.content_object.title}`;
+        return `about ${discussion.content_object.title}`;
     case DISCUSSION_TYPES["artist"]:
-        return `sur ${discussion.content_object.name}`;
+        return `about ${discussion.content_object.name}`;
     default:
         return null;
     }
