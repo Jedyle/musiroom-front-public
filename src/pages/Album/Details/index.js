@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RatingActions from 'containers/Album/Actions';
-import ReviewsPanel from 'components/Reviews/Panel';
+import ReviewsPanel from 'containers/Reviews/Panel';
 import AllRatingsStats from 'components/Album/Stats/AllRatings';
 import FolloweesRatingsStats from 'components/Album/Stats/FolloweesRatings';
 import AlbumYoutubeLink from 'components/Album/YoutubeLink';

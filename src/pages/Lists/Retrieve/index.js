@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getList, voteOnList } from 'services/Lists';
-import { ProfileLink } from 'components/Utils/Links';
-import LikeDislikePanel from 'components/Utils/LikeDislikePanel';
+import { UserLink } from 'containers/Links';
+import LikeDislikePanel from 'containers/LikeDislikePanel';
 import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
 import ListContent from './content';
 import { updateList } from 'services/Lists';
@@ -94,7 +94,7 @@ export default class RetrieveList extends Component {
                     </h1>
                     <h2 className="subtitle is-size-3 has-text-centered mb-0">
                       List by
-                      <ProfileLink username={list.user.username}/>
+                      <UserLink username={list.user.username}/>
                     </h2>                    
                     <p className="has-text-centered is-centered">
                       <Avatar

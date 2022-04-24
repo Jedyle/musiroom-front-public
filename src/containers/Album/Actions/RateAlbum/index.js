@@ -1,6 +1,6 @@
 import React from 'react';
 import StarRatings from 'components/StarRatings';
-import LoginPlaceholder from 'components/Utils/LoginFilters/Placeholder';
+import LoginPlaceholder from 'containers/LoginFilters/Placeholder';
 
 const Base = ({ userRating, changeRating, deleteRating, ...props }) => (
     <>

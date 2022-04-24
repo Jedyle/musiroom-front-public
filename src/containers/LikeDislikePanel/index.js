@@ -1,5 +1,5 @@
 import React from 'react';
-import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
+import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
 const BaseOpinionButtonContent = ({icon, numVote = 0}) => (
     <>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 import queryString from 'query-string';
-import Navbar from './components/Navbar';
+import Navbar from './containers/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Prototypes from './pages/Prototypes';
@@ -9,7 +9,7 @@ import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { profileUrl, changeProfileUrl, discussionsUrl, discussionCreateUrl, getAlbumUrl, getArtistUrl, getDiscussionUrl, getDiscussionsUrlForObject, getGenresUrl, getGenreUrl, createGenreUrl, getSearchUrl, getNotificationsUrl, listListsUrl, createListUrl, getListUrl, getTopUrl, getRegistrationUrl, activateAccountUrl, getAllActivityUrl, getSelfActivityUrl, createExportUrl, exportTaskLaunchedUrl, listExportsUrl, getExportUrl, listConversationsUrl } from 'pages/urls';
-import LoginForm from 'components/LoginForm';
+import LoginForm from 'containers/LoginForm';
 import { PublicRoute, PublicRouteRender } from 'pages/Router/PublicRoute';
 import { PrivateRoute, PrivateRouteRender } from 'pages/Router/PrivateRoute';
 import DiscussionsList from 'pages/Discussions/List';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { openLoginModal } from 'services/Auth/api';
-import LoginPlaceholder from 'components/Utils/LoginFilters/Placeholder';
+import LoginPlaceholder from 'containers/LoginFilters/Placeholder';
 
 const BaseVoteArrow = ({upOrDown, textColor, userVote, onVote, children}) => (
     <span className={`icon ${userVote === upOrDown && textColor}`}

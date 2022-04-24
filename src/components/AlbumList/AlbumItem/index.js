@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingTagsList from 'components/StarRatings/Tags';
+import RatingTagsList from 'containers/StarRatings/Tags';
 
 const AlbumItem = (
     {

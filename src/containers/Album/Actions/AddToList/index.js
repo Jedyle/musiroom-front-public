@@ -5,7 +5,7 @@ import { getListUrl } from 'pages/urls';
 import { getUserListItemsWithAlbum, getLists } from 'services/Profile';
 import { createListItem, updateListItem, deleteListItem } from 'services/Lists';
 import { getUser } from 'services/Auth/api';
-import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
+import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
 class ListsWithAlbum extends Component {
 

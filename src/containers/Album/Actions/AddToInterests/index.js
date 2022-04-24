@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { changeOwnInterest, getOwnInterest } from 'services/OwnRatings';
-import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
+import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
 class Base extends Component {
 

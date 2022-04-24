@@ -18,7 +18,7 @@ import AlbumYoutubeLink from 'components/Album/YoutubeLink';
 import ArtistSidebar from 'components/Artist/Sidebar';
 import GenreTree from 'components/Genre/Tree';
 import AlbumSearch from 'components/Search/Album';
-import LikeDislikePanel from 'components/Utils/LikeDislikePanel';
+import LikeDislikePanel from 'containers/LikeDislikePanel';
 
 class Prototypes extends React.Component {
 

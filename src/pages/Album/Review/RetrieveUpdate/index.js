@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from 'services/Auth/api';
 import { getReview, voteOnReview, updateReview } from 'services/Reviews';
 import CommentSection from 'containers/Comments/Section';
-import LikeDislikePanel from 'components/Utils/LikeDislikePanel';
+import LikeDislikePanel from 'containers/LikeDislikePanel';
 import { toHumanDate } from 'utils/date';
 import { profileUrl } from 'pages/urls';
 import { cleanHTML } from 'utils/strings';
@@ -16,7 +16,7 @@ import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
 
 import '../index.css';
-import 'components/StarRatings/Tags/index.css';
+import 'containers/StarRatings/Tags/index.css';
 
 export default class RetrieveUpdateReview extends Component {
     constructor(props) {

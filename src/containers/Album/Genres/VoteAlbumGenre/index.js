@@ -1,5 +1,5 @@
 import React from 'react';
-import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
+import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
 const BaseVoteButton = ({upOrDown, userVote, numVotes, buttonColor, onVote, children}) => (
     <button className={`button ${userVote === upOrDown && buttonColor}`}

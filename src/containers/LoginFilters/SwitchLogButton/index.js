@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LoginPlaceholder from 'components/Utils/LoginFilters/Placeholder';
-import LoginButton from 'components/Utils/LoginFilters/LoginButton';
+import LoginPlaceholder from 'containers/LoginFilters/Placeholder';
+import LoginButton from 'containers/LoginFilters/LoginButton';
 
 const SwitchLogButton = ({userRendering, anonymousChildren,  ...props}) => (
     <LoginPlaceholder

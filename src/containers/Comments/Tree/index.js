@@ -3,7 +3,7 @@ import { profileUrl } from 'pages/urls';
 import { Link } from 'react-router-dom';
 import { toHumanDate } from 'utils/date';
 import { getUser } from 'services/Auth/api';
-import VotePanel from 'components/Utils/VotePanel';
+import VotePanel from 'containers/VotePanel';
 import CommentCreateForm from 'components/Comments/CreateForm';
 import CommentEditForm from 'components/Comments/EditForm';
 import Avatar from 'components/Profile/Avatar';

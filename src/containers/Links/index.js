@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { profileUrl, createGenreUrl, discussionCreateOnTopicUrl, discussionCreateUrl, getDiscussionUrl, getAlbumUrl, getReviewUrl, getArtistUrl } from 'pages/urls';
-import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
+import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
 
 export const CreateGenreLink = ({title, ...props}) => (
@@ -32,8 +32,8 @@ export const CreateDiscussionLink = ({title, contentType=null, objectId=null, ..
 );
 
 
-export const UserLink = ({username}) => (
-    <Link to={profileUrl(username)}>{username}</Link>
+export const UserLink = ({username, ...props}) => (
+    <Link to={profileUrl(username)} {...props}>{username}</Link>
 );
 
 

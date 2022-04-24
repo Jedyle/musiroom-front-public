@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getAlbumUrl } from 'pages/urls';
-import RatingTags from 'components/StarRatings/Tags';
+import RatingTags from 'containers/StarRatings/Tags';
 
 import './index.css';
 

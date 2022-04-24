@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProfileSidebar from 'components/Profile/Sidebar';
 import { getProfile } from 'services/Profile';
-import { findIfUserIsFollowedBy } from 'services/Followers';
+import { findIfUserIsFollowedBy, findIfUserFollows, toggleFollow } from 'services/Followers';
 import { getUser } from 'services/Auth/api';
 import OwnUserButton from 'components/Profile/Sidebar/Buttons/OwnUser';
 import OtherUserButton from 'components/Profile/Sidebar/Buttons/OtherUser';
-import { changeProfileUrl } from 'pages/urls';
+import { changeProfileUrl, listConversationsUrl } from 'pages/urls';
 
 class Profile extends Component {
 
@@ -15,6 +15,7 @@ class Profile extends Component {
         this.state = {
             profile: null,
             followsYou: false,
+            isFollowed: false
         };
     }
     
@@ -37,8 +38,28 @@ class Profile extends Component {
                     );
                 }
             );
+            findIfUserFollows(this.props.username).then(
+                (response) => {
+                    this.setState({
+                        isFollowed: response.data.length === 1
+                    });
+                }
+        );            
         }
     };
+
+    onToggleFollow = () => {
+        toggleFollow(this.props.username).then(
+            (response) => {
+                this.setState(
+                    {
+                        isFollowed: response.data.is_followed
+                    }
+                );
+            }
+        );
+    }
+    
 
     getUserButtons(){
         let user = getUser();
@@ -53,6 +74,9 @@ class Profile extends Component {
         return (
             <OtherUserButton
               username={this.state.profile.user}
+              onToggleFollow={this.onToggleFollow}
+              isFollowed={this.state.isFollowed}
+              messageLink={listConversationsUrl()}
             />
         );
     };

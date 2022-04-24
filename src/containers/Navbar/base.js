@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import Logo from '../Logo';
+import Logo from 'components/Logo';
 import { getUser } from 'services/Auth/api';
-import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, createExportUrl, listConversationsUrl, getTopUrl } from 'pages/urls';
+import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, listConversationsUrl, getTopUrl } from 'pages/urls';
 import { changeProfileUrl } from 'pages/urls';
-import SearchInput from 'components/Search/SearchInput';
-import NotificationBell from 'components/Notifications/Bell';
+import SearchInput from 'containers/Search/Input';
+import NotificationBell from 'containers/NotificationBell';
 
 class Navbar extends Component {
 

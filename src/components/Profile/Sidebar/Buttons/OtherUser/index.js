@@ -1,50 +1,22 @@
-import React, { Component } from 'react';
-import Base from './base';
-import { toggleFollow, findIfUserFollows } from 'services/Followers';
-import { listConversationsUrl } from 'pages/urls';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class OtherUserButtons extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            message_link : listConversationsUrl(),
-            is_followed: false            
-        };
-        this.onToggleFollow = this.onToggleFollow.bind(this);
-    }
-
-    componentDidMount(){
-        findIfUserFollows(this.props.username).then(
-            (response) => {
-                this.setState({
-                    is_followed: response.data.length === 1
-                });
-            }
-        );
-    }
-
-    onToggleFollow(){
-        toggleFollow(this.props.username).then(
-            (response) => {
-                this.setState(
-                    {
-                        is_followed: response.data.is_followed
-                    }
-                );
-            }
-        );
-    }
-
-    render(){
-        return (
-            <Base
-              message_link={this.state.message_link}
-              is_followed={this.state.is_followed}
-              onToggleFollow={this.onToggleFollow}
-            />
-        );
-    }
-    
-}
+const OtherUserButtons = ({
+    messageLink,
+    isFollowed,
+    onToggleFollow
+}) => (
+    <li className="list-item has-text-centered">
+      <button
+        className={`button is-fullwidth has-margin-bottom-5 is-success ${isFollowed ? 'is-outlined' : ''}`}
+        onClick={onToggleFollow}
+      >
+        {isFollowed ? "Followed" : "Follow"}
+      </button>
+      <Link to={messageLink} className="button is-fullwidth">
+        Message
+      </Link>
+    </li>
+);
 
 export default OtherUserButtons;

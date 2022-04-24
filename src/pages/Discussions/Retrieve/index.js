@@ -4,7 +4,7 @@ import { getUser } from 'services/Auth/api';
 import { getDiscussion, getDiscussionObjectName, voteOnDiscussion, editDiscussion } from 'services/Discussions';
 import { getDiscussionUrl, discussionsUrl, getDiscussionsUrlForObject, profileUrl } from 'pages/urls';
 import { timeSince } from 'utils/date';
-import VotePanel from 'components/Utils/VotePanel';
+import VotePanel from 'containers/VotePanel';
 import DiscussionSidebar from 'containers/Discussions/Sidebar';
 import CommentSection from 'containers/Comments/Section';
 import DiscussionEditForm from 'components/Discussions/EditForm';

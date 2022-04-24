@@ -3,3 +3,5 @@
 * translate exports (french because senscritique)
 * SSR
 * Deploy with docker
+
+* check components that use containers and refacto

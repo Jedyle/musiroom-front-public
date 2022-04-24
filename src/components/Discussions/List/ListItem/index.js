@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Avatar from 'components/Profile/Avatar';
-import VotePanel from 'components/Utils/VotePanel';
+import VotePanel from 'containers/VotePanel';
 
 
 const DiscussionHeader = ({

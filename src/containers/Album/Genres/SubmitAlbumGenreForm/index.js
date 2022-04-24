@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { createGenreUrl } from 'pages/urls';
 import AutocompleteInput from 'components/Utils/Forms/Autocomplete';
-import SwitchLogButton from 'components/Utils/LoginFilters/SwitchLogButton';
+import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
 
 export default class SubmitAlbumGenreForm extends Component {

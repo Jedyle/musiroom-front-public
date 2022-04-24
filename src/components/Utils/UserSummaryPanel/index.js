@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProfileLink } from 'components/Utils/Links';
+import { UserLink } from 'containers/Links';
 import Avatar from 'components/Profile/Avatar';
 
 const UserSummaryPanel = ({user, additionalHeaders, children}) => (
@@ -14,7 +14,7 @@ const UserSummaryPanel = ({user, additionalHeaders, children}) => (
       </div>
       <div className="column">
         <p>
-          <ProfileLink
+          <UserLink
             username={user.username}
             style={{fontSize: '22px'}}
           />    {" "}
