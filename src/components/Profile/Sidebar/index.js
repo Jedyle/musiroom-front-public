@@ -16,7 +16,7 @@ const ProfileSidebar = ({
       <div className="card-image">
         <figure className="image is-square">
           <img
-            src={`${process.env.REACT_APP_API_URL}${avatar}`}
+            src={avatar}
             alt="Avatar" />
         </figure>
       </div>

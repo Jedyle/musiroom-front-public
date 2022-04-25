@@ -40,7 +40,7 @@ class CommentItem extends Component {
     render() {
         let { comment, commentMap, onCommentVote, isEditable, onEditComment, onSubmitComment, depthLevel, maxDepth } = this.props;
         return (
-            <div className="columns" id={comment.id}>
+            <div className="columns is-gapless" id={comment.id}>
               <div className="column is-narrow mt-2" style={{width: "60px"}}>
                 <Avatar
                   size="is-48x48"
@@ -158,7 +158,7 @@ class CommentItem extends Component {
 
 const CommentTreeView = ({commentMap, rootComments, onCommentVote, onSubmitComment, onEditComment, depthLevel, maxDepth}) => (
     rootComments.length > 0 &&
-        <div>
+        <>
           {rootComments.map((commentId) => (
               <React.Fragment
                 key={commentId}
@@ -176,7 +176,7 @@ const CommentTreeView = ({commentMap, rootComments, onCommentVote, onSubmitComme
                 />
               </React.Fragment>
           ))}
-        </div>
+        </>
 );
 
 export default CommentTreeView;
