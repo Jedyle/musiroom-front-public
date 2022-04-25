@@ -186,7 +186,7 @@ class DiscussionsList extends Component {
                         name="author"
                         value={this.state.author}
                         onChange={(e) => {this.setState({author: e.target.value});}}
-                        placeholder="Auteur"
+                        placeholder="Author"
                       />
                     </p>
                   </div>
@@ -196,7 +196,7 @@ class DiscussionsList extends Component {
                         className="input"
                         type="text"
                         name="title"
-                        placeholder="Titre"
+                        placeholder="Title"
                         value={this.state.title}
                         onChange={(e) => {this.setState({title: e.target.value});}}
                       />

@@ -99,7 +99,7 @@ class _PublicProfileForm extends Component {
         return (
             <div className="field is-horizontal">
               <div className="field-label is-normal">
-                <label className="label">Nom</label>
+                <label className="label">Name</label>
               </div>
               <div className="field-body">
                 <Input
@@ -236,7 +236,7 @@ class _PublicProfileForm extends Component {
                 <div className="field">
                   <div className="control">
                     <button className="button is-primary" onClick={() => this.submitChange()}>
-                      Enregistrer les modifications
+                      Save
                     </button>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ class _PublicProfileForm extends Component {
         return (
             <div className="has-background-light has-padding-10 has-padding-right-20">
               <hr/>
-              <h1 className="title is-4 has-text-centered">Modifier votre profil</h1>
+              <h1 className="title is-4 has-text-centered">Account Settings</h1>
               <hr/>
               {this.renderName()}
               {this.renderBirth()}
