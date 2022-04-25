@@ -37,7 +37,8 @@ class ReviewsList extends Component {
     formatContent(){
         let formattedReviews = {};
         for (let review of this.props.results){
-            formattedReviews[review.rating.id] = (           
+            // review.rating is the UserRating. review.rating.rating gives the rating object
+            formattedReviews[review.rating.rating] = (           
                 <ReviewFormatter
                   title={review.title}
                   content={removeHTML(review.content)}

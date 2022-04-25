@@ -62,7 +62,7 @@ class AbstractListTab extends Component {
                 ordering: this.state.ordering
             }
         ).then(
-            (response) => {                
+            (response) => {
                 this.setState({
                     results: response.data.results,
                     previousPageUrl: response.data.previous,

@@ -4,7 +4,7 @@ import AlbumList from 'containers/AlbumList';
 import { Link } from 'react-router-dom';
 import { getReviewsForUserRatings } from 'services/Reviews';
 import AbstractListTab from '../AbstractListTab';
-import { profileUrl } from 'pages/urls';
+import { profileUrl, getReviewUrl } from 'pages/urls';
 
 class RatingsList extends Component {
 
@@ -57,7 +57,10 @@ class RatingsList extends Component {
                    {<Link className="has-margin-left-10" to={profileUrl(this.props.profile.user)}>{this.props.profile.user}</Link>}
                    {"   "}
                  { this.state.userReviews[userRating.rating] ?
-                   (<Link to="/">
+                   (<Link to={getReviewUrl(
+                       this.state.userReviews[userRating.rating].rating.content_object.mbid,
+                       this.state.userReviews[userRating.rating].id
+                   )}>
                      (read his review)
                     </Link>) : ""}
                 </span>)

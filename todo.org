@@ -1,9 +1,16 @@
-* Make popover work with rating (on both profile page and artist page)
-* Check remaining french words
+* DONE Make popover work with rating (on both profile page and artist page)
+CLOSED: [2022-04-25 lun. 10:50]
+* DONE Check remaining french words
+CLOSED: [2022-04-25 lun. 10:50]
 * translate exports (french because senscritique)
 * SSR
-* Deploy with docker
+* DONE Deploy with docker
+CLOSED: [2022-04-25 lun. 10:50]
 
-* check components that use containers and refacto
-* album popower : delete rating broken
-* rule : components cannot use containers
+* DONE check components that use containers and refacto
+CLOSED: [2022-04-25 lun. 10:50]
+* DONE album popower : delete rating broken
+CLOSED: [2022-04-25 lun. 10:50]
+* DONE rule : components cannot use containers
+CLOSED: [2022-04-25 lun. 10:50]
+* show user interests in rating tags 
