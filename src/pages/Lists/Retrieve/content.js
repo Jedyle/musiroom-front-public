@@ -488,7 +488,7 @@ export default class ListContent extends Component {
                    <p style={{maxHeight: "48px"}}>
                      <Avatar
                        size="is-48x48"
-                       avatar={process.env.REACT_APP_API_URL + list.user.avatar}
+                       avatar={list.user.avatar}
                        alt={list.user.username}
                      />
                      <span className="tag ml-3 mt-3 is-medium is-profile-rating"

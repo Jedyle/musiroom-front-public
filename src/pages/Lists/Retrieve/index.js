@@ -93,12 +93,12 @@ export default class RetrieveList extends Component {
                       {list.title}
                     </h1>
                     <h2 className="subtitle is-size-3 has-text-centered mb-0">
-                      List by
+                      by {" "}
                       <UserLink username={list.user.username}/>
                     </h2>                    
                     <p className="has-text-centered is-centered">
                       <Avatar
-                        avatar={process.env.REACT_APP_API_URL + list.user.avatar}
+                        avatar={list.user.avatar}
                         size="is-64x64"
                         alt={list.user.username}
                       />

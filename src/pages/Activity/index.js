@@ -72,7 +72,7 @@ export default class Activity extends Component {
                           <ActivityItem
                             activityMedia={
                                 <Avatar
-                                  avatar={process.env.REACT_APP_API_URL + result.actor.avatar}
+                                  avatar={result.actor.avatar}
                                   size="is-64x64"
                                   alt={`User ${result.actor.name}`}
                                 />}

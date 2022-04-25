@@ -7,7 +7,7 @@ const formatUserAttributes = (user) => {
     return {
         id: user.id,
         user: user.user,
-        avatar: process.env.REACT_APP_API_URL + user.avatar,
+        avatar: user.avatar,
         profile_url: profileUrl(user.user)
     };
 };

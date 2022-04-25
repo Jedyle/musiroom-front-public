@@ -104,7 +104,7 @@ class DiscussionsList extends Component {
                              />}                          
                          author={discussion.user.username}
                          authorLink={profileUrl(discussion.user.username)}
-                         avatar={process.env.REACT_APP_API_URL + discussion.user.avatar}
+                         avatar={discussion.user.avatar}
                          timeSincePost={timeSince(discussion.modified)}
 
                          discussionType={!this.state.objectId && getDiscussionType(discussion)}

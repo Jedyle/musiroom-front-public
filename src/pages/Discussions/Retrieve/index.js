@@ -124,7 +124,7 @@ export default class DiscussionRetrieve extends Component {
                           <div className="has-margin-left-10">
                             <Link to="">
                               <Avatar
-                                avatar={process.env.REACT_APP_API_URL + discussion.user.avatar}
+                                avatar={discussion.user.avatar}
                                 alt={discussion.user.username}
                                 size="is-24x24"
                               />

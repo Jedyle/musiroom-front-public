@@ -14,7 +14,7 @@ const Message = ({message}) => {
           <div className="columns mb-0">
             <div className="column is-narrow pb-1 pr-1">
               <Avatar
-                avatar={process.env.REACT_APP_API_URL + message.user.avatar}
+                avatar={message.user.avatar}
                 alt={message.user.username}
                 size="is-24x24"
                 figureStyle={{display: "auto"}}

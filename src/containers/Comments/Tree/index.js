@@ -40,8 +40,8 @@ class CommentItem extends Component {
     render() {
         let { comment, commentMap, onCommentVote, isEditable, onEditComment, onSubmitComment, depthLevel, maxDepth } = this.props;
         return (
-            <div className="columns is-gapless" id={comment.id}>
-              <div className="column is-narrow mt-2" style={{width: "60px"}}>
+            <div className="columns is-mobile" id={comment.id}>
+              <div className="column is-narrow is-hidden-mobile mt-2" style={{width: "60px"}}>
                 <Avatar
                   size="is-48x48"
                   avatar={comment.user.profile.avatar}                  
@@ -61,7 +61,9 @@ class CommentItem extends Component {
                   <div className="column is-full py-0">
                     <p>
                       <Link to={profileUrl(comment.user.username)}>
-                        {comment.user.username}
+                        <b>
+                          {comment.user.username}
+                        </b>                        
                       </Link>
                       <span className="is-pulled-right">
                         { isEditable && 
