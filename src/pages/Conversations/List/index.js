@@ -13,6 +13,10 @@ class ConversationsList extends Component {
     fetchConversationsAPI = (page) => {
         listConversations({page:page}).then((response) => {
             this.props.fetchConversations(response.data.results, response.data.next !== null);
+        }).catch((error) => {
+            if (error.response.status === 404){
+                this.props.fetchConversations([], false);
+            }
         });
     }
 
