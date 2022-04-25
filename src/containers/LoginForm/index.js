@@ -113,7 +113,7 @@ class _LoginForm extends Component {
                                        to={getRegistrationUrl()}
                                        onClick={closeLoginModal}
                                                    >Sign up !</Link></p>
-                  <a className="mt-2" href={process.env.REACT_APP_API_URL + "/auth/password/reset/"}>Forgot your passord ?</a>
+                  <a className="mt-2" href={process.env.REACT_APP_API_URL + "/auth/password/reset/"}>Forgot your password ?</a>
                   
                 </div>
             </div>
