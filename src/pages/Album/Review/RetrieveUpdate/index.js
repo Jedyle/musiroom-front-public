@@ -11,7 +11,7 @@ import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import { UserLink } from 'containers/Links';
-import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
+import UserSummaryPanel from 'components/Profile/UserSummaryPanel';
 import ReviewEditModal from 'components/Album/Review/EditModal';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';

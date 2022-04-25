@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getList, voteOnList } from 'services/Lists';
 import { UserLink } from 'containers/Links';
 import LikeDislikePanel from 'containers/LikeDislikePanel';
-import UserSummaryPanel from 'components/Utils/UserSummaryPanel';
+import UserSummaryPanel from 'components/Profile/UserSummaryPanel';
 import ListContent from './content';
 import { updateList } from 'services/Lists';
 import ListDescription from './description';

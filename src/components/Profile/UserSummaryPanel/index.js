@@ -3,7 +3,7 @@ import Avatar from 'components/Profile/Avatar';
 
 const UserSummaryPanel = ({user, userLink, additionalHeaders, children}) => (
     <div className="columns is-mobile box has-background-grey-lighter">
-      <div className="column is-one-quarter">
+      <div className="column is-one-quarter is-hidden-mobile">
         <Avatar
           avatar={`${process.env.REACT_APP_API_URL}${user.avatar}`}
           alt={user.username}
