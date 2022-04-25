@@ -118,7 +118,7 @@ class RegistrationForm extends Component {
             <div className="columns is-multiline is-mobile">
               <div className="column is-12">
                 <HeadLine
-                  title="Join MusicTech"
+                  title="Join MusiRoom"
                   titleClasses="is-size-1"
                 />
               </div>

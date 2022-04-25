@@ -18,10 +18,10 @@ const Home = () => {
     
     return (
         <div className="columns is-mobile is-multiline">
-          <Title title="La Musithèque"/>
+          <Title title="MusiRoom"/>
           <div className="column is-12">
             <HeadLine
-              title="La Musitheque, your musical library."
+              title="MusiRoom, your musical library."
               subtitle="Listen, review, share."
             />
           </div>

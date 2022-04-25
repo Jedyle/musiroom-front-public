@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 const Title = ({title}) => (
     <Helmet>
-      <title>{title} - MusicTech</title>
+      <title>{title} - MusiRoom</title>
     </Helmet>
 );
 
