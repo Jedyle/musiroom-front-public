@@ -9,8 +9,8 @@ import DiscussionSidebar from 'containers/Discussions/Sidebar';
 import CommentSection from 'containers/Comments/Section';
 import DiscussionEditForm from 'components/Discussions/EditForm';
 import Title from 'components/Utils/Title';
-
 import Avatar from 'components/Profile/Avatar';
+import { trackAnalytics } from 'utils/track';
 
 export default class DiscussionRetrieve extends Component {
 
@@ -37,6 +37,7 @@ export default class DiscussionRetrieve extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         getDiscussion(this.props.match.params.discussionId).then((response) => {
             this.setState({
                 discussion: response.data,

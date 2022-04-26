@@ -7,6 +7,7 @@ import { getTop } from 'services/Tops';
 import AlbumList from 'containers/AlbumList';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
+import { trackAnalytics } from 'utils/track';
 
 const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
     let currentYear = new Date().getFullYear();
@@ -70,6 +71,7 @@ class Top extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         let { genre, period } = this.props;
         
         listAllGenres().then((response) => {

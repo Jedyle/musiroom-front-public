@@ -7,6 +7,7 @@ import { profileUrl, getListUrl, listListsUrl, createListUrl } from 'pages/urls'
 import Paginator from 'components/Utils/Paginator';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
+import { trackAnalytics } from 'utils/track';
 
 class ListsList extends Component {
 
@@ -25,6 +26,7 @@ class ListsList extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         this.fetchLists();
     }
 

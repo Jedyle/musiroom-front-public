@@ -9,6 +9,7 @@ import { getAlbumGenresUrl, createReviewUrl, getReviewUrl, getDiscussionsUrlForO
 import { CreateDiscussionLink } from 'containers/Links';
 import AlbumSidebar from 'components/Album/Sidebar';
 import TrackList from 'components/Album/TrackList';
+import { trackAnalytics } from 'utils/track';
 
 const ExtendedSidebar = ({album}) => (
     <>
@@ -47,6 +48,7 @@ class AlbumDetails extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         this.fetchAlbum();
     }
 

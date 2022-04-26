@@ -4,6 +4,7 @@ import { register, resendLink } from 'services/Registration';
 import FormBuilder from 'components/Utils/Forms/Builder';
 import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
+import { trackAnalytics } from 'utils/track';
 
 class RegistrationForm extends Component {
 
@@ -26,6 +27,10 @@ class RegistrationForm extends Component {
         };
     }
 
+    componentDidMount() {
+        trackAnalytics();
+    }
+    
     setFormData = (field) => ((e) => {
         let form = this.state.form;
         form[field] = e.target.value;

@@ -9,6 +9,7 @@ import { CreateDiscussionLink } from 'containers/Links';
 import DiscussionSidebar from 'containers/Discussions/Sidebar';
 import Title from 'components/Utils/Title';
 import VotePanel from 'containers/VotePanel';
+import { trackAnalytics } from 'utils/track';
 
 class DiscussionsList extends Component {
 
@@ -31,6 +32,7 @@ class DiscussionsList extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         this.fetchDiscussions();
     }
     

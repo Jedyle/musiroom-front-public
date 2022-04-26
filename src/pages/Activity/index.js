@@ -11,6 +11,7 @@ import Avatar from 'components/Profile/Avatar';
 import ActivityStatement from 'components/Activity/Statement';
 import { UserLink } from 'containers/Links';
 import ActionObject from 'containers/Activity/ActionObject';
+import { trackAnalytics } from 'utils/track';
 
 export default class Activity extends Component {
 
@@ -21,6 +22,10 @@ export default class Activity extends Component {
             hasMore: true,
             count: 0
         };
+    }
+
+    componentDidMount(){
+        trackAnalytics();
     }
 
     fetchActivity = (page) => {

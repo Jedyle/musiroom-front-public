@@ -8,6 +8,7 @@ import { updateList } from 'services/Lists';
 import ListDescription from './description';
 import Avatar from 'components/Profile/Avatar';
 import Title from 'components/Utils/Title';
+import { trackAnalytics } from 'utils/track';
 
 export default class RetrieveList extends Component {
 
@@ -21,6 +22,7 @@ export default class RetrieveList extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         getList(this.props.match.params.listId).then((response) => {
             this.setState({
                 list: response.data,

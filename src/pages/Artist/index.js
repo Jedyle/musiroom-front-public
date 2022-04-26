@@ -5,6 +5,7 @@ import { getArtist } from 'services/Artists';
 import { getDiscussionsUrlForObject, discussionCreateOnTopicUrl } from 'pages/urls';
 import ArtistBody from './body';
 import Title from 'components/Utils/Title';
+import { trackAnalytics } from 'utils/track';
 
 class ArtistDetails extends Component {
 
@@ -16,6 +17,7 @@ class ArtistDetails extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         this.fetchArtist();
     }
 

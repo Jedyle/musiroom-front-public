@@ -3,6 +3,7 @@ import GenreTree from 'components/Genre/Tree';
 import { getGenres } from 'services/Genres';
 import { CreateGenreLink } from 'containers/Links';
 import Title from 'components/Utils/Title';
+import { trackAnalytics } from 'utils/track';
 
 export default class GenreList extends Component {
 
@@ -14,6 +15,7 @@ export default class GenreList extends Component {
     }
 
     componentDidMount(){
+        trackAnalytics();
         getGenres().then((response) => {
             this.setState({
                 genres: response.data

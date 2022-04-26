@@ -5,12 +5,14 @@ import HeadLine from 'components/Utils/HeadLine';
 import Title from 'components/Utils/Title';
 
 import { getLatestAlbums } from 'services/Albums';
+import { trackAnalytics } from 'utils/track';
 
 const Home = () => {
 
     const [albums, changeAlbums] = useState([]);
 
     useEffect(() => {
+        trackAnalytics();
         getLatestAlbums().then((response) => {
             changeAlbums(response.data)
         })

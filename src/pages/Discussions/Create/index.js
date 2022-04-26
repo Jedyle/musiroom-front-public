@@ -4,9 +4,14 @@ import queryString from 'query-string';
 
 import SubjectForm from 'containers/Discussions/SubjectForm';
 import Title from 'components/Utils/Title';
+import { trackAnalytics } from 'utils/track';
 
 class DiscussionCreate extends Component {
-
+    
+    componentDidMount() {
+        trackAnalytics();
+    }
+    
     render(){
         let query = queryString.parse(this.props.location.search);
         return (

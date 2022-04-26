@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Input from 'components/Utils/Forms/Input';
 import CheckBox from 'components/Utils/Forms/Checkbox';
 import Title from 'components/Utils/Title';
-
 import { getListUrl } from 'pages/urls';
-
 import { createList } from 'services/Lists';
+import { trackAnalytics } from 'utils/track';
 
 export default class CreateList extends Component {
 
@@ -19,6 +18,10 @@ export default class CreateList extends Component {
         };
     }
 
+    componentDidMount() {
+        trackAnalytics();
+    }
+    
     toggleCheck = () => {
         this.setState((prevState) => ({
             ordered: !prevState.ordered

@@ -7,6 +7,7 @@ import { getUser } from 'services/Auth/api';
 import OwnUserButton from 'components/Profile/Sidebar/Buttons/OwnUser';
 import OtherUserButton from 'components/Profile/Sidebar/Buttons/OtherUser';
 import { changeProfileUrl, listConversationsUrl } from 'pages/urls';
+import { trackAnalytics } from 'utils/track';
 
 class Profile extends Component {
 
@@ -20,6 +21,7 @@ class Profile extends Component {
     }
     
     componentDidMount(){
+        trackAnalytics();
         getProfile(this.props.username).then(
             (response) => {
                 this.setState({
