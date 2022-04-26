@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from "react-ga4";
 import { useHistory } from "react-router-dom";
 import queryString from 'query-string';
 import Navbar from './containers/Navbar';
@@ -51,6 +52,8 @@ const mbidRegex = "([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-
 const periodRegex = "(all|[0-9]{4}|[0-9]{3}0s)";
 
 function App() {
+    ReactGA.initialize(process.env.REACT_APP_GA_ID);
+    ReactGA.send("pageview");
     return (
         <React.Fragment>
           <div id="page-container">
