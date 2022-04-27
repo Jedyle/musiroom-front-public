@@ -404,7 +404,7 @@ export default class ListContent extends Component {
         super(props);
         this.state = {
             page: 1,
-            perPage: 5,
+            perPage: 10,
             count: null,
             items: null,
             hasNextPage: false,
