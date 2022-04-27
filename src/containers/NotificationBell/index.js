@@ -19,7 +19,7 @@ class NotificationBell extends Component {
             this.setState({
                 unread: res.data.unread
             });
-        });        
+        }).catch(err => {});        
     }
 
     componentDidMount(){
