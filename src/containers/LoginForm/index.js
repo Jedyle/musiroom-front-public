@@ -41,7 +41,7 @@ class _LoginForm extends Component {
             nonFieldErrors: formErrors.non_field_errors,
             fields:  [
                 {
-                    verboseName: 'password',
+                    verboseName: 'username',
                     name: 'username',
                     errorField: 'username',
                     inputType: 'text',
