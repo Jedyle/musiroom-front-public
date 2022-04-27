@@ -50,7 +50,7 @@ class GenreCreate extends Component {
               <Title title="New genre"/>
               <div className="column is-full">
                 <HeadLine
-                  title="Ajouter un genre"
+                  title="Add a genre"
                   titleClasses="is-size-1"
                   heroClasses="is-light"
                 />
