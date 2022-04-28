@@ -21,11 +21,11 @@ export function getDiscussionObjectName(discussion){
 export function getDiscussionType(discussion){
     switch (discussion.content_type){
     case null:
-        return "General Discussion";
+        return "General";
     case DISCUSSION_TYPES["album"]:
-        return `about ${discussion.content_object.title}`;
+        return `${discussion.content_object.title}`;
     case DISCUSSION_TYPES["artist"]:
-        return `about ${discussion.content_object.name}`;
+        return `${discussion.content_object.name}`;
     default:
         return null;
     }

@@ -11,7 +11,7 @@ const DiscussionHeader = ({
     discussionType,
     discussionTypeLink
 }) => (
-    <div className="is-marginless has-margin-top-5 columns">      
+    <div className="is-marginless has-margin-top-5 columns is-mobile">      
       <div className="has-margin-left-10">
         <Link to={link}>
           <Avatar size="is-24x24" avatar={avatar}/>
@@ -34,7 +34,7 @@ const DiscussionHeader = ({
 const CommentPanel = ({
     numComments
 }) => (
-    <div className="has-background-light" style={{minWidth: '45px'}}>
+    <div className="has-background-light is-hidden-mobile" style={{minWidth: '45px'}}>
       <p className="has-padding-top-10 has-text-centered"> 
         <span className="icon">
           <i className="fa fa-comment fa-lg"></i>
