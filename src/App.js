@@ -52,8 +52,10 @@ const mbidRegex = "([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-
 const periodRegex = "(all|[0-9]{4}|[0-9]{3}0s)";
 
 function App() {
-    ReactGA.initialize(process.env.REACT_APP_GA_ID);
-    ReactGA.send("pageview");
+    if (process.env.REACT_APP_GA_ID){
+	ReactGA.initialize(process.env.REACT_APP_GA_ID);
+	ReactGA.send("pageview");
+    }
     return (
         <React.Fragment>
           <div id="page-container">
