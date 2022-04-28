@@ -184,11 +184,11 @@ class _PublicProfileForm extends Component {
                   types={[
                       {
                           value: "M",
-                          label: "   Man"
+                          label: "   Male"
                       },
                       {
                           value: "F",
-                          label : "   Woman"
+                          label : "   Female"
                       },
                       {
                           value: "N",
