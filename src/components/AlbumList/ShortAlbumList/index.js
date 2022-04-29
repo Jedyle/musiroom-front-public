@@ -7,7 +7,7 @@ const ShortAlbumList = (
 ) => (
     <div className="list">
       {albums.map((album) => (
-          <div className="list-item columns has-margin-left-5" key={album.mbid}>
+          <div className="list-item columns has-margin-left-5 is-mobile" key={album.mbid}>
           <img
             alt={album.title}
             className="has-margin-right-6"

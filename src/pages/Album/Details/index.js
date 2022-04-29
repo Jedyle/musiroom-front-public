@@ -33,8 +33,8 @@ const DetailsPage = ({album}) => (
         <RatingActions
           rating={album.rating.id}
           mbid={album.mbid}
-          starDimension="30px"
-          starSpacing="4px"
+          starDimension="29px"
+          starSpacing="3px"
         />
       </div>
       <div className="column is-12-mobile is-4-desktop is-3-widescreen is-offset-1-widescreen has-margin-top-20">
