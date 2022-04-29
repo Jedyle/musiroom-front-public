@@ -103,15 +103,7 @@ class Navbar extends Component {
                     to={getTopUrl()}>
                     Tops
                   </Link>
-
-                  
-                  <Link
-                    className="navbar-item"
-                    onClick={this.setBurgerInactive}                    
-                    to={getGenresUrl()}>
-                    Genres
-                  </Link>
-
+                 
                   <Link
                     className="navbar-item"
                     onClick={this.setBurgerInactive}                    
@@ -125,6 +117,13 @@ class Navbar extends Component {
                     to={listListsUrl()}>
                     Lists
                   </Link>
+
+                  <Link
+                    className="navbar-item"
+                    onClick={this.setBurgerInactive}                    
+                    to={getGenresUrl()}>
+                    Genres
+                  </Link>                  
 
                   {/* { this.props.token && */}
                   {/*   ( */}

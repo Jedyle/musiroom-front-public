@@ -8,11 +8,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-Sentry.init({
-    dsn: process.env.REACT_APP_SENTRY_DSN,
-    integrations: [new BrowserTracing()],
-    tracesSampleRate: 0.5,
-});
+if (process.env.REACT_APP_SENTRY_DSN){
+    Sentry.init({
+        dsn: process.env.REACT_APP_SENTRY_DSN,
+        integrations: [new BrowserTracing()],
+        tracesSampleRate: 0.5,
+    });   
+}
 
 
 ReactDOM.render(

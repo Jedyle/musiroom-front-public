@@ -21,7 +21,7 @@ const RatingTagsList = ({mbid, userRating, followeesRating, avgRating}) => {
     }
     
     return (
-        <div className="tags are-large is-pulled-right">
+        <div className="tags are-medium is-pulled-right">
           {
               getUser() && (
                   <AlbumPopover

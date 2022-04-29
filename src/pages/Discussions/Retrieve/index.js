@@ -112,7 +112,7 @@ export default class DiscussionRetrieve extends Component {
 
                 <div className="box">                  
                   <div className="columns is-mobile">
-                    <div className="column is-narrow is-marginless is-paddingless" style={{width: "40px"}}>
+                    <div className="column is-narrow is-marginless is-paddingless" style={{width: "30px"}}>
                       <VotePanel
                         numVotes={discussion.vote_score}
                         loggedUserVote={discussion.user_vote}
