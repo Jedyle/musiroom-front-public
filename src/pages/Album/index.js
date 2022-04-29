@@ -19,7 +19,7 @@ const ExtendedSidebar = ({album}) => (
       <span>
         <Link
           to={getDiscussionsUrlForObject('album', album.id)}
-          className="button is-medium has-margin-top-5 is-fullwidth is-info">Discussions on {album.title}</Link>
+          className="button is-medium has-margin-top-5 is-fullwidth is-info">Discussions</Link>
 
         <CreateDiscussionLink
           className="button is-medium has-margin-top-5 is-fullwidth is-success"

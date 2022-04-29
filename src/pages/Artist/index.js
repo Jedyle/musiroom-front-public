@@ -46,7 +46,7 @@ class ArtistDetails extends Component {
                             <Link
                               className="button is-medium has-margin-top-5 is-fullwidth is-info"
                               to={getDiscussionsUrlForObject('artist', artist.id)}
-                            >Discussions about {artist.name}</Link>
+                            >Discussions</Link>
                             <Link
                               className="button is-medium has-margin-top-5 is-fullwidth is-success"
                               to={discussionCreateOnTopicUrl('artist', artist.id)}
