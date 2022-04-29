@@ -17,3 +17,33 @@ export function getAllActivity({page=1, limit=20}){
         }
     });
 }
+
+export function getRatingActivity({page=1, limit=20}){
+    return api.get('/activity/rating/', {
+        params: {
+            page: page,
+            limit: limit
+        }
+    });
+}
+
+
+export function getReviewActivity({page=1, limit=20}){
+    return api.get('/activity/review/', {
+        params: {
+            page: page,
+            limit: limit
+        }
+    });
+}
+
+
+export function getCommentActivity({page=1, limit=20}){
+    return api.get('/activity/comment/', {
+        params: {
+            page: page,
+            limit: limit
+        }
+    });
+}
+

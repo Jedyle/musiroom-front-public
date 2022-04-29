@@ -1,15 +1,11 @@
 import React from 'react';
 
-const ActivityStatement = ({actorComponent, verb, action, actionObjectComponent}) => {
-    // let actorStatement = (<UserLink username={actor.name}/>);
+const ActivityStatement = ({actorComponent, verb, action, actionObjectComponent, targetComponent}) => {
     let verbStatement = <span>{verb}</span>;
-    // let actionObject = <ActionObject
-    //                      contentType={props.action_object_content_type}
-    //                      object={props.action_object}
-    //                    />;
+    console.log(targetComponent);
     return (
         <>
-          {actorComponent} {verbStatement} {actionObjectComponent}
+          {actorComponent} {verbStatement} {actionObjectComponent} {targetComponent}
         </>
     );
 }

@@ -11,6 +11,8 @@ function ActionObject({contentType, object}){
         return <GetReviewLink title={object.name} albumId={object.album_id} reviewId={object.id}/>;
     case "user":
         return <UserLink username={object.name}/>
+    case "comment":
+        return ""
     default:
         return object && <span>{object.name}</span>;
     }

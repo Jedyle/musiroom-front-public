@@ -10,7 +10,8 @@ import Title from 'components/Utils/Title';
 import Avatar from 'components/Profile/Avatar';
 import ActivityStatement from 'components/Activity/Statement';
 import { UserLink } from 'containers/Links';
-import ActionObject from 'containers/Activity/ActionObject';
+import ActionObject from 'containers/Activity/Utils/ActionObject';
+import ActionTarget from 'containers/Activity/Utils/ActionTarget';
 import { trackAnalytics } from 'utils/track';
 
 export default class Activity extends Component {
@@ -91,6 +92,12 @@ export default class Activity extends Component {
                                       <ActionObject
                                         contentType={result.action_object_content_type}
                                         object={result.action_object}
+                                      />
+                                  }
+                                  targetComponent={
+                                      <ActionTarget
+                                        contentType={result.target_content_type}
+                                        object={result.target}
                                       />
                                   }
                                 />
