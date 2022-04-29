@@ -90,6 +90,11 @@ const RatingsTab = (props) => (
       }
       ListComponent={RatingsList}
       fetchElements={getRatings}
+      orderingFields={[
+          ['-modified', 'Recent'],
+          ['-score', 'Best Ratings'],
+          ['score', 'Worst Ratings']
+      ]}
       {...props}
     />  
 );

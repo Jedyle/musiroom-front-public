@@ -11,7 +11,7 @@ class AbstractListTab extends Component {
             currentPage: 1,
             previousPageUrl: null,
             nextPageUrl: null,
-            ordering: '-modified',
+            orderingIndex: 0,
             results: []
         };
         this.onPressEnter = this.onPressEnter.bind(this);
@@ -26,11 +26,10 @@ class AbstractListTab extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        console.log(this.state.ordering);
         if ((this.props.profile !== prevProps.profile) || (
             this.state.currentPage !== prevState.currentPage ||
                 this.state.albumTitleQuery !== prevState.albumTitleQuery ||
-                this.state.ordering !== prevState.ordering
+                this.state.orderingIndex !== prevState.orderingIndex
         )){
             this.fetchBaseElementsFromApi();
         }
@@ -62,7 +61,7 @@ class AbstractListTab extends Component {
                 username: this.props.profile.user,
                 page: this.state.currentPage,
                 albumTitle: this.state.albumTitleQuery,
-                ordering: this.state.ordering
+                ordering: this.props.orderingFields ? this.props.orderingFields[this.state.orderingIndex] : ''
             }
         ).then(
             (response) => {
@@ -88,14 +87,25 @@ class AbstractListTab extends Component {
                   onPreviousPage={this.onPreviousPage}
                   onNextPage={this.onNextPage}
                 />
-                <p className="select is-pulled-right has-padding-left-10 had-margin-top-10">
-                  <select value={this.state.ordering}
-                          onChange={(e) => {this.setState({ordering: e.target.value, currentPage: 1});}}>
-                    <option value="-modified">Recent</option>
-                    <option value="-score">Best ratings</option>
-                    <option value="score">Worst ratings</option>
-                  </select>
-                </p>                
+                {this.props.orderingFields &&
+                 <p className="select is-pulled-right has-padding-left-10 had-margin-top-10">
+                   <select value={this.props.orderingFields[this.state.orderingIndex][0]}
+                           onChange={(e) => {
+                               this.setState(
+                                   {
+                                       orderingIndex: this.props.orderingFields.map(el => el[0]).indexOf(e.target.value),
+                                       currentPage: 1
+                                   }
+                               );}}>
+                     {this.props.orderingFields.map(
+                         (ordering) => (
+                             <option value={ordering[0]}>{ordering[1]}</option>
+                         )
+                         
+                     )}
+                   </select>
+                 </p>                
+                }
                 <Filtrator
                   onPressEnter={this.onPressEnter}
                 />

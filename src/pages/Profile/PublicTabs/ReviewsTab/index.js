@@ -9,7 +9,8 @@ import { removeHTML } from 'utils/strings';
 const ReviewFormatter = ({
     title,
     content,
-    reviewLink
+    reviewLink,
+    score
 }) => 
       {
           let maxTitleLength = 50;
@@ -24,8 +25,10 @@ const ReviewFormatter = ({
                 </h1>
                 <p className="is-hidden-mobile">
                   {content.length > maxContentLength ? content.slice(0, maxContentLength) + "..." : content}
-                  {"   "}
-                  (<Link to={reviewLink}>read review</Link>)
+                  <br/>
+                  <bold>
+                    <Link to={reviewLink}>Read review</Link>
+                  </bold> (rated {score})
                 </p>
               </div>
           );
@@ -43,6 +46,7 @@ class ReviewsList extends Component {
                   title={review.title}
                   content={removeHTML(review.content)}
                   reviewLink={getReviewUrl(review.rating.content_object.mbid, review.id)}
+                  score={review.rating.score}
                 />
             );
         }
@@ -72,6 +76,12 @@ const ReviewsTab = (props) => (
       }
       ListComponent={ReviewsList}
       fetchElements={getReviews}
+      orderingFields={[
+          ['-date_publication', 'Recent'],
+          ['-vote_score', 'Popular'],
+          ['-rating__score', 'Best ratings'],
+          ['rating__score', 'Worst ratings']
+      ]}
       {...props}
     />  
 );
