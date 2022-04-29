@@ -26,12 +26,15 @@ class AbstractListTab extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
+        console.log(this.state.ordering);
         if ((this.props.profile !== prevProps.profile) || (
             this.state.currentPage !== prevState.currentPage ||
-                this.state.albumTitleQuery !== prevState.albumTitleQuery
+                this.state.albumTitleQuery !== prevState.albumTitleQuery ||
+                this.state.ordering !== prevState.ordering
         )){
             this.fetchBaseElementsFromApi();
         }
+        
     }
     
     onPressEnter(event){
@@ -85,6 +88,14 @@ class AbstractListTab extends Component {
                   onPreviousPage={this.onPreviousPage}
                   onNextPage={this.onNextPage}
                 />
+                <p className="select is-pulled-right has-padding-left-10 had-margin-top-10">
+                  <select value={this.state.ordering}
+                          onChange={(e) => {this.setState({ordering: e.target.value, currentPage: 1});}}>
+                    <option value="-modified">Recent</option>
+                    <option value="-score">Best ratings</option>
+                    <option value="score">Worst ratings</option>
+                  </select>
+                </p>                
                 <Filtrator
                   onPressEnter={this.onPressEnter}
                 />
