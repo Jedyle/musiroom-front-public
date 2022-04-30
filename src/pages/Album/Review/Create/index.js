@@ -5,7 +5,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import Input from 'components/Utils/Forms/Input';
 
-import { getOwnRating } from 'services/OwnRatings';
+import { getUserRating } from 'services/OwnRatings';
 import { createReview } from 'services/Reviews';
 import { getReviewUrl } from 'pages/urls';
 import Title from 'components/Utils/Title';
@@ -33,7 +33,7 @@ class CreateReview extends Component {
     }
 
     componentDidMount(){
-        getOwnRating(this.props.album.rating.id).then((res) => {
+        getUserRating(this.props.album.rating.id).then((res) => {
             if (res.data.review){
                 // review already exists, quit
                 // TODO: go to existing review instead !

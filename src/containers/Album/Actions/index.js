@@ -6,19 +6,16 @@ import RateAlbum from 'containers/Album/Actions/RateAlbum';
 import { createReviewUrl, getReviewUrl } from 'pages/urls';
 
 import { getUser } from 'services/Auth/api';
-import { getOwnRating, changeOwnRating, createOwnRating, deleteOwnRating } from 'services/OwnRatings';
+import { getUserRating, changeInterest, changeRating, deleteRating } from 'services/OwnRatings';
 
 class RatingActions extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            userRatingObj: null  
+            userRating: null  
         };
     }
-
-    userRating = () => this.state.userRatingObj && this.state.userRatingObj.score;
-    userHasReview = () => this.state.userRatingObj && this.state.userRatingObj.review
 
     componentDidMount(){
         if (getUser()){
@@ -27,55 +24,50 @@ class RatingActions extends Component {
     }
 
     fetchRating = () => {
-        getOwnRating(this.props.rating).then((response) => {
+        getUserRating(this.props.rating).then((response) => {
             this.setState({
-                userRatingObj: response.data
+                userRating: response.data
             });
         }).catch(error => {
+            console.log("lol", error);
             if (error.response.status === 404){
                 this.setState({
-                    userRatingObj: null
+                    userRating: null
                 })
             }
         });
     }
 
-    changeRating = (newRating) => {
-        let call = this.userRating() ? changeOwnRating : createOwnRating;
-        call(this.props.rating, newRating).then((response) => {
-            this.setState({
-                userRatingObj: response.data
-            });
-        });
+    onChangeRating = (newRating) => {
+        changeRating(this.props.rating, this.state.userRating, newRating, (response) => {this.setState({userRating: response.data})})
     }
 
-    deleteRating = () => {
+    onDeleteRating = () => {
         let doDelete = true;
-        if (this.userHasReview()){
+        if (this.state.userRating.review){
             doDelete = window.confirm("This will also delete your review ! Proceed ?");
         }
         if (doDelete){
-            deleteOwnRating(this.props.rating).then((response) => {
-                this.setState({
-                    userRatingObj: null
-                });
-                window.location.reload();
-            });
+            deleteRating(this.props.rating, this.state.userRating, (response) => {this.setState({userRating: response.data})});
         }
+    }
+
+    onChangeInterest = () => {
+        changeInterest(this.props.rating, this.state.userRating, (response) => {this.setState({userRating: response.data})});    
     }
 
     
     render(){
         let { mbid, starDimension, starSpacing } = this.props;
-        let { userRatingObj } = this.state;
+        let { userRating } = this.state;
         return (
             <>
               <RateAlbum
                 starDimension={starDimension}
                 starSpacing={starSpacing}
-                userRating={userRatingObj ? userRatingObj.score : 0}
-                changeRating={this.changeRating}
-                deleteRating={this.deleteRating}                
+                userRating={userRating && userRating.score ? userRating.score : 0}
+                changeRating={this.onChangeRating}
+                deleteRating={this.onDeleteRating}                
               />
               <br/>
               <br/>
@@ -84,16 +76,18 @@ class RatingActions extends Component {
                   mbid={mbid}
                 >Add to List</AddToListButton>
                 <AddToInterests
-                  mbid={mbid}
+                  onChangeInterest={this.onChangeInterest}
+                  interest={userRating ? userRating.is_interested : false}
                 />
-                { userRatingObj && (
-                    this.userHasReview() ?
+                { userRating && (
+                    userRating.review ?
                         (
-                            <Link className="button ml-1 is-success" to={getReviewUrl(mbid, userRatingObj.review.id)}>
+                            <Link className="button ml-1 is-success" to={getReviewUrl(mbid, userRating.review.id)}>
                               My review
                             </Link>)
                     :
                     (
+                        userRating.score &&
                         <Link className="button ml-1" to={createReviewUrl(mbid)}>
                           Write a review
                         </Link>

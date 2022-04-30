@@ -1,37 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { getUser } from 'services/Auth/api';
 import './index.css';
-import PropTypes from 'prop-types';
 import AlbumPopover from 'containers/Album/Popover';
 
-const RatingTagsList = ({mbid, userRating, followeesRating, avgRating}) => {
 
-    const [realUserRating, changeRealUserRating] = useState(0);
+const FormattedUserRating = ({userRating}) => {
+    if (userRating){
+        if (userRating.score){
+            return userRating.score;
+        }
+        else if (userRating.is_in_collection){
+            return (
+                <span className="icon">
+                  <i className="fa fa-headphones"></i>
+                </span>                    
+            )
+        }
+        else if (userRating.is_interested){
+            return (
+                <span className="icon">
+                  <i className="fa fa-map-marker"></i>
+                </span>
+            );                
+        }
+    }       
+    return '-';
+}
 
-    useEffect(() => {
-        changeRealUserRating(userRating);
-    }, [userRating]);
+const RatingTagsList = ({mbid, ratingId, userRating, followeesRating, avgRating, onChangeRating, afterLoadPopover}) => {
 
-    const changeRating = (newRating) => {
-        changeRealUserRating(newRating);
-    }
-
-    const deleteRating = () => {
-        changeRealUserRating(null);
-    }
-    
     return (
         <div className="tags are-medium is-pulled-right">
           {
               getUser() && (
                   <AlbumPopover
                     mbid={mbid}
-                    changeRating={changeRating}
-                    deleteRating={deleteRating}
+                    ratingId={ratingId}
+                    userRating={userRating}
+                    onChangeRating={onChangeRating}
+                    afterLoad={afterLoadPopover}
                   >
                     <span className="tag is-user-rating mr-1" style={{cursor: 'pointer', backgroundClip: 'border-box'}}
                           title="My rating">
-                      {realUserRating || '-'}
+                      <FormattedUserRating userRating={userRating}/>
                     </span>
                   </AlbumPopover>              
               )
@@ -51,11 +62,5 @@ const RatingTagsList = ({mbid, userRating, followeesRating, avgRating}) => {
         </div>
     )
 }
-
-RatingTagsList.propTypes = {
-    userRating: PropTypes.number,
-    followeesRating: PropTypes.number,
-    avgRating: PropTypes.number
-};
 
 export default RatingTagsList;

@@ -1,9 +1,55 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Input from 'components/Utils/Forms/Input';
 import { getSimilarArtists, getArtistDiscography } from 'services/Artists';
 import SimilarArtistsPanel from 'components/Artist/SimilarArtistsPanel';
-import DiscographyTable from 'components/Artist/DiscographyTable';
 import RatingTags from 'containers/StarRatings/Tags';
+import { getAlbumUrl } from 'pages/urls';
+
+import './index.css';
+
+const DiscographyTable = ({
+    albums,
+    onChangeRatingForAlbum,
+    afterLoadPopoverForAlbum
+}) => (
+    <table className="table is-fullwidth">
+      <tbody>
+      <tr>
+        <th>Year</th>
+        <th>Title</th>
+        <th>
+          <span className="is-pulled-right">Ratings</span>
+        </th>
+      </tr>
+        {
+            albums.map(
+                (album, index) => (
+                    <tr>
+                      <th className="year">{album.year}</th>
+                      <th className="album">
+                        <Link to={getAlbumUrl(album.mbid)}>
+                          {album.title}
+                        </Link>
+                      </th>
+                      <th className="ratings">
+                        <RatingTags
+                          mbid={album.mbid}
+                          ratingId={album.details && album.details.rating.id}
+                          userRating={album.details && album.details.user_rating}
+                          followeesRating={album.details && album.details.followees_avg}
+                          avgRating={album.details && album.details.rating.average}
+                          onChangeRating={(response) => onChangeRatingForAlbum(index, response)}
+                          afterLoadPopover={afterLoadPopoverForAlbum && ((albumData) => afterLoadPopoverForAlbum(index, albumData))}
+                        />
+                      </th>
+                    </tr>
+                ))        
+            }
+      </tbody>
+    </table>
+);
+
 
 export default class ArtistBody extends Component {
 
@@ -49,6 +95,27 @@ export default class ArtistBody extends Component {
             search: e.target.value
         });
     }
+
+    onChangeRating = (releaseIndex, albumIndex, response) => {
+        this.setState((prevState) => {
+            let discography = prevState.discography.slice();
+            discography[releaseIndex]["items"][albumIndex]["details"]["user_rating"] = response.data;
+            return {
+                discography: discography
+            }
+        })
+    }
+
+    updateAlbum = (releaseIndex, albumIndex, response) => {
+        this.setState((prevState) => {
+            let discography = prevState.discography.slice();
+            console.log(discography[releaseIndex]["items"][albumIndex]);
+            discography[releaseIndex]["items"][albumIndex]["details"] = response.data;
+            return {
+                discography: discography
+            }            
+        })
+    }
     
     render() {
         return (
@@ -76,12 +143,13 @@ export default class ArtistBody extends Component {
                 <br/>
             {this.state.discography &&
              this.state.discography.map(
-                 (releaseType) => (
+                 (releaseType, index) => (
                      <>
                        <h1 className="title is-size-3">{releaseType.release_type}</h1>
                        <DiscographyTable
                          albums={releaseType.items}
-                         RatingComponent={RatingTags}
+                         onChangeRatingForAlbum={(albumIndex, response) => this.onChangeRating(index, albumIndex, response)}
+                         afterLoadPopoverForAlbum={(albumIndex, response) => this.updateAlbum(index, albumIndex, response)}
                        />
                      </>
                  )

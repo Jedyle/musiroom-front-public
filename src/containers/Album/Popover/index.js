@@ -2,14 +2,14 @@ import React, { useState, Component } from 'react';
 import { Link } from 'react-router-dom';
 import Popover from 'react-popover';
 import RateAlbum from 'containers/Album/Actions/RateAlbum';
-import InterestButton from 'containers/Album/Actions/AddToInterests';
+import AddToInterests from 'containers/Album/Actions/AddToInterests';
 import AddToListButton from 'containers/Album/Actions/AddToList';
 import { getAlbumUrl } from 'pages/urls';
 import { GetArtistLink } from 'containers/Links';
 import { truncate } from 'utils/strings';
 import { getUser } from 'services/Auth/api';
 import { getAlbum } from 'services/Albums';
-import { changeOwnRating, createOwnRating, deleteOwnRating } from 'services/OwnRatings';
+import { changeRating, deleteRating, changeInterest } from 'services/OwnRatings';
 
 // this css makes sure we can use a modal inside the popover (dirty fix)
 import './index.css';
@@ -29,39 +29,12 @@ class PopoverContent extends Component {
             this.setState({
                 album: res.data
             });
+            this.props.afterLoad && this.props.afterLoad(res);
         });
-    }
-
-    onChangeRating = (score) => {
-        const changeRating = this.props.changeRating;
-        const call = this.state.album.user_rating ? changeOwnRating : createOwnRating;
-        call(this.state.album.rating.id, score).then((response) => {
-            changeRating(score);
-            this.setState(prevState => {
-                let album = Object.assign({}, prevState.album);
-                album.user_rating = score;
-                return {
-                    album: album
-                }
-            })
-        });
-    }
-
-    onDeleteRating = (score) => {
-        deleteOwnRating(this.state.album.rating.id).then((response) => {
-            this.props.changeRating(0);
-            this.setState(prevState => {
-                let album = Object.assign({}, prevState.album);
-                album.user_rating = 0;
-                return {
-                    album: album
-                }
-            })            
-        })
     }
     
     render(){
-        let { mbid, changeRating, deleteRating, ...props } = this.props;
+        let { mbid, ratingId, userRating, onChangeRating, ...props } = this.props;
         let { album } = this.state;
         return (
             <div className="box" style={{width: '400px', padding: '0.6rem', boxShadow: 'none'}} {...props}>
@@ -92,24 +65,29 @@ class PopoverContent extends Component {
                           </p>
                           <div>
                             <RateAlbum
-                              userRating={album.user_rating || 0}
-                              changeRating={this.onChangeRating}
-                              deleteRating={this.onDeleteRating}
+                              userRating={userRating && userRating.score ? userRating.score : 0}
+                              changeRating={(score) => {
+                                  changeRating(ratingId, userRating, score, (response) => onChangeRating(response))
+                              }}
+                              deleteRating={(score) => {
+                                  deleteRating(ratingId, userRating, (response) => onChangeRating(response))
+                              }}
                               starDimension='20px'
                               starSpacing='0px'                              
                             />
                           </div>
                           <div>
-                          <InterestButton
-                            mbid={mbid}
+                          <AddToInterests
+                            onChangeInterest={() => changeInterest(ratingId, userRating, (response) => onChangeRating(response))}
+                            interest={userRating ? userRating.is_interested : false}  
                             contentWhenInterest={
                                 <span className="icon">
-                                  <i className="fa fa-headphones"></i>
+                                  <i className="fa fa-map-marker"></i>
                                 </span>
                             }
                             contentWhenNoInterest={
                                 <span className="icon">
-                                  <i className="fa fa-headphones"></i>
+                                  <i className="fa fa-map-marker"></i>
                                 </span>
                             }
                           />
@@ -133,7 +111,7 @@ class PopoverContent extends Component {
     
 }
 
-const AlbumPopover = ({mbid, changeRating, deleteRating, children}) => {
+const AlbumPopover = ({mbid, onChangeRating, ratingId, userRating, children, afterLoad}) => {
 
     const [open, setOpen] = useState(false);
 
@@ -142,8 +120,10 @@ const AlbumPopover = ({mbid, changeRating, deleteRating, children}) => {
             <Popover
               body={<PopoverContent
                       mbid={mbid}
-                      changeRating={changeRating}
-                      deleteRating={deleteRating}
+                      onChangeRating={onChangeRating}
+                      ratingId={ratingId}
+                      userRating={userRating}
+                      afterLoad={afterLoad}
                     />}
               isOpen={open}
               onOuterAction={(e) => setOpen(false)}

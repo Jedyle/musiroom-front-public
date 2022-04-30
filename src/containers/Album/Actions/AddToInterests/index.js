@@ -1,52 +1,21 @@
-import React, { Component } from 'react';
-import { changeOwnInterest, getOwnInterest } from 'services/OwnRatings';
+import React from 'react';
 import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
-class Base extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            ownInterest: false  
-        };
-    }
+function Base({ onChangeInterest, interest, contentWhenInterest = "I want to listen", contentWhenNoInterest = "Add to my interests", ...props}){
 
-    fetchInterest = () => {
-        getOwnInterest(this.props.mbid).then((response) => {
-            this.setState({
-                ownInterest: response.data.interest 
-            });
-        });
-    }
-
-    changeInterest = () => {
-        changeOwnInterest(this.props.mbid, !this.state.ownInterest).then((response) => {
-            this.setState({
-                ownInterest: response.data.interest 
-            });
-        });
-    }
-    
-    componentDidMount(){
-        this.fetchInterest();
-    }
-    
-    render() {
-        let { ownInterest } = this.state;
-        let { contentWhenInterest = "I want to listen", contentWhenNoInterest = "Add to my interests"} = this.props;
-        return (
-            <button
-              {...this.props}
-              onClick={this.changeInterest}
-              className={`button ${ownInterest && "is-success"}`}
-            >
-              {ownInterest ? contentWhenInterest : contentWhenNoInterest}
-            </button>
-        );
-    }
+    return (
+        <button
+          {...props}
+          onClick={onChangeInterest}
+          className={`button ${interest && "is-success"}`}
+        >
+          {interest ? contentWhenInterest : contentWhenNoInterest}
+        </button>
+    );        
 }
 
-const InterestButton = ({anonymousContent = "Add to my interests", ...props}) => (
+const AddToInterests = ({anonymousContent = "Add to my interests", ...props}) => (
     <SwitchLogButton
       {...props}
       userRendering={(props) => <Base {...props}/>}
@@ -54,4 +23,4 @@ const InterestButton = ({anonymousContent = "Add to my interests", ...props}) =>
     />
 );
 
-export default InterestButton;
+export default AddToInterests;

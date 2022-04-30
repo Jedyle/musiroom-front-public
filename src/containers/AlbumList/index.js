@@ -4,7 +4,7 @@ import AlbumItem from 'components/AlbumList/AlbumItem';
 import RatingTagsList from 'containers/StarRatings/Tags';
 import { Link } from 'react-router-dom';
 import { getUser } from 'services/Auth/api';
-import { getSelfRatings, getSelfInterests, getFolloweesAverage } from 'services/Ratings';
+import { getSelfRatings, getFolloweesAverage } from 'services/Ratings';
 import { getAlbumUrl, getArtistUrl } from 'pages/urls';
 
 class AlbumList extends Component {
@@ -13,7 +13,6 @@ class AlbumList extends Component {
         super(props);
         this.state = {
             loggedUserRatings: {},
-            loggedUserInterests: [],
             loggedUserAvgFolloweesRatings: {},            
         };
     }
@@ -30,18 +29,12 @@ class AlbumList extends Component {
         }
     }
 
-    fetchDataForLoggedUser(){
+    fetchDataForLoggedUser = () => {
         if (getUser()){
             let ratings_ids = this.props.ratedObjects.map(
                 (object) => object.rating.id
             );
-            getSelfRatings(ratings_ids).then(
-                (response) => {
-                    this.setState({
-                        loggedUserRatings: response.data.ratings
-                    });
-                }
-            );
+            this.updateUserRatings(ratings_ids);
             getFolloweesAverage(ratings_ids).then(
                 (response) => {
                     this.setState({
@@ -49,39 +42,29 @@ class AlbumList extends Component {
                     });
                 }
             );
-            getSelfInterests(ratings_ids).then(
-                (response) => {
-                    this.setState({
-                        loggedUserInterests: response.data.interests
-                    });
-                }
-            );
         }        
     }
+
+    updateUserRatings = (ratings_ids) => {
+        getSelfRatings(ratings_ids).then(
+            (response) => {
+                this.setState((prevState) => (
+                    {
+                        loggedUserRatings: {
+                            ...prevState.loggedUserRatings,
+                            ...response.data.ratings
+                        }
+                    }))
+            }
+        )
+    }
     
-    getLoggedUserRatingFor(rating_id){
-        let userRating = this.state.loggedUserRatings[rating_id.toString()];
-        if (userRating){
-            return userRating;
-        }
-        else{
-            let userHasInterest = this.state.loggedUserInterests.some(
-                id => (id === rating_id)
-            );
-            if (userHasInterest){
-                return (
-                    <span className="icon">
-                      <i className="fa fa-map-marker"></i>
-                    </span>
-                );
-            }         
-        }
-        return null;
+    getLoggedUserRatingFor = (rating_id) => {
+        return this.state.loggedUserRatings[rating_id.toString()];
     }
 
-    getAverageFolloweesRatingsFor(rating_id){       
-        let avgRating = this.state.loggedUserAvgFolloweesRatings[rating_id.toString()];
-        return avgRating;
+    getAverageFolloweesRatingsFor = (rating_id) => {       
+        return this.state.loggedUserAvgFolloweesRatings[rating_id.toString()];
     }
     
     render(){
@@ -101,9 +84,11 @@ class AlbumList extends Component {
                   ratingsComponent={
                       <RatingTagsList
                         mbid={object.mbid}
+                        ratingId={object.rating.id}
                         userRating={this.getLoggedUserRatingFor(object.rating.id)}
                         followeesRating={this.getAverageFolloweesRatingsFor(object.rating.id)}
                         avgRating={parseFloat(object.rating.average)}
+                        onChangeRating={() => this.updateUserRatings([object.rating.id])}
                       />             
                   }
                   description={
