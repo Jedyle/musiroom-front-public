@@ -48,13 +48,23 @@ class AlbumList extends Component {
     updateUserRatings = (ratings_ids) => {
         getSelfRatings(ratings_ids).then(
             (response) => {
-                this.setState((prevState) => (
-                    {
-                        loggedUserRatings: {
-                            ...prevState.loggedUserRatings,
-                            ...response.data.ratings
+                this.setState((prevState) => {
+                    let loggedUserRatings = {
+                        ...prevState.loggedUserRatings,
+                        ...response.data.ratings
+                    };
+                    let resRatingIds = Object.keys(response.data.ratings);
+                    for (const el of ratings_ids){
+                        if (!resRatingIds.includes(el.toString())){
+                            delete loggedUserRatings[el.toString()]
                         }
-                    }))
+                    }
+                    return (
+                        {
+                            loggedUserRatings: loggedUserRatings                            
+                        }                        
+                    )
+                })
             }
         )
     }

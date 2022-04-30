@@ -108,8 +108,7 @@ export default class ArtistBody extends Component {
 
     updateAlbum = (releaseIndex, albumIndex, response) => {
         this.setState((prevState) => {
-            let discography = prevState.discography.slice();
-            console.log(discography[releaseIndex]["items"][albumIndex]);
+            let discography = prevState.discography.slice();            
             discography[releaseIndex]["items"][albumIndex]["details"] = response.data;
             return {
                 discography: discography

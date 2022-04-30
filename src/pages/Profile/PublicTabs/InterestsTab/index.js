@@ -1,30 +1,33 @@
 import React from 'react';
-import { getInterests } from 'services/Profile';
+import RatingsList from 'containers/RatingsList';
+import { getRatings } from 'services/Profile';
 import AbstractListTab from '../AbstractListTab';
-import AlbumList from 'containers/AlbumList';
 
-const InterestsList = ({
-    results
-}) => (
-    <AlbumList
-      ratedObjects={results}
-      content={{}}
-    />
-);
 
 const InterestsTab = (props) => (
     <AbstractListTab
       header={
           (<span>
-            <hr/>
-            <h4 className="title is-4 has-text-centered">Interests</h4>
-            <hr/>
-          </span>)
+             <hr/>
+             <h4 className="title is-4 has-text-centered">Collection</h4>
+             <hr/>
+           </span>)
       }
-      ListComponent={InterestsList}
-      fetchElements={getInterests}
+      ListComponent={RatingsList}
+      fetchElements={(props) => getRatings(
+          {
+              ...props,
+              filtering: {
+                  is_interested: true
+              }
+          }
+      )}
+      orderingFields={[
+          ['-modified', 'Recent'],
+          ['modified', 'Oldest']
+      ]}
       {...props}
-    />
+    />  
 );
 
 export default InterestsTab;

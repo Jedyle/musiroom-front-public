@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import Popover from 'react-popover';
 import RateAlbum from 'containers/Album/Actions/RateAlbum';
 import AddToInterests from 'containers/Album/Actions/AddToInterests';
+import AddToCollection from 'containers/Album/Actions/AddToCollection';
 import AddToListButton from 'containers/Album/Actions/AddToList';
 import { getAlbumUrl } from 'pages/urls';
 import { GetArtistLink } from 'containers/Links';
 import { truncate } from 'utils/strings';
 import { getUser } from 'services/Auth/api';
 import { getAlbum } from 'services/Albums';
-import { changeRating, deleteRating, changeInterest } from 'services/OwnRatings';
+import { changeRating, deleteRating, changeInterest, changeCollection } from 'services/OwnRatings';
 
 // this css makes sure we can use a modal inside the popover (dirty fix)
 import './index.css';
@@ -34,10 +35,10 @@ class PopoverContent extends Component {
     }
     
     render(){
-        let { mbid, ratingId, userRating, onChangeRating, ...props } = this.props;
+        let { mbid, ratingId, userRating, onChangeRating } = this.props;
         let { album } = this.state;
         return (
-            <div className="box" style={{width: '400px', padding: '0.6rem', boxShadow: 'none'}} {...props}>
+            <div className="box" style={{width: '400px', padding: '0.6rem', boxShadow: 'none'}}>
               { album ?
                 (
                     <article className="media">
@@ -81,20 +82,34 @@ class PopoverContent extends Component {
                             onChangeInterest={() => changeInterest(ratingId, userRating, (response) => onChangeRating(response))}
                             interest={userRating ? userRating.is_interested : false}  
                             contentWhenInterest={
-                                <span className="icon">
+                                <span title="I want to listen" className="icon">
                                   <i className="fa fa-map-marker"></i>
                                 </span>
                             }
                             contentWhenNoInterest={
-                                <span className="icon">
+                                <span title="Add to interests" className="icon">
                                   <i className="fa fa-map-marker"></i>
                                 </span>
                             }
                           />
+                          <AddToCollection
+                            onChangeCollection={() => changeCollection(ratingId, userRating, (response) => onChangeRating(response))}
+                            inCollection={userRating ? userRating.is_in_collection : false}  
+                            contentInCollection={
+                                <span title="In my collection" className="icon">
+                                  <i className="fa fa-headphones"></i>
+                                </span>
+                            }
+                            contentNotInCollection={
+                                <span title="Add to collection" className="icon">
+                                  <i className="fa fa-headphones"></i>
+                                </span>
+                            }
+                          />                            
                           <AddToListButton
                             mbid={mbid}
                           >
-                            <span className="icon"><i className="fa fa-list"></i></span>
+                            <span title="Add to list" className="icon"><i className="fa fa-list"></i></span>
                           </AddToListButton>                           
                           </div>
                         </div>

@@ -42,13 +42,20 @@ export function getListsWithoutAlbum(username, mbid, page=1){
     );
 }
 
-export function getRatings({username, page=1, albumTitle="", ordering=""}){
+export function getRatings({username, page=1, albumTitle="", ordering="", filtering={}}){    
+    let params = {
+        page: page,
+        limit: 10,
+        ordering: ordering,
+        album_title__icontains: albumTitle,
+        ...filtering
+    }
     return api.get(
-      `/users/${username}/ratings?page=${page}&limit=10&ordering=${ordering}&album_title__icontains=${albumTitle}`  
+        `/users/${username}/ratings/`, {params: params}  
     );
 }
 
-export function getReviews({username, page=1, albumTitle="", ordering=""}){
+export function getReviews({username, page=1, albumTitle="", ordering="", filtering={}}){
     return api.get(
       `/users/${username}/reviews?page=${page}&limit=10&ordering=${ordering}&album_title__icontains=${albumTitle}`  
     );

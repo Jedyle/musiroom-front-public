@@ -18,7 +18,7 @@ const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
           <div className="field">
             <label className="label">Genre</label>
             <div className="control is-expanded">
-              <div className="select is-fullwidth">
+        <div className="select is-fullwidth">
                 <select value={currentGenre} onChange={(e) => onChange(e.target.value, currentPeriod)}>
                   <option value="all">All</option>
                   {genres.map((genre) => (

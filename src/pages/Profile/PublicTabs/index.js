@@ -4,8 +4,7 @@ import ProfileTab from './ProfileTab';
 import ContactsTab from './ContactsTab';
 import ReviewsTab from './ReviewsTab';
 import DiscussionsTab from './DiscussionsTab';
-import InterestsTab from './InterestsTab';
-import RatingsTab from './RatingsTab';
+import CollectionTab from './CollectionTab';
 import ProfileTabs from 'components/Profile/Tabs';
 import Title from 'components/Utils/Title';
 import { Route, Link } from "react-router-dom";
@@ -29,11 +28,11 @@ class PublicProfileTabs extends Component{
                                        />
                 },
                 {
-                    icon: "fa fa-star",
-                    title: "Ratings",
-                    subLink: "/ratings",
+                    icon: "fa fa-headphones",
+                    title: "Collection",
+                    subLink: "/collection",
                     exact: true,
-                    render: (props) => <RatingsTab
+                    render: (props) => <CollectionTab
                                          {...props}
                                          profile={this.props.profile}
                                        />
@@ -44,16 +43,6 @@ class PublicProfileTabs extends Component{
                     subLink: "/reviews",
                     exact: true,
                     render: (props) => <ReviewsTab
-                                         {...props}
-                                         profile={this.props.profile}
-                                       />
-                },
-                {
-                    icon: "fa fa-map-marker",
-                    title: "Interests",
-                    subLink: "/interests",
-                    exact: true,
-                    render: (props) => <InterestsTab
                                          {...props}
                                          profile={this.props.profile}
                                        />

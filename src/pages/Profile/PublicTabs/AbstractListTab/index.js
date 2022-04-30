@@ -12,6 +12,7 @@ class AbstractListTab extends Component {
             previousPageUrl: null,
             nextPageUrl: null,
             orderingIndex: 0,
+            filteringIndex: 0,
             results: []
         };
         this.onPressEnter = this.onPressEnter.bind(this);
@@ -29,7 +30,8 @@ class AbstractListTab extends Component {
         if ((this.props.profile !== prevProps.profile) || (
             this.state.currentPage !== prevState.currentPage ||
                 this.state.albumTitleQuery !== prevState.albumTitleQuery ||
-                this.state.orderingIndex !== prevState.orderingIndex
+                this.state.orderingIndex !== prevState.orderingIndex ||
+                this.state.filteringIndex !== prevState.filteringIndex
         )){
             this.fetchBaseElementsFromApi();
         }
@@ -61,7 +63,8 @@ class AbstractListTab extends Component {
                 username: this.props.profile.user,
                 page: this.state.currentPage,
                 albumTitle: this.state.albumTitleQuery,
-                ordering: this.props.orderingFields ? this.props.orderingFields[this.state.orderingIndex] : ''
+                ordering: this.props.orderingFields ? this.props.orderingFields[this.state.orderingIndex][0] : '',
+                filtering: this.props.filteringFields ? this.props.filteringFields[this.state.filteringIndex][2] : {}
             }
         ).then(
             (response) => {
@@ -80,15 +83,36 @@ class AbstractListTab extends Component {
             <div className="columns is-multiline">
               <div className="column is-12">
                 {this.props.header}
-                <Paginator
-                  currentPage={this.state.currentPage}
-                  previousPageUrl={this.state.previousPageUrl}
-                  nextPageUrl={this.state.nextPageUrl}
-                  onPreviousPage={this.onPreviousPage}
-                  onNextPage={this.onNextPage}
-                />
+                  <Paginator
+                    currentPage={this.state.currentPage}
+                    previousPageUrl={this.state.previousPageUrl}
+                    nextPageUrl={this.state.nextPageUrl}
+                    onPreviousPage={this.onPreviousPage}
+                    onNextPage={this.onNextPage}
+                  />
+                
+                {this.props.filteringFields &&
+                 <p className="select has-padding-left-10 has-margin-top-5">
+                   <select value={this.props.filteringFields[this.state.filteringIndex][0]}
+                           onChange={(e) => {                               
+                               this.setState(
+                                   {
+                                       filteringIndex: this.props.filteringFields.map(el => el[0]).indexOf(e.target.value),
+                                       currentPage: 1
+                                   }
+                               );}}>
+                     {this.props.filteringFields.map(
+                         (filtering) => (
+                             <option value={filtering[0]}>{filtering[1]}</option>
+                         )
+                         
+                     )}
+                   </select>
+                 </p>                                 
+                }
+
                 {this.props.orderingFields &&
-                 <p className="select is-pulled-right has-padding-left-10 had-margin-top-10">
+                 <p className="select has-padding-left-10 has-margin-top-5">
                    <select value={this.props.orderingFields[this.state.orderingIndex][0]}
                            onChange={(e) => {
                                this.setState(
@@ -106,6 +130,9 @@ class AbstractListTab extends Component {
                    </select>
                  </p>                
                 }
+
+
+                
                 <Filtrator
                   onPressEnter={this.onPressEnter}
                 />

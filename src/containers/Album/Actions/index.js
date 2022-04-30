@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddToListButton from 'containers/Album/Actions/AddToList';
 import AddToInterests from 'containers/Album/Actions/AddToInterests';
+import AddToCollection from 'containers/Album/Actions/AddToCollection';
 import RateAlbum from 'containers/Album/Actions/RateAlbum';
 import { createReviewUrl, getReviewUrl } from 'pages/urls';
 
 import { getUser } from 'services/Auth/api';
-import { getUserRating, changeInterest, changeRating, deleteRating } from 'services/OwnRatings';
+import { getUserRating, changeInterest, changeRating, deleteRating, changeCollection } from 'services/OwnRatings';
 
 class RatingActions extends Component {
 
@@ -29,7 +30,6 @@ class RatingActions extends Component {
                 userRating: response.data
             });
         }).catch(error => {
-            console.log("lol", error);
             if (error.response.status === 404){
                 this.setState({
                     userRating: null
@@ -43,17 +43,29 @@ class RatingActions extends Component {
     }
 
     onDeleteRating = () => {
-        let doDelete = true;
-        if (this.state.userRating.review){
-            doDelete = window.confirm("This will also delete your review ! Proceed ?");
-        }
-        if (doDelete){
-            deleteRating(this.props.rating, this.state.userRating, (response) => {this.setState({userRating: response.data})});
-        }
+        deleteRating(this.props.rating, this.state.userRating, (response) => {this.setState({userRating: response.data})});
     }
 
     onChangeInterest = () => {
-        changeInterest(this.props.rating, this.state.userRating, (response) => {this.setState({userRating: response.data})});    
+        changeInterest(this.props.rating, this.state.userRating, (response) => {
+            if (response.status === 200 || response.status === 201){
+                this.setState({userRating: response.data})                
+            }
+            else if (response.status === 204){
+                this.setState({userRating: null})
+            }            
+        });    
+    }
+
+    onChangeCollection = () => {
+        changeCollection(this.props.rating, this.state.userRating, (response) => {
+            if (response.status === 200 || response.status === 201){
+                this.setState({userRating: response.data})                
+            }
+            else if (response.status === 204){
+                this.setState({userRating: null})
+            }
+        });    
     }
 
     
@@ -78,6 +90,10 @@ class RatingActions extends Component {
                 <AddToInterests
                   onChangeInterest={this.onChangeInterest}
                   interest={userRating ? userRating.is_interested : false}
+                />
+                <AddToCollection
+                  onChangeCollection={this.onChangeCollection}
+                  inCollection={userRating ? userRating.is_in_collection : false}                  
                 />
                 { userRating && (
                     userRating.review ?
