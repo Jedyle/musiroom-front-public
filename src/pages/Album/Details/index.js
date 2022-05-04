@@ -9,6 +9,7 @@ import AlbumsFromSameArtist from 'containers/Album/AlbumsFromSameArtist';
 import { getAlbumGenresUrl } from 'pages/urls';
 import { getUser } from 'services/Auth/api';
 import Title from 'components/Utils/Title';
+import Head from 'components/Utils/Head';
 
 const PleaseSubmitGenreMessage = ({
     album
@@ -27,7 +28,6 @@ const PleaseSubmitGenreMessage = ({
 
 const DetailsPage = ({album}) => (
     <div className="columns is-multiline">
-      <Title title={album.title}/>
       <div className="column is-12-mobile is-8-desktop">
         <h1 className="title is-size-2">{album.title}</h1>
         <RatingActions

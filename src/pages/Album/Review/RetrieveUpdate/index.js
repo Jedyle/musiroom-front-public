@@ -14,7 +14,7 @@ import { UserLink } from 'containers/Links';
 import UserSummaryPanel from 'components/Profile/UserSummaryPanel';
 import ReviewEditModal from 'components/Album/Review/EditModal';
 import HeadLine from 'components/Utils/HeadLine';
-import Title from 'components/Utils/Title';
+import Head from 'components/Utils/Head';
 
 import 'pages/Album/Review/index.css';
 import 'containers/StarRatings/Tags/index.css';
@@ -102,7 +102,12 @@ export default class RetrieveUpdateReview extends Component {
         let { review } = this.state;
         return review && (
             <div className="column is-full-mobile is-two-thirds-widescreen">
-              <Title title={`${review.title} - Review by m${review.rating.user.username} on ${album.title}`}/>
+              <Head
+                title={`${review.title}`}
+                description={`Review by ${review.rating.user.username} on ${album.title}`}
+                image={album.media_cover}
+                url={window.location.href}
+              />
               <HeadLine
                 title={review.title}
                 heroClasses="is-light"

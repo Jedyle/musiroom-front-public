@@ -5,7 +5,6 @@ import { getAlbumGenres, voteOnAlbumGenre, addAlbumGenre } from 'services/Albums
 import { listAllGenres } from 'services/Genres';
 import SubmitAlbumGenreForm from 'containers/Album/Genres/SubmitAlbumGenreForm';
 import VoteAlbumGenre from 'containers/Album/Genres/VoteAlbumGenre';
-import Title from 'components/Utils/Title';
 
 export default class AlbumGenresPage extends Component {
 
@@ -62,7 +61,6 @@ export default class AlbumGenresPage extends Component {
     render(){
         return(
             <div className="columns is-multiline">
-              <Title title={"Genres for " + this.props.album.title}/>
               <Link to={getAlbumUrl(this.props.album.mbid)}>
                 {"< "} Back to album
               </Link>

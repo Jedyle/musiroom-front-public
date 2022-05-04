@@ -5,11 +5,12 @@ import DetailsPage from './Details';
 import AlbumGenresPage from './Genres';
 import CreateReview from './Review/Create';
 import RetrieveUpdateReview from './Review/RetrieveUpdate';
-import { getAlbumGenresUrl, createReviewUrl, getReviewUrl, getDiscussionsUrlForObject } from 'pages/urls';
+import { getAlbumUrl, getAlbumGenresUrl, createReviewUrl, getReviewUrl, getDiscussionsUrlForObject } from 'pages/urls';
 import { CreateDiscussionLink } from 'containers/Links';
 import AlbumSidebar from 'components/Album/Sidebar';
 import TrackList from 'components/Album/TrackList';
 import { trackAnalytics } from 'utils/track';
+import Head from 'components/Utils/Head';
 
 const ExtendedSidebar = ({album}) => (
     <>
@@ -68,6 +69,12 @@ class AlbumDetails extends Component {
         if (this.state.album){
             return (
                 <div className="columns is-multiline is-marginless is-paddingless">
+                  <Head
+                    title={this.state.album.title}
+                    description={`${this.state.album.title} ${this.state.album.artists && "from " + this.state.album.artists[0].name}`}
+                    image={this.state.album.media_cover}
+                    url={window.location.href + getAlbumUrl(this.state.album.mbid)}
+                  />
                   <div className="column is-12-mobile is-3-desktop">
                     <ExtendedSidebar album={this.state.album}/>                  
                   </div>

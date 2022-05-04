@@ -36,7 +36,7 @@ const AlbumSidebar = ({
                                   to={getArtistUrl(artist.mbid)}>
                               {artist.name}
                             </Link>)
-                    )
+                    ).reduce((prev, curr) => [prev, ', ', curr])
                 }
               </p>             
             </li>
