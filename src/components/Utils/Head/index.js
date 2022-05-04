@@ -15,6 +15,7 @@ const Head = ({title, overrideTitle=false, description, image, url}) => {
 	    <meta name="twitter:url" content={image} />
 	    <meta name="twitter:card" content={description} />	 
 	</Helmet>
-)};
+    );
+};
 
 export default Head;

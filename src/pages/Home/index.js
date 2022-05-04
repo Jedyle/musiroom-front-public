@@ -28,7 +28,7 @@ const Home = () => {
 	      title="MusiRoom"
 	      overrideTitle={true}
               description="Your musical library"
-              image={window.location.href + "logo_crop_black.png"}
+              image={process.env.REACT_APP_FRONTEND_URL + "/logo_crop_black.png"}
               url={window.location.href}
 	    />
             <div className="column is-12">

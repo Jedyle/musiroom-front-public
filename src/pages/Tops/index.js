@@ -6,7 +6,7 @@ import { getTopUrl } from 'pages/urls';
 import { getTop } from 'services/Tops';
 import AlbumList from 'containers/AlbumList';
 import HeadLine from 'components/Utils/HeadLine';
-import Title from 'components/Utils/Title';
+import Head from 'components/Utils/Head';
 import { trackAnalytics } from 'utils/track';
 
 const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
@@ -110,7 +110,12 @@ class Top extends Component {
         let { genres, topAlbums } = this.state;
         return (
             <div className="columns is-mobile is-multiline">
-              <Title title={this.getTitle()}/>
+              <Head
+                title={this.getTitle()}
+                description={this.getTitle()}
+                image={process.env.REACT_APP_FRONTEND_URL + "/logo_crop_black.png"}
+                url={window.location.href}
+              />
               <div className="column is-12">
                 <br/>
                 <HeadLine

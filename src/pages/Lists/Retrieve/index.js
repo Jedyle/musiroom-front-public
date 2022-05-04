@@ -7,7 +7,7 @@ import ListContent from './content';
 import { updateList } from 'services/Lists';
 import ListDescription from './description';
 import Avatar from 'components/Profile/Avatar';
-import Title from 'components/Utils/Title';
+import Head from 'components/Utils/Head';
 import { trackAnalytics } from 'utils/track';
 
 export default class RetrieveList extends Component {
@@ -87,7 +87,12 @@ export default class RetrieveList extends Component {
         const { list, newDescription, isEditable } = this.state;
         return list && (
             <div>
-              <Title title={`${list.title} - Liste de ${list.user.username}`}/>
+              <Head
+                title={`${list.title} - a ${list.user.username}'s list`}
+                description={`${list.title} - by ${list.user.username}`}
+                image={process.env.REACT_APP_FRONTEND_URL + "/logo_crop_black.png"}
+                url={window.location.href}
+              />
               <section className="hero is-light">
                 <div className="hero-body">
                   <div className="container">
