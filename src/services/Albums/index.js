@@ -8,6 +8,10 @@ export function getAlbumYoutubeLink(mbid){
     return api.get(`/albums/${mbid}/youtube_link`);
 }
 
+export function getAlbumSpotifyLink(mbid){
+    return api.get(`/albums/${mbid}/spotify_link`);
+}
+
 export function getAlbumsFromSameArtist(mbid){
     return api.get(`/albums/${mbid}/same_artist`);
 }
@@ -17,7 +21,7 @@ export function listAlbums(title='', perPage=10){
 }
 
 export function getLatestAlbums(){
-    return api.get(`/albums/latest/`)
+    return api.get(`/albums/latest/`);
 }
 
 export function getAlbumGenres(mbid){

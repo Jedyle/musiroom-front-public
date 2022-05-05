@@ -5,6 +5,7 @@ import ReviewsPanel from 'containers/Reviews/Panel';
 import AllRatingsStats from 'components/Album/Stats/AllRatings';
 import FolloweesRatingsStats from 'components/Album/Stats/FolloweesRatings';
 import AlbumYoutubeLink from 'components/Album/YoutubeLink';
+import AlbumSpotifyLink from 'components/Album/SpotifyLink';
 import AlbumsFromSameArtist from 'containers/Album/AlbumsFromSameArtist';
 import { getAlbumGenresUrl } from 'pages/urls';
 import { getUser } from 'services/Auth/api';
@@ -63,10 +64,13 @@ const DetailsPage = ({album}) => (
             </>  
         )}
         <br/>
-        <div className="columns is-mobile has-margin-right-10">
+        <div className="columns is-mobile has-margin-right-10 is-multiline">
           <AlbumYoutubeLink
             mbid={album.mbid}
           />
+          <AlbumSpotifyLink
+            mbid={album.mbid}
+          />          
         </div>
         <br/>
         <AlbumsFromSameArtist

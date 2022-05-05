@@ -1,16 +1,16 @@
 import React from 'react';
 
-const AlbumYoutubeLink = ({
+const AlbumSpotifyLink = ({
     link
-}) => (
+}) => (link &&
       <a
         href={link}
         rel="noopener"
         target="_blank"
-        className="button is-fullwidth has-background-sanguine has-text-white">
+        className="button is-fullwidth has-background-success has-text-white">
         <i className="fa fa-play-circle" style={{marginRight: '7px'}}></i>
-        Youtube
+        Spotify
       </a>
 );
 
-export default AlbumYoutubeLink;
+export default AlbumSpotifyLink;
