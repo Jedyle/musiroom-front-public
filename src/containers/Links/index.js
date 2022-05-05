@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { profileUrl, createGenreUrl, discussionCreateOnTopicUrl, discussionCreateUrl, getDiscussionUrl, getAlbumUrl, getReviewUrl, getArtistUrl } from 'pages/urls';
+import { profileUrl, createGenreUrl, discussionCreateOnTopicUrl, discussionCreateUrl, getDiscussionUrl, getAlbumUrl, getReviewUrl, getArtistUrl, getListUrl } from 'pages/urls';
 import SwitchLogButton from 'containers/LoginFilters/SwitchLogButton';
 
 
@@ -51,4 +51,8 @@ export const GetDiscussionLink = ({id, name}) => (
 
 export const GetReviewLink = ({albumId, reviewId, title}) => (
     <Link to={getReviewUrl(albumId, reviewId)}>{title}</Link>
+);
+
+export const GetListLink = ({id, name}) => (
+    <Link to={getListUrl(id)}>{name}</Link>
 );

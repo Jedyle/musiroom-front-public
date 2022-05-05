@@ -1,10 +1,11 @@
 import React from 'react';
-import { GetAlbumLink, GetDiscussionLink, GetReviewLink, UserLink } from 'containers/Links';
+import { Link } from 'react-router-dom';
+import { GetAlbumLink, GetDiscussionLink, GetReviewLink, UserLink, GetListLink } from 'containers/Links';
 
 function ActionTarget({contentType, object}){
     switch (contentType){
     case null || undefined:
-        return null
+        return null;
     case "album":
         return (
             <>
@@ -24,7 +25,13 @@ function ActionTarget({contentType, object}){
             </>
         );
     case "user":
-        return <UserLink username={object.name}/>
+        return <UserLink username={object.name}/>;
+    case "listobj":
+        return (
+            <>
+              to the list <GetListLink name={object.name} id={object.id}/>
+            </>
+        );
     default:
         return object && <span>{object.name}</span>;
     }
