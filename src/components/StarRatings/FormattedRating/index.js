@@ -10,7 +10,7 @@ const FormattedUserRating = ({userRating}) => {
                 <span className="icon" title="In collection">
                   <i className="fa fa-headphones"></i>
                 </span>                    
-            )
+            );
         }
         else if (userRating.is_interested){
             return (
