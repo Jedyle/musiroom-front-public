@@ -7,10 +7,12 @@ import Paginator from 'components/Utils/Paginator';
 import { getUser } from 'services/Auth/api';
 import { getUserRatingsForRatings } from 'services/Ratings';
 import { search } from 'services/Search';
-import { getAlbumUrl } from 'pages/urls';
+import { getAlbumUrl, getSearchUrl } from 'pages/urls';
 import { previewUrl } from 'utils/urls';
 
 import Avatar from 'components/Profile/Avatar';
+
+import './style.css';
 
 class SearchAlbum extends Component {
 
@@ -75,7 +77,7 @@ class SearchAlbum extends Component {
             onAddAlbum();
         });
     }
-    
+
     render(){
 
         let { query, results } = this.state;
@@ -94,6 +96,11 @@ class SearchAlbum extends Component {
                     onChange={this.onChange}
                   />
                 </p>
+                <p>Can't find an album ? {"  "}
+                  <Link
+                    to={getSearchUrl() + `?model=album&query=${query}`}
+                    target="_blank" rel="noopener noreferrer"
+                  >Advanced search</Link></p>
               </div>
               <div>
                 {results.map((album) => (                    
@@ -131,7 +138,7 @@ class SearchAlbum extends Component {
                         </div>
                       </article>
                     </div>
-                ))}
+                ))}                
               </div>
             </div>
         );
@@ -173,7 +180,7 @@ class AddAlbumSection extends Component {
               </div>
               <div className={`modal ${isActive && 'is-active'}`}>
                 <div className="modal-background"></div>
-                <div className="modal-card">
+                <div className="modal-card modal-card-fullwidth">
                   <header className="modal-card-head">
                     <p className="modal-card-title">Add an album</p>
                     <button
