@@ -8,7 +8,7 @@ const AlbumLinks = ({youtube, spotify}) => (
          rel="noopener"
          target="_blank"
          className="button is-fullwidth has-background-sanguine has-text-white">
-         <i className="fa fa-play-circle" style={{marginRight: '7px'}}></i>
+         <i className="fa fa-youtube" style={{marginRight: '7px'}}></i>
          Youtube
        </a>
       }
@@ -18,7 +18,7 @@ const AlbumLinks = ({youtube, spotify}) => (
          rel="noopener"
          target="_blank"
          className="button is-fullwidth has-background-success has-text-white">
-         <i className="fa fa-play-circle" style={{marginRight: '7px'}}></i>
+         <i className="fa fa-spotify" style={{marginRight: '7px'}}></i>
          Spotify
        </a>      
       }
