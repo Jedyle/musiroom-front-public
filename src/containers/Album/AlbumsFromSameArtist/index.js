@@ -37,7 +37,7 @@ export class AlbumsFromSameArtist extends Component {
     render() {
         return (
             <>
-              <h1 className="title is-size-5 has-text-centered">From the same artist</h1>
+              <h1 className="title is-size-5 has-text-centered">By the same artist</h1>
               <ShortAlbumList
                 albums={this.state.similarAlbums}
               />

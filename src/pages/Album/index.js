@@ -71,7 +71,7 @@ class AlbumDetails extends Component {
                 <div className="columns is-multiline is-marginless is-paddingless">
                   <Head
                     title={this.state.album.title}
-                    description={`${this.state.album.title} ${this.state.album.artists && "from " + this.state.album.artists[0].name}`}
+                    description={`${this.state.album.title} ${this.state.album.artists && "by " + this.state.album.artists[0].name}`}
                     image={this.state.album.media_cover}
                     url={window.location.href + getAlbumUrl(this.state.album.mbid)}
                   />
