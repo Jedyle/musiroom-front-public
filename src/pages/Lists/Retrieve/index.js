@@ -89,7 +89,7 @@ export default class RetrieveList extends Component {
             <div>
               <Head
                 title={`${list.title} - by ${list.user.username}`}
-                description={`${list.title} - by ${list.user.username}`}
+                description={list.description}
                 image={process.env.REACT_APP_FRONTEND_URL + "/logo_crop_black.png"}
                 url={window.location.href}
               />
