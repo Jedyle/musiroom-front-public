@@ -29,7 +29,7 @@ const AlbumSidebar = ({
                 <Link to={getAlbumUrl(mbid)}>{title}</Link>
               </h4>
               <p>
-                {
+                {   artists.length >= 1 && 
                     artists.map(
                         (artist) => (
                             <Link key={artist.mbid}
