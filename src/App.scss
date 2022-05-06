@@ -40,4 +40,7 @@ $link: #4F6457;
 
 @import '../node_modules/bulma/bulma.sass';
 @import '../node_modules/bulma-helpers/bulma-helpers.sass';
-@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";

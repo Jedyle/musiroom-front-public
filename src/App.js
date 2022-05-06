@@ -43,7 +43,7 @@ const NotFound = () => {
         <div>          
           <h1>This page was not found</h1>
         </div>
-    )
+    );
 };
 
 const mbidRegex = "([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})";
