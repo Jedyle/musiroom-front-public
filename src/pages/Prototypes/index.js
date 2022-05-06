@@ -14,7 +14,6 @@ import ProfileTabs from 'components/Profile/Tabs';
 import DiscussionListItem from 'components/Discussions/List/ListItem';
 import AlbumSidebar from 'components/Album/Sidebar';
 import TrackList from 'components/Album/TrackList';
-import AlbumYoutubeLink from 'components/Album/YoutubeLink';
 import ArtistSidebar from 'components/Artist/Sidebar';
 import GenreTree from 'components/Genre/Tree';
 import AlbumSearch from 'components/Search/Album';
@@ -413,13 +412,6 @@ class Prototypes extends React.Component {
                     }
                 ]
             }
-        },
-        AlbumYoutubeLink: {
-            component: AlbumYoutubeLink,
-            props: {
-                link: "https://youtube.com/watch?v=NRmIZ6IP9Jw"
-            },
-            screenSize: 'is-3-widescreen'
         },
         GenreTree: {
             component: GenreTree,

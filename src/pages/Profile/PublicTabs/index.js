@@ -10,7 +10,7 @@ import Head from 'components/Utils/Head';
 import { Route, Link } from "react-router-dom";
 import { join } from 'utils/urls';
 
-class PublicProfileTabs extends Component{
+class PublicProfileTabs extends Component {
 
     constructor(props){
         super(props);
@@ -89,9 +89,7 @@ class PublicProfileTabs extends Component{
                 description={`Discover ${this.props.profile.user}'s profile and collection.`}
                 image={this.props.profile.avatar}
                 url={window.location.href}
-              />
-
-              
+              />              
               <ProfileTabs
                 tabs = {this.state.tabs.map((tab, index) => (
                     <Link to={join(this.props.match.url, tab.subLink)} activeClassName="is-active">

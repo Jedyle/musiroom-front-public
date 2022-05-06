@@ -4,12 +4,8 @@ export function getAlbum(mbid){
     return api.get(`/albums/${mbid}`);
 }
 
-export function getAlbumYoutubeLink(mbid){
-    return api.get(`/albums/${mbid}/youtube_link`);
-}
-
-export function getAlbumSpotifyLink(mbid){
-    return api.get(`/albums/${mbid}/spotify_link`);
+export function getAlbumLinks(mbid){
+    return api.get(`/albums/${mbid}/links`);
 }
 
 export function getAlbumsFromSameArtist(mbid){
