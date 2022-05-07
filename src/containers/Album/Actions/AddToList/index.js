@@ -196,7 +196,7 @@ class Base extends Component {
                 onToggleActive={this.onToggleActive}
               />
               <button
-                className={`button has-margin-right-5 ${buttonClasses}`}
+                className={`button has-margin-right-5 mb-1 ${buttonClasses}`}
                 onClick={() => {this.setState({modalIsActive: true});}}
               >
                 {children}
@@ -209,7 +209,7 @@ class Base extends Component {
 
 const AddToListButton = ({children, ...props}) => (
     <SwitchLogButton
-      className="button has-margin-right-5 is-medium"
+      className="button has-margin-right-5 has-margin-bottom-2 is-medium"
       {...props}
       userRendering={(props) => <Base{...props}>{children}</Base>}
       anonymousChildren={children}

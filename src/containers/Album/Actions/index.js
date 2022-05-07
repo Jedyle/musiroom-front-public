@@ -127,7 +127,7 @@ class RatingActions extends Component {
                     :
                     (
                         userRating.score &&
-                        <Link className="button ml-1" to={createReviewUrl(mbid)}>
+                        <Link className="button ml-1 mb-1" to={createReviewUrl(mbid)}>
                           Write a review
                         </Link>
                     )
