@@ -8,7 +8,7 @@ function Base({ onChangeCollection, inCollection, contentInCollection = "In coll
         <button
           {...props}
           onClick={onChangeCollection}
-          className={`button ${inCollection && "is-success"}`}
+          className={`button has-margin-right-5 ${inCollection && "is-success"}`}
         >
           {inCollection ? contentInCollection : contentNotInCollection}
         </button>

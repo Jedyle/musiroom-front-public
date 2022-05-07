@@ -145,7 +145,7 @@ const ListsModal = ({mbid, isActive, onToggleActive}) => (
       <div className="modal-background"></div>
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">Add to List</p>
+          <p className="modal-card-title">Add to list</p>
           <button
             className="delete"
             aria-label="close"
@@ -209,7 +209,7 @@ class Base extends Component {
 
 const AddToListButton = ({children, ...props}) => (
     <SwitchLogButton
-      className="button has-margin-right-5"
+      className="button has-margin-right-5 is-medium"
       {...props}
       userRendering={(props) => <Base{...props}>{children}</Base>}
       anonymousChildren={children}

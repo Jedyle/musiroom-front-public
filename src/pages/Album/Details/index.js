@@ -9,8 +9,7 @@ import AlbumsFromSameArtist from 'containers/Album/AlbumsFromSameArtist';
 import { getAlbumGenresUrl } from 'pages/urls';
 import { getUser } from 'services/Auth/api';
 import { getAlbumLinks } from 'services/Albums';
-import Title from 'components/Utils/Title';
-import Head from 'components/Utils/Head';
+
 
 const PleaseSubmitGenreMessage = ({
     album

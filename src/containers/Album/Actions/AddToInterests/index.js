@@ -8,7 +8,7 @@ function Base({ onChangeInterest, interest, contentWhenInterest = "I want to lis
         <button
           {...props}
           onClick={onChangeInterest}
-          className={`button ${interest && "is-success"}`}
+          className={`button has-margin-right-5 ${interest && "is-success"}`}
         >
           {interest ? contentWhenInterest : contentWhenNoInterest}
         </button>

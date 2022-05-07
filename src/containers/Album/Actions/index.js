@@ -86,14 +86,37 @@ class RatingActions extends Component {
               <div>
                 <AddToListButton
                   mbid={mbid}
-                >Add to List</AddToListButton>
+                >
+                  <i className="fa fa-list" style={{marginRight: "7px"}}></i> {"  "}
+                  Add to list
+                </AddToListButton>
                 <AddToInterests
                   onChangeInterest={this.onChangeInterest}
                   interest={userRating ? userRating.is_interested : false}
+                  contentWhenInterest={
+                      <>
+                        <i className="fa fa-map-marker" style={{marginRight: "7px"}}></i> {" "} I want to listen
+                      </>                   
+                  }
+                  contentWhenNoInterest={
+                      <>
+                        <i className="fa fa-map-marker" style={{marginRight: "7px"}}></i> {" "} Listen later
+                      </>
+                  }
                 />
                 <AddToCollection
                   onChangeCollection={this.onChangeCollection}
-                  inCollection={userRating ? userRating.is_in_collection : false}                  
+                  inCollection={userRating ? userRating.is_in_collection : false}
+                  contentInCollection={
+                      <>
+                        <i className="fa fa-headphones" style={{marginRight: "7px"}}></i> {" "} In my collection
+                      </>                      
+                  }
+                  contentNotInCollection={
+                      <>
+                        <i className="fa fa-headphones" style={{marginRight: "7px"}}></i> {" "} Add to my collection
+                      </>
+                  }
                 />
                 { userRating && (
                     userRating.review ?
