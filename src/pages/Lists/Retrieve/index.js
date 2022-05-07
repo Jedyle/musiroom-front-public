@@ -90,16 +90,6 @@ export default class RetrieveList extends Component {
             });
         });
     }
-
-    // viewComponent = () => {
-    //     if (this.props.location.pathname === getListUrl(this.props.list.id)){
-    //         return BulletView;
-    //     }
-    //     else if (this.props.location.path === getListGalleryUrl(this.props.list.id)){
-    //         return ListGalleryView;
-    //     }
-    //     return <div></div>
-    // };
     
     render() {
         const { list, newDescription, isEditable } = this.state;
@@ -172,13 +162,15 @@ export default class RetrieveList extends Component {
                   <div className="columns is-mobile is-multiline">
                     <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
                       <br className="mt-6 mb-6"/>
-                      <LikeDislikePanel
-                        numVoteUp={list.num_vote_up}
-                        onToggleVoteUp={() => {this.onToggleVote("up");}}
-                        numVoteDown={list.num_vote_down}
-                        onToggleVoteDown={() => {this.onToggleVote("down");}}
-                        loggedUserVote={list.user_vote}
-                      />
+                      <div>
+                        <LikeDislikePanel
+                          numVoteUp={list.num_vote_up}
+                          onToggleVoteUp={() => {this.onToggleVote("up");}}
+                          numVoteDown={list.num_vote_down}
+                          onToggleVoteDown={() => {this.onToggleVote("down");}}
+                          loggedUserVote={list.user_vote}
+                        />
+                      </div>
                       <br className="mt-6 mb-6"/>
                       <UserSummaryPanel
                         user={list.user}
