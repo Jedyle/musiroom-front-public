@@ -35,7 +35,8 @@ export function getListItems({id, page=1, perPage=10}){
         params: {
             page: page,
             limit: perPage
-        }
+        },
+        validateStatus: (status) => status < 500
     });
 }
 

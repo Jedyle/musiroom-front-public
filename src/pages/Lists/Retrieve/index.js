@@ -10,8 +10,9 @@ import Head from 'components/Utils/Head';
 import { trackAnalytics } from 'utils/track';
 import { Route, Link } from "react-router-dom";
 import { getListUrl, getListGalleryUrl } from 'pages/urls';
-import ListContent from './content';
-import ListGalleryView from './galleryView';
+import ListView from './view';
+import BulletView from './BulletView';
+import ListGalleryView from './GalleryView';
 
 export default class RetrieveList extends Component {
 
@@ -24,13 +25,17 @@ export default class RetrieveList extends Component {
         };
     }
 
-    componentDidMount(){
-        trackAnalytics();
-        getList(this.props.match.params.listId).then((response) => {
+    fetchList = (id) => {
+        getList(id).then((response) => {
             this.setState({
                 list: response.data,
             });
-        });
+        });        
+    }
+
+    componentDidMount(){
+        trackAnalytics();
+        this.fetchList(this.props.match.params.listId);
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -85,6 +90,16 @@ export default class RetrieveList extends Component {
             });
         });
     }
+
+    // viewComponent = () => {
+    //     if (this.props.location.pathname === getListUrl(this.props.list.id)){
+    //         return BulletView;
+    //     }
+    //     else if (this.props.location.path === getListGalleryUrl(this.props.list.id)){
+    //         return ListGalleryView;
+    //     }
+    //     return <div></div>
+    // };
     
     render() {
         const { list, newDescription, isEditable } = this.state;
@@ -148,22 +163,29 @@ export default class RetrieveList extends Component {
                 </div>
                 <div className="column is-12">
                   <div className="columns is-mobile is-multiline">
-                    <Route
-                      exact path={getListUrl(list.id)}
-                      render={(props) =>
-                              <ListContent
-                                list={list}
-                              />
-                             }
+                    <ListView
+                      list={list}
+                      ViewComponent={this.props.location.pathname === getListGalleryUrl(list.id)? ListGalleryView : BulletView}
+                      onUpdateList={() => this.fetchList(list.id)}
                     />
-                    <Route
-                      exact path={getListGalleryUrl(list.id)}
-                      render={(props) =>
-                              <ListGalleryView
-                                list={list}
-                              />
-                             }
-                  />                                                          
+                    
+                  {/*   <Route */}
+                  {/*     exact path={getListUrl(list.id)} */}
+                  {/*     render={(props) => */}
+                  {/*             <ListContent */}
+                  {/*               list={list} */}
+                  {/*             /> */}
+                  {/*            } */}
+                  {/*   /> */}
+                  {/*   <Route */}
+                  {/*     exact path={getListGalleryUrl(list.id)} */}
+                  {/*     render={(props) => */}
+                  {/*             <ListGalleryView */}
+                  {/*               list={list} */}
+                  {/*             /> */}
+                  {/*            } */}
+                  {/* />                                                           */}
+                    
                   </div>
                   <div className="columns is-mobile is-multiline">
                     <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
@@ -184,8 +206,7 @@ export default class RetrieveList extends Component {
                               style={{fontSize: '22px'}}
                             />
                         }
-                      />                
-
+                      />
                     </div>
                   </div>
                 </div>
