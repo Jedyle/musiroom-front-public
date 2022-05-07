@@ -28,7 +28,7 @@ const ListGallery = ({albums, showIndex=false}) => {
                   {
                       chunk.map(
                           (album, index) => (
-                              <div className="column is-6-mobile is-2-desktop" key={`${chunkIndex}-${index}`}>
+                              <div className="column is-6-mobile is-2-tablet" key={`${chunkIndex}-${index}`}>
                                 <GalleryItem
                                   album={album}
                                   index={chunkIndex * 5 + index}
