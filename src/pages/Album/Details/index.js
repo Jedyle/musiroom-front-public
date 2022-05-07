@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import RatingActions from 'containers/Album/Actions';
 import ReviewsPanel from 'containers/Reviews/Panel';
@@ -34,18 +34,27 @@ const DetailsPage = ({album}) => {
         getAlbumLinks(album.mbid).then((response) => {
             setLinks(response.data);
         });
-    }, []);
+    }, [album.mbid]);
+
+    const linksRef = useRef(null);
+
+    const scrollToLink = () => linksRef.current.scrollIntoView({behavior: 'smooth'});
     
     return (
         <div className="columns is-multiline">
           <div className="column is-12-mobile is-8-desktop">
-            <h1 className="title is-size-2">{album.title}</h1>
+            <h1 className="title is-size-4">{album.title}</h1>
             <RatingActions
               rating={album.rating.id}
               mbid={album.mbid}
               starDimension="29px"
               starSpacing="3px"
             />
+            <button className="button is-normal is-hidden-desktop"
+                    onClick={scrollToLink}
+            >
+        <i className="fa fa-play" style={{marginRight: '7px'}}/>
+              Listen now !</button>                        
           </div>
           <div className="column is-12-mobile is-4-desktop is-3-widescreen is-offset-1-widescreen has-margin-top-20">
             <AllRatingsStats
@@ -74,14 +83,17 @@ const DetailsPage = ({album}) => {
             )}
             <br/>
             <div className="columns is-mobile has-margin-right-10 is-multiline">
-              <AlbumLinks
-                {...links}
-              />
+              <div className="column is-12">
+                <h5 ref={linksRef} className="title has-text-centered is-size-5 mb-1">Listen</h5>
+                <AlbumLinks
+                  {...links}
+                />
+                <br/>
+                <AlbumsFromSameArtist
+                  album={album}
+                />                
+              </div>              
             </div>
-            <br/>
-            <AlbumsFromSameArtist
-              album={album}
-            />
 
           </div>
         </div>

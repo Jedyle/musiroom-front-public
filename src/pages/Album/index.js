@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { getAlbum } from 'services/Albums';
 import DetailsPage from './Details';
@@ -39,78 +39,61 @@ const ExtendedSidebar = ({album}) => (
 );
 
 
-class AlbumDetails extends Component {
+const AlbumDetails = (props) => {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            album: null            
-        };
-    }
+    const [album, setAlbum] = useState(null);
 
-    componentDidMount(){
+    useEffect(() => {
         trackAnalytics();
-        this.fetchAlbum();
-    }
-
-    fetchAlbum(){
-        getAlbum(this.props.match.params.mbid).then(
+        getAlbum(props.match.params.mbid).then(
             (response) => {
-                this.setState(
-                    {
-                        album: response.data
-                    }
-                );
+                setAlbum(response.data);
             }
-        );        
-    }
+        );                
+    }, [props.match.params.mbid]);
+
     
-    render(){
-        if (this.state.album){
-            return (
-                <div className="columns is-multiline is-marginless is-paddingless">
-                  <Head
-                    title={this.state.album.title}
-                    description={`${this.state.album.title} ${this.state.album.artists && "by " + this.state.album.artists[0].name}`}
-                    image={this.state.album.media_cover}
-                    url={window.location.href + getAlbumUrl(this.state.album.mbid)}
-                  />
-                  <div className="column is-12-mobile is-3-desktop">
-                    <ExtendedSidebar album={this.state.album}/>                  
-                  </div>
-                  <div className="column is-12-mobile is-9-desktop has-padding-left-30">
-                    <Route
-                      exact
-                      path={this.props.match.url}
-                      render={(props) => <DetailsPage {...props}
-                                                      album={this.state.album}
-                                         />}
-                    />
-                    <Route exact
-                           path={getAlbumGenresUrl(this.state.album.mbid)}
-                           render={(props) => <AlbumGenresPage {...props}
-                                                               album={this.state.album}/>
-                                  }
-                    />
-                    <Route exact
-                           path={createReviewUrl(this.state.album.mbid)}
-                           render={(props) => <CreateReview {...props}
-                                                            album={this.state.album}
-                                              />}
-                    />
-                    <Route exact
-                           path={getReviewUrl(this.state.album.mbid, ":reviewId")}
-                           render={(props) => <RetrieveUpdateReview {...props}
-                                                              album={this.state.album}
-                                              />}
-                      
-                    />
-                  </div>
-                </div>
-            );
-        }
-        return (<div></div>);
-    }
+    return album ? (
+        <div className="columns is-multiline is-marginless is-paddingless">
+          <Head
+            title={album.title}
+            description={`${album.title} ${album.artists && "by " + album.artists[0].name}`}
+            image={album.media_cover}
+            url={window.location.href + getAlbumUrl(album.mbid)}
+          />
+          <div className="column is-12-mobile is-3-desktop">
+            <ExtendedSidebar album={album}/>                  
+          </div>
+          <div className="column is-12-mobile is-9-desktop has-padding-left-30">
+            <Route
+              exact
+              path={props.match.url}
+              render={(props) => <DetailsPage {...props}
+                                          album={album}
+                                          />}
+            />
+            <Route exact
+                   path={getAlbumGenresUrl(album.mbid)}
+                   render={(props) => <AlbumGenresPage {...props}
+                    album={album}/>
+                          }
+            />
+            <Route exact
+                   path={createReviewUrl(album.mbid)}
+                   render={(props) => <CreateReview {...props}
+                                                        album={album}
+                                               />}
+            />
+            <Route exact
+                   path={getReviewUrl(album.mbid, ":reviewId")}
+                   render={(props) => <RetrieveUpdateReview {...props}
+                         album={album}
+/>}
+              
+            />
+          </div>
+        </div>
+    ) : (<div></div>);
 }
 
 export default AlbumDetails;
