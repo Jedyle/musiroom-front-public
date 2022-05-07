@@ -13,7 +13,7 @@ const AlbumItem = (
         headerContent
     }
 ) => (
-    <div className="columns is-mobile">
+    <div className="columns is-marginless is-mobile">
       {headerContent &&
        <div className="column is-narrow">
          {headerContent}
@@ -36,7 +36,7 @@ const AlbumItem = (
                style={{paddingLeft: "1.5rem"}}>
             <div className="columns is-mobile is-multiline">
               <div className="column is-12-mobile is-8-desktop">
-                <p className="title is-size-4-mobile is-size-3-desktop" style={{marginBottom: '0.5rem'}}>
+                <p className="title is-size-5-mobile is-size-3-desktop" style={{marginBottom: '0.2rem'}}>
                   {rank &&
                    (<>
                       {rank}. {" "}

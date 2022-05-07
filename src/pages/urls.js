@@ -31,6 +31,7 @@ export const getNotificationsUrl = () => '/account/notifications';
 export const listListsUrl = () => `/lists`;
 export const createListUrl = () => `/lists/new`;
 export const getListUrl = (id) => `/lists/detail/${id}`;
+export const getListGalleryUrl = (id) => `/lists/detail/${id}/gallery`;
 
 export const getTopUrl = (genre = "all", period = "all") => `/tops/${genre}/${period}`;
 

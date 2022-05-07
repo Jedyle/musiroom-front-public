@@ -1,21 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import GalleryItem from './Item';
 
-import { getAlbumUrl } from 'pages/urls';
-
-const Gallery = ({albums}) => (
+const Gallery = ({albums, showIndex=false}) => (
     <div className="container is-fluid">
       <div className="columns is-multiline is-mobile is-marginless">
         {albums.map((album, index) => (
             <div className="column is-6-mobile is-4-tablet is-2-desktop"
                  key={index}
             >
-
-              <Link to={getAlbumUrl(album.mbid)}>
-                <figure key={album.media_cover} className="image is-square">
-                  <img alt={album.title} src={album.media_cover} title={album.title}/>
-                </figure>
-              </Link>
+              
+              <GalleryItem
+                album={album}
+                index={index}
+                showIndex={showIndex}
+              />    
             </div>
         ))}
       </div>

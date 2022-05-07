@@ -39,6 +39,14 @@ export function getListItems({id, page=1, perPage=10}){
     });
 }
 
+export function getAllListItems({id}){
+    return api.get(`/lists/${id}/items/`, {
+        params: {
+            no_page: true,
+        }
+    });
+}
+
 export function getListItemPositions(id){
     return api.get(`/lists/${id}/items/positions`);
 }

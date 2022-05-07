@@ -554,7 +554,7 @@ export default class ListContent extends Component {
         );
             
         return (
-            <div>
+            <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
               {count !== null && (
                   <p className="has-text-centered">List of {count} albums</p>
               )}

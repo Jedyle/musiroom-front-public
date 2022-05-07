@@ -204,7 +204,7 @@ function App() {
                                             {...props}
                                           />}
                   />
-                  <Route exact path={getListUrl(":listId(\\d+)")}
+                  <Route path={getListUrl(":listId(\\d+)")}
                          render={props => <RetrieveList
                                             key={props.match.params.listId}
                                             {...props}

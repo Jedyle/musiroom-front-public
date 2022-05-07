@@ -3,12 +3,15 @@ import { getList, voteOnList } from 'services/Lists';
 import { UserLink } from 'containers/Links';
 import LikeDislikePanel from 'containers/LikeDislikePanel';
 import UserSummaryPanel from 'components/Profile/UserSummaryPanel';
-import ListContent from './content';
 import { updateList } from 'services/Lists';
 import ListDescription from './description';
 import Avatar from 'components/Profile/Avatar';
 import Head from 'components/Utils/Head';
 import { trackAnalytics } from 'utils/track';
+import { Route, Link } from "react-router-dom";
+import { getListUrl, getListGalleryUrl } from 'pages/urls';
+import ListContent from './content';
+import ListGalleryView from './galleryView';
 
 export default class RetrieveList extends Component {
 
@@ -121,7 +124,7 @@ export default class RetrieveList extends Component {
                           onSubmit={this.onSubmit}
                           onCancel={this.onCancel}
                           onEdit={this.onEdit}
-                        />                    
+                        />
                       </div>                      
                     </div>
                   </div>
@@ -129,27 +132,66 @@ export default class RetrieveList extends Component {
               </section>
               <div className="columns is-multiline is-mobile">
                 <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
-                  <ListContent
-                    list={list}
+                  <div className="tabs is-centered is-toggle">
+                    <ul>
+                      <Link
+                        className={`button ${this.props.location.pathname === getListUrl(list.id) && 'is-info'}`} to={getListUrl(list.id)}>
+                      <i className="fa fa-list" style={{marginRight: '7px'}}t></i>
+                      Bullet View
+                    </Link>
+                    <Link className={`button ${this.props.location.pathname === getListGalleryUrl(list.id) && 'is-info'}`} to={getListGalleryUrl(list.id)}>
+                      <i className="fas fa-image" style={{marginRight: '7px'}}t></i>
+                      Gallery View
+                    </Link>                  
+                    </ul>
+                  </div>                  
+                </div>
+                <div className="column is-12">
+                  <div className="columns is-mobile is-multiline">
+                    <Route
+                      exact path={getListUrl(list.id)}
+                      render={(props) =>
+                              <ListContent
+                                list={list}
+                              />
+                             }
+                    />
+
+                    <Route
+                      exact path={getListGalleryUrl(list.id)}
+                      render={(props) =>
+                              <ListGalleryView
+                                list={list}
+                              />
+                             }
                   />
-                  <br className="mt-6 mb-6"/>
-                  <LikeDislikePanel
-                    numVoteUp={list.num_vote_up}
-                    onToggleVoteUp={() => {this.onToggleVote("up");}}
-                    numVoteDown={list.num_vote_down}
-                    onToggleVoteDown={() => {this.onToggleVote("down");}}
-                    loggedUserVote={list.user_vote}
-                  />              
-                  <br className="mt-6 mb-6"/>
-                  <UserSummaryPanel
-                    user={list.user}
-                    userLink={
-                        <UserLink
-                          username={list.user.username}
-                          style={{fontSize: '22px'}}
-                        />
-                    }
-                  />                
+
+                                                          
+                  </div>
+
+                  <div className="columns is-mobile is-multiline">
+                    <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
+                      <br className="mt-6 mb-6"/>
+                      <LikeDislikePanel
+                        numVoteUp={list.num_vote_up}
+                        onToggleVoteUp={() => {this.onToggleVote("up");}}
+                        numVoteDown={list.num_vote_down}
+                        onToggleVoteDown={() => {this.onToggleVote("down");}}
+                        loggedUserVote={list.user_vote}
+                      />              
+                      <br className="mt-6 mb-6"/>
+                      <UserSummaryPanel
+                        user={list.user}
+                        userLink={
+                            <UserLink
+                              username={list.user.username}
+                              style={{fontSize: '22px'}}
+                            />
+                        }
+                      />                
+
+                    </div>
+                  </div>
                 </div>
               </div>              
             </div>
