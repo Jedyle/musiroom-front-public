@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { getListUrl } from 'pages/urls';
+import { getListUrl, createListUrl } from 'pages/urls';
 import { getLists } from 'services/Profile';
 import { Link } from 'react-router-dom';
 import AbstractList from 'components/Utils/AbstractList';
+import { getUser } from 'services/Auth/api';
 
 class ListsTabs extends Component {
 
@@ -74,6 +75,11 @@ class ListsTabs extends Component {
                 <hr/>
                 <h4 className="title is-4 has-text-centered">Lists</h4>
                 <hr/>
+                {
+                    (getUser() === this.props.profile.user) &&
+                        <Link className="button is-success mb-3 mt-3" to={createListUrl()}>New list</Link>
+                }
+                <br/>
                 <a
                   className="pagination-previous"
                   disabled={!this.state.previousPage}
