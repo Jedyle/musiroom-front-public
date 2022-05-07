@@ -151,13 +151,13 @@ export default class RetrieveList extends Component {
                     <ul>
                       <Link
                         className={`button ${this.props.location.pathname === getListUrl(list.id) && 'is-info'}`} to={getListUrl(list.id)}>
-                      <i className="fa fa-list" style={{marginRight: '7px'}}t></i>
-                      Bullet View
-                    </Link>
-                    <Link className={`button ${this.props.location.pathname === getListGalleryUrl(list.id) && 'is-info'}`} to={getListGalleryUrl(list.id)}>
-                      <i className="fas fa-image" style={{marginRight: '7px'}}t></i>
-                      Gallery View
-                    </Link>                  
+                        <i className="fa fa-list" style={{marginRight: '7px'}}t></i>
+                        Bullet View
+                      </Link>
+                      <Link className={`button ${this.props.location.pathname === getListGalleryUrl(list.id) && 'is-info'}`} to={getListGalleryUrl(list.id)}>
+                        <i className="fas fa-image" style={{marginRight: '7px'}}t></i>
+                        Gallery View
+                      </Link>                  
                     </ul>
                   </div>                  
                 </div>
@@ -167,25 +167,7 @@ export default class RetrieveList extends Component {
                       list={list}
                       ViewComponent={this.props.location.pathname === getListGalleryUrl(list.id)? ListGalleryView : BulletView}
                       onUpdateList={() => this.fetchList(list.id)}
-                    />
-                    
-                  {/*   <Route */}
-                  {/*     exact path={getListUrl(list.id)} */}
-                  {/*     render={(props) => */}
-                  {/*             <ListContent */}
-                  {/*               list={list} */}
-                  {/*             /> */}
-                  {/*            } */}
-                  {/*   /> */}
-                  {/*   <Route */}
-                  {/*     exact path={getListGalleryUrl(list.id)} */}
-                  {/*     render={(props) => */}
-                  {/*             <ListGalleryView */}
-                  {/*               list={list} */}
-                  {/*             /> */}
-                  {/*            } */}
-                  {/* />                                                           */}
-                    
+                    />                    
                   </div>
                   <div className="columns is-mobile is-multiline">
                     <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
@@ -196,7 +178,7 @@ export default class RetrieveList extends Component {
                         numVoteDown={list.num_vote_down}
                         onToggleVoteDown={() => {this.onToggleVote("down");}}
                         loggedUserVote={list.user_vote}
-                      />              
+                      />
                       <br className="mt-6 mb-6"/>
                       <UserSummaryPanel
                         user={list.user}
@@ -206,7 +188,7 @@ export default class RetrieveList extends Component {
                               style={{fontSize: '22px'}}
                             />
                         }
-                      />
+                      />                      
                     </div>
                   </div>
                 </div>
