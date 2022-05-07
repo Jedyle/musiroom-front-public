@@ -18,7 +18,7 @@ const ListGallery = ({albums, showIndex=false}) => {
     const chunks = sliceIntoChunks(albums, 5);
     
     return (
-    <div className="container is-fluid">
+    <div id="gallery" className="container is-fluid">
       <div className="columns is-multiline is-mobile is-marginless">
 
         {chunks.map(

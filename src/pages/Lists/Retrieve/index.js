@@ -156,7 +156,6 @@ export default class RetrieveList extends Component {
                               />
                              }
                     />
-
                     <Route
                       exact path={getListGalleryUrl(list.id)}
                       render={(props) =>
@@ -164,11 +163,8 @@ export default class RetrieveList extends Component {
                                 list={list}
                               />
                              }
-                  />
-
-                                                          
+                  />                                                          
                   </div>
-
                   <div className="columns is-mobile is-multiline">
                     <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
                       <br className="mt-6 mb-6"/>
