@@ -96,7 +96,7 @@ const ListGallery = ({albums, showIndex=false}) => {
           <div className="container is-fluid">
             <div className="columns">
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
-                <div className="buttons is-pulled-right">
+                <div className="is-pulled-right">
                   <button className={`button is-normal is-link mr-5 ${isLoading && 'is-loading'}`} onClick={handleDownload} >
                     <i className="fa fa-download" style={{marginRight: '7px'}}></i>
                     Download as PNG
