@@ -23,7 +23,7 @@ const GalleryItem = ({album, index, showIndex}) => (
         }
       </h2>
       <h2 style={{textAlign: 'center', fontSize: '1vw'}}>
-        {truncate(album.title, 40)}</h2>                
+        {truncate(album.title, 45)}</h2>                
     </Link>    
 );
 
