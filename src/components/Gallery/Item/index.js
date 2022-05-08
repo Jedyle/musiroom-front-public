@@ -6,7 +6,8 @@ import { truncate } from 'utils/strings'
 
 
 const GalleryItem = ({album, index, showIndex}) => (
-    <Link to={getAlbumUrl(album.mbid)}>
+    // className is important to locate element with selenium !!
+    <Link className="gallery-item" to={getAlbumUrl(album.mbid)}>
       <figure key={album.media_cover} className="image is-square">
         <img alt={album.title} src={album.media_cover} title={album.title}/>
       </figure>

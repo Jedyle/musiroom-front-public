@@ -49,6 +49,7 @@
     "reactjs-tag-input": "^2.0.15",
     "redux": "^4.0.4",
     "sanitize-html": "^1.27.3",
+    "use-screenshot-hook": "^1.0.2",
     "w3-css": "^4.1.0"
   },
   "scripts": {

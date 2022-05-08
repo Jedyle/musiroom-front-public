@@ -67,7 +67,7 @@ const Base = ({
     onToggleVoteDown,
     loggedUserVote
 }) => (
-    <p className="buttons is-pulled-right">
+    <span className="buttons is-pulled-right">
       <LikeButton
         numVoteUp={numVoteUp}
         onToggleVoteUp={onToggleVoteUp}
@@ -78,7 +78,7 @@ const Base = ({
         onToggleVoteDown={onToggleVoteDown}
         loggedUserVote={loggedUserVote}
       />
-    </p>
+    </span>
 );
 
 export default Base;

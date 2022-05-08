@@ -8,7 +8,6 @@ const ListGalleryView = ({list, items, count, lastFetchedPage, authorRatings, on
     for (let page = 1; page <= lastFetchedPage; page++){
         flattenedItems = flattenedItems.concat(items[page]);
     }
-
     let albums = flattenedItems.map(item => item.album);
     
     return (
@@ -23,8 +22,7 @@ const ListGalleryView = ({list, items, count, lastFetchedPage, authorRatings, on
               albums={albums}
               showIndex={list.ordered}
             />
-          </InfiniteScroll>
-          
+          </InfiniteScroll>          
         </div>
     );
 }

@@ -8,7 +8,7 @@ import ListDescription from './description';
 import Avatar from 'components/Profile/Avatar';
 import Head from 'components/Utils/Head';
 import { trackAnalytics } from 'utils/track';
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getListUrl, getListGalleryUrl } from 'pages/urls';
 import ListView from './view';
 import BulletView from './BulletView';
@@ -171,7 +171,9 @@ export default class RetrieveList extends Component {
                           loggedUserVote={list.user_vote}
                         />
                       </div>
-                      <br className="mt-6 mb-6"/>
+                      {/* <br className="mt-6 mb-6"/> */}
+                    </div>
+                    <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
                       <UserSummaryPanel
                         user={list.user}
                         userLink={
