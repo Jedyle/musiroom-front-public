@@ -102,7 +102,9 @@ const ListGallery = ({albums, showIndex=false}) => {
                     Download as PNG
                   </button>
                   <div>
-                    <small style={{fontSize: '10px'}}>Image flawed ? Try again with a better connection.</small>
+                    <small style={{fontSize: '9px'}}>Image flawed ? Try again with a better connection.</small>
+                    <br/>
+                    <small style={{fontSize: '9px'}}>We recommend using this feature on desktop</small>
                   </div>
                 </div>
               </div>                          
