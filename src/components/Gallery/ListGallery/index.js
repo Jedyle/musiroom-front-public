@@ -43,16 +43,16 @@ const ListGallery = ({albums, showIndex=false}) => {
     const chunks = sliceIntoChunks(albums, 5);
 
     const screenshotRef = useRef(0);
-    const { image, takeScreenshot } = useScreenshot({ref: screenshotRef});
+    const { image, takeScreenshot, isLoading } = useScreenshot({ref: screenshotRef});
 
     useEffect(() => {
         downloadImage(image);
-    }, [image]);
+    }, [image, isLoading]);
     
     const downloadImage = (img) => {
         // important because useEffect may be triggered
         // when img becomes undefined (ex: changing page)
-        if (img){
+        if (img && !isLoading){
             let a = document.createElement("a"); //Create <a>
             a.href = img; //Image Base64 Goes here
             a.download = "musiroom_collage.png"; //File name Here
@@ -97,9 +97,10 @@ const ListGallery = ({albums, showIndex=false}) => {
             <div className="columns">
               <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
                 <div className="buttons is-pulled-right">
-                  <button className="button is-normal is-link mr-5" onClick={handleDownload} >
+                  <button className={`button is-normal is-link mr-5 ${isLoading && 'is-loading'}`} onClick={handleDownload} >
                     <i className="fa fa-download" style={{marginRight: '7px'}}></i>
-                    Download as PNG</button>
+                    Download as PNG
+                  </button>
                 </div>
               </div>                          
             </div>
