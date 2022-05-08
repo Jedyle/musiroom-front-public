@@ -160,7 +160,7 @@ export default class RetrieveList extends Component {
                     />                    
                   </div>
                   <div className="columns is-mobile is-multiline">
-                    <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
+                    <div className="column is-12-mobile is-12-tablet is-8-desktop is-offset-2-desktop">
                       <br className="mt-6 mb-6"/>
                       <div>
                         <LikeDislikePanel
@@ -173,7 +173,7 @@ export default class RetrieveList extends Component {
                       </div>
                       {/* <br className="mt-6 mb-6"/> */}
                     </div>
-                    <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
+                    <div className="column is-12-mobile is-12-tablet is-8-desktop is-offset-2-desktop">
                       <UserSummaryPanel
                         user={list.user}
                         userLink={
