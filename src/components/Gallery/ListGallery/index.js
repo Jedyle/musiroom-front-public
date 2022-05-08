@@ -101,6 +101,9 @@ const ListGallery = ({albums, showIndex=false}) => {
                     <i className="fa fa-download" style={{marginRight: '7px'}}></i>
                     Download as PNG
                   </button>
+                  <div>
+                    <small style={{fontSize: '10px'}}>Image flawed ? Try again with a better connection.</small>
+                  </div>
                 </div>
               </div>                          
             </div>
