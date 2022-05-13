@@ -15,7 +15,7 @@ function Base({ onChangeCollection, inCollection, contentInCollection = "In coll
     );        
 }
 
-const AddToCollection = ({anonymousContent = "Add to collection", ...props}) => (
+const AddToCollection = ({anonymousContent = <><i className="fa fa-headphones" style={{marginRight: "7px"}}></i> Add to collection</>, ...props}) => (
     <SwitchLogButton
       {...props}
       userRendering={(props) => <Base {...props}/>}

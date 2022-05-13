@@ -15,7 +15,7 @@ function Base({ onChangeInterest, interest, contentWhenInterest = "I want to lis
     );        
 }
 
-const AddToInterests = ({anonymousContent = "Add to my interests", ...props}) => (
+const AddToInterests = ({anonymousContent = <><i className="fa fa-map-marker" style={{marginRight: "7px"}}></i> Listen later</>, ...props}) => (
     <SwitchLogButton
       {...props}
       userRendering={(props) => <Base {...props}/>}

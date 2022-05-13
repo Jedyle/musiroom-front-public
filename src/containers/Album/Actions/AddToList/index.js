@@ -209,7 +209,7 @@ class Base extends Component {
 
 const AddToListButton = ({children, ...props}) => (
     <SwitchLogButton
-      className="button has-margin-right-5 has-margin-bottom-2 is-medium"
+      className="button has-margin-right-5 has-margin-bottom-2 is-normal"
       {...props}
       userRendering={(props) => <Base{...props}>{children}</Base>}
       anonymousChildren={children}
