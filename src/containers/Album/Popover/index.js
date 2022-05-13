@@ -68,10 +68,12 @@ class PopoverContent extends Component {
                             <RateAlbum
                               userRating={userRating && userRating.score ? userRating.score : 0}
                               changeRating={(score) => {
-                                  changeRating(ratingId, userRating, score, (response) => onChangeRating(response))
+                                  if (!userRating || score !== userRating.score){
+                                      changeRating(ratingId, userRating, score, (response) => onChangeRating(response));   
+                                  }
                               }}
                               deleteRating={(score) => {
-                                  deleteRating(ratingId, userRating, (response) => onChangeRating(response))
+                                  deleteRating(ratingId, userRating, (response) => onChangeRating(response));
                               }}
                               starDimension='20px'
                               starSpacing='0px'                              

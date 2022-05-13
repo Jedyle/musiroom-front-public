@@ -33,26 +33,30 @@ class RatingActions extends Component {
             if (error.response.status === 404){
                 this.setState({
                     userRating: null
-                })
+                });
             }
         });
     }
 
     onChangeRating = (newRating) => {
-        changeRating(this.props.rating, this.state.userRating, newRating, (response) => {this.setState({userRating: response.data})})
+        if (!this.state.userRating || newRating !== this.state.userRating.score){
+            changeRating(this.props.rating, this.state.userRating, newRating, (response) => {
+                this.setState({userRating: response.data});
+            });   
+        }
     }
 
     onDeleteRating = () => {
-        deleteRating(this.props.rating, this.state.userRating, (response) => {this.setState({userRating: response.data})});
+        deleteRating(this.props.rating, this.state.userRating, (response) => {this.setState({userRating: response.data});});
     }
 
     onChangeInterest = () => {
         changeInterest(this.props.rating, this.state.userRating, (response) => {
             if (response.status === 200 || response.status === 201){
-                this.setState({userRating: response.data})                
+                this.setState({userRating: response.data});                
             }
             else if (response.status === 204){
-                this.setState({userRating: null})
+                this.setState({userRating: null});
             }            
         });    
     }
@@ -60,10 +64,10 @@ class RatingActions extends Component {
     onChangeCollection = () => {
         changeCollection(this.props.rating, this.state.userRating, (response) => {
             if (response.status === 200 || response.status === 201){
-                this.setState({userRating: response.data})                
+                this.setState({userRating: response.data});                
             }
             else if (response.status === 204){
-                this.setState({userRating: null})
+                this.setState({userRating: null});
             }
         });    
     }
