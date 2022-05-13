@@ -8,7 +8,8 @@ class ItemComment extends Component {
         super(props);
         this.state = {
             isEditable: false,
-            newComment: props.comment
+            newComment: props.comment,
+            errors: {}
         };
     }
 
@@ -30,12 +31,18 @@ class ItemComment extends Component {
             this.setState({
                 isEditable: false
             });
+        }).catch(error => {
+            if (error.response.status === 400){
+                this.setState({
+                    errors: error.response.data
+                })
+            }
         });
     }
 
     render(){
         let { comment, userCanEdit } = this.props;
-        let { isEditable, newComment } = this.state;
+        let { isEditable, newComment, errors } = this.state;
         return !isEditable ? (
             <div>
               {userCanEdit &&
@@ -62,6 +69,7 @@ class ItemComment extends Component {
                 value={newComment}
                 onChange={this.onChange}
               />
+              <div className="help is-danger">{errors.comment}</div>
               <div className="buttons">
                 <button
                   className="button is-info"
