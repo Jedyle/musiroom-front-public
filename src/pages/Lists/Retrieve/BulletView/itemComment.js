@@ -29,7 +29,8 @@ class ItemComment extends Component {
     onSubmit = () => {
         this.props.onSubmit(this.state.newComment).then(() => {
             this.setState({
-                isEditable: false
+                isEditable: false,
+                errors: {}
             });
         }).catch(error => {
             if (error.response.status === 400){
