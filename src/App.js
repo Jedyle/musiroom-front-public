@@ -3,7 +3,7 @@ import ReactGA from "react-ga4";
 import { useHistory } from "react-router-dom";
 import queryString from 'query-string';
 import Navbar from './containers/Navbar';
-import Footer from './components/Footer';
+import Footer from './containers/Footer';
 import Home from './pages/Home';
 import Prototypes from './pages/Prototypes';
 import { ProfileWithTabs, ProfileWithEditForm } from './pages/Profile/pages';
