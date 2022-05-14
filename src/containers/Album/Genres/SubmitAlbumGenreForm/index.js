@@ -20,7 +20,7 @@ export default class SubmitAlbumGenreForm extends Component {
         let autocompleteList = [];
         let query = event.target.value; 
         if (query.length > 0){
-            autocompleteList = this.props.genres.slice().filter((obj) => (obj.name.toLowerCase().includes(query)));
+            autocompleteList = this.props.genres.slice().filter((obj) => (obj.name.toLowerCase().includes(query.toLowerCase())));
         }
         this.setState({
             query: query,
