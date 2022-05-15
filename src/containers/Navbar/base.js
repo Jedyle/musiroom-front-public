@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Logo from 'components/Logo';
 import { getUser } from 'services/Auth/api';
 import { profileUrl, discussionsUrl, getGenresUrl, listListsUrl, getRegistrationUrl, listConversationsUrl, getTopUrl } from 'pages/urls';
@@ -14,6 +14,12 @@ class Navbar extends Component {
         this.state = {
             burger_active: false
         };
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.location.pathname !== prevProps.location.pathname){
+            this.setBurgerInactive();
+        }
     }
 
     userButtons(){
@@ -99,28 +105,24 @@ class Navbar extends Component {
                 <div className="navbar-start">                  
                   <Link
                     className="navbar-item"
-                    onClick={this.setBurgerInactive}
                     to={getTopUrl()}>
                     Tops
                   </Link>
                  
                   <Link
-                    className="navbar-item"
-                    onClick={this.setBurgerInactive}                    
+                    className="navbar-item"                    
                     to={discussionsUrl()}>
                     Discussions
                   </Link>
 
                   <Link
                     className="navbar-item"
-                    onClick={this.setBurgerInactive}
                     to={listListsUrl()}>
                     Lists
                   </Link>
 
                   <Link
-                    className="navbar-item"
-                    onClick={this.setBurgerInactive}                    
+                    className="navbar-item"                    
                     to={getGenresUrl()}>
                     Genres
                   </Link>                  
@@ -148,7 +150,7 @@ class Navbar extends Component {
                     (
                         <div className="navbar-item">
                           <NotificationBell
-                            onClick={this.setBurgerInactive}
+       
                           />
                         </div>
                     )
@@ -163,4 +165,4 @@ class Navbar extends Component {
 }
 
 
-export default Navbar;
+export default withRouter(Navbar);
