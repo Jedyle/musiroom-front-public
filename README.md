@@ -1,3 +1,7 @@
+# MusiRoom
+
+Frontend for musiroom.com
+
 ## Launch instructions
 
 From the root directory :
