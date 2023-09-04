@@ -3,6 +3,8 @@ FROM node:14 AS base
 RUN mkdir -p /app
 WORKDIR /app
 
+CMD npm install; npm run start
+
 FROM base as builder
 
 ARG REACT_APP_API_URL
