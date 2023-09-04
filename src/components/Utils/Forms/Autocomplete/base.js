@@ -28,7 +28,7 @@ class AutocompleteInput extends Component {
         return (
             <>
               <div>
-                <div className={`field ${additionalFieldClasses}`}>
+                <div className={`field ${(additionalControlElements !== null) && 'has-addons'} ${additionalFieldClasses}`}>
                   <p className={`control ${additionalControlClasses}`}>
                     <input
                       ref={this.inputRef}

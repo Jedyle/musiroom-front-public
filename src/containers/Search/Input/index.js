@@ -108,6 +108,7 @@ class SearchInput extends Component {
                 onChange={this.onChangeQuery}
                 additionalFieldClasses="has-addons mb-0"
                 additionalControlElements={
+                  <>
                     <p className="control">
                       <span className="select">
                         <select onChange={this.onChangeType}>
@@ -117,6 +118,14 @@ class SearchInput extends Component {
                         </select>
                       </span>
                     </p>
+                    <div className="control">
+                      <button type="submit" className="button" style={{maxWidth: '50px'}}>
+                        <span className="icon">
+                          <i className="fa fa-search"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </>
                 }
                 autocompleteList={this.state.autocompleteList}
                 onChooseItem={this.onChooseItem}
