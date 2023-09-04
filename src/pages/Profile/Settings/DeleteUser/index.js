@@ -18,7 +18,7 @@ export default class DeleteUserForm extends Component {
     deleteAccount(){
         if (window.confirm("Are you sure you want to delete your account ? This action cannot be reverted.")){
             deleteUser(this.state.password).catch(error => {
-                if (error.response.status === 400){                   
+                if (error.response.status === 400){
                     this.setState({
                         formErrors: error.response.data
                     });
@@ -38,7 +38,7 @@ export default class DeleteUserForm extends Component {
                     inputType: 'password',
                     placeholder: null,
                     onChange: (e) => (this.setState({password: e.target.value})),
-                    helpText: 'WARNING : this action is irreversible!'                    
+                    helpText: 'WARNING : this action is irreversible!'
                 }
             ],
             buttons: [{
@@ -60,9 +60,9 @@ export default class DeleteUserForm extends Component {
                 onSubmit={() => {}}
               />
               <br/>
-            </div>            
+            </div>
         );
     }
-    
+
 }
 

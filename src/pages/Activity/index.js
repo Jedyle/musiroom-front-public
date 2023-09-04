@@ -41,7 +41,7 @@ export default class Activity extends Component {
             });
         });
     }
-    
+
     render() {
         let { type } = this.props;
         let { hasMore, results } = this.state;
@@ -64,7 +64,7 @@ export default class Activity extends Component {
                     <Link className="button" to={type === "all" ? getSelfActivityUrl() : getAllActivityUrl()}>{type === "all" ? "View personal stream" : "View all history"}</Link>
                     <br/>
                     <br/>
-                  </p>                  
+                  </p>
 
                   <InfiniteScroll
                     key={type}
@@ -105,11 +105,11 @@ export default class Activity extends Component {
                             timestamp={result.timestamp}
                           />
                       ))}
-                    </div>                   
+                    </div>
                   </InfiniteScroll>
-                  
+
                 </div>
-                
+
               </div>
             </div>
         );

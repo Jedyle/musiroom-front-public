@@ -34,11 +34,11 @@ const ArtistSidebar = ({
                                      </Link>)
                     ).reduce((prev, curr) => [prev, ', ', curr]) : "Unknown"
                 }
-              </p>             
+              </p>
             </li>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
 );
 

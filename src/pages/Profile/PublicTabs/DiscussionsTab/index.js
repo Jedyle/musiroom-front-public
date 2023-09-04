@@ -40,7 +40,7 @@ class DiscussionsTab extends Component {
                 });
             }
         );
-    }    
+    }
 
     formatDiscussions(){
         return this.state.discussions.map(
@@ -62,16 +62,16 @@ class DiscussionsTab extends Component {
 
     previousPage(){
         this.setState({
-            currentPage: this.state.currentPage - 1 
+            currentPage: this.state.currentPage - 1
         });
     }
-    
+
     nextPage(){
         this.setState({
-            currentPage: this.state.currentPage + 1 
+            currentPage: this.state.currentPage + 1
         });
     }
-    
+
     render(){
         return (
             <div className="columns">
@@ -94,7 +94,7 @@ class DiscussionsTab extends Component {
             </div>
         );
     }
-    
+
 }
 
 export default DiscussionsTab;

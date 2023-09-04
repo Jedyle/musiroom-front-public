@@ -9,7 +9,7 @@ const LoginPlaceholder = ({userRendering, anonymousRendering, ...props}) => (
           getUser() ?
               <>{userRendering(props)}</>
           :
-          <>{anonymousRendering(props)}</>          
+          <>{anonymousRendering(props)}</>
       }
     </>
 );

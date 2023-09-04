@@ -9,7 +9,7 @@ const BaseOpinionButtonContent = ({icon, numVote = 0}) => (
       <span>
         <small>
           | {numVote}
-        </small>            
+        </small>
       </span>
     </>
 );

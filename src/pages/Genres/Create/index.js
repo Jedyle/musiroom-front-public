@@ -65,7 +65,7 @@ class GenreCreate extends Component {
                     onChange={(e) => {this.setState({name: e.target.value});}}
                     errorMessages={this.state.nameErrors}
                   />
-                  
+
                   <div className="field">
                     <div className="control">
                       <textarea
@@ -84,12 +84,12 @@ class GenreCreate extends Component {
                           <option value={null}>Parent (optional)</option>
                           {this.state.genreChoices.map(
                               (genre) =>
-                                  (<option value={genre.slug}>{genre.name}</option>)          
+                                  (<option value={genre.slug}>{genre.name}</option>)
                           )}
                         </select>
                       </div>
                     </div>
-                  </div>                                    
+                  </div>
 
                   <div className="field">
                     <div className="control">
@@ -98,7 +98,7 @@ class GenreCreate extends Component {
                         onClick={this.onCreateGenre}
                       >Create</button>
                     </div>
-                  </div>                  
+                  </div>
                 </div>
               </div>
             </div>

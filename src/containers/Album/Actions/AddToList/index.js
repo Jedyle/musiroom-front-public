@@ -21,7 +21,7 @@ class ListsWithAlbum extends Component {
     componentDidMount(){
         this.fetchLists();
     }
-    
+
     fetchLists(){
         let { mbid } = this.props;
         // CAUTION : there is an issue if a user has more than 1000 items, they won't all be displayed!!! TODO : fix this
@@ -75,7 +75,7 @@ class ListsWithAlbum extends Component {
     onEditItem = (listId) => {
         let { listsInfo } = this.state;
         let itemId = listsInfo[listId] ? listsInfo[listId].itemId : '';
-        let comment = listsInfo[listId] ? listsInfo[listId].comment: '';     
+        let comment = listsInfo[listId] ? listsInfo[listId].comment: '';
         updateListItem(listId, itemId, {
             comment: comment
         }).then((response) => {
@@ -99,11 +99,11 @@ class ListsWithAlbum extends Component {
         return lists.sort((l1, l2) => (l1.id - l2.id)).map((list) => (
             <div className="list-item pt-3 pb-3">
               <Link to={getListUrl(list.id)}
-                    target="_blank"                
+                    target="_blank"
               >
                 {list.title}
-              </Link>              
-              
+              </Link>
+
               <span className="is-pulled-right mb-3">
               {
                   !listsHavingAlbum[list.id] ?
@@ -127,7 +127,7 @@ class ListsWithAlbum extends Component {
                             >Delete</button>
                           </p>)
               }
-              </span>              
+              </span>
               <textarea
                 className="textarea"
                 placeholder="Add comment"
@@ -137,7 +137,7 @@ class ListsWithAlbum extends Component {
             </div>
         ));
     }
-     
+
 }
 
 const ListsModal = ({mbid, isActive, onToggleActive}) => (
@@ -158,7 +158,7 @@ const ListsModal = ({mbid, isActive, onToggleActive}) => (
              <ListsWithAlbum
                mbid={mbid}
              />
-            }                     
+            }
           </div>
         </section>
       </div>
@@ -167,7 +167,7 @@ const ListsModal = ({mbid, isActive, onToggleActive}) => (
         aria-label="close"
         onClick={() => {onToggleActive(true);}}
       ></button>
-    </div>                 
+    </div>
 );
 
 class Base extends Component {
@@ -181,10 +181,10 @@ class Base extends Component {
 
     onToggleActive = (isActive) => {
         this.setState({
-            modalIsActive: isActive 
+            modalIsActive: isActive
         });
     }
-        
+
     render() {
         let { mbid, children, buttonClasses } = this.props;
         let { modalIsActive } = this.state;
@@ -204,7 +204,7 @@ class Base extends Component {
             </>
         );
     }
-    
+
 }
 
 const AddToListButton = ({children, ...props}) => (

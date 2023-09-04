@@ -13,7 +13,7 @@ if (process.env.REACT_APP_SENTRY_DSN){
         dsn: process.env.REACT_APP_SENTRY_DSN,
         integrations: [new BrowserTracing()],
         tracesSampleRate: 0.5,
-    });   
+    });
 }
 
 

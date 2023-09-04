@@ -28,7 +28,7 @@ export default class RatingsList extends Component {
             this.fetchReviews();
         }
     }
-        
+
     fetchReviews(){
         let userRatingIds = this.props.results.map(
             (userRating) => userRating.id
@@ -39,7 +39,7 @@ export default class RatingsList extends Component {
                 let userReviews = {};
                 for (var i=0; i < reviewsAsList.length; i++){
                     userReviews[reviewsAsList[i].rating.content_object.rating.id] = reviewsAsList[i];
-                }                
+                }
                 this.setState({
                     userReviews: userReviews
                 });
@@ -65,7 +65,7 @@ export default class RatingsList extends Component {
                      (read his review)
                     </Link>) : ""}
                 </span>)
-            );            
+            );
         }
         return formattedRatings;
     }

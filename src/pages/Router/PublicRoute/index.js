@@ -15,7 +15,7 @@ const PublicRouteRender = ({ render, ...props }) => {
     const renderFunc = (props) => (
         getUser() ? <Redirect to ='/404'/> : render(props)
     )
-    
+
     return (
         <Route {...props} render={props => renderFunc(props)} />
     );

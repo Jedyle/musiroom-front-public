@@ -9,7 +9,7 @@ const UserSearch = ({results}) => (
           user: user.user,
           avatar: user.avatar,
           profile_url: profileUrl(user.user)
-      }))}      
+      }))}
         />
     </>
 );

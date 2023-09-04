@@ -65,7 +65,7 @@ const VoteAlbumGenre = ({genres, onVote}) => (
           {genres.map((genre, index) => (
               <div className="tile is-child notification is-grey" key={index}>
                 <h1 className="title is-6 is-marginless">
-                  {genre.genre_details.name}              
+                  {genre.genre_details.name}
                 </h1>
                 <p>Score: {genre.vote_score}</p>
                 <p className="buttons">

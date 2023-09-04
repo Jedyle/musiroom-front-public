@@ -30,16 +30,16 @@ export default class AutocompleteInput extends Component {
             e.preventDefault();
             this.props.onChooseItem && this.props.onChooseItem(this.state.cursor);
             this.setState({
-                cursor: -1 
+                cursor: -1
             });
         }
         else {
             this.setState({
-                cursor: -1 
+                cursor: -1
             });
         }
     }
-    
+
     render() {
         return (
             <Base

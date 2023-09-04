@@ -14,13 +14,13 @@ class RatingActions extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userRating: null  
+            userRating: null
         };
     }
 
     componentDidMount(){
         if (getUser()){
-            this.fetchRating();   
+            this.fetchRating();
         }
     }
 
@@ -42,7 +42,7 @@ class RatingActions extends Component {
         if (!this.state.userRating || newRating !== this.state.userRating.score){
             changeRating(this.props.rating, this.state.userRating, newRating, (response) => {
                 this.setState({userRating: response.data});
-            });   
+            });
         }
     }
 
@@ -53,26 +53,26 @@ class RatingActions extends Component {
     onChangeInterest = () => {
         changeInterest(this.props.rating, this.state.userRating, (response) => {
             if (response.status === 200 || response.status === 201){
-                this.setState({userRating: response.data});                
+                this.setState({userRating: response.data});
             }
             else if (response.status === 204){
                 this.setState({userRating: null});
-            }            
-        });    
+            }
+        });
     }
 
     onChangeCollection = () => {
         changeCollection(this.props.rating, this.state.userRating, (response) => {
             if (response.status === 200 || response.status === 201){
-                this.setState({userRating: response.data});                
+                this.setState({userRating: response.data});
             }
             else if (response.status === 204){
                 this.setState({userRating: null});
             }
-        });    
+        });
     }
 
-    
+
     render(){
         let { mbid, starDimension, starSpacing } = this.props;
         let { userRating } = this.state;
@@ -83,7 +83,7 @@ class RatingActions extends Component {
                 starSpacing={starSpacing}
                 userRating={userRating && userRating.score ? userRating.score : 0}
                 changeRating={this.onChangeRating}
-                deleteRating={this.onDeleteRating}                
+                deleteRating={this.onDeleteRating}
               />
               <br/>
               <br/>
@@ -100,7 +100,7 @@ class RatingActions extends Component {
                   contentWhenInterest={
                       <>
                         <i className="fa fa-map-marker" style={{marginRight: "7px"}}></i> {" "} I want to listen
-                      </>                   
+                      </>
                   }
                   contentWhenNoInterest={
                       <>
@@ -114,7 +114,7 @@ class RatingActions extends Component {
                   contentInCollection={
                       <>
                         <i className="fa fa-headphones" style={{marginRight: "7px"}}></i> {" "} In my collection
-                      </>                      
+                      </>
                   }
                   contentNotInCollection={
                       <>

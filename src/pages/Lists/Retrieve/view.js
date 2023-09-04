@@ -27,7 +27,7 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
                     id: list.id,
                     page: page,
                     perPage: perPage
-                })      
+                })
             )
         }
         Promise.all(promises).catch(
@@ -45,7 +45,7 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
                             newCount = response.data.count;
                             if ((pages[index] === state.currentPage) && response.data.next !== null){
                                 newHasMore = true;
-                                
+
                             }
                         }
                         else if (response.status === 404){
@@ -64,24 +64,24 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
                     });
         })
     }
-    
+
     const fetchMoreItems = () => {
         return getListItems({
             id: list.id,
             page: state.currentPage + 1,
             perPage: perPage
         }).then((response) => {
-            let newItems = Object.assign({}, state.items);                
+            let newItems = Object.assign({}, state.items);
             newItems[state.currentPage + 1] = response.data.results;
             setState({
                 ...state,
                 items: newItems,
                 currentPage: state.currentPage + 1,
                 hasMore: response.data.next !== null,
-                count: response.data.count                    
+                count: response.data.count
             });
             fetchAuthorRatings(response.data.results);
-        });            
+        });
     }
 
     // author rating for a list of items (previously fetched in fetchMoreitems)
@@ -105,7 +105,7 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
         }
         else {
             lowPos = pos2;
-            highPos = pos1;            
+            highPos = pos1;
         }
         let lowPosPage = Math.floor((lowPos - 1) / perPage) + 1;
         let highPosPage = Math.floor((highPos - 1) / perPage) + 1;
@@ -113,7 +113,7 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
         for (let i=lowPosPage; i<= highPosPage; i++){
             pages.push(i);
         }
-        fetchItemsForPages(pages);        
+        fetchItemsForPages(pages);
     }
 
     const reloadAfterPosition = (pos) => {
@@ -124,19 +124,19 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
             pages.push(i);
         }
         fetchItemsForPages(pages);
-    }    
-    
+    }
+
     const onUpdatePosition = (currentItem, newPosition) => {
         updateListItemPosition(list.id, currentItem.id, newPosition).then((response) => {
             reloadBetweenPositions(currentItem.order, newPosition);
-        });        
+        });
     }
 
     const onDeleteItem = (currentItem) => {
         deleteListItem(list.id, currentItem.id).then((response) => {
             // if we delete the last item, maybe the last page does not exist anymore, if so we go to the previous page instead
             reloadAfterPosition(currentItem.order);
-        });        
+        });
     }
 
     const onSubmitItem = (list, item, itemPage, itemIndex, comment) => {
@@ -151,7 +151,7 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
             })
         });
     }
-    
+
     return (
         <>
           <ViewComponent
@@ -168,9 +168,9 @@ const ListView = ({list, ViewComponent, onUpdateList, ...props}) => {
             onUpdatePosition={onUpdatePosition}
             onDeleteItem={onDeleteItem}
             hasMore={state.hasMore}
-          />          
+          />
         </>
-    )   
+    )
 };
 
 export default ListView;

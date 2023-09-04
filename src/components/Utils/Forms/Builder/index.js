@@ -4,7 +4,7 @@ const FormBuilder = ({config, onSubmit}) => (
     <form onSubmit={(e) => {e.preventDefault(); onSubmit(e);}}>
 
       <p className="help is-danger">{config.nonFieldErrors}</p>
-      
+
       { config.fields.map((field) => {
           let { verboseName, icon, error, inputType, placeholder, value, onChange, helpText, ...other} = field;
           return (
@@ -21,13 +21,13 @@ const FormBuilder = ({config, onSubmit}) => (
                    (
                        <span className="icon is-small is-right">
                          <i className="fa fa-exclamation-triangle"></i>
-                       </span>    
+                       </span>
                    )
-                  }                                           
+                  }
                 </div>
                 {helpText &&
                  <p className="help">{helpText}</p>
-                }                        
+                }
                 <p className="help is-danger">{error}</p>
               </div>
           );
@@ -45,7 +45,7 @@ const FormBuilder = ({config, onSubmit}) => (
           ))}
         </div>
       </div>
-      
+
     </form>
 );
 

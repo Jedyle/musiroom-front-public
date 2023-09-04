@@ -32,7 +32,7 @@ export default class CommentSection extends Component {
             perPage: 10,
             sortChoices: {
                 '-vote_score': 'Top',
-                '-submit_date': 'New'                
+                '-submit_date': 'New'
             },
             sortMethod: '-vote_score'
         };
@@ -41,8 +41,8 @@ export default class CommentSection extends Component {
         this.onEditComment = this.onEditComment.bind(this);
         this.fetchComments = this.fetchComments.bind(this);
         this.onChangeSortMethod = this.onChangeSortMethod.bind(this);
-    }    
-    
+    }
+
     generateCommentMap(comments){
         let commentStack = comments.slice();
         let commentMap = {};
@@ -75,10 +75,10 @@ export default class CommentSection extends Component {
                 page: page,
                 limit: this.state.perPage,
                 ordering: this.state.sortMethod
-            }).then((response) => {            
+            }).then((response) => {
                 this.setState((prevState) => {
                     let comments = prevState.comments.concat(response.data.results);
-                    let hasMore = response.data.next !== null; 
+                    let hasMore = response.data.next !== null;
                     let { commentMap, rootComments} = this.generateCommentMap(comments);
                     return {
                         comments: comments,
@@ -87,7 +87,7 @@ export default class CommentSection extends Component {
                         rootComments: rootComments
                     };
                 });
-            });        
+            });
     }
 
     updateSingleComment(commentId, commentWithChildren){
@@ -141,7 +141,7 @@ export default class CommentSection extends Component {
             this.updateSingleComment(commentId, response.data);
         });
     }
-        
+
     onCommentVote(commentId, action){
         voteOnComment(commentId, action).then((response) => {
             this.updateSingleComment(commentId, response.data);
@@ -156,8 +156,8 @@ export default class CommentSection extends Component {
             sortMethod: event.target.value
         });
     }
-        
-    
+
+
     render() {
         return (
             <>
@@ -191,7 +191,7 @@ export default class CommentSection extends Component {
                   onEditComment={this.onEditComment}
                   depthLevel={0}
                   maxDepth={2}
-                />                
+                />
               </InfiniteScroll>
             </>
         );

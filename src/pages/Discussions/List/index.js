@@ -35,13 +35,13 @@ class DiscussionsList extends Component {
         trackAnalytics();
         this.fetchDiscussions();
     }
-    
-    fetchDiscussions(){        
+
+    fetchDiscussions(){
         getDiscussions({
             page: this.state.page,
-            author: this.state.author,            
+            author: this.state.author,
             title: this.state.title,
-            objectId: this.state.objectId,            
+            objectId: this.state.objectId,
             ordering: this.state.ordering,
             model: this.state.model,
         }).then(
@@ -57,9 +57,9 @@ class DiscussionsList extends Component {
         if (this.state.objectId > 0){
             getObjectForDiscussionType(this.state.model, this.state.objectId).then((response) => {
                 this.setState({
-                    contentObject: response.data.object 
+                    contentObject: response.data.object
                 });
-                
+
             });
         }
     }
@@ -81,10 +81,10 @@ class DiscussionsList extends Component {
     getTitle(){
         if(this.state.contentObject){
             if (this.state.model === "artist"){
-                return `Discussions about ${this.state.contentObject.name}`;               
+                return `Discussions about ${this.state.contentObject.name}`;
             }
             else if (this.state.model === "album"){
-                return `Discussions about ${this.state.contentObject.title}`;               
+                return `Discussions about ${this.state.contentObject.title}`;
             }
         }
         else if (this.state.objectId === 0){
@@ -92,9 +92,9 @@ class DiscussionsList extends Component {
         }
         return "Discussions";
     }
-    
 
-    formatDiscussions(){        
+
+    formatDiscussions(){
         return this.state.discussions.map(
             (discussion, index) => {
                 return <DiscussionListItem
@@ -103,7 +103,7 @@ class DiscussionsList extends Component {
                                numVotes={discussion.vote_score}
                                loggedUserVote={discussion.user_vote}
                                onVote={(vote) => this.onVote(index, discussion.id, vote)}
-                             />}                          
+                             />}
                          author={discussion.user.username}
                          authorLink={profileUrl(discussion.user.username)}
                          avatar={discussion.user.avatar}
@@ -116,7 +116,7 @@ class DiscussionsList extends Component {
                          title={discussion.title}
                          numComments={discussion.comment_count}
                        />;
-            }  
+            }
         );
     }
 
@@ -136,9 +136,9 @@ class DiscussionsList extends Component {
         if (ordering) {
             query += `&ordering=${ordering}`;
         }
-        
+
         let url = this.state.objectId ? getDiscussionsUrlForObject(this.state.model, this.state.objectId) : discussionsUrl();
-        return url + query;        
+        return url + query;
     }
 
     getPaginator(){
@@ -174,7 +174,7 @@ class DiscussionsList extends Component {
             1, this.state.author, this.state.title, this.state.ordering
         ));
     }
-    
+
     getForm(){
         return (
             <form onSubmit={this.handleSubmit}>
@@ -229,8 +229,8 @@ class DiscussionsList extends Component {
             </form>
         );
     }
-    
-    render(){                
+
+    render(){
         return (
             <div className="columns is-mobile has-padding-10">
               <Title title={this.getTitle()}/>
@@ -238,13 +238,13 @@ class DiscussionsList extends Component {
                 { this.state.contentObject &&
                   <DiscussionSidebar
                     contentType={this.state.model}
-                    contentObject={this.state.contentObject}                  
+                    contentObject={this.state.contentObject}
                 />
                 }
               </div>
               <div className="column is-12-mobile is-8-tablet has-margin-top-20 has-border"  style={{borderColor: 'rgba(0,0,0,.125)'}}>
                 {
-                    this.state.objectId !== null && 
+                    this.state.objectId !== null &&
                         <p>
                           <Link to={discussionsUrl()}>{"<"} All discussions</Link>
                         </p>
@@ -269,9 +269,9 @@ class DiscussionsList extends Component {
                 {this.formatDiscussions()}
               </div>
             </div>
-        );        
+        );
     }
-    
+
 };
 
 export default withRouter(DiscussionsList);

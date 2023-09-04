@@ -29,7 +29,7 @@ const AlbumSidebar = ({
                 <Link to={getAlbumUrl(mbid)}>{title}</Link>
               </h4>
               <p>
-                {   artists.length >= 1 && 
+                {   artists.length >= 1 &&
                     artists.map(
                         (artist) => (
                             <Link key={artist.mbid}
@@ -38,21 +38,21 @@ const AlbumSidebar = ({
                             </Link>)
                     ).reduce((prev, curr) => [prev, ', ', curr])
                 }
-              </p>             
+              </p>
             </li>
             {release_date &&
              <li className="list-item">
                Release date : {formatDate(release_date)}
              </li>
             }
-            {album_type && 
+            {album_type &&
              <li className="list-item">
                Type : {album_type}
              </li>
             }
             {real_genres &&
              <li className="list-item">
-               Genres : {real_genres.length > 0 ? 
+               Genres : {real_genres.length > 0 ?
                          real_genres.map(
                              (genre) => (<Link key={genre.slug}
                               to={getGenreUrl(genre.slug)}>
@@ -60,14 +60,14 @@ const AlbumSidebar = ({
                          </Link>)
                          ).reduce((prev, curr) => [prev, ', ', curr]) : "Unknown"
                         } {"  "}
-               
+
                ({<Link to={getAlbumGenresUrl(mbid)}>vote on genres</Link>})
-               
+
              </li>
             }
           </div>
         </div>
-      </div>      
+      </div>
     </div>
 );
 

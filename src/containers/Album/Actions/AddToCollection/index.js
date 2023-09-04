@@ -12,7 +12,7 @@ function Base({ onChangeCollection, inCollection, contentInCollection = "In coll
         >
           {inCollection ? contentInCollection : contentNotInCollection}
         </button>
-    );        
+    );
 }
 
 const AddToCollection = ({anonymousContent = <><i className="fa fa-headphones" style={{marginRight: "7px"}}></i> Add to collection</>, ...props}) => (

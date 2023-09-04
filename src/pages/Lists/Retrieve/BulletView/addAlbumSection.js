@@ -58,7 +58,7 @@ class AddAlbumSection extends Component {
               </div>
             </>
         );
-    }    
+    }
 }
 
 

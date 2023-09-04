@@ -21,7 +21,7 @@ export default class CreateList extends Component {
     componentDidMount() {
         trackAnalytics();
     }
-    
+
     toggleCheck = () => {
         this.setState((prevState) => ({
             ordered: !prevState.ordered
@@ -29,13 +29,13 @@ export default class CreateList extends Component {
     }
 
     onSubmit = () => {
-        const {title, description, ordered } = this.state; 
+        const {title, description, ordered } = this.state;
         createList(
             {
                 title: title,
                 description: description,
                 ordered: ordered
-            }).then((response) => {         
+            }).then((response) => {
                 alert("Your list has been created !");
                 this.props.history.push(getListUrl(response.data.id))
             // redirect to list details
@@ -47,7 +47,7 @@ export default class CreateList extends Component {
                 }
             });
     }
-    
+
     render() {
         return (
             <div className="columns is-mobile">

@@ -33,16 +33,16 @@ const ReviewEditModal = ({ isActive, onClose, title, onChangeTitle, content, onC
                 },
                 options: ['blockType', 'inline', 'list', 'fontSize', 'colorPicker', 'emoji', 'image'],
 
-            }}                                    
+            }}
           />
-          
+
         </section>
         <footer className="modal-card-foot">
           <button className="button is-success" onClick={onSubmit}>Save</button>
           <button className="button" onClick={onClose}>Cancel</button>
         </footer>
       </div>
-    </div>  
+    </div>
 );
 
 export default ReviewEditModal;

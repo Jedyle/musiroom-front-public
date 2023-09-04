@@ -33,7 +33,7 @@ class PopoverContent extends Component {
             this.props.afterLoad && this.props.afterLoad(res);
         });
     }
-    
+
     render(){
         let { mbid, ratingId, userRating, onChangeRating } = this.props;
         let { album } = this.state;
@@ -50,7 +50,7 @@ class PopoverContent extends Component {
                       <div className="media-content">
                         <div className="content">
                           <h1 className="is-size-6 is-marginless"
-                              style={{maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis'}}                            
+                              style={{maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis'}}
                           >
                             <Link to={getAlbumUrl(album.mbid)}>{truncate(album.title, 25)}</Link>
                             <span className="tag is-avg-rating is-pulled-right">
@@ -69,20 +69,20 @@ class PopoverContent extends Component {
                               userRating={userRating && userRating.score ? userRating.score : 0}
                               changeRating={(score) => {
                                   if (!userRating || score !== userRating.score){
-                                      changeRating(ratingId, userRating, score, (response) => onChangeRating(response));   
+                                      changeRating(ratingId, userRating, score, (response) => onChangeRating(response));
                                   }
                               }}
                               deleteRating={(score) => {
                                   deleteRating(ratingId, userRating, (response) => onChangeRating(response));
                               }}
                               starDimension='20px'
-                              starSpacing='0px'                              
+                              starSpacing='0px'
                             />
                           </div>
                           <div>
                           <AddToInterests
                             onChangeInterest={() => changeInterest(ratingId, userRating, (response) => onChangeRating(response))}
-                            interest={userRating ? userRating.is_interested : false}  
+                            interest={userRating ? userRating.is_interested : false}
                             contentWhenInterest={
                                 <span title="I want to listen" className="icon">
                                   <i className="fa fa-map-marker"></i>
@@ -96,7 +96,7 @@ class PopoverContent extends Component {
                           />
                           <AddToCollection
                             onChangeCollection={() => changeCollection(ratingId, userRating, (response) => onChangeRating(response))}
-                            inCollection={userRating ? userRating.is_in_collection : false}  
+                            inCollection={userRating ? userRating.is_in_collection : false}
                             contentInCollection={
                                 <span title="In my collection" className="icon">
                                   <i className="fa fa-headphones"></i>
@@ -107,12 +107,12 @@ class PopoverContent extends Component {
                                   <i className="fa fa-headphones"></i>
                                 </span>
                             }
-                          />                            
+                          />
                           <AddToListButton
                             mbid={mbid}
                           >
                             <span title="Add to list" className="icon"><i className="fa fa-list"></i></span>
-                          </AddToListButton>                           
+                          </AddToListButton>
                           </div>
                         </div>
                       </div>
@@ -125,7 +125,7 @@ class PopoverContent extends Component {
             </div>
         );
     }
-    
+
 }
 
 const AlbumPopover = ({mbid, onChangeRating, ratingId, userRating, children, afterLoad}) => {
@@ -149,7 +149,7 @@ const AlbumPopover = ({mbid, onChangeRating, ratingId, userRating, children, aft
                 {children}
               </span>
             </Popover>
-        : children  
+        : children
     );
 }
 

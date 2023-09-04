@@ -20,7 +20,7 @@ class ProfileTab extends Component {
         if (this.props.profile)
         {
             getTopAlbums(this.props.profile.user).then(
-                (response) => {                    
+                (response) => {
                     this.setState(
                         {
                             topAlbums: response.data.items.map((item) => item.album)
@@ -47,14 +47,14 @@ class ProfileTab extends Component {
         this.updateTopAlbums();
         this.updateBadges();
     }
-    
+
     componentDidUpdate(prevProps, prevState, snapshot){
         if (this.props.profile !== prevProps.profile){
             this.updateTopAlbums();
             this.updateBadges();
         }
     }
-    
+
     getDescription(){
         return this.props.profile ? this.props.profile.description : "";
     }
@@ -65,7 +65,7 @@ class ProfileTab extends Component {
             <ul style={{listStyleType: 'circle'}}>
               <li>{this.props.profile.nb_ratings} rated albums</li>
               <li>{this.props.profile.nb_reviews} reviews</li>
-            </ul>            
+            </ul>
         );}
         return "";
     }
@@ -104,9 +104,9 @@ class ProfileTab extends Component {
                 </div>
               </article>
               <div className="columns">
-                
+
                 <div className="column is-6">
-                  
+
                   <div className="columns is-multiline">
                     <div className="column is-12 has-margin-left-10">
                       {this.getStatistics()}
@@ -117,13 +117,13 @@ class ProfileTab extends Component {
                               <Link className="button is-fullwidth is-success" to={createListUrl()}>New list</Link>
                       }
                     </div>
-                  </div>                  
-                  
+                  </div>
+
                   <h3 className="title is-5">His top albums</h3>
                   <ShortAlbumList
                     albums={this.getTopAlbums()}
-                  />               
-                  
+                  />
+
                 </div>
 
                 <div className="column is-6">

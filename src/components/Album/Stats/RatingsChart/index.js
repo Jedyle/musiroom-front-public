@@ -11,7 +11,7 @@ const Chart = ({
           {
               labels: labels,
               datasets: [
-                  {                                   
+                  {
                       backgroundColor: bgColor,
                       data: data
                   }

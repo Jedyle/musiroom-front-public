@@ -7,14 +7,14 @@ const SubjectForm = ({
     currentType,
     onChangeType,
     currentValue,
-    onChangeValue,    
+    onChangeValue,
     autocompleteList,
     onChooseItem,
     onBlur,
     onResetItem,
     selectedItem,
     currentTitle,
-    onChangeTitle,    
+    onChangeTitle,
     currentText,
     onChangeText,
     onCreateDiscussion,
@@ -25,7 +25,7 @@ const SubjectForm = ({
 }) => (
     <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
       <div className="box has-background-light has-padding-20">
-        <h1 className="title is-size-3 has-text-centered">New Discussion</h1>      
+        <h1 className="title is-size-3 has-text-centered">New Discussion</h1>
         <div className="has-margin-bottom-10">
           <p className="has-text-centered">
             <span className="is-size-5">Subject : </span>

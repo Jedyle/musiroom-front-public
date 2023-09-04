@@ -26,7 +26,7 @@ export default class AlbumGenresPage extends Component {
             });
         });
     }
-    
+
     componentDidMount(){
         this.fetchAlbumGenres();
         listAllGenres().then((response) => {
@@ -57,7 +57,7 @@ export default class AlbumGenresPage extends Component {
             }
         });
     }
-    
+
     render(){
         return(
             <div className="columns is-multiline">
@@ -70,13 +70,13 @@ export default class AlbumGenresPage extends Component {
                 onSubmitAlbumGenre={this.onSubmitAlbumGenre}
                 errors={this.state.submitGenreErrors}
               />
-              
+
               <VoteAlbumGenre album={this.props.album}
                             genres={this.state.genres}
                             onVote={this.onVote}
-              />             
+              />
             </div>
         );
     }
-    
+
 }

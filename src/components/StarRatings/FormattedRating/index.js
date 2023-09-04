@@ -9,7 +9,7 @@ const FormattedUserRating = ({userRating}) => {
             return (
                 <span className="icon" title="In collection">
                   <i className="fa fa-headphones"></i>
-                </span>                    
+                </span>
             );
         }
         else if (userRating.is_interested){
@@ -17,9 +17,9 @@ const FormattedUserRating = ({userRating}) => {
                 <span className="icon" title="Wants to listen">
                   <i className="fa fa-map-marker"></i>
                 </span>
-            );                
+            );
         }
-    }       
+    }
     return '-';
 };
 

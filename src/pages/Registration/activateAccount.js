@@ -22,7 +22,7 @@ export default class ActivateAccount extends Component {
             });
         });
     }
-    
+
     render() {
         let { isLinkConfirmed, isLinkInvalid } = this.state;
         return (
@@ -35,7 +35,7 @@ export default class ActivateAccount extends Component {
                         You may now log in !
                       </div>
                   ) :
-                  (                      
+                  (
                       isLinkInvalid ?
                           (
                               <div>

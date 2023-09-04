@@ -22,8 +22,8 @@ const GalleryItem = ({album, index, showIndex}) => (
         }
       </h2>
       <h2 className="title has-text-centered is-size-7 mb-0">
-        {truncate(album.title, 40)}</h2>                
-    </Link>    
+        {truncate(album.title, 40)}</h2>
+    </Link>
 );
 
 export default GalleryItem;

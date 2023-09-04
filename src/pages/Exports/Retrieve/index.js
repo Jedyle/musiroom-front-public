@@ -20,7 +20,7 @@ export default class ExportRetrieve extends Component {
             conflicts: [],
             notFound: []
         };
-    }    
+    }
     componentDidMount(){
         let { id } = this.props;
         getExport(id).then((response) => {
@@ -49,10 +49,10 @@ export default class ExportRetrieve extends Component {
             });
         });
     }
-    
+
     render() {
         let { exportItem, newRatings, conflicts, notFound } = this.state;
-        return (exportItem && 
+        return (exportItem &&
                 <div className="columns is-mobile is-multiline ml-0 mr-0">
                   <Title title={`Export du ${toHumanDate(exportItem.created_at)}`}/>
                   <div className="column">
@@ -81,7 +81,7 @@ export default class ExportRetrieve extends Component {
                           </div>
                         </div>
                       </div>
-                    </div>                
+                    </div>
                   </div>
                 </div>
                );

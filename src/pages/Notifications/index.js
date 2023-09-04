@@ -21,7 +21,7 @@ const NotificationItem = ({notification}) => {
     };
 
     let Target = targetComponents[notification.target_content_type];
-    
+
     return (
         <div className="columns">
           <div className="column is-narrow" style={{width: '35xpx'}}>
@@ -45,8 +45,8 @@ const NotificationItem = ({notification}) => {
              <Target
                target={notification.target}
              />
-            }            
-          </div>      
+            }
+          </div>
         </div>);
 };
 
@@ -57,7 +57,7 @@ export default class Notifications extends Component {
         super(props);
         this.state = {
             notifications: [],
-            hasNext: true            
+            hasNext: true
         };
         this.fetchNotifications = this.fetchNotifications.bind(this);
     }
@@ -67,7 +67,7 @@ export default class Notifications extends Component {
             this.setState((prevState) => ({
                 notifications: prevState.notifications.concat(response.data.results),
                 hasNext: response.data.next !== null
-            }));            
+            }));
         });
     }
 
@@ -76,7 +76,7 @@ export default class Notifications extends Component {
             markAllNotifsAsRead();
         }
     }
-    
+
     render() {
         return (
             <div className="columns">
@@ -99,7 +99,7 @@ export default class Notifications extends Component {
                           />
                         </div>
                     ))}
-                  </InfiniteScroll>                
+                  </InfiniteScroll>
                 </div>
               </div>
             </div>

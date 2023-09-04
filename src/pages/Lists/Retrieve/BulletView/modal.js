@@ -23,7 +23,7 @@ export class PositionModal extends Component {
             this.loadPositions();
         }
     }
-    
+
     loadPositions(){
         getListItemPositions(this.props.list.id).then((response) => {
             this.setState({
@@ -56,11 +56,11 @@ export class PositionModal extends Component {
                     <select value={newPosition} onChange={(e) => {this.setState({newPosition: e.target.value});}}>
                       <option>Select a rank</option>
                       {positionsFiltered.map((position) => (
-                          <option value={position.order}>{position.order} - {position.album.title}</option> 
+                          <option value={position.order}>{position.order} - {position.album.title}</option>
                       ))}
                     </select>
                   </div>
-                  
+
                 </section>
                 <footer className="modal-card-foot">
                   <button className="button is-info"
@@ -70,7 +70,7 @@ export class PositionModal extends Component {
               </div>
             </div>
         );
-    }    
+    }
 }
 
 
@@ -91,7 +91,7 @@ export class DeleteModal extends Component {
                 <section className="modal-card-body">
                   <div>
                     Delete {truncate(currentItem.album.title, 20)} from the list ?
-                  </div>             
+                  </div>
                 </section>
                 <footer className="modal-card-foot">
                   <button className="button is-danger is-fullwidth"
@@ -101,5 +101,5 @@ export class DeleteModal extends Component {
               </div>
             </div>
         );
-    }        
+    }
 }

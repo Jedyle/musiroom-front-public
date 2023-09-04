@@ -19,7 +19,7 @@ const SettingsForm = (props) => (
       <PasswordForm />
       <hr/>
       <DeleteUserForm />
-    </div>  
+    </div>
 );
 
 export default SettingsForm;

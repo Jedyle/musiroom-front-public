@@ -36,7 +36,7 @@ class CreateForm extends Component {
               <textarea className="textarea" placeholder="First message" value={message} onChange={(e) => onChange("message", e.target.value)}></textarea>
             </div>
         );
-    }    
+    }
 }
 
 class ConversationCreate extends Component {
@@ -115,14 +115,14 @@ class ConversationCreate extends Component {
                 this.redirectToNewConversation(convId);
             });
         }).catch(error => {
-            if (error.response.status === 400){                
+            if (error.response.status === 400){
                 this.setState({
                     errors: error.response.data
                 });
             }
         });
     }
-    
+
     render() {
         let { isActive, newConversation, errors } = this.state;
         return (
@@ -151,7 +151,7 @@ class ConversationCreate extends Component {
                     <button className="button" onClick={() => {this.setState({isActive: false});}}>Cancel</button>
                   </footer>
                 </div>
-              </div>              
+              </div>
             </div>
         );
     }

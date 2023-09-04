@@ -27,7 +27,7 @@ const InterestsTab = (props) => (
           ['modified', 'Oldest']
       ]}
       {...props}
-    />  
+    />
 );
 
 export default InterestsTab;

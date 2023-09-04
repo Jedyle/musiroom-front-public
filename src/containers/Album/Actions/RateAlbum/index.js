@@ -17,9 +17,9 @@ const Base = ({ userRating, changeRating, deleteRating, ...props }) => (
                   <i className="fa fa-lg fa-trash"></i>
                 </span>
               </button>
-      }        
+      }
     </>
-    
+
 );
 
 const RateAlbum = (props) => (

@@ -44,16 +44,16 @@ class ListsTabs extends Component {
 
     previousPage(){
         this.setState({
-            currentPage: this.state.currentPage - 1 
+            currentPage: this.state.currentPage - 1
         });
     }
-    
+
     nextPage(){
         this.setState({
-            currentPage: this.state.currentPage + 1 
+            currentPage: this.state.currentPage + 1
         });
     }
-    
+
     renderLists(){
         return this.state.lists.map(
             (list) => {
@@ -64,7 +64,7 @@ class ListsTabs extends Component {
                       </Link> ({list.album_count === 1 ? "1 album" : list.album_count + " albums"})
                     </span>
                 );
-            }  
+            }
         );
     }
 
@@ -94,7 +94,7 @@ class ListsTabs extends Component {
                 <AbstractList items={this.renderLists()}/>
               </div>
             </div>
-        );        
+        );
     }
 }
 

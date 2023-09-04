@@ -29,7 +29,7 @@ const PleaseSubmitGenreMessage = ({
 const DetailsPage = ({album}) => {
 
     const [links, setLinks] = useState({});
-    
+
     useEffect(() => {
         getAlbumLinks(album.mbid).then((response) => {
             setLinks(response.data);
@@ -39,7 +39,7 @@ const DetailsPage = ({album}) => {
     const linksRef = useRef(null);
 
     const scrollToLink = () => linksRef.current.scrollIntoView({behavior: 'smooth'});
-    
+
     return (
         <div className="columns is-multiline">
           <div className="column is-12-mobile is-8-desktop">
@@ -54,7 +54,7 @@ const DetailsPage = ({album}) => {
                     onClick={scrollToLink}
             >
         <i className="fa fa-play" style={{marginRight: '7px'}}/>
-              Listen now !</button>                        
+              Listen now !</button>
           </div>
           <div className="column is-12-mobile is-4-desktop is-3-widescreen is-offset-1-widescreen has-margin-top-20">
             <AllRatingsStats
@@ -79,7 +79,7 @@ const DetailsPage = ({album}) => {
                   <FolloweesRatingsStats
                     album={album}
                   />
-                </>  
+                </>
             )}
             <br/>
             <div className="columns is-mobile has-margin-right-10 is-multiline">
@@ -91,8 +91,8 @@ const DetailsPage = ({album}) => {
                 <br/>
                 <AlbumsFromSameArtist
                   album={album}
-                />                
-              </div>              
+                />
+              </div>
             </div>
 
           </div>

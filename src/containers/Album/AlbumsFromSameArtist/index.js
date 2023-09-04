@@ -33,7 +33,7 @@ export class AlbumsFromSameArtist extends Component {
             }
         );
     }
-    
+
     render() {
         return (
             <>

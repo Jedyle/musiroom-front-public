@@ -36,7 +36,7 @@ const Feedback = (props) => {
             text: "Something else"
         }
     ];
-    
+
     const onSubmit = (e) => {
         sendFeedback(data).then((response) => {
             alert("Your feedback has been submitted ! Thank you for helping us.");
@@ -51,7 +51,7 @@ const Feedback = (props) => {
             }
         });
     };
-    
+
     return (
         <>
           <a onClick={() => setModalOpen(true)}>Feedback</a>
@@ -63,12 +63,12 @@ const Feedback = (props) => {
               <header className="modal-card-head">
                 <div className="modal-card-title">
                   Send us a feedback
-                </div>              
+                </div>
                 <button
                   className="modal-close is-large"
                   aria-label="close"
                   onClick={() => setModalOpen(false)}
-                ></button>                        
+                ></button>
               </header>
               <div className="modal-card-body">
                 <FeedbackForm

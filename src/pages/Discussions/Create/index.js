@@ -7,11 +7,11 @@ import Title from 'components/Utils/Title';
 import { trackAnalytics } from 'utils/track';
 
 class DiscussionCreate extends Component {
-    
+
     componentDidMount() {
         trackAnalytics();
     }
-    
+
     render(){
         let query = queryString.parse(this.props.location.search);
         return (
@@ -26,7 +26,7 @@ class DiscussionCreate extends Component {
                       {
                           name: 'Artist',
                           value: 'artist'
-                      }                  
+                      }
                   ]}
                   key={query.objectId + query.model}
                   objectId={query.objectId}
@@ -34,7 +34,7 @@ class DiscussionCreate extends Component {
                 />
             </div>
         );
-    }    
+    }
 }
 
 export default withRouter(DiscussionCreate);

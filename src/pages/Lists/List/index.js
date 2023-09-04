@@ -40,7 +40,7 @@ class ListsList extends Component {
             this.setState({
                 lists: response.data.results,
                 previousPageExists: response.data.previous,
-                nextPageExists: response.data.next                
+                nextPageExists: response.data.next
             });
         });
     }
@@ -50,7 +50,7 @@ class ListsList extends Component {
         if (title !== ""){
             search += `&title=${title}`;
         }
-        
+
         this.props.history.push({
             pathname: listListsUrl(),
             search: search
@@ -110,7 +110,7 @@ class ListsList extends Component {
         );
     }
 
-    
+
     render() {
         let { lists, previousPageExists, nextPageExists, page, ordering, title } = this.state;
         let paginator = (
@@ -133,10 +133,10 @@ class ListsList extends Component {
 
                 <div className="columns is-mobile">
                   <div className="column is-12-mobile is-8-tablet is-offset-2-tablet">
-                    {this.getForm()}                                        
-                  </div>                                   
+                    {this.getForm()}
+                  </div>
                 </div>
-                
+
                 <div className="columns is-mobile">
                   <div className="column">
 
@@ -152,7 +152,7 @@ class ListsList extends Component {
                               <td>
                                 <Link to={getListUrl(list.id)}>
                                   {list.title}
-                                </Link>                                
+                                </Link>
                                 {" "}
                                 (list of {" "}
                                 <Link to={profileUrl(list.user.username)}>
@@ -169,9 +169,9 @@ class ListsList extends Component {
                             </tr>
                         ))}
                       </tbody>
-                    </table>                   
+                    </table>
                     {paginator}
-                  </div>                 
+                  </div>
                 </div>
               </div>
             </div>

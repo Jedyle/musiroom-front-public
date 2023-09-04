@@ -8,22 +8,22 @@ export default class AllRatingsStats extends Component {
     constructor(props){
         super(props);
         this.state = {
-            stats: null  
+            stats: null
         };
     }
-    
+
     componentDidMount(){
-        if(this.props.album.rating){            
+        if(this.props.album.rating){
             getAlbumRatingStats(this.props.album.rating.id).then(
                 (response) => {
                     this.setState({
                         stats: response.data
                     });
-                }  
+                }
             );
         }
     }
-    
+
     render(){
         return (
             <>
@@ -35,7 +35,7 @@ export default class AllRatingsStats extends Component {
                             stats={this.state.stats}
                             chartColor={this.props.chartColor}
                             textClass={this.props.textClass}
-                          /> )    : (<div className="has-text-centered">No rating</div>) 
+                          /> )    : (<div className="has-text-centered">No rating</div>)
               }
             </>
         );

@@ -33,7 +33,7 @@ class Navbar extends Component {
                     <button className="button is-primary">
                       <strong>Register</strong>
                     </button>
-                  </Link>                 
+                  </Link>
                   <button className="button is-light" onClick={this.props.onLogin}>Log In</button>
                 </div>
             );
@@ -66,7 +66,7 @@ class Navbar extends Component {
                       onClick={this.props.onLogout}
                     >Logout</Link>
                     </div>
-                </div>                
+                </div>
             );
         }
     };
@@ -80,8 +80,8 @@ class Navbar extends Component {
             burger_active: false
         })
     }
-    
-    render() {        
+
+    render() {
         return (
             <nav className="navbar" role="navigation" aria-label="main navigation"
                  style={{height: "52px"}}>
@@ -89,7 +89,7 @@ class Navbar extends Component {
                 <Link className="navbar-item is-paddingless-bottom" to="">
                   <Logo/>
                 </Link>
-                
+
                 <a role="button"
                    className={`navbar-burger burger ${this.activeClass()}`} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
                    onClick={() => { //
@@ -101,16 +101,16 @@ class Navbar extends Component {
                 </a>
               </div>
 
-              <div id="navbarBasicExample" className={`navbar-menu ${this.activeClass()}`}>
-                <div className="navbar-start">                  
+              <div id="navbar-musiroom" className={`navbar-menu ${this.activeClass()}`}>
+                <div className="navbar-start">
                   <Link
                     className="navbar-item"
                     to={getTopUrl()}>
                     Tops
                   </Link>
-                 
+
                   <Link
-                    className="navbar-item"                    
+                    className="navbar-item"
                     to={discussionsUrl()}>
                     Discussions
                   </Link>
@@ -122,10 +122,10 @@ class Navbar extends Component {
                   </Link>
 
                   <Link
-                    className="navbar-item"                    
+                    className="navbar-item"
                     to={getGenresUrl()}>
                     Genres
-                  </Link>                  
+                  </Link>
 
                   {/* { this.props.token && */}
                   {/*   ( */}
@@ -136,7 +136,7 @@ class Navbar extends Component {
                   {/*       </Link> */}
                   {/*   ) */}
                   {/* } */}
-                  
+
                 </div>
 
                 <div className="navbar-end" style={{'paddingRight': '10px'}}>
@@ -150,12 +150,12 @@ class Navbar extends Component {
                     (
                         <div className="navbar-item">
                           <NotificationBell
-       
+
                           />
                         </div>
                     )
                   }
-                  
+
                   {this.userButtons()}
                 </div>
               </div>

@@ -22,7 +22,7 @@ const CommentEditForm = ({
           onClick={onCancel}
         >Cancel</button>
       </div>
-    </form>                    
+    </form>
 );
 
 export default CommentEditForm;

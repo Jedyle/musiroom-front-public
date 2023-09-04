@@ -25,7 +25,7 @@ export function getReviewsForRatedObject({
     return api.get(
         `/reviews`, {
             params: params
-        }  
+        }
     );
 }
 

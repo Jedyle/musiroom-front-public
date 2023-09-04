@@ -27,7 +27,7 @@ export default class RetrieveUpdateReview extends Component {
             isEditable: false,
             isActive: false,
             editTitle: '',
-            editContent: EditorState.createEmpty()            
+            editContent: EditorState.createEmpty()
         };
     }
 
@@ -37,7 +37,7 @@ export default class RetrieveUpdateReview extends Component {
 
     onChangeTitle = (event) => {
         this.setState({
-            editTitle: event.target.value 
+            editTitle: event.target.value
         });
     }
 
@@ -46,7 +46,7 @@ export default class RetrieveUpdateReview extends Component {
             editContent: editorState
         });
     }
-    
+
     onSubmit = () => {
         updateReview(this.state.review.id,
                      this.state.editTitle,
@@ -73,7 +73,7 @@ export default class RetrieveUpdateReview extends Component {
             });
         });
     }
-    
+
     componentDidMount(){
         getReview(this.props.match.params.reviewId).then((response) => {
             let review = response.data;
@@ -86,7 +86,7 @@ export default class RetrieveUpdateReview extends Component {
             const contentBlock = htmlToDraft(review.content);
             const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
             const editorState = EditorState.createWithContent(contentState);
-            
+
             this.setState({
                 review: response.data,
                 editTitle: review.title,
@@ -94,9 +94,9 @@ export default class RetrieveUpdateReview extends Component {
                 isEditable: review.rating.user.username === getUser()
             });
         });
-        
+
     }
-    
+
     render() {
         let { album } = this.props;
         let { review } = this.state;
@@ -137,8 +137,8 @@ export default class RetrieveUpdateReview extends Component {
                 numVoteDown={review.num_vote_down}
                 onToggleVoteDown={() => {this.onToggleVote("down");}}
                 loggedUserVote={review.user_vote}
-              />              
-              <br className="mt-6 mb-6"/>              
+              />
+              <br className="mt-6 mb-6"/>
               <UserSummaryPanel
                 user={review.rating.user}
                 additionalHeaders={
@@ -150,7 +150,7 @@ export default class RetrieveUpdateReview extends Component {
                       style={{fontSize: '22px'}}
                     />
                 }
-              />                
+              />
               <ReviewEditModal
                 isActive={this.state.isActive}
                 onClose={this.onClose}

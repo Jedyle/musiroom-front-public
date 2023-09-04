@@ -22,7 +22,7 @@ const Radio = ({
                   {type.label}
                 </label>
             ))
-        }       
+        }
       </div>
       <p className="help is-success">{successMessages}</p>
       <p className="help is-danger">{errorMessages}</p>

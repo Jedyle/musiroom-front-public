@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logout, openLoginModal } from 'services/Auth/api';
 import Base from './base';
 
-const mapStateToProps = (state, ownProps) => 
+const mapStateToProps = (state, ownProps) =>
       {
           return {
               token: state.auth.token,
@@ -17,7 +17,7 @@ const _Navbar = ({token, user}) => (
       user={user}
       onLogin={() => openLoginModal()}
       onLogout={() => logout()}
-    />  
+    />
 );
 
 const Navbar = connect(

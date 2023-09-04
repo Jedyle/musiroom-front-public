@@ -11,7 +11,7 @@ function ReviewStream(props){
             setResults(response.data.results)
         })
     }, [])
-    
+
     return (
         <AbstractStream
           results={results}

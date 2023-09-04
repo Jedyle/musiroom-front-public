@@ -58,7 +58,7 @@ const VotePanel = ({
           onVote={onVote}
         />
       </p>
-    </div>  
+    </div>
 );
 
 export default VotePanel;

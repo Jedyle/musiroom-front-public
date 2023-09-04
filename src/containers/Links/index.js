@@ -11,7 +11,7 @@ export const CreateGenreLink = ({title, ...props}) => (
       )}
       anonymousChildren={title}
       {...props}
-    />       
+    />
 );
 
 
@@ -21,14 +21,14 @@ export const CreateDiscussionLink = ({title, contentType=null, objectId=null, ..
       userRendering={(props) => (
           <Link
             {...props}
-            to={contentType ? discussionCreateOnTopicUrl(contentType, objectId) : discussionCreateUrl()}                
+            to={contentType ? discussionCreateOnTopicUrl(contentType, objectId) : discussionCreateUrl()}
           >
             {title}
           </Link>
       )}
       anonymousChildren={title}
       {...props}
-    />       
+    />
 );
 
 

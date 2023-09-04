@@ -43,7 +43,7 @@ export default function ListDescription({list, newDescription, isEditable, onEdi
              (userCanEdit && (
                  <em>
                    Add description
-                 </em>))                       
+                 </em>))
             }
           </p>
         </div>

@@ -12,7 +12,7 @@ const AlbumLinks = ({youtube, spotify, deezer}) => (
          Youtube
        </a>
       }
-      {spotify &&      
+      {spotify &&
        <a
          href={spotify}
          rel="noopener"
@@ -20,9 +20,9 @@ const AlbumLinks = ({youtube, spotify, deezer}) => (
          className="button is-fullwidth has-background-success has-text-white mb-1 ml-1">
          <i className="fab fa-spotify" style={{marginRight: '7px'}}></i>
          Spotify
-       </a>      
+       </a>
       }
-      {deezer &&      
+      {deezer &&
        <a
          href={deezer}
          rel="noopener"
@@ -30,9 +30,9 @@ const AlbumLinks = ({youtube, spotify, deezer}) => (
          className="button is-info is-fullwidth ml-1">
          <i className="fab fa-deezer" style={{marginRight: '7px'}}></i>
          Deezer
-       </a>      
+       </a>
       }
-      
+
     </>
 );
 

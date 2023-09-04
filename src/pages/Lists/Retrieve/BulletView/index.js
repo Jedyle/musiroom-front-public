@@ -28,12 +28,12 @@ const ItemHeader = ({
         >
           <i className="fa fa-2x fa-trash"></i>
         </span>
-      </div>                  
+      </div>
     </div>
 );
 
 const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings, onFetchMoreItems, onAddAlbum, onSubmitItem, onUpdatePosition, onDeleteItem, hasMore}) => {
-    const [state, setState] = useState({        
+    const [state, setState] = useState({
         hasPrevious: false,
         page: 1
     });
@@ -53,7 +53,7 @@ const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings
             currentItem: currentItem
         })
     }
-    
+
     const onCloseDeleteModal = () => {
         setDeleteModal({
             ...deleteModal,
@@ -67,7 +67,7 @@ const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings
                 page: state.page - 1,
                 hasPrevious: state.page-1 > 1
             })
-        }  
+        }
         onDeleteItem(currentItem);
         onCloseDeleteModal();
     }
@@ -76,14 +76,14 @@ const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings
         isActive: false,
         currentItem: null
     });
-    
+
     const onOpenPositionModal = (currentItem) => {
         setPositionModal({
             isActive: true,
             currentItem: currentItem
         })
     }
-    
+
     const onClosePositionModal = () => {
         setPositionModal({
             ...positionModal,
@@ -134,10 +134,10 @@ const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings
                      onSubmit={(comment) => (onSubmitItem(list, item, state.page, index, comment))}
                    />
                  </div>
-                ));            
+                ));
         });
         return formattedRatings;
-    };    
+    };
 
     let paginator = (
         <Paginator
@@ -159,14 +159,14 @@ const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings
                   onFetchMoreItems().then(
                       setState({
                           page: state.page + 1,
-                          hasPrevious: true                          
+                          hasPrevious: true
                       })
                   );
               }
           }}
         />
     );
-            
+
     return (
         <div className="column is-12-mobile is-8-desktop is-offset-2-desktop">
           {count !== null && (
@@ -206,7 +206,7 @@ const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings
                  currentItem={positionModal.currentItem}
                  onSubmit={onSubmitPositionModal}
                  onClose={onClosePositionModal}
-               />    
+               />
            )
           }
           {getUser() && deleteModal.currentItem &&
@@ -217,10 +217,10 @@ const BulletView = ({list, items, count, perPage, lastFetchedPage, authorRatings
                  currentItem={deleteModal.currentItem}
                  onSubmit={onSubmitDeleteModal}
                  onClose={onCloseDeleteModal}
-               />  
+               />
            )
           }
-        </div>        
+        </div>
     );
 }
 

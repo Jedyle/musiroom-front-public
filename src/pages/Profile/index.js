@@ -19,7 +19,7 @@ class Profile extends Component {
             isFollowed: false
         };
     }
-    
+
     componentDidMount(){
         trackAnalytics();
         getProfile(this.props.username).then(
@@ -46,7 +46,7 @@ class Profile extends Component {
                         isFollowed: response.data.length === 1
                     });
                 }
-        );            
+        );
         }
     };
 
@@ -61,12 +61,12 @@ class Profile extends Component {
             }
         );
     }
-    
+
 
     getUserButtons(){
         let user = getUser();
         if (!user){
-            return "";           
+            return "";
         }
         if (getUser() === this.state.profile.user){
             return (<OwnUserButton
@@ -101,7 +101,7 @@ class Profile extends Component {
                     <BodyComponent
                       {...this.props}
                       profile={this.state.profile}
-                    />   
+                    />
                 )}
               </div>
             </div>

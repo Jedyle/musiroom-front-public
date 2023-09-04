@@ -21,7 +21,7 @@ const Home = () => {
             changeAlbums(response.data);
         });
     }, []);
-    
+
     return (
         <div className="columns is-mobile is-multiline">
 	    <Head
@@ -33,8 +33,8 @@ const Home = () => {
 	    />
             <div className="column is-12">
 		<HeadLine
-		  title="MusiRoom, your musical library."                  
-		  subtitle="Listen, review, share."                  
+		  title="MusiRoom, your musical library."
+		  subtitle="Listen, review, share."
 		/>
             </div>
             <Gallery albums={albums}/>
@@ -67,11 +67,11 @@ const Home = () => {
 			</p>
 			<hr style={{backgroundColor: 'black'}}/>
 			<CommentStream/>
-		    </div>              
+		    </div>
 		</div>
             </div>
         </div>
-    );    
+    );
 };
 
 

@@ -35,14 +35,14 @@ export default class FolloweesRatingsStats extends Component {
     }
 
     componentDidMount(){
-        if(this.props.album.rating){            
+        if(this.props.album.rating){
             getFolloweesRatings(this.props.album.rating.id).then(
                 (response) => {
                     this.setState({
                         stats: response.data.stats,
                         ratings: response.data.results
                     });
-                }  
+                }
             );
         }
     }
@@ -62,9 +62,9 @@ export default class FolloweesRatingsStats extends Component {
                       ratings={this.state.ratings}
                     />
                   </>
-              ) : (<div className="has-text-centered">Nobody among your followees rated this album</div>)}        
+              ) : (<div className="has-text-centered">Nobody among your followees rated this album</div>)}
             </>
         );
-    };    
-    
+    };
+
 }

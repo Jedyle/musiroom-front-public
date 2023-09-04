@@ -34,7 +34,7 @@ class _LoginForm extends Component {
             form: form
         });
     })
-    
+
     formConfig(){
         let { form, formErrors } = this.state;
         return ({
@@ -72,7 +72,7 @@ class _LoginForm extends Component {
                 text: "Log In"
             }]
         }
-        );        
+        );
     }
 
     onLogin = () => {
@@ -81,9 +81,9 @@ class _LoginForm extends Component {
             window.location.reload(false);
         }).catch(error => {
             this.setState({
-                formErrors: error.response.data 
+                formErrors: error.response.data
             });
-        });        
+        });
     }
 
     componentDidUpdate(prevProps){
@@ -91,7 +91,7 @@ class _LoginForm extends Component {
             this.loginRef.current.focus();
         }
     }
-    
+
     render() {
         let { isActive } = this.props;
         return (
@@ -114,7 +114,7 @@ class _LoginForm extends Component {
                                        onClick={closeLoginModal}
                                                    >Sign up !</Link></p>
                   <a className="mt-2" href={process.env.REACT_APP_API_URL + "/auth/password/reset/"}>Forgot your password ?</a>
-                  
+
                 </div>
             </div>
               <button

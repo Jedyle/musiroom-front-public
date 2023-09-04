@@ -6,7 +6,7 @@ import AbstractListTab from '../AbstractListTab';
 
 
 function CollectionTab(props){
-    
+
     return (
         <AbstractListTab
           header={
@@ -31,7 +31,7 @@ function CollectionTab(props){
               ["interest", "Interests", {is_interested: true}],
           ]}
           {...props}
-        />  
+        />
     )};
 
 export default CollectionTab;

@@ -35,29 +35,29 @@ class AbstractListTab extends Component {
         )){
             this.fetchBaseElementsFromApi();
         }
-        
+
     }
-    
+
     onPressEnter(event){
         this.setState({
             currentPage: 1,
-            albumTitleQuery: event.target.value 
+            albumTitleQuery: event.target.value
         });
     }
 
     onPreviousPage(){
         this.setState({
-            currentPage: this.state.currentPage - 1 
-        });
-    }
-    
-    onNextPage(){
-        this.setState({
-            currentPage: this.state.currentPage + 1 
+            currentPage: this.state.currentPage - 1
         });
     }
 
-    fetchBaseElementsFromApi(){       
+    onNextPage(){
+        this.setState({
+            currentPage: this.state.currentPage + 1
+        });
+    }
+
+    fetchBaseElementsFromApi(){
         this.props.fetchElements(
             {
                 username: this.props.profile.user,
@@ -75,8 +75,8 @@ class AbstractListTab extends Component {
                 });
             }
         );
-    }        
-    
+    }
+
     render(){
         let ListComponent = this.props.ListComponent;
         return (
@@ -90,11 +90,11 @@ class AbstractListTab extends Component {
                     onPreviousPage={this.onPreviousPage}
                     onNextPage={this.onNextPage}
                   />
-                
+
                 {this.props.filteringFields &&
                  <p className="select has-padding-left-10 has-margin-top-5">
                    <select value={this.props.filteringFields[this.state.filteringIndex][0]}
-                           onChange={(e) => {                               
+                           onChange={(e) => {
                                this.setState(
                                    {
                                        filteringIndex: this.props.filteringFields.map(el => el[0]).indexOf(e.target.value),
@@ -105,10 +105,10 @@ class AbstractListTab extends Component {
                          (filtering) => (
                              <option value={filtering[0]}>{filtering[1]}</option>
                          )
-                         
+
                      )}
                    </select>
-                 </p>                                 
+                 </p>
                 }
 
                 {this.props.orderingFields &&
@@ -125,14 +125,14 @@ class AbstractListTab extends Component {
                          (ordering) => (
                              <option value={ordering[0]}>{ordering[1]}</option>
                          )
-                         
+
                      )}
                    </select>
-                 </p>                
+                 </p>
                 }
 
 
-                
+
                 <Filtrator
                   onPressEnter={this.onPressEnter}
                 />

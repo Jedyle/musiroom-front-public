@@ -43,19 +43,19 @@ export function changeCollection(rating, userRating, callback){
     }
 
     let proceed = true;
-    
+
     if (data.is_interested === false && data.is_in_collection === false && data.score == null) {
         // if, after building, everything is false, then we need to delete the object
         call = deleteUserRating;
         if ((data.is_interested === false) && (userRating && userRating.review)){
             proceed = window.confirm("This will also delete your review ! Proceed ?");
-        }        
+        }
     }
 
     if (proceed){
         call(rating, data).then((response) => {
             callback(response);
-        });           
+        });
     }
 }
 
@@ -68,10 +68,10 @@ export function changeInterest(rating, userRating, callback){
         // if, after building, everything is false, then we need to delete the object
         call = deleteUserRating;
     }
-    
+
     call(rating, data).then((response) => {
         callback(response);
-    });        
+    });
 }
 
 export function changeRating(rating, userRating, newRating, callback){
@@ -96,7 +96,7 @@ export function deleteRating(rating, userRating, callback){
     if (proceed){
         changeUserRating(rating, data).then((response) => {
             callback(response)
-        });   
+        });
     }
 }
 

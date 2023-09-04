@@ -86,10 +86,10 @@ class PasswordForm extends Component {
                 onClick={this.onClick}
               />
               <br/>
-            </div>            
+            </div>
         );
     }
-    
+
 }
- 
+
 export default PasswordForm;

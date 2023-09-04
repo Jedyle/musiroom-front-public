@@ -2,7 +2,7 @@ import React from 'react';
 
 const DiscussionEditForm = ({
     nonFieldErrors,
-    
+
     title,
     onChangeTitle,
     titleErrors,

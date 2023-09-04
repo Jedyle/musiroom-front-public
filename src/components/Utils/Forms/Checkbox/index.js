@@ -6,7 +6,7 @@ const CheckBox = ({
     onChange,
     message,
     errorMessages,
-    successMessages    
+    successMessages
 }) => (
     <div className="field">
       <div className="control has-padding-top-5">

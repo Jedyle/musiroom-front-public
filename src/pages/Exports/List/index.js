@@ -22,7 +22,7 @@ export default class ExportsList extends Component {
             });
         });
     }
-    
+
     render() {
         let { results } = this.state;
         return (

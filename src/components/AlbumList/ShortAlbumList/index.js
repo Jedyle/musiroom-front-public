@@ -17,7 +17,7 @@ const ShortAlbumList = (
             <span style={{verticalAlign: 'middle'}}>
               {album.content}
             </span>
-          </div>          
+          </div>
         </div>
     ))}
       </div>

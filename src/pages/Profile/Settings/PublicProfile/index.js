@@ -14,7 +14,7 @@ class _PublicProfileForm extends Component {
 
         let birth = this.props.user.profile.birth;
         let [year, month, day] = birth ? birth.split('-') : ['', '', ''];
-        
+
         this.state = {
             user: Object.assign({}, this.props.user),
             birth: {
@@ -30,11 +30,11 @@ class _PublicProfileForm extends Component {
 
     setSuccess(){
         this.setState({
-            isSuccess: true 
+            isSuccess: true
         });
         return "Success";
     }
-    
+
     formatDate(){
         let birth = this.state.birth;
         if (!birth.day && !birth.month && !birth.year){
@@ -51,12 +51,12 @@ class _PublicProfileForm extends Component {
     profileErrors(){
         return this.state.errors.profile || {};
     }
-    
+
     submitChange(){
         let newUser = this.state.user;
         newUser.profile.birth = this.formatDate();
         this.setState({
-            errors: {} 
+            errors: {}
         });
         changeUserProfile(newUser).then(
             (response) => {
@@ -65,12 +65,12 @@ class _PublicProfileForm extends Component {
             }).catch(
                 (error) => {
                     this.setState({
-                        errors: error.response.data 
+                        errors: error.response.data
                     });
                 }
             );
     }
-    
+
     changeProfile(field, value){
         let newUser = Object.assign({}, this.state.user);
         newUser.profile[field] = value;
@@ -78,8 +78,8 @@ class _PublicProfileForm extends Component {
             user: newUser
         });
     }
-    
-    changeUser(field, value){        
+
+    changeUser(field, value){
         let newUser = Object.assign({}, this.state.user);
         newUser[field] = value;
         this.setState({
@@ -94,7 +94,7 @@ class _PublicProfileForm extends Component {
             birth: newBirth,
         });
     }
-    
+
     renderName(){
         return (
             <div className="field is-horizontal">
@@ -103,7 +103,7 @@ class _PublicProfileForm extends Component {
               </div>
               <div className="field-body">
                 <Input
-                  type="text"                     
+                  type="text"
                   placeholder="First Name"
                   name="firstName"
                   value={this.state.user.first_name}
@@ -125,7 +125,7 @@ class _PublicProfileForm extends Component {
                   message={"   Public display" }
                   errorMessages={this.profileErrors().display_name}
                 />
-              </div>              
+              </div>
             </div>
         );
     }
@@ -152,13 +152,13 @@ class _PublicProfileForm extends Component {
                   value={this.state.birth.month}
                   onChange={(e) => this.changeDate('month', e.target.value)}
                 />
-                <Input 
+                <Input
                   name="year"
                   type="text"
                   placeholder="Year"
                   value={this.state.birth.year}
                   onChange={(e) => this.changeDate('year', e.target.value)}
-                />                
+                />
                 <CheckBox
                   name="member"
                   checked={this.state.user.profile.display_birth}
@@ -166,9 +166,9 @@ class _PublicProfileForm extends Component {
                   message={"   Public display"}
                 />
                 <p className="help is-danger">{this.profileErrors().birth}</p>
-              </div>              
+              </div>
             </div>
-        );        
+        );
     }
 
     renderSex(){
@@ -197,21 +197,21 @@ class _PublicProfileForm extends Component {
                   ]}
                   onChange={(e) => {this.changeProfile('sex', e.target.value);}}
                   errorMessages={this.profileErrors().sex}
-                />           
+                />
               <CheckBox
                 name="member"
                 checked={this.state.user.profile.display_sex}
                 onChange={(e) => this.changeProfile('display_sex', e.target.checked)}
                 message={"   Public display"}
                 errorMessages={this.profileErrors().display_sex}
-              />                
+              />
             </div>
             </div>
         );
     }
 
     renderDescription(){
-        return (            
+        return (
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Description</label>
@@ -230,7 +230,7 @@ class _PublicProfileForm extends Component {
     renderButton(){
         return (
             <div className="field is-horizontal">
-              <div className="field-label">               
+              <div className="field-label">
               </div>
               <div className="field-body">
                 <div className="field">
@@ -242,11 +242,11 @@ class _PublicProfileForm extends Component {
                 </div>
               </div>
             </div>
-            
+
         );
     }
-    
-    
+
+
     render(){
         return (
             <div className="has-background-light has-padding-10 has-padding-right-20">
@@ -261,7 +261,7 @@ class _PublicProfileForm extends Component {
               <br/>
             </div>
         );
-    }    
+    }
 };
 
 

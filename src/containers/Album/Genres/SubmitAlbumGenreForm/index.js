@@ -18,7 +18,7 @@ export default class SubmitAlbumGenreForm extends Component {
 
     onChange = (event) => {
         let autocompleteList = [];
-        let query = event.target.value; 
+        let query = event.target.value;
         if (query.length > 0){
             autocompleteList = this.props.genres.slice().filter((obj) => (obj.name.toLowerCase().includes(query.toLowerCase())));
         }
@@ -46,13 +46,13 @@ export default class SubmitAlbumGenreForm extends Component {
             selectedItem: ''
         })
     }
-    
+
     onReset = (index) => {
         this.setState({
             selectedItem: ''
         });
     }
-    
+
     render(){
         return (
             <div className="column is-full">
@@ -76,10 +76,10 @@ export default class SubmitAlbumGenreForm extends Component {
                         </p>
                         <br/>
                       </>
-                  )}                  
+                  )}
                   {
                       this.state.selectedItem &&
-                          (                              
+                          (
                               <span className="tag is-light is-success is-large mr-5">
                                 {this.state.selectedItem.name}
                                 <button className="delete is-small" onClick={this.onReset}></button>
@@ -103,11 +103,11 @@ export default class SubmitAlbumGenreForm extends Component {
 
                   <p>
                     You can't find a genre ? <Link to={createGenreUrl()}>Add it</Link> !
-                  </p>                 
+                  </p>
                 </div>
               </div>
-            </div>  
+            </div>
         );
     }
-    
+
 }

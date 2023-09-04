@@ -23,8 +23,8 @@ const GalleryItem = ({album, index, showIndex}) => (
         }
       </h2>
       <h2 style={{textAlign: 'center', fontSize: '1vw'}}>
-        {truncate(album.title, 45)}</h2>                
-    </Link>    
+        {truncate(album.title, 45)}</h2>
+    </Link>
 );
 
 // special gallery for lists, with 5 items per row
@@ -48,7 +48,7 @@ const ListGallery = ({albums, showIndex=false}) => {
     useEffect(() => {
         downloadImage(image);
     }, [image, isLoading]);
-    
+
     const downloadImage = (img) => {
         // important because useEffect may be triggered
         // when img becomes undefined (ex: changing page)
@@ -56,7 +56,7 @@ const ListGallery = ({albums, showIndex=false}) => {
             let a = document.createElement("a"); //Create <a>
             a.href = img; //Image Base64 Goes here
             a.download = "musiroom_collage.png"; //File name Here
-            a.click(); //Downloaded file           
+            a.click(); //Downloaded file
         }
     }
 
@@ -64,7 +64,7 @@ const ListGallery = ({albums, showIndex=false}) => {
         trackClick({action: "download collage", label: window.location.href});
         takeScreenshot();
     }
-    
+
     return (
         <>
           <div id="gallery" ref={screenshotRef} className="container is-fluid is-paddingless has-background-white">
@@ -81,15 +81,15 @@ const ListGallery = ({albums, showIndex=false}) => {
                                         album={album}
                                         index={chunkIndex * 5 + index}
                                         showIndex={showIndex}
-                                      />    
+                                      />
                                     </div>
                                 )
                             )
                         }
-                        <div key={`${chunkIndex}-out`} className="column is-1 is-marginless is-paddingless"></div>                  
+                        <div key={`${chunkIndex}-out`} className="column is-1 is-marginless is-paddingless"></div>
                       </>
-                  )                  
-              )}            
+                  )
+              )}
             </div>
           </div>
           {/* this button has to be at the botton so that the user first loads all the data by scrolling */}
@@ -107,7 +107,7 @@ const ListGallery = ({albums, showIndex=false}) => {
                     <small style={{fontSize: '9px'}}>We recommend using this feature on desktop.</small>
                   </div>
                 </div>
-              </div>                          
+              </div>
             </div>
           </div>
         </>

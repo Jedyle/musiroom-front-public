@@ -28,7 +28,7 @@ export function createComment({
         parent: parentId,
         content_type: contentType,
         object_pk: objectId
-    });    
+    });
 }
 
 export function updateComment(commentId, content){
@@ -39,7 +39,7 @@ export function updateComment(commentId, content){
 
 export function voteOnComment(commentId, vote){
     return api.put(`/comments/${commentId}/vote/`, {
-        vote: vote 
+        vote: vote
     });
 }
 

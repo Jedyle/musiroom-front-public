@@ -23,7 +23,7 @@ class GenreItem extends Component {
             showChildren: this.props.initShowChildren || false,
         };
     }
-    
+
     render() {
         let genre = this.props.genre;
         let showChildren = this.state.showChildren;
@@ -32,7 +32,7 @@ class GenreItem extends Component {
               <div className="column is-narrow" style={{width: '50px'}}>
               </div>
               <div className="column">
-                <div className="box">          
+                <div className="box">
                   {
                       genre.children.length > 0 ?
                    <span className="icon mr-3"
@@ -44,7 +44,7 @@ class GenreItem extends Component {
                          }}
                    >
                      {
-                         showChildren ? 
+                         showChildren ?
                              <i className="fa fa-lg fa-chevron-circle-down"></i> :
                          <i className="fa fa-lg fa-chevron-circle-right"></i>
                      }
@@ -55,10 +55,10 @@ class GenreItem extends Component {
                     <Link to={getGenreUrl(genre.slug)}>
                       {genre.name}
                     </Link>
-                  </span>                  
+                  </span>
                 </div>
                 {
-                    genre.children.length > 0 && showChildren &&             
+                    genre.children.length > 0 && showChildren &&
                         <GenreTree
                           genres={genre.children}
                           initShowChildren={this.props.initShowChildren}

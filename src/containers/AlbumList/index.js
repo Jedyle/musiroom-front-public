@@ -13,7 +13,7 @@ class AlbumList extends Component {
         super(props);
         this.state = {
             loggedUserRatings: {},
-            loggedUserAvgFolloweesRatings: {},            
+            loggedUserAvgFolloweesRatings: {},
         };
     }
 
@@ -42,7 +42,7 @@ class AlbumList extends Component {
                     });
                 }
             );
-        }        
+        }
     }
 
     updateUserRatings = (ratings_ids) => {
@@ -61,22 +61,22 @@ class AlbumList extends Component {
                     }
                     return (
                         {
-                            loggedUserRatings: loggedUserRatings                            
-                        }                        
+                            loggedUserRatings: loggedUserRatings
+                        }
                     )
                 })
             }
         )
     }
-    
+
     getLoggedUserRatingFor = (rating_id) => {
         return this.state.loggedUserRatings[rating_id.toString()];
     }
 
-    getAverageFolloweesRatingsFor = (rating_id) => {       
+    getAverageFolloweesRatingsFor = (rating_id) => {
         return this.state.loggedUserAvgFolloweesRatings[rating_id.toString()];
     }
-    
+
     render(){
         let { ratedObjects, content, headerContent, ranks, displayRanks } = this.props;
         return ratedObjects.map(
@@ -99,7 +99,7 @@ class AlbumList extends Component {
                         followeesRating={this.getAverageFolloweesRatingsFor(object.rating.id)}
                         avgRating={parseFloat(object.rating.average)}
                         onChangeRating={() => this.updateUserRatings([object.rating.id])}
-                      />             
+                      />
                   }
                   description={
                       (<span>

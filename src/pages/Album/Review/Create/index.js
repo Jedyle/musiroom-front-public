@@ -40,7 +40,7 @@ class CreateReview extends Component {
                 this.props.history.push("/");
             }
             this.setState({
-                ownRating: res.data 
+                ownRating: res.data
             });
         }).catch((error) => {
             if (error.response.status === 404){
@@ -76,7 +76,7 @@ class CreateReview extends Component {
             }
         });
     }
-    
+
     render() {
         const { title, editorState } = this.state;
         return (
@@ -85,7 +85,7 @@ class CreateReview extends Component {
               <h1 className="title has-text-centered">New review for {this.props.album.title}</h1>
               <h2 className="is-size-6 has-text-centered">Your rating : {this.state.ownRating.score}</h2>
               <p className="help-is-danger">{this.state.errors.nonField}</p>
-              <br/>              
+              <br/>
               <Input
                 placeholder="Title"
                 name="title"
@@ -111,7 +111,7 @@ class CreateReview extends Component {
                         options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6']
                     },
                     options: ['blockType', 'inline', 'list', 'fontSize', 'colorPicker', 'emoji', 'image'],
-                }}                
+                }}
               />
               <button className="button is-fullwidth is-info is-outlined"
                       onClick={this.onSubmitReview}

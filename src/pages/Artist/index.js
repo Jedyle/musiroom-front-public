@@ -12,7 +12,7 @@ class ArtistDetails extends Component {
     constructor(props){
         super(props);
         this.state = {
-            artist: null  
+            artist: null
         };
     }
 
@@ -26,9 +26,9 @@ class ArtistDetails extends Component {
             this.setState({
                 artist: response.data
             });
-        });      
+        });
     }
-    
+
     render() {
         let { artist } = this.state;
         return (
@@ -53,10 +53,10 @@ class ArtistDetails extends Component {
                             >New discussion</Link>
                           </span>
                         </>
-                    )                
+                    )
                 }
               </div>
-              <div className="column is-12-mobile is-7-widescreen has-padding-left-30">          
+              <div className="column is-12-mobile is-7-widescreen has-padding-left-30">
                 { artist &&
                   (
                       <ArtistBody
@@ -65,7 +65,7 @@ class ArtistDetails extends Component {
                 }
               </div>
             </div>
-        );              
+        );
     }
 }
 

@@ -28,7 +28,7 @@ const ExtendedSidebar = ({album}) => (
           contentType="album"
           objectId={album.id}
         />
-        
+
       </span>
       <hr/>
       <h3 className="is-size-5">Tracks</h3>
@@ -49,10 +49,10 @@ const AlbumDetails = (props) => {
             (response) => {
                 setAlbum(response.data);
             }
-        );                
+        );
     }, [props.match.params.mbid]);
 
-    
+
     return album ? (
         <div className="columns is-multiline is-marginless is-paddingless">
           <Head
@@ -62,7 +62,7 @@ const AlbumDetails = (props) => {
             url={window.location.href + getAlbumUrl(album.mbid)}
           />
           <div className="column is-12-mobile is-3-desktop">
-            <ExtendedSidebar album={album}/>                  
+            <ExtendedSidebar album={album}/>
           </div>
           <div className="column is-12-mobile is-9-desktop has-padding-left-30">
             <Route
@@ -89,7 +89,7 @@ const AlbumDetails = (props) => {
                    render={(props) => <RetrieveUpdateReview {...props}
                          album={album}
 />}
-              
+
             />
           </div>
         </div>

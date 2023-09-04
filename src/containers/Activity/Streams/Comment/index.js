@@ -11,7 +11,7 @@ function CommentStream(props){
             setResults(response.data.results)
         })
     }, [])
-    
+
     return (
         <AbstractStream
           results={results}

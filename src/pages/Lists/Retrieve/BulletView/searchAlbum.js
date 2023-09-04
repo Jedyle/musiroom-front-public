@@ -29,9 +29,9 @@ class SearchAlbum extends Component {
             this.setState({
                 listItems: response.data.map((res) => (res.album))
             });
-        });        
+        });
     }
-    
+
     fetchResults(query){
         search({
             model: 'album',
@@ -43,7 +43,7 @@ class SearchAlbum extends Component {
             });
         });
     }
-    
+
 
     onChange = (e) => {
         let query = e.target.value;
@@ -96,14 +96,14 @@ class SearchAlbum extends Component {
                   >Advanced search</Link></p>
               </div>
               <div>
-                {results.map((album) => (                    
+                {results.map((album) => (
                     <div className="box">
                       <article className="media">
                         <div className="media-left">
                           <figure className="image is-64x64">
                             <img src={previewUrl(album.preview)} alt="Preview"/>
                           </figure>
-                        </div>                        
+                        </div>
                         <div className="media-content">
                           <div className="content">
                             <p>
@@ -126,16 +126,16 @@ class SearchAlbum extends Component {
                                           add
                                         </button>
                                     )
-                            }      
+                            }
                           </div>
                         </div>
                       </article>
                     </div>
-                ))}                
+                ))}
               </div>
             </div>
-        );        
-    }    
+        );
+    }
 }
 
 export default SearchAlbum;

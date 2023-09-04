@@ -25,16 +25,16 @@ const Message = ({message}) => {
                 {" "}
                 <UserLink username={message.user.username}/>
               </p>
-            </div>             
-          </div>                   
+            </div>
+          </div>
           <article className={`message mb-0 ${isAuthor ? 'is-success' : 'is-dark'}`}>
             <div className="message-body">
               {message.text}
             </div>
           </article>
           <p className={`${isAuthor && 'is-pulled-right'}`}>
-            <i>{" "} {toHumanDate(message.date)}</i>            
-          </p>          
+            <i>{" "} {toHumanDate(message.date)}</i>
+          </p>
         </div>
     );
 };
@@ -53,12 +53,12 @@ class Conversation extends Component{
             isLoading: false
         };
     }
-    
+
     componentDidMount(){
         this.props.loadMore(1);
         setTimeout(() => this.scrollToBottom(), 1000);
         if (this.infiniteRef.current){
-            this.infiniteRef.current.addEventListener("scroll", this.handleScrollToTop);        
+            this.infiniteRef.current.addEventListener("scroll", this.handleScrollToTop);
         }
     }
 
@@ -75,7 +75,7 @@ class Conversation extends Component{
     }
 
     handleScrollToTop = () => {
-        // Handle scroll direction        
+        // Handle scroll direction
         if (this.infiniteRef.current.scrollTop > this.state.scrollPosition) {
             // Scroll bottom
         } else {
@@ -93,9 +93,9 @@ class Conversation extends Component{
         // Save event scroll position
         this.setState({ scrollPosition: this.infiniteRef.current.scrollTop });
     };
-    
-    render(){        
-        let { messages, loader, isLoading } = this.props;        
+
+    render(){
+        let { messages, loader, isLoading } = this.props;
         return (
             <div className="columns is-mobile is-multiline has-border mr-3 ml-3" style={{maxHeight: '600px', overflowY: 'scroll'}}
                  ref={this.infiniteRef}
@@ -111,11 +111,11 @@ class Conversation extends Component{
                   )
                 }
                 {isLoading && loader}
-              </div>              
+              </div>
             </div>
         );
     }
-    
+
 }
 
 export default Conversation;

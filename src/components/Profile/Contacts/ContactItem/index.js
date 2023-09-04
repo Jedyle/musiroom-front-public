@@ -9,7 +9,7 @@ const ContactItem = ({
     avatar,
     user
 }) => (
-    <div className="column is-one-third-mobile is-one-quarter-desktop">      
+    <div className="column is-one-third-mobile is-one-quarter-desktop">
       <Link to={profile_url}>
         <Avatar
           avatar={avatar}

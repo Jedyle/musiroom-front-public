@@ -32,13 +32,13 @@ class ConversationRetrieve extends Component {
     fetchMessages = (page) => {
         let { id } = this.props;
         this.setState({isLoading: true});
-        getMessages(id, {page: page}).then((response) => {          
+        getMessages(id, {page: page}).then((response) => {
             this.setState((prevState) => {
                 return {
                     messages: prevState.messages.concat(response.data.results),
                     hasMore: response.data.next !== null,
                     isLoading: false
-                };                
+                };
             });
             // This is a dirty hack
             // We fetch the conversation after having fetched the first page, so that we get the new reading status (unread=false) in the store.
@@ -74,7 +74,7 @@ class ConversationRetrieve extends Component {
             this.setState({
                 editConversationError: {}
             });
-        }).catch((error) => {        
+        }).catch((error) => {
             if (error.response.status === 400){
                 this.setState((prevState) => ({
                     editConversationError: error.response.data
@@ -84,7 +84,7 @@ class ConversationRetrieve extends Component {
     }
 
     isActiveUser = () => (this.activeMembers(this.props.conversation.members).map(m => m.user).includes(getUser()))
-    
+
     render() {
         let { conversation } = this.props;
         let { messages, hasMore, isLoading, newMessage, editConversationError } = this.state;
@@ -98,13 +98,13 @@ class ConversationRetrieve extends Component {
                       heroClasses="has-background-success"
                     />
                     <p className="help is-danger">{!this.isActiveUser() && "You are not in this conversation"}</p>
-                    <ConvUsers                 
+                    <ConvUsers
                       members={this.activeMembers(conversation.members)}
                       onChangeMembers={this.onChangeMembers}
                     />
                     <p className="help">{editConversationError.users}</p>
 
-                    <br/>                
+                    <br/>
                     <Conversation
                       messages={messages}
                       loadMore={this.fetchMessages}
@@ -122,7 +122,7 @@ class ConversationRetrieve extends Component {
                        onSubmit={this.onSubmitMessage}
                      />
                     }
-                  </div>              
+                  </div>
                 </div> : <div></div>
                );
     }

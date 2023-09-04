@@ -31,7 +31,7 @@ const AlbumItem = (
                 </figure>
               </div>
             </div>
-          </div>          
+          </div>
           <div className="column is-three-quarters"
                style={{paddingLeft: "1.5rem"}}>
             <div className="columns is-mobile is-multiline">
@@ -41,7 +41,7 @@ const AlbumItem = (
                    (<>
                       {rank}. {" "}
                     </>
-                   )               
+                   )
                   }
                   {title}
                 </p>

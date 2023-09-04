@@ -11,7 +11,7 @@ class SearchInput extends Component {
         artist: 'Artist',
         user: 'User'
     }
-    
+
     constructor(props){
         super(props);
         this.state = {
@@ -32,7 +32,7 @@ class SearchInput extends Component {
             query: '',
             type: type,
             autocompleteData: [],
-            autocompleteList: []            
+            autocompleteList: []
         });
     }
 
@@ -53,7 +53,7 @@ class SearchInput extends Component {
         search({
             model: this.state.type,
             query: query,
-            method: 'auto'            
+            method: 'auto'
         }).then((response) => {
             this.setState({
                 autocompleteList: response.data.slice(0, 4).map((res) => (
@@ -73,7 +73,7 @@ class SearchInput extends Component {
         }
         else {
             this.setState({
-                autocompleteList: [] 
+                autocompleteList: []
             });
         }
     }
@@ -86,9 +86,9 @@ class SearchInput extends Component {
 
     onChooseItem(index){
         let item = this.state.autocompleteData[index];
-        let url = this.state.type === "album" ? getAlbumUrl(item.mbid) : getArtistUrl(item.mbid); 
+        let url = this.state.type === "album" ? getAlbumUrl(item.mbid) : getArtistUrl(item.mbid);
         this.props.history.push(url);
-        this.reset(this.state.type);   
+        this.reset(this.state.type);
     }
 
     onBlur(){
@@ -97,7 +97,7 @@ class SearchInput extends Component {
             autocompleteList: []
         });
     }
-    
+
     render(){
         return (
             <form onSubmit={this.onSubmit} autocomplete="off">
@@ -116,7 +116,7 @@ class SearchInput extends Component {
                           ))}
                         </select>
                       </span>
-                    </p>                    
+                    </p>
                 }
                 autocompleteList={this.state.autocompleteList}
                 onChooseItem={this.onChooseItem}
@@ -125,7 +125,7 @@ class SearchInput extends Component {
             </form>
         )
         ;
-    }   
+    }
 }
 
 export default withRouter(SearchInput);

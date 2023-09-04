@@ -44,7 +44,7 @@ const DiscographyTable = ({
                         />
                       </th>
                     </tr>
-                ))        
+                ))
             }
       </tbody>
     </table>
@@ -108,20 +108,20 @@ export default class ArtistBody extends Component {
 
     updateAlbum = (releaseIndex, albumIndex, response) => {
         this.setState((prevState) => {
-            let discography = prevState.discography.slice();            
+            let discography = prevState.discography.slice();
             discography[releaseIndex]["items"][albumIndex]["details"] = response.data;
             return {
                 discography: discography
-            }            
+            }
         })
     }
-    
+
     render() {
         return (
             <div className="columns is-multiline">
               <div className="column is-12">
                 <h1 className="title is-size-1 has-text-centered">{this.props.artist.name}</h1>
-                {this.state.similarArtists && 
+                {this.state.similarArtists &&
                     <SimilarArtistsPanel
                       artists={this.state.similarArtists.items}
                     />
@@ -130,7 +130,7 @@ export default class ArtistBody extends Component {
                 <div className="">
                   <Input
                     placeholder="Filter by exact name"
-                    name="search"                   
+                    name="search"
                     onKeyDown={(e) => {
                         if (e.keyCode === 13){
                             this.onPressEnter(e);

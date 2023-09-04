@@ -14,7 +14,7 @@ const UserSummaryPanel = ({user, userLink, additionalHeaders, children}) => (
       <div className="column">
         <p>
           {userLink}
-          {additionalHeaders}          
+          {additionalHeaders}
         </p>
         <br/>
         <p>{user.description}</p>

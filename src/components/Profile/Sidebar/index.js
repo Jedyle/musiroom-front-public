@@ -35,25 +35,25 @@ const ProfileSidebar = ({
                     value ?
                         <li key={value} className="list-item has-padding-10 has-text-centered">
                           {value}
-                        </li> : ""   
+                        </li> : ""
                 ))
             }
             {
                 last_activity ?
                     <li className="list-item has-padding-10 has-text-centered">
                       Last activity : {timeSince(last_activity)}
-                    </li> : ""   
+                    </li> : ""
             }
             {
                 date_joined ?
                     <li className="list-item has-padding-10 has-text-centered">
                       Registration date : {formatDate(date_joined)}
-                    </li> : ""   
+                    </li> : ""
             }
             {user_buttons}
           </div>
         </div>
-      </div>      
+      </div>
     </div>
 );
 

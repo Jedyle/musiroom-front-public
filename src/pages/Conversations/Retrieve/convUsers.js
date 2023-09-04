@@ -15,7 +15,7 @@ export default class ConvUsers extends Component {
     getUsers = () => (this.props.members.map(member => member.user))
 
     isActiveUser = () => (this.getUsers().includes(getUser()))
-    
+
     makeMemberObjectsFromTags = (tags) => (tags.map(tag => ({user: tag})))
 
     tagProps = () => (this.isActiveUser() ?
@@ -44,9 +44,9 @@ export default class ConvUsers extends Component {
                             }
                         }
                        )
-    
+
     render() {
-        return (            
+        return (
             <div className="mt-2">
               <h1 className="title is-size-5 mb-1">Members</h1>
               <TagsInput

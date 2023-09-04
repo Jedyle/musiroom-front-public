@@ -30,7 +30,7 @@ export default class RetrieveList extends Component {
             this.setState({
                 list: response.data,
             });
-        });        
+        });
     }
 
     componentDidMount(){
@@ -66,20 +66,20 @@ export default class RetrieveList extends Component {
             isEditable: true
         });
     }
-    
+
     onChange = (e) => {
         this.setState({
             newDescription: e.target.value
         });
     }
-    
+
     onCancel = () => {
         this.setState({
             isEditable: false,
             newDescription: this.state.list.description
         });
     }
-    
+
     onSubmit = (e) => {
         updateList(this.state.list.id, {
             description: this.state.newDescription
@@ -90,7 +90,7 @@ export default class RetrieveList extends Component {
             });
         });
     }
-    
+
     render() {
         const { list, newDescription, isEditable } = this.state;
         return list && (
@@ -110,7 +110,7 @@ export default class RetrieveList extends Component {
                     <h2 className="subtitle is-size-3 has-text-centered mb-0">
                       by {" "}
                       <UserLink username={list.user.username}/>
-                    </h2>                    
+                    </h2>
                     <p className="has-text-centered is-centered">
                       <Avatar
                         avatar={list.user.avatar}
@@ -130,7 +130,7 @@ export default class RetrieveList extends Component {
                           onCancel={this.onCancel}
                           onEdit={this.onEdit}
                         />
-                      </div>                      
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -147,9 +147,9 @@ export default class RetrieveList extends Component {
                       <Link className={`button ${this.props.location.pathname === getListGalleryUrl(list.id) && 'is-info'}`} to={getListGalleryUrl(list.id)}>
                         <i className="fas fa-image" style={{marginRight: '7px'}}t></i>
                         Gallery View
-                      </Link>                  
+                      </Link>
                     </ul>
-                  </div>                  
+                  </div>
                 </div>
                 <div className="column is-12">
                   <div className="columns is-mobile is-multiline">
@@ -157,7 +157,7 @@ export default class RetrieveList extends Component {
                       list={list}
                       ViewComponent={this.props.location.pathname === getListGalleryUrl(list.id)? ListGalleryView : BulletView}
                       onUpdateList={() => this.fetchList(list.id)}
-                    />                    
+                    />
                   </div>
                   <div className="columns is-mobile is-multiline">
                     <div className="column is-12-mobile is-12-tablet is-8-desktop is-offset-2-desktop">
@@ -182,11 +182,11 @@ export default class RetrieveList extends Component {
                               style={{fontSize: '22px'}}
                             />
                         }
-                      />                      
+                      />
                     </div>
                   </div>
                 </div>
-              </div>              
+              </div>
             </div>
         );
     }

@@ -40,7 +40,7 @@ const NotFound = () => {
     let history = useHistory();
     history.push("/");
     return (
-        <div>          
+        <div>
           <h1>This page was not found</h1>
         </div>
     );
@@ -72,7 +72,7 @@ function App() {
                     exact
                     path={getSelfActivityUrl()}
                     render={props => <Activity key='self' type='self'/>}
-                  />                  
+                  />
                   <PrivateRoute
                     exact
                     path={getNotificationsUrl()}
@@ -83,10 +83,10 @@ function App() {
                     component={Registration}
                   />
                   <PublicRouteRender
-                    exact path={activateAccountUrl()}                    
+                    exact path={activateAccountUrl()}
                     render={props => {
                         let query = queryString.parse(props.location.search);
-                        return (                     
+                        return (
                             <ActivateAccount
                               uid={query.uid}
                               token={query.token}
@@ -146,7 +146,7 @@ function App() {
                                    model={null}
                                    key={props.location.search}
                                    {...props}
-                                 />  
+                                 />
                              );
                          }}
                   />
@@ -191,7 +191,7 @@ function App() {
                                {...props}
                              />
                          )}
-                    
+
                   />
                   <Route exact path={listListsUrl()}
                          render={props => <ListsList
@@ -236,7 +236,7 @@ function App() {
                                        {...props}
                                      />);
                          }}
-                    
+
                   />
                   <PrivateRoute exact path={changeProfileUrl()}
                                 component={ProfileWithEditForm}
@@ -248,7 +248,7 @@ function App() {
                                 component={ExportTaskLaunched}
                   />
                   <PrivateRoute exact path={listExportsUrl()}
-                                component={ExportsList}                    
+                                component={ExportsList}
                   />
                   <PrivateRouteRender
                     exact
@@ -258,7 +258,7 @@ function App() {
                             <ExportRetrieve
                               id={props.match.params.exportId}
                             />
-                    }                    
+                    }
                   />
                   <PrivateRoute
                     path={listConversationsUrl()}

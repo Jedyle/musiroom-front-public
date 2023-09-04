@@ -25,7 +25,7 @@ class Prototypes extends React.Component {
         super(props);
         this.state = {
             tag: "AlbumPopover"
-        };        
+        };
     }
 
     components = {
@@ -79,7 +79,7 @@ class Prototypes extends React.Component {
                         name: "Lol",
                         mbid: "fb2350f9-019b-4c98-bc18-cffa301ca911",
                         media_cover: "https://coverartarchive.org//release/fb2350f9-019b-4c98-bc18-cffa301ca911/23661549212-250.jpg"
-                    }                    
+                    }
                 ]
             }
         },
@@ -115,7 +115,7 @@ class Prototypes extends React.Component {
                 content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor dolor at volutpat posuere. Mauris fermentum lorem sit amet mauris malesuada, quis tempor nibh porta. Donec eget orci fermentum, dignissim orci eu, ultrices ex. Nunc ac condimentum ex. Suspendisse ullamcorper metus vel faucibus egestas. Suspendisse sit amet nisi ut sapien luctus sollicitudin. Donec euismod est est, sit amet suscipit risus euismod ut.",
                 user_rating: null,
                 followees_rating: 8.1,
-                avg_rating: 4.6               
+                avg_rating: 4.6
             }
         },
         BadgeList: {
@@ -180,21 +180,21 @@ class Prototypes extends React.Component {
                     (
                         <span>
                           <Link to="/prototypes">
-                            Ca roule ? 
+                            Ca roule ?
                           </Link> (discussion générale)
                         </span>
                     ),
                     (
                         <span>
                           <Link to="/prototypes">
-                            Le meilleur ? 
+                            Le meilleur ?
                           </Link> (sur Radiohead)
                         </span>
                     ),
                     (
                         <span>
                           <Link to="/prototypes">
-                            Ca gaz ? 
+                            Ca gaz ?
                           </Link> (discussion générale)
                         </span>
                     ),
@@ -651,11 +651,11 @@ class Prototypes extends React.Component {
             props: {
                 numVoteUp: 50,
                 numVoteDown: 13,
-                loggedUserVote: "down"                
+                loggedUserVote: "down"
             }
         }
     }
-    
+
 
     render() {
         const tag = this.state.tag;
@@ -673,15 +673,15 @@ class Prototypes extends React.Component {
                           <div key={item}>
                             <a
                               href="/"
-                              onClick={(e) => {                                  
+                              onClick={(e) => {
                                   e.preventDefault();
                                   this.setState({
                                       tag: item
-                                  });}} 
+                                  });}}
                             >
                               {item}
                             </a>
-                          </div> 
+                          </div>
                       ))
                   }
                 </div>
@@ -693,7 +693,7 @@ class Prototypes extends React.Component {
             </div>
         );
     }
-    
+
 };
 
 

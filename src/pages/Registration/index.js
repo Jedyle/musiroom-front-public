@@ -30,7 +30,7 @@ class RegistrationForm extends Component {
     componentDidMount() {
         trackAnalytics();
     }
-    
+
     setFormData = (field) => ((e) => {
         let form = this.state.form;
         form[field] = e.target.value;
@@ -65,7 +65,7 @@ class RegistrationForm extends Component {
                     helpText: null,
                     value: form.email,
                     error: formErrors.email,
-                    icon: (<i className="fa fa-at"></i>),                    
+                    icon: (<i className="fa fa-at"></i>),
                     onChange: this.setFormData('email')
                 },
                 {
@@ -89,17 +89,17 @@ class RegistrationForm extends Component {
                     helpText: null,
                     value: form.password_confirm,
                     error: formErrors.password_confirm,
-                    icon: (<i className="fa fa-lock"></i>),                    
+                    icon: (<i className="fa fa-lock"></i>),
                     onChange: this.setFormData('password_confirm')
-                }        
+                }
             ],
             buttons: [{
                 classes: "is-fullwidth is-info",
                 onClick: this.register,
-                text: "Register"                
+                text: "Register"
             }]
         }
-        );        
+        );
     }
 
     registerUser = () => {
@@ -116,8 +116,8 @@ class RegistrationForm extends Component {
                 });
             }
         });
-    }    
-    
+    }
+
     render() {
         return (
             <div className="columns is-multiline is-mobile">
@@ -132,7 +132,7 @@ class RegistrationForm extends Component {
                 <FormBuilder
                   config={this.formConfig()}
                   onSubmit={() => this.registerUser()}
-                />                
+                />
               </div>
             </div>
         );
@@ -153,7 +153,7 @@ const ActivationLinkSent = ({sendLink}) => (
               className="button is-info"
               onClick={sendLink}
             >Send me another link</button>
-          </div>          
+          </div>
         </p>
         </div>
     </div>
@@ -179,14 +179,14 @@ class RegistrationPage extends Component {
 
     sendLink = () => {
         resendLink(this.state.username).then((response) => {
-            alert("An email has been sent to you !"); 
+            alert("An email has been sent to you !");
         }).catch((error) => {
             if (error.response.status === 400){
                 alert(error.response.data[0]);
             }
         });
     }
-    
+
     render(){
         let { isRegistrationComplete, username } = this.state;
         return (
@@ -205,7 +205,7 @@ class RegistrationPage extends Component {
             </>
         );
     }
-    
+
 }
 
 

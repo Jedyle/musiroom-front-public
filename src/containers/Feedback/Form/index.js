@@ -28,7 +28,7 @@ const FeedbackForm = ({typeOptions, type, onChangeType, message, onChangeMessage
         </div>
       </div>
       <button className="button is-fullwidth is-info" type="submit">Submit</button>
-    </form>  
+    </form>
 );
 
 export default FeedbackForm;

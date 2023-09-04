@@ -12,12 +12,12 @@ export function setAuthInLocalStorage(obj){
 }
 
 export function getUser(){
-    let storage = getAuthFromLocalStorage(); 
+    let storage = getAuthFromLocalStorage();
     return storage ? storage.user.username : null;
 }
 
 export function getToken(){
-    let storage = getAuthFromLocalStorage(); 
+    let storage = getAuthFromLocalStorage();
     return storage ? storage.token : null;
 }
 
@@ -32,7 +32,7 @@ export function login(username, password){
 
     let userDataPromise = loginPromise.then((login_response) => {
         store.dispatch(actions.login(
-            login_response.data.key         
+            login_response.data.key
         ));
         return api.request(
             {
@@ -65,7 +65,7 @@ export function changePassword(data){
 export function changeAvatar(file){
     let form = new FormData();
     form.append('avatar', file);
-    return api.put(`/auth/user/avatar`, form, {        
+    return api.put(`/auth/user/avatar`, form, {
         'Content-Type': 'multipart/form-data'
     });
 }

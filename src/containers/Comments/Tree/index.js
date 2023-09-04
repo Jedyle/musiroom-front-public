@@ -36,7 +36,7 @@ class CommentItem extends Component {
     }
 
     canUserReply = () => ((this.props.depthLevel < this.props.maxDepth) && getUser())
-    
+
     render() {
         let { comment, commentMap, onCommentVote, isEditable, onEditComment, onSubmitComment, depthLevel, maxDepth } = this.props;
         return (
@@ -44,7 +44,7 @@ class CommentItem extends Component {
               <div className="column is-narrow is-hidden-mobile mt-2" style={{width: "60px"}}>
                 <Avatar
                   size="is-48x48"
-                  avatar={comment.user.profile.avatar}                  
+                  avatar={comment.user.profile.avatar}
                   alt={comment.user.username}
                   figureStyle={{display: 'auto'}}
                 />
@@ -63,10 +63,10 @@ class CommentItem extends Component {
                       <Link to={profileUrl(comment.user.username)}>
                         <b>
                           {comment.user.username}
-                        </b>                        
+                        </b>
                       </Link>
                       <span className="is-pulled-right">
-                        { isEditable && 
+                        { isEditable &&
                           <span className="icon"
                                 style={{cursor: 'pointer'}}
                                 onClick={(e) => {this.setState((prevState) => ({hasEditForm: !prevState.hasEditForm}));}}
@@ -91,7 +91,7 @@ class CommentItem extends Component {
                   <div className="column is-full">
                     { !this.state.hasEditForm ?
                       (
-                          <p>{comment.comment}</p>                    
+                          <p>{comment.comment}</p>
                       ) :
                       (
                           <CommentEditForm
@@ -104,7 +104,7 @@ class CommentItem extends Component {
                             onCancel={() => {this.setState({hasEditForm: false});}}
                           />
                       )
-                    }                    
+                    }
                     <p>
                       <span className="is-pulled-right is-size-7">{toHumanDate(comment.submit_date)}</span>
                       {
@@ -129,15 +129,15 @@ class CommentItem extends Component {
                                   this.setState({hasReplyForm: false});
                               }}
                             />
-                            
+
                         )
                       }
                     </p>
                   </div>
-                  
+
                   {
                       commentMap[comment.id].children &&
-                          commentMap[comment.id].children.length > 0 &&                           
+                          commentMap[comment.id].children.length > 0 &&
                           <div className="column is-full">
                             <CommentTreeView
                               rootComments={commentMap[comment.id].children}

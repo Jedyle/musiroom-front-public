@@ -23,7 +23,7 @@ class ConversationsList extends Component {
     isConversationClosed = (conversation) => (!conversation.members.filter(member => member.is_active).map(member => member.user).includes(getUser()))
     isConversationUnread = (conversation) => (conversation.members.find(member => (member.is_active && member.user === getUser())).unread === true)
     isCurrentConversation = (conversation) => (parseInt(this.props.highlightedConv) === parseInt(conversation.id))
-    
+
     render() {
         let { hasMore, conversations } = this.props;
         return (
@@ -31,7 +31,7 @@ class ConversationsList extends Component {
               <div className="column is-12">
 
                 <br/>
-                
+
                 <InfiniteScroll
                   pageStart={0}
                   loadMore={this.fetchConversationsAPI}
@@ -62,7 +62,7 @@ class ConversationsList extends Component {
                               }
                             </>
                         );
-                        
+
                         return (
                             <div className={`list-item ${this.isCurrentConversation(conv) && "has-background-success-light"}`} key={conv.id}>
                               <div className="columns is-mobile">
@@ -74,7 +74,7 @@ class ConversationsList extends Component {
                                     ({membersToDisplay})
                                   </small>
                                   <p className="is-pulled-right">
-                                    <span className="icon">                                    
+                                    <span className="icon">
                                       {
                                           this.isConversationClosed(conv) ?
                                               <i className="fa fa-lock"></i> : (
@@ -82,7 +82,7 @@ class ConversationsList extends Component {
                                                       <i className="fa fa-envelope"></i> :
                                                   <i className="fa fa-check"/>
                                               )
-                                      }                                                                                                 
+                                      }
                                     </span>
                                     {" "}
 
@@ -94,8 +94,8 @@ class ConversationsList extends Component {
                     })}
                   </div>
                 </InfiniteScroll>
-                
-              </div>              
+
+              </div>
             </div>
         );
     }

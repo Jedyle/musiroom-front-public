@@ -14,7 +14,7 @@ export const NewRatings = ({results, stats}) => (
                       <GetAlbumLink
                         title={res.title}
                         mbid={res.mbid}
-                      /> {" -> "} {res.rating} 
+                      /> {" -> "} {res.rating}
                     </div>
                 )
         )}
@@ -37,7 +37,7 @@ export const Conflicts = ({results, stats}) => (
                       <GetAlbumLink
                         title={res.title}
                         mbid={res.mbid}
-                      /> {" -> "} {res.rating} 
+                      /> {" -> "} {res.rating}
                     </div>
                 )
         )}

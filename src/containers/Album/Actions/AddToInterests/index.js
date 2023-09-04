@@ -12,7 +12,7 @@ function Base({ onChangeInterest, interest, contentWhenInterest = "I want to lis
         >
           {interest ? contentWhenInterest : contentWhenNoInterest}
         </button>
-    );        
+    );
 }
 
 const AddToInterests = ({anonymousContent = <><i className="fa fa-map-marker" style={{marginRight: "7px"}}></i> Listen later</>, ...props}) => (

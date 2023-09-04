@@ -35,7 +35,7 @@ class AutocompleteInput extends Component {
                       className="input"
                       type="text"
                       placeholder={placeholder}
-                      name={name}     
+                      name={name}
                       value={value}
                       onChange={onChange}
                       onKeyDown={onKeyDown}
@@ -45,7 +45,7 @@ class AutocompleteInput extends Component {
                   </p>
                   {additionalControlElements}
                 </div>
-                <div className="list" style={{position: 'absolute', zIndex: 10}}>        
+                <div className="list" style={{position: 'absolute', zIndex: 10}}>
                   {autocompleteList.map(
                       (item, index) => (
                           <div
@@ -58,11 +58,11 @@ class AutocompleteInput extends Component {
                           >{item}</div>
                       )
                   )}
-                </div>      
-              </div>     
-            </>            
-        );         
-    }    
+                </div>
+              </div>
+            </>
+        );
+    }
 }
 
 export default AutocompleteInput;

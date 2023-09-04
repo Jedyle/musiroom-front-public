@@ -14,7 +14,7 @@ const formatUserAttributes = (user) => {
 
 function distinctUsers(user_list){
     return Array.from(new Set(user_list.map((user) => user.user))).map(
-        (user) => {                   
+        (user) => {
             return user_list.find((contact) => contact.user === user);
         }
     );
@@ -31,7 +31,7 @@ class ContactsTab extends Component {
         };
         this.onFilterChange = this.onFilterChange.bind(this);
     }
-    
+
     componentDidMount(){
         if (this.props.profile){
             this.fetchUserContacts();
@@ -72,12 +72,12 @@ class ContactsTab extends Component {
             return distinctUsers(allContacts);
         }
     }
-    
+
     renderContacts(){
         return this.filterContactList().sort(
             (a, b) => {
-                return a['user'] < b['user'];                
-            } 
+                return a['user'] < b['user'];
+            }
         );
     }
 
@@ -86,7 +86,7 @@ class ContactsTab extends Component {
             filter: event.target.value
         });
     }
-    
+
     render(){
         return (
             <div>

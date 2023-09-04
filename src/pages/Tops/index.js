@@ -41,13 +41,13 @@ const TopForm = ({onChange, currentGenre, currentPeriod, genres=[]}) => {
                       decades.map((decade) => (
                           <option value={decade}>{decade}</option>
                       ))
-                  }                      
+                  }
                   <option disabled>──────────</option>
                   {
                       years.map((year) => (
                           <option value={year}>{year}</option>
                       ))
-                  }                                            
+                  }
                 </select>
               </div>
             </div>
@@ -65,7 +65,7 @@ class Top extends Component {
             topAlbums: []
         };
     }
-    
+
     changeTopPage = (genre, period) => {
         this.props.history.push(getTopUrl(genre, period));
     }
@@ -73,7 +73,7 @@ class Top extends Component {
     componentDidMount(){
         trackAnalytics();
         let { genre, period } = this.props;
-        
+
         listAllGenres().then((response) => {
             this.setState({
                 genres: response.data
@@ -89,11 +89,11 @@ class Top extends Component {
             this.setState({
                 topAlbums: response.data
             });
-        });        
+        });
     }
 
     getTitle = () => {
-        let { genre, period } = this.props;        
+        let { genre, period } = this.props;
         let title = "Top 100 Albums";
         if (genre !== "all"){
             let genreObj = this.state.genres.find(el => el.slug === genre);
@@ -104,7 +104,7 @@ class Top extends Component {
         }
         return title;
     }
-    
+
     render() {
         let { genre, period } = this.props;
         let { genres, topAlbums } = this.state;
@@ -132,7 +132,7 @@ class Top extends Component {
                       currentGenre={genre}
                       currentPeriod={period}
                       genres={genres}
-                      onChange={this.changeTopPage}                      
+                      onChange={this.changeTopPage}
                     />
                     <hr style={{backgroundColor: '#d7d3d3'}}/>
                     <AlbumList

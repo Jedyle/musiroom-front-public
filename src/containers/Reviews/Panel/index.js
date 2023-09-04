@@ -32,11 +32,11 @@ const ReviewList = ({
                     </span>
                     <Link to={profileUrl(review.rating.user.username)}>
                       {review.rating.user.username}
-                    </Link>                    
+                    </Link>
                   </p>
                   <hr style={{backgroundColor: 'rgb(240, 240, 240)'}}/>
                 </div>
-            ) 
+            )
         )}
       </div>
     </div>
@@ -61,22 +61,22 @@ class ReviewsPanel extends Component {
     componentDidMount(){
         this.fetchReviews();
     }
-    
+
     componentDidUpdate(prevProps, prevState){
         if (this.state.currentPage !== prevState.currentPage || this.state.ordering !== prevState.ordering || this.state.title !== prevState.title){
             this.fetchReviews();
         }
     }
-    
+
     setParam(element, e){
         this.setState({
             [element]: e.target.value,
             currentPage: 1
         });
     }
-    
+
     fetchReviews(){
-        if(this.props.album.rating){            
+        if(this.props.album.rating){
             getReviewsForRatedObject({
                 rating_id: this.props.album.rating.id,
                 page: this.state.currentPage,
@@ -134,7 +134,7 @@ class ReviewsPanel extends Component {
                 onNextPage={() => {this.setState({
                     currentPage: this.state.currentPage+1
                 });}}
-              />              
+              />
               <br/>
               <br/>
               <ReviewList
@@ -142,7 +142,7 @@ class ReviewsPanel extends Component {
               />
             </div>
         );
-    }    
+    }
 }
 
 export default ReviewsPanel;

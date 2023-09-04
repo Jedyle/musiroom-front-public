@@ -17,11 +17,11 @@ class GenreRetrieve extends Component  {
     componentDidMount(){
         getGenre(this.props.genreSlug).then((response) => {
             this.setState({
-                genre: response.data 
+                genre: response.data
             });
         });
     }
-    
+
     render(){
         let { genre } = this.state;
         return genre && (
@@ -33,18 +33,18 @@ class GenreRetrieve extends Component  {
                   titleClasses="is-size-1"
                   heroClasses="is-light"
                 />
-              </div>              
+              </div>
               <div className="column is-10-mobile is-offset-1-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
                 <p style={{textAlign: 'justify'}}>
                   {genre.description}
                 </p>
                 <br/>
-                <div className="columns is-mobile is-multiline">                  
+                <div className="columns is-mobile is-multiline">
                   <div className="column is-full-mobile is-full-tablet is-half-desktop">
                     Top 10
                   </div>
                   <div className="column is-full-mobile is-full-tablet is-half-desktop">
-                    {genre.children.length > 0 && 
+                    {genre.children.length > 0 &&
                      (<>
                         <h1 className="title is-size-4 has-text-centered">Subgenres</h1>
                         <GenreTree
@@ -61,7 +61,7 @@ class GenreRetrieve extends Component  {
                       />
                       <br/>
                     </p>
-                  </div>                  
+                  </div>
                 </div>
               </div>
             </div>);

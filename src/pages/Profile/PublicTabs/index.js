@@ -89,7 +89,7 @@ class PublicProfileTabs extends Component {
                 description={`Discover ${this.props.profile.user}'s profile and collection.`}
                 image={this.props.profile.avatar}
                 url={window.location.href}
-              />              
+              />
               <ProfileTabs
                 tabs = {this.state.tabs.map((tab, index) => (
                     <Link to={join(this.props.match.url, tab.subLink)} activeClassName="is-active">

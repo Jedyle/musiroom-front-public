@@ -85,7 +85,7 @@ class Search extends Component {
     }
 
     componentDidMount(){
-        this.fetchData();       
+        this.fetchData();
     }
 
     onChangePage(newPage){
@@ -94,7 +94,7 @@ class Search extends Component {
             search: `?model=${this.props.model}&query=${this.props.query}&page=${newPage}`
         });
     }
-    
+
     render(){
         let components = {
             album: AlbumSearch,
@@ -132,7 +132,7 @@ class Search extends Component {
             </div>
         );
     }
-    
+
 }
 
 export default withRouter(Search);

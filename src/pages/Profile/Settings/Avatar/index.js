@@ -24,7 +24,7 @@ class AvatarForm extends Component{
             });
         });
     }
-    
+
     render(){
 
         return (
@@ -36,7 +36,7 @@ class AvatarForm extends Component{
               <div className="field is-horizontal">
                 <figure className="image is-128x128">
                   <img src={this.state.file ? URL.createObjectURL(this.state.file) : ""}/>
-                </figure>                
+                </figure>
                 <div className="field-label"></div>
                 <div className="field-body">
                   <div className="file">
@@ -55,7 +55,7 @@ class AvatarForm extends Component{
                         </span>
                         <p className="has-margin-left-5 help is-danger">{this.state.errors}</p>
                       </span>
-                      {this.state.file ? 
+                      {this.state.file ?
                        (
                            <span className="file-name">
                              {this.state.file.name}

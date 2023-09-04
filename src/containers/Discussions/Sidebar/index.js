@@ -19,7 +19,7 @@ const Sidebar = ({
     default:
         return null;
     }
-    
+
 };
 
 export default Sidebar;

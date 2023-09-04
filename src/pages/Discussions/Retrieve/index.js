@@ -26,7 +26,7 @@ export default class DiscussionRetrieve extends Component {
                 title: '',
                 content: ''
             },
-            
+
             nonFieldErrors: [],
             titleErrors: [],
             contentErrors: []
@@ -58,7 +58,7 @@ export default class DiscussionRetrieve extends Component {
         editDiscussion(
             this.state.discussion.id,
             this.state.discussionEdit.title,
-            this.state.discussionEdit.content,            
+            this.state.discussionEdit.content,
         ).then((response) => {
             this.setState({
                 discussion: response.data,
@@ -76,7 +76,7 @@ export default class DiscussionRetrieve extends Component {
 
         });
     }
-    
+
     onVote(vote){
         voteOnDiscussion(this.state.discussion.id, vote).then(
             (response) => {
@@ -87,7 +87,7 @@ export default class DiscussionRetrieve extends Component {
             }
         );
     }
-    
+
     render() {
         let discussion = this.state.discussion;
         return (
@@ -99,7 +99,7 @@ export default class DiscussionRetrieve extends Component {
                   {" >"} <Link to={getDiscussionsUrlForObject(this.state.discussion.content_type, this.state.discussion.object_id)}>{getDiscussionObjectName(discussion) || "..."}</Link> {"> "}
                   <Link to={getDiscussionUrl(discussion.id)}>
                     {discussion.title}
-                  </Link>                  
+                  </Link>
                 </h1>
               </div>
               <div className="column is-12-mobile is-2-tablet has-margin-left-5">
@@ -110,7 +110,7 @@ export default class DiscussionRetrieve extends Component {
               </div>
               <div className="column is-12-mobile is-7-tablet">
 
-                <div className="box">                  
+                <div className="box">
                   <div className="columns is-mobile">
                     <div className="column is-narrow is-marginless is-paddingless" style={{width: "30px"}}>
                       <VotePanel
@@ -120,7 +120,7 @@ export default class DiscussionRetrieve extends Component {
                       />
                     </div>
                     <div className="column">
-                      { discussion.user && 
+                      { discussion.user &&
                         <div className="columns">
                           <div className="has-margin-left-10">
                             <Link to="">
@@ -142,7 +142,7 @@ export default class DiscussionRetrieve extends Component {
                                       onClick={(e) => {this.setState((prevState) => ({hasEditForm: !prevState.hasEditForm}));}}
                                 >
                                   <i title="Editer" className="fa fa-lg fa-edit mr-10"></i>
-                                </span>  
+                                </span>
                             )}
                           </div>
                         </div>
@@ -157,14 +157,14 @@ export default class DiscussionRetrieve extends Component {
                          title={this.state.discussionEdit.title}
                          onChangeTitle={(e) => this.onChange(e, 'title')}
                          titleErrors={this.state.titleErrors}
-                         
+
                          content={this.state.discussionEdit.content}
                          onChangeContent={(e) => this.onChange(e, 'content')}
                          contentErrors={this.state.contentErrors}
 
                          onSubmit={this.onEditDiscussion}
-                         onCancel={() => {this.setState({hasEditForm: false});}}       
-                         
+                         onCancel={() => {this.setState({hasEditForm: false});}}
+
                        /> : (
                            <>
                              <h1 className="title is-size-4">{discussion.title}</h1>
@@ -179,15 +179,15 @@ export default class DiscussionRetrieve extends Component {
                 </div>
 
                 <hr/>
-                
+
                 {discussion.id &&
                  <CommentSection
                    contentType="discussion"
-                   objectId={discussion.id}                   
+                   objectId={discussion.id}
                    hash={this.props.location.hash}
                  />
                 }
-                
+
               </div>
             </div>
         );

@@ -11,7 +11,7 @@ const ReviewFormatter = ({
     content,
     reviewLink,
     score
-}) => 
+}) =>
       {
           let maxTitleLength = 50;
           let maxContentLength = 300;
@@ -41,7 +41,7 @@ class ReviewsList extends Component {
         let formattedReviews = {};
         for (let review of this.props.results){
             // review.rating is the UserRating. review.rating.rating gives the rating object
-            formattedReviews[review.rating.rating] = (           
+            formattedReviews[review.rating.rating] = (
                 <ReviewFormatter
                   title={review.title}
                   content={removeHTML(review.content)}
@@ -52,7 +52,7 @@ class ReviewsList extends Component {
         }
         return formattedReviews;
     }
-    
+
     render(){
         return (
             <AlbumList
@@ -83,7 +83,7 @@ const ReviewsTab = (props) => (
           ['rating__score', 'Worst ratings']
       ]}
       {...props}
-    />  
+    />
 );
 
 export default ReviewsTab;

@@ -32,11 +32,11 @@ export default class GenreList extends Component {
                 <p className="has-text-centered mb-3">
                   <CreateGenreLink
                     title="Add a genre"
-                  />                                   
+                  />
                   <br/>
                 </p>
                 <GenreTree genres={this.state.genres} />
-              </div>              
+              </div>
             </div>
         );
     }

@@ -29,7 +29,7 @@ const RatingsTab = (props) => (
       ]}
 
       {...props}
-    />  
+    />
 );
 
 export default RatingsTab;

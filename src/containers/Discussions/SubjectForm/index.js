@@ -47,9 +47,9 @@ class _SubjectForm extends Component {
                                 content_type: this.props.contentType,
                                 content_object: response.data.object
                             })
-                        } 
+                        }
                     });
-                }  
+                }
             );
         }
     }
@@ -63,27 +63,27 @@ class _SubjectForm extends Component {
 
     onChangeValue(event){
         this.setState({
-            currentValue: event.target.value 
+            currentValue: event.target.value
         });
         if (event.target.value.length > 2){
             this.fetchAutocompleteValues(event.target.value);
         }
         else {
             this.setState({
-                autocompleteList: [] 
+                autocompleteList: []
             });
         }
     }
 
     onChangeTitle(event){
         this.setState({
-            currentTitle: event.target.value 
+            currentTitle: event.target.value
         });
     }
 
     onChangeText(event){
         this.setState({
-            currentText: event.target.value 
+            currentText: event.target.value
         });
     }
 
@@ -98,7 +98,7 @@ class _SubjectForm extends Component {
                             objectId: album.id,
                             contentType: 'album'
                         }
-                    )) 
+                    ))
                 });
             });
             break;
@@ -130,14 +130,14 @@ class _SubjectForm extends Component {
 
     onResetItem(){
         this.setState({
-            selectedItem: null 
+            selectedItem: null
         });
     }
-    
+
     onCreateDiscussion(){
         let ct = this.state.selectedItem ? this.state.selectedItem.contentType : null;
-        let objectId = this.state.selectedItem ? this.state.selectedItem.objectId : 0; 
-        
+        let objectId = this.state.selectedItem ? this.state.selectedItem.objectId : 0;
+
         createDiscussion(this.state.currentTitle, this.state.currentText, ct, objectId).then(
             (response) => {
                 alert("Your discussion has been created !");
@@ -151,10 +151,10 @@ class _SubjectForm extends Component {
                     textErrors: error.response.data.content
                 });
             }
-        });       
+        });
     }
-    
-    render() {        
+
+    render() {
         return (
             <Base
               currentType={this.state.currentType}
@@ -170,7 +170,7 @@ class _SubjectForm extends Component {
               onBlur={() => {this.setState({autocompleteList: []});}}
               selectedItem={this.state.selectedItem}
               onResetItem={this.onResetItem}
-              onCreateDiscussion={this.onCreateDiscussion}            
+              onCreateDiscussion={this.onCreateDiscussion}
               nonFieldErrors={this.state.nonFieldErrors}
               titleErrors={this.state.titleErrors}
               textErrors={this.state.textErrors}
@@ -182,7 +182,7 @@ class _SubjectForm extends Component {
 const mapStateToProps = (state, ownProps) => (
     {
         user: state.auth.user
-    }  
+    }
 );
 
 const SubjectForm = connect(

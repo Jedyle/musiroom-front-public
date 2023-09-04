@@ -21,7 +21,7 @@ const RatingTagsList = ({mbid, ratingId, userRating, followeesRating, avgRating,
                           title="My rating">
                       <FormattedUserRating userRating={userRating}/>
                     </span>
-                  </AlbumPopover>              
+                  </AlbumPopover>
               )
           }
           {
@@ -35,7 +35,7 @@ const RatingTagsList = ({mbid, ratingId, userRating, followeesRating, avgRating,
           <span className="tag is-avg-rating"
                 title="Average rating">
             {avgRating ? avgRating.toFixed(1) : '-'}
-          </span>             
+          </span>
         </div>
     )
 }

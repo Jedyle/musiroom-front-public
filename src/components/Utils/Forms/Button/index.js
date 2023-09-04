@@ -8,7 +8,7 @@ const Button = (
     }
 ) => (
     <div className="field is-horizontal">
-      <div className="field-label">               
+      <div className="field-label">
       </div>
       <div className="field-body">
         <div className="field">
@@ -19,7 +19,7 @@ const Button = (
           </div>
         </div>
       </div>
-    </div>  
+    </div>
 );
 
 export default Button;

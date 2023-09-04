@@ -32,7 +32,7 @@ const SCUserForm = ({username, onChangeUser, onValidateUser, SCData, SCErrors}) 
           </p>
           <p className="help is-danger">
             {SCErrors}
-          </p>          
+          </p>
         </div>
         {SCData && (
             <div className="box">
@@ -50,7 +50,7 @@ const SCUserForm = ({username, onChangeUser, onValidateUser, SCData, SCErrors}) 
                     <p>
                       <strong className="has-text-success">
                         Nous utiliserons ce pseudo
-                      </strong>                      
+                      </strong>
                     </p>
                     <p>
                       <strong>
@@ -58,8 +58,8 @@ const SCUserForm = ({username, onChangeUser, onValidateUser, SCData, SCErrors}) 
                           target="_blank"
                         >
                           {SCData.username}
-                        </a>                        
-                      </strong>                   
+                        </a>
+                      </strong>
                     </p>
                   </div>
                 </div>
@@ -75,7 +75,7 @@ const ExportForm = ({exportForm, onCheckReleaseType, onCheckEraseField, errors, 
       <div className="field">
         <label className="checkbox">
           <input type="checkbox" value={exportForm.erase.value} checked={exportForm.erase.checked} onChange={onCheckEraseField}/>
-          {" "} Ecraser mes données en cas de conflit        
+          {" "} Ecraser mes données en cas de conflit
         </label>
         <p className="help">
           Si vous cochez cette case, les notes des albums que vous avez déja notés sur le site seront remplacées en cas de conflit, sinon elles seront conservées.
@@ -87,15 +87,15 @@ const ExportForm = ({exportForm, onCheckReleaseType, onCheckEraseField, errors, 
           {exportForm.releaseTypes.map((type, index) => (
               <label className="checkbox mr-2">
                 <input type="checkbox" value={type.value} checked={type.checked} onChange={(e) => onCheckReleaseType(e, index)}/>
-                {" "} {type.name}        
+                {" "} {type.name}
               </label>
           ))}
         </div>
-          <p className="help">Les autres catégories (comme Mixtape ou Remix) ne sont pas prises en compte</p>  
+          <p className="help">Les autres catégories (comme Mixtape ou Remix) ne sont pas prises en compte</p>
       </div>
       <button className="button is-danger" onClick={onSubmit}>Récupérer mes données</button>
       <div>
-        <p className="help is-danger">{errors}</p>  
+        <p className="help is-danger">{errors}</p>
       </div>
     </div>
 );
@@ -119,7 +119,7 @@ export default class ExportCreate extends Component {
                         value: "EP",
                         name: "EPs",
                         checked: true
-                    },                    
+                    },
                     {
                         value: "Live",
                         name: "Live",
@@ -143,7 +143,7 @@ export default class ExportCreate extends Component {
                 }
             },
             exportErrors: ''
-        };        
+        };
     }
 
     onCheckEraseField = (event) => {
@@ -181,7 +181,7 @@ export default class ExportCreate extends Component {
                 SCData: response.data,
                 SCErrors: null
             });
-        }).catch((error) => {            
+        }).catch((error) => {
             if (error.response.status === 404){
                 this.setState({
                     SCData: null,
@@ -210,11 +210,11 @@ export default class ExportCreate extends Component {
         this.setState({
             exportErrors: ''
         });
-        
+
         return {
             sc_url: this.state.SCData.url,
             erase: this.state.exportForm.erase.checked,
-            fields: fields            
+            fields: fields
         };
     }
 
@@ -227,7 +227,7 @@ export default class ExportCreate extends Component {
                 alert("Une erreur est survenue : " + JSON.stringify(error.response.data));
             });
         }
-        
+
     }
 
     render() {
@@ -259,9 +259,9 @@ export default class ExportCreate extends Component {
                   errors={exportErrors}
                   onSubmit={this.launchExport}
                 />
-                
-              </div>              
+
+              </div>
             </div>
-        );   
+        );
     }
 }
