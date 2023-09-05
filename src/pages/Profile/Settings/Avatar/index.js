@@ -30,7 +30,7 @@ class AvatarForm extends Component{
         return (
             <div className="has-background-light has-padding-10">
               <hr/>
-              <h1 className="title is-4 has-text-centered">Change picture</h1>
+              <p className="title is-4 has-text-centered">Change picture</p>
               <hr/>
 
               <div className="field is-horizontal">

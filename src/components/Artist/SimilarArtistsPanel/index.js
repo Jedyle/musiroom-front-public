@@ -14,7 +14,7 @@ const SimilarArtistsPanel = ({
                 <figure key={artist.mbid} className="image is-square">
                   <img alt={artist.name} src={artist.image}/>
                 </figure>
-                <h1 className="title is-size-6 has-margin-top-5 has-text-centered">{artist.name}</h1>
+                <p className="title is-size-6 has-margin-top-5 has-text-centered">{artist.name}</p>
               </Link>
             </div>
         ))}

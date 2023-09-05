@@ -102,8 +102,8 @@ export default class ArtistBody extends Component {
             discography[releaseIndex]["items"][albumIndex]["details"]["user_rating"] = response.data;
             return {
                 discography: discography
-            }
-        })
+            };
+        });
     }
 
     updateAlbum = (releaseIndex, albumIndex, response) => {
@@ -112,8 +112,8 @@ export default class ArtistBody extends Component {
             discography[releaseIndex]["items"][albumIndex]["details"] = response.data;
             return {
                 discography: discography
-            }
-        })
+            };
+        });
     }
 
     render() {
@@ -144,7 +144,7 @@ export default class ArtistBody extends Component {
              this.state.discography.map(
                  (releaseType, index) => (
                      <>
-                       <h1 className="title is-size-3">{releaseType.release_type}</h1>
+                       <p className="title is-size-3">{releaseType.release_type}</p>
                        <DiscographyTable
                          albums={releaseType.items}
                          onChangeRatingForAlbum={(albumIndex, response) => this.onChangeRating(index, albumIndex, response)}

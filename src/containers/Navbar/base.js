@@ -78,7 +78,7 @@ class Navbar extends Component {
     setBurgerInactive = () => {
         this.setState({
             burger_active: false
-        })
+        });
     }
 
     render() {

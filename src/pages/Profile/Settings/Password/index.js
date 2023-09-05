@@ -57,7 +57,7 @@ class PasswordForm extends Component {
         return (
             <div className="has-background-light has-padding-10 has-padding-right-20">
               <hr/>
-              <h1 className="title is-4 has-text-centered">Change password</h1>
+              <p className="title is-4 has-text-centered">Change password</p>
               <hr/>
               <PasswordInput
                 label="New password"

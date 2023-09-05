@@ -24,7 +24,7 @@ class BadgeList extends Component {
     render() {
         return (
             <div>
-              <h1 className="title is-size-5 has-text-centered">Badges ({this.props.badges.length})</h1>
+              <p className="title is-size-5 has-text-centered">Badges ({this.props.badges.length})</p>
               <div className="columns is-mobile is-multiline">
                 {this.props.badges.map((element, index) => (
                     <div className="column is-one-third">

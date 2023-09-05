@@ -167,7 +167,7 @@ export default class DiscussionRetrieve extends Component {
 
                        /> : (
                            <>
-                             <h1 className="title is-size-4">{discussion.title}</h1>
+                             <p className="title is-size-4">{discussion.title}</p>
                              <div style={{whiteSpace: 'pre-wrap'}}>
                                {discussion.content}
                              </div>

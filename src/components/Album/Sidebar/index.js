@@ -25,9 +25,9 @@ const AlbumSidebar = ({
         <div className="content">
           <div className="list">
             <li className="list-item">
-              <h4 className="title is-size-4 has-margin-bottom-10">
+              <p className="title is-size-4 has-margin-bottom-10">
                 <Link to={getAlbumUrl(mbid)}>{title}</Link>
-              </h4>
+              </p>
               <p>
                 {   artists.length >= 1 &&
                     artists.map(

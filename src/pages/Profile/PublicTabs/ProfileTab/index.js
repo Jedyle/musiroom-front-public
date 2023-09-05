@@ -96,7 +96,7 @@ class ProfileTab extends Component {
         return (
             <div>
               <hr/>
-              <h3 className="title is-4 has-text-centered">{this.props.profile ? this.props.profile.user + "'s" : ''} profile</h3>
+              <p className="title is-4 has-text-centered">{this.props.profile ? this.props.profile.user + "'s" : ''} profile</p>
               <hr/>
               <article className="message">
                 <div className="message-body has-text-centered">
@@ -119,7 +119,7 @@ class ProfileTab extends Component {
                     </div>
                   </div>
 
-                  <h3 className="title is-5">His top albums</h3>
+                  <p className="title is-5">His top albums</p>
                   <ShortAlbumList
                     albums={this.getTopAlbums()}
                   />

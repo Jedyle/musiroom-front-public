@@ -27,7 +27,7 @@ export default class AllRatingsStats extends Component {
     render(){
         return (
             <>
-              <h1 className="title has-text-centered is-size-5">Average Rating</h1>
+              <p className="title has-text-centered is-size-5">Average Rating</p>
               {
                   this.state.stats ?
                       (

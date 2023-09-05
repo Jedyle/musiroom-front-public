@@ -22,9 +22,9 @@ const ArtistSidebar = ({
         <div className="content">
           <div className="list">
             <li className="list-item">
-              <h4 className="title is-size-4 has-margin-bottom-10 has-margin-top-5">
+              <p className="title is-size-4 has-margin-bottom-10 has-margin-top-5">
                 <Link to={getArtistUrl(mbid)}>{name}</Link>
-              </h4>
+              </p>
               <p>
                 Genres : {associated_genres.length > 0 ?
                     associated_genres.map(

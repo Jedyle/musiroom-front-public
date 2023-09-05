@@ -666,7 +666,7 @@ class Prototypes extends React.Component {
         return (
             <div className="columns is-multiline">
               <div className="column is-2-widescreen is-12-tablet is-12-mobile">
-                <h1 className="title">Components</h1>
+                <p className="title">Components</p>
                 <div>
                   {
                       Object.keys(this.components).map((item) => (
@@ -687,7 +687,7 @@ class Prototypes extends React.Component {
                 </div>
               </div>
               <div className={classNames}>
-                <h1 className="title is-4">{tag}</h1>
+                <p className="title is-4">{tag}</p>
                 <TagName {... props}/>
               </div>
             </div>

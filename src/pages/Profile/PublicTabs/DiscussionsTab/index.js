@@ -77,7 +77,7 @@ class DiscussionsTab extends Component {
             <div className="columns">
               <div className="column is-12-mobile is-9-desktop is-9-widescreen">
                 <hr/>
-                <h4 className="title is-4 has-text-centered">Discussions</h4>
+                <p className="title is-4 has-text-centered">Discussions</p>
                 <hr/>
                 <a
                   className="pagination-previous"

@@ -53,7 +53,7 @@ export default class DeleteUserForm extends Component {
         return (
             <div className="has-background-light has-padding-10 has-padding-right-20">
               <hr/>
-              <h1 className="title is-4 has-text-centered">DANGER - Delete my account</h1>
+              <p className="title is-4 has-text-centered">DANGER - Delete my account</p>
               <hr/>
               <FormBuilder
                 config={this.formConfig()}

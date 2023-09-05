@@ -9,7 +9,7 @@ const TrackList = ({
               (cd, index) => (
                   <div key={index}>
                     <br/>
-                    <h1>{cd.medium_title || `CD${index+1}`}</h1>
+                    <h3>{cd.medium_title || `CD${index+1}`}</h3>
                     <div className="list">
                       {
                           cd.tracks.map(

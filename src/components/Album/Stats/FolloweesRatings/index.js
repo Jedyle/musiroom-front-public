@@ -50,7 +50,7 @@ export default class FolloweesRatingsStats extends Component {
     render(){
         return (
             <>
-              <h1 className="title has-text-centered is-size-5">My followees</h1>
+              <p className="title has-text-centered is-size-5">My followees</p>
               {this.state.stats ? (
                   <>
                     <RatingsChart

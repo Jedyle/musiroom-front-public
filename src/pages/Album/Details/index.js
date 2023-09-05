@@ -84,7 +84,7 @@ const DetailsPage = ({album}) => {
             <br/>
             <div className="columns is-mobile has-margin-right-10 is-multiline">
               <div className="column is-12">
-                <h5 ref={linksRef} className="title has-text-centered is-size-5 mb-1">Listen</h5>
+                <p ref={linksRef} className="title has-text-centered is-size-5 mb-1">Listen</p>
                 <AlbumLinks
                   {...links}
                 />

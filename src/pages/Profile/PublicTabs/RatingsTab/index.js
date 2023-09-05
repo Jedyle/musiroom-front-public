@@ -9,7 +9,7 @@ const RatingsTab = (props) => (
       header={
           (<span>
              <hr/>
-             <h4 className="title is-4 has-text-centered">Rated</h4>
+             <p className="title is-4 has-text-centered">Rated</p>
              <hr/>
            </span>)
       }

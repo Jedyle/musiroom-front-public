@@ -128,7 +128,7 @@ class RegistrationForm extends Component {
                 />
               </div>
               <div className="column has-background-white-ter is-12-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop">
-                <h1 className="title has-text-centered mt-5">Sign up</h1>
+                <p className="title has-text-centered mt-5">Sign up</p>
                 <FormBuilder
                   config={this.formConfig()}
                   onSubmit={() => this.registerUser()}

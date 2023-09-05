@@ -9,7 +9,7 @@ const InterestsTab = (props) => (
       header={
           (<span>
              <hr/>
-             <h4 className="title is-4 has-text-centered">Collection</h4>
+             <p className="title is-4 has-text-centered">Collection</p>
              <hr/>
            </span>)
       }

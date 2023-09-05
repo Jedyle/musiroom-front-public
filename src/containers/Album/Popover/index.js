@@ -49,7 +49,7 @@ class PopoverContent extends Component {
                       </div>
                       <div className="media-content">
                         <div className="content">
-                          <h1 className="is-size-6 is-marginless"
+                          <p className="is-size-6 is-marginless"
                               style={{maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis'}}
                           >
                             <Link to={getAlbumUrl(album.mbid)}>{truncate(album.title, 25)}</Link>
@@ -57,7 +57,7 @@ class PopoverContent extends Component {
                               {
                                   album.rating.average !== 0 ? album.rating.average.toFixed(1) : '-'}
                             </span>
-                          </h1>
+                          </p>
                           <p className="is-marginless">
                             {album.artists.map((artist) => (
                                 <GetArtistLink mbid={artist.mbid} name={artist.name}/>

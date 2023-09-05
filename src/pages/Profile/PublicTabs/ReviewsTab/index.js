@@ -17,12 +17,12 @@ const ReviewFormatter = ({
           let maxContentLength = 300;
           return (
               <div>
-                <h1 className="title is-size-5 is-size-6-mobile">
+                <p className="title is-size-5 is-size-6-mobile">
                   {title.length > maxTitleLength ? title.slice(0, maxTitleLength) + "..." : title}
                   <span className="is-hidden-tablet">
                     {"   "} (<Link to={reviewLink}>read review</Link>)
                   </span>
-                </h1>
+                </p>
                 <p className="is-hidden-mobile">
                   {content.length > maxContentLength ? content.slice(0, maxContentLength) + "..." : content}
                   <br/>
@@ -70,7 +70,7 @@ const ReviewsTab = (props) => (
       header={
           (<span>
              <hr/>
-             <h4 className="title is-4 has-text-centered">Reviews</h4>
+             <p className="title is-4 has-text-centered">Reviews</p>
              <hr/>
            </span>)
       }

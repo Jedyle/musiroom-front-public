@@ -251,7 +251,7 @@ class _PublicProfileForm extends Component {
         return (
             <div className="has-background-light has-padding-10 has-padding-right-20">
               <hr/>
-              <h1 className="title is-4 has-text-centered">Account Settings</h1>
+              <p className="title is-4 has-text-centered">Account Settings</p>
               <hr/>
               {this.renderName()}
               {this.renderBirth()}

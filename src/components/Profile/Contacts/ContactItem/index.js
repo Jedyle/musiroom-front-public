@@ -18,13 +18,13 @@ const ContactItem = ({
           figureStyle={{display: "auto"}}
         />
       </Link>
-      <h5 className="title is-size-5 has-text-centered" style={{
+      <p className="title is-size-5 has-text-centered" style={{
           "marginTop": "1.5rem"
       }}>
         <Link to={profile_url}>
           {user}
         </Link>
-      </h5>
+      </p>
     </div>
 );
 

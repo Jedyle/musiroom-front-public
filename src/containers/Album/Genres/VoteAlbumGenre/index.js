@@ -59,14 +59,14 @@ const CancelVoteButton = ({userVote, onVote}) => (
 
 const VoteAlbumGenre = ({genres, onVote}) => (
     <div>
-      <h1 className="title">Genres</h1>
+      <p className="title">Genres</p>
       <div className="tile is-ancestor">
         <div className="tile is-parent is-vertical">
           {genres.map((genre, index) => (
               <div className="tile is-child notification is-grey" key={index}>
-                <h1 className="title is-6 is-marginless">
+                <p className="title is-6 is-marginless">
                   {genre.genre_details.name}
-                </h1>
+                </p>
                 <p>Score: {genre.vote_score}</p>
                 <p className="buttons">
                   <UpVoteButton

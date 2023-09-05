@@ -70,9 +70,9 @@ const DiscussionListItem = ({
           discussionTypeLink={discussionTypeLink}
         />
         <hr className="is-marginless" />
-        <h1 className="title is-size-4 has-margin-15">
+        <p className="title is-size-4 has-margin-15">
           <Link to={discussionLink}>{title}</Link>
-        </h1>
+        </p>
       </div>
       <CommentPanel
         numComments={numComments}

@@ -14,7 +14,7 @@ const ReviewList = ({
         {reviews.map(
             (review) => (
                 <div className="has-padding-5" key={review.id}>
-                  <h1 className="title is-size-4">{review.title}</h1>
+                  <p className="title is-size-4">{review.title}</p>
                   <p>
                     {review.content.substr(0, 400)}...
                   </p>
@@ -104,7 +104,7 @@ class ReviewsPanel extends Component {
     render(){
         return (
             <div>
-              <h4 className="title is-size-4">Reviews</h4>
+              <p className="title is-size-4">Reviews</p>
               <div className="field is-horizontal">
                 <div className="field-body">
                   <Input
