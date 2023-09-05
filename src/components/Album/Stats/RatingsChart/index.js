@@ -55,9 +55,9 @@ const RatingsChart = ({
 }) => ( stats &&  (
     <div className="columns is-mobile has-border has-margin-right-10">
       <div className="column is-4">
-        <h1 className={`is-marginless has-text-centered title is-size-2 ${textClass}`}>
+        <p className={`is-marginless has-text-centered title is-size-2 ${textClass}`}>
           {stats.average ? parseFloat(stats.average).toFixed(1) : '-'}
-        </h1>
+        </p>
         <p className={`has-text-centered has-margin-top-10 ${textClass}`}>
           <span className="icon">
             <i className="fa fa-user"></i>
